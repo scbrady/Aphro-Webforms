@@ -11,8 +11,6 @@
         <%: Styles.Render("~/Content/css") %>
     </asp:PlaceHolder>
     <title><%: Page.Title %></title>
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="masterForm" runat="server">

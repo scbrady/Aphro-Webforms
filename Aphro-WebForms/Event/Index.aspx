@@ -1,13 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs"%>
-<!DOCTYPE html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Event.Index" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder> 
-</head>
-<body>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="EventCreation" runat="server">
         <h3>Create Event Form</h3>
         <asp:Label ID="NameLabel" runat="server" Text="Event Name:"></asp:Label>
@@ -48,5 +41,4 @@
         <br />
         <asp:Button ID="Submit" runat="server" Text="Submit"/>
     </form>
-</body>
-</html>
+</asp:Content>

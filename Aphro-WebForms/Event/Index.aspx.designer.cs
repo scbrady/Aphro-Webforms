@@ -7,20 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aphro_WebForms.Event
-{
-    public partial class Index
-    {
-
-        /// <summary>
-        /// head control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
+namespace Aphro_WebForms.Event {
+    
+    
+    public partial class Index {
+        
         /// <summary>
         /// EventCreation control.
         /// </summary>
@@ -29,7 +20,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm EventCreation;
-
+        
         /// <summary>
         /// NameLabel control.
         /// </summary>
@@ -38,7 +29,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label NameLabel;
-
+        
         /// <summary>
         /// EventName control.
         /// </summary>
@@ -47,7 +38,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EventName;
-
+        
         /// <summary>
         /// DescriptionLabel control.
         /// </summary>
@@ -56,7 +47,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DescriptionLabel;
-
+        
         /// <summary>
         /// Description control.
         /// </summary>
@@ -65,7 +56,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
-
+        
         /// <summary>
         /// LocationLabel control.
         /// </summary>
@@ -74,7 +65,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LocationLabel;
-
+        
         /// <summary>
         /// LocationDropDown control.
         /// </summary>
@@ -83,7 +74,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList LocationDropDown;
-
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -92,7 +83,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// EventDropDown control.
         /// </summary>
@@ -101,7 +92,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList EventDropDown;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -110,7 +101,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// SeasonDropDown control.
         /// </summary>
@@ -119,7 +110,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList SeasonDropDown;
-
+        
         /// <summary>
         /// StartDateLabel control.
         /// </summary>
@@ -128,7 +119,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label StartDateLabel;
-
+        
         /// <summary>
         /// StartDate control.
         /// </summary>
@@ -137,7 +128,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StartDate;
-
+        
         /// <summary>
         /// EndDateLabel control.
         /// </summary>
@@ -146,7 +137,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label EndDateLabel;
-
+        
         /// <summary>
         /// EndDate control.
         /// </summary>
@@ -155,7 +146,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EndDate;
-
+        
         /// <summary>
         /// RegularPriceLabel control.
         /// </summary>
@@ -164,7 +155,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label RegularPriceLabel;
-
+        
         /// <summary>
         /// RegularPrice control.
         /// </summary>
@@ -173,7 +164,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox RegularPrice;
-
+        
         /// <summary>
         /// PrimePriceLabel control.
         /// </summary>
@@ -182,7 +173,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PrimePriceLabel;
-
+        
         /// <summary>
         /// PrimePrice control.
         /// </summary>
@@ -191,7 +182,7 @@ namespace Aphro_WebForms.Event
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PrimePrice;
-
+        
         /// <summary>
         /// Submit control.
         /// </summary>

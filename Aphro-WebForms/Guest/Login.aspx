@@ -12,4 +12,7 @@
     <br />
     <br />
     <asp:Button ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="Login" />
+    <br />
+    <br />
+    <asp:Label ID="labelMessage" runat="server"></asp:Label>
 </asp:Content>

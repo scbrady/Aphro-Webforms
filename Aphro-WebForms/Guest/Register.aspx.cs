@@ -31,15 +31,14 @@ namespace Aphro_WebForms.Guest
 
                 using (OracleConnection objConn = new OracleConnection(_connectionString))
                 {
-                    OracleCommand objCmd = new OracleCommand("GUEST_ACCOUNTS.INSERT_GUEST", objConn);
+                    OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn);
                     objCmd.BindByName = true;
                     objCmd.CommandType = CommandType.StoredProcedure;
 
-                    objCmd.Parameters.Add("g_first_name", OracleDbType.Varchar2, first_name.Text,
-                        ParameterDirection.Input);
-                    objCmd.Parameters.Add("g_last_name", OracleDbType.Varchar2, last_name.Text, ParameterDirection.Input);
-                    objCmd.Parameters.Add("g_email", OracleDbType.Varchar2, email.Text, ParameterDirection.Input);
-                    objCmd.Parameters.Add("g_password", OracleDbType.Varchar2, saltedPassword, ParameterDirection.Input);
+                    objCmd.Parameters.Add("p_FirstName", OracleDbType.Varchar2, first_name.Text, ParameterDirection.Input);
+                    objCmd.Parameters.Add("p_LastName", OracleDbType.Varchar2, last_name.Text, ParameterDirection.Input);
+                    objCmd.Parameters.Add("p_Email", OracleDbType.Varchar2, email.Text, ParameterDirection.Input);
+                    objCmd.Parameters.Add("p_Password", OracleDbType.Varchar2, saltedPassword, ParameterDirection.Input);
 
                     try
                     {

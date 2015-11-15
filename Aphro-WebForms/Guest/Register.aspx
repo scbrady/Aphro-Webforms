@@ -31,5 +31,7 @@
         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="password" ControlToValidate="confirm_password" Display="Dynamic" ErrorMessage="Passwords do not match." ValidationGroup="AllValidators"></asp:CompareValidator>
         <br />
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="Register" ValidationGroup="AllValidators" />
+        <br />
+        <asp:Button ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="Login" />
     </div>
 </asp:Content>

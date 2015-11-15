@@ -32,6 +32,6 @@
         <br />
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="Register" ValidationGroup="AllValidators" />
         <br />
-        <asp:Button ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="Login" />
+        <asp:HyperLink ID="AlreadyHaveAccount" href="login.aspx" runat="server">Already have account?</asp:HyperLink>
     </div>
 </asp:Content>

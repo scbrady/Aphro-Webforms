@@ -57,11 +57,5 @@ namespace Aphro_WebForms.Guest
                     labelMessage.Text = "Guest added!";
             }
         }
-
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-            if(Page.IsValid)
-                Response.Redirect("Login.aspx");
-        }
     }
 }

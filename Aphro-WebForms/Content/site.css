@@ -1,10 +1,19 @@
 ﻿body {
-    background-color: #a6cce8;
+    font-size: 13px;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 1000px;
+    background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
+    background-size: cover;
+    /*background-color: #a6cce8;
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    */
 }
 	
 .project-name {

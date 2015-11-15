@@ -58,6 +58,15 @@ namespace Aphro_WebForms.Guest {
         protected global::System.Web.UI.WebControls.Button LoginButton;
         
         /// <summary>
+        /// CreateAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink CreateAccount;
+        
+        /// <summary>
         /// labelMessage control.
         /// </summary>
         /// <remarks>

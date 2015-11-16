@@ -26,8 +26,7 @@ namespace Aphro_WebForms.Guest
         {
             if (Page.IsValid)
             {
-                var salt = BCryptHelper.GenerateSalt();
-                var saltedPassword = BCryptHelper.HashPassword(password.Text, salt);
+                var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
                 using (OracleConnection objConn = new OracleConnection(_connectionString))
                 {

@@ -6,6 +6,7 @@ namespace Aphro_WebForms
 {
     public class Global : System.Web.HttpApplication
     {
+        public static readonly string Salt = "$2a$10$78mrCjBryPC5jhW3SeR2pe";
 
         void Application_Start(object sender, EventArgs e)
         {

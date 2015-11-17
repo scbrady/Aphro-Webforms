@@ -94,7 +94,7 @@
 	height: 20px;
 	border-radius: 5px;
 	padding: 20px;
-	background-image: url('PensacolaChristianCollegeLogo.svg');
+	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
 	background-size: 202px 61px;
 	background-repeat: no-repeat;
 }
@@ -142,37 +142,164 @@
     padding-bottom: 8px;
 }
 
-#dropdown{
-	background: #0780f1;
-	border-radius: 5px;
+.wrapper{
+	width: 1200px;
+	height: 854px;
+}
+
+.create{
+    background: #0780f1;
+    margin: 0;
+    width: 240px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     border-bottom: 1px solid #ccc;
     color: #ccc;
     display: block;
-    width: 17em;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    margin-left: 5px;
     padding: 8px 12px;
-    list-style: none;
-    font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     text-decoration: none;
     font-weight: normal;
 }
 
-#dropdown ul{
-	display: none;
+.name input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    font-family: Poiret One;
+    padding: 0 20px 0 50px;
+    outline: none;
 }
 
-#dropdown-menu li:hover > dropdown-menu{
-	display: block; 
+.name input#text {
+    width: 100%;
+    text-indent: -85px;
+	height: 40px;
 }
 
-nav ul ul {
-	display: none;
+.name input#text:focus {
+    width: 100%;
+    text-indent: -85px;
+	height: 40px;
 }
 
-nav ul li:hover > ul {
-	display: block;
+.name input:active, .name input:focus {
+    border: 1px solid #ff656c;
+}
+
+.description textarea {
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    text-indent: -85px;
+	padding: 5px;
+	text-align: justify;
+    outline: none;
+}
+
+.description textarea:focus {
+    width: 100%;
+	height: 80px;
+}
+
+.description textarea:active, .description textarea:focus {
+    border: 1px solid #ff656c;
+}
+
+.Event-Dates input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    font-family: Poiret One;
+    padding: 0 20px 0 50px;
+    outline: none;
+    text-indent: -85px;
+}
+
+.Event-Dates input#text {
+    width: 100%;
+    text-indent: -85px;
+	height: 40px;
+}
+
+.Event-Dates input#text:focus {
+    width: 100%;
+    text-indent: -85px;
+	height: 40px;
+}
+
+.Event-Dates input:active, .name input:focus {
+    border: 1px solid #ff656c;
+}
+
+.Seat-Price input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    font-family: Poiret One;
+    padding: 0 20px 0 50px;
+    outline: none;
+    text-indent: -85px;
+}
+
+.Seat-Price input#text {
+    width: 100%;
+	height: 40px;
+    text-indent: -85px;
+}
+
+.Seat-Price input#text:focus {
+    width: 100%;
+	height: 40px;
+    text-indent: -85px;
+}
+
+.Seat-Price input:active, .Seat-Price input:focus {
+    border: 1px solid #ff656c;
+}
+
+.dropdown select {
+  width: 100%;
+  height: 40px;
+  background-color: #60b6ff;
+  border-color: #2e6da4;
+  color: #fff;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+}
+
+.map{
+	width: 874px;
+	height: 674px;
+	border: 10px black;
+	border-radius: 10px;
+	background-image: url('Capture.JPG');
+	background-size: 874px 674px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: -675px;
+    margin-bottom: 20px;
+    margin-left: 400px;
 }
 
 /* Positioning Icon */

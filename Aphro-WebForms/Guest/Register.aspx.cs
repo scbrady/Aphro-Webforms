@@ -10,13 +10,6 @@ namespace Aphro_WebForms.Guest
 {
     public partial class Register : System.Web.UI.Page
     {
-        private readonly string _connectionString;
-
-        public Register()
-        {
-            _connectionString = ConfigurationManager.ConnectionStrings["OracleConnectionString"].ConnectionString;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             labelMessage.Text = "";
@@ -28,7 +21,7 @@ namespace Aphro_WebForms.Guest
             {
                 var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
-                using (OracleConnection objConn = new OracleConnection(_connectionString))
+                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn);
                     objCmd.BindByName = true;

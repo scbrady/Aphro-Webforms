@@ -1,6 +1,6 @@
 ﻿namespace Aphro_WebForms.Models
 {
-    public class Guest
+    public class Person
     {
         public long person_id { get; set; }
         public string firstname { get; set; }

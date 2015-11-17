@@ -6,18 +6,12 @@ using System.Linq;
 using AutoMapper;
 using DevOne.Security.Cryptography.BCrypt;
 using Oracle.DataAccess.Client;
+using Aphro_WebForms.Models;
 
 namespace Aphro_WebForms.Guest
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly string _connectionString;
-
-        public Login()
-        {
-            _connectionString = ConfigurationManager.ConnectionStrings["OracleConnectionString"].ConnectionString;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,9 +20,9 @@ namespace Aphro_WebForms.Guest
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             DataTable guestTable = new DataTable();
-            Models.Guest guest = null;
+            Person guest = null;
 
-            using (OracleConnection objConn = new OracleConnection(_connectionString))
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
@@ -45,7 +39,7 @@ namespace Aphro_WebForms.Guest
                     objConn.Open();
                     OracleDataAdapter adapter = new OracleDataAdapter(objCmd);
                     adapter.Fill(guestTable);
-                    guest = Mapper.DynamicMap<IDataReader, List<Models.Guest>>(guestTable.CreateDataReader()).FirstOrDefault();
+                    guest = Mapper.DynamicMap<IDataReader, List<Person>>(guestTable.CreateDataReader()).FirstOrDefault();
                 }
                 catch (Exception ex)
                 {

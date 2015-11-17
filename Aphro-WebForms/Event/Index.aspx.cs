@@ -1,23 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using Aphro_WebForms.Models;
+using AutoMapper;
 using Oracle.DataAccess.Client;
 
 namespace Aphro_WebForms.Event
 {
     public partial class Index : System.Web.UI.Page
     {
-        OracleConnection connection = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=csdb.cegx4epbufif.us-west-2.rds.amazonaws.com)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=csdb)));User Id=TeamAphro;Password=house91Eagle;");
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (connection)
+            DataTable eventTypeNamesTable = new DataTable();
+            List<EventType> eventTypes = new List<EventType>();
+
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                OracleCommand command = new OracleCommand("SELECTLOCATIONNAMES");
-                command.Parameters.Add("name_cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                DataSet dataSet = new DataSet();
-                OracleDataAdapter dataAdapter = new OracleDataAdapter();
-                dataAdapter.SelectCommand = command;
-                dataAdapter.Fill(dataSet);
+                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getEventTypeNames", objConn);
+                objCmd.BindByName = true;
+                objCmd.CommandType = CommandType.StoredProcedure;
+
+                objCmd.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
+                try
+                {
+                    objConn.Open();
+                    OracleDataAdapter adapter = new OracleDataAdapter(objCmd);
+                    adapter.Fill(eventTypeNamesTable);
+                    eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+
+                objConn.Close();
             }
         }
     }

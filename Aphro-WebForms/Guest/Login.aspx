@@ -4,6 +4,9 @@
     <div class="project-name">Project Aphro</div>
     <div class="login-block">
         <h1>login</h1>
+        <asp:Label ID="labelMessage" runat="server"></asp:Label>
+        <br />
+        <br />
         <asp:Label ID="email_label" runat="server" Text="Email"></asp:Label>
         <br />
         <div class="inner-addon left-addon">
@@ -23,7 +26,4 @@
         <asp:HyperLink ID="CreateAccount" href="Register.aspx" runat="server">Create account</asp:HyperLink>
         </div>
     </div>
-    <br />
-    <br />
-    <asp:Label ID="labelMessage" runat="server"></asp:Label>
 </asp:Content>

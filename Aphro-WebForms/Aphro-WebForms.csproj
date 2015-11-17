@@ -173,7 +173,8 @@
     <Compile Include="Guest\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\EventType.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Payment\Pay.aspx.cs">
       <DependentUpon>Pay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -10,13 +10,6 @@ namespace Aphro_WebForms.Guest
 {
     public partial class Register : System.Web.UI.Page
     {
-        private readonly string _connectionString;
-
-        public Register()
-        {
-            _connectionString = ConfigurationManager.ConnectionStrings["OracleConnectionString"].ConnectionString;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             labelMessage.Text = "";
@@ -26,10 +19,9 @@ namespace Aphro_WebForms.Guest
         {
             if (Page.IsValid)
             {
-                var salt = BCryptHelper.GenerateSalt();
-                var saltedPassword = BCryptHelper.HashPassword(password.Text, salt);
+                var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
-                using (OracleConnection objConn = new OracleConnection(_connectionString))
+                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn);
                     objCmd.BindByName = true;
@@ -56,12 +48,6 @@ namespace Aphro_WebForms.Guest
                 if (string.IsNullOrEmpty(labelMessage.Text))
                     labelMessage.Text = "Guest added!";
             }
-        }
-
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-            if(Page.IsValid)
-                Response.Redirect("Login.aspx");
         }
     }
 }

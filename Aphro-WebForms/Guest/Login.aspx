@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Aphro_WebForms.Guest.Login" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="logo"></div>
-    <div class="project-name">Project Aphro</div>
+    <div class="container"></div>
     <div class="login-block">
         <h1>login</h1>
         <asp:Label ID="labelMessage" runat="server"></asp:Label>

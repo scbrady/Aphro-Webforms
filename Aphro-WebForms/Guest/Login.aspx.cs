@@ -24,6 +24,7 @@ namespace Aphro_WebForms.Guest
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
+                // Hash and salt the password using Bcrypt before checking it with the hashed password in the Database
                 var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
                 OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.loginGuest", objConn);

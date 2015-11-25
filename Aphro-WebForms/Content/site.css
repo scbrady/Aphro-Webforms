@@ -1,5 +1,10 @@
-﻿body {
-    font-size: 13px;
+﻿/**************************/
+/*    Design of Webapp    */
+/**************************/
+
+/* The overall Body of the webapp */
+body {
+    font-size: 15px;
     line-height: 1.5em;
     margin: 0;
     padding: 0;
@@ -7,28 +12,25 @@
     min-width: 1000px;
     background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
     background-size: cover;
-    /*background-color: #a6cce8;
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    */
-}
-	
-.project-name {
-	background-position: top left;
-	padding: 20px;
-	background-repeat: no-repeat;
-    background-size: 50px 100px;
-    margin: 30px;
-    text-align: right;
-    color: #000;
-    font-size: 36px;
-    margin-top: 0;
-    margin-bottom: 20px;
 }
 
+/* The PCC logo */
+.container{
+	width: 100%;
+	height: 70px;
+	border-bottom: 5px solid #e4f2fb;
+	padding: 20px;
+	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
+	background-repeat: no-repeat;
+	background-size: 202px 61px;
+	background-color: #75bae3;
+}
+
+/**************************/
+/*     Login/Register     */
+/**************************/
+
+/* The login/register background */
 .login-block {
     width: 320px;
     padding: 20px;
@@ -38,6 +40,7 @@
     margin: 0px auto;
 }
 
+/* The header of login/register */
 .login-block h1 {
     text-align: center;
     color: #000;
@@ -47,10 +50,12 @@
     margin-bottom: 5px;
 }
 
+/* The labels for the email and password */
 .login-block label {
 	margin: 0px;
 }
 
+/* The basic look of a textbox */
 .login-block input {
     width: 100%;
     height: 42px;
@@ -64,10 +69,12 @@
     outline: none;
 }
 
+/* What happens to a textbox when a textbox is clicked */
 .login-block input:active, .login-block input:focus {
     border: 1px solid #ff656c;
 }
 
+/* The basic look of the submit button */
 .login-block input[type=submit] {
     width: 100%;
     height: 40px;
@@ -85,20 +92,16 @@
     cursor: pointer;
 }
 
+/* The design of when the textbox is hovered over by the mouse */
 .login-block input[type=submit]:hover {
     background: #005daa;
 }
 
-.container{
-	width: 160px;
-	height: 20px;
-	border-radius: 5px;
-	padding: 20px;
-	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
-	background-size: 202px 61px;
-	background-repeat: no-repeat;
-}
+/**************************/
+/*      Guest Portal      */
+/**************************/
 
+/* The sidebar of the mainpage */
 #cssmenu {
     background: #0780f1;
     list-style: none;
@@ -111,11 +114,13 @@
     margin-left: 0px;
 }
 
+/* The design of the overall listing */
 #cssmenu ul {
     padding: 0px;
     margin: 0px;
 }
 
+/* The design of each listing */
 #cssmenu li {
     font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     text-align: center;
@@ -124,6 +129,7 @@
     list-style: none;
 }
 
+/* The design of the listing as links */
 #cssmenu a {
     background: #60b6ff;
     border-radius: 5px;
@@ -136,24 +142,65 @@
     font-weight: normal;
 }
 
+/* What it looks like when the a button is hovered over */
 #cssmenu a:hover {
     background: #b4d7f3 url("hover.jpg") left center no-repeat;
     color: #fff;
     padding-bottom: 8px;
 }
 
+/* The guest portal window */
+#window{
+	width: 1000px;
+	height: 500px;
+	border: 10px black;
+	border-radius: 10px;
+	background-color: gray;
+	margin-top: -340px;
+    margin-bottom: 20px;
+    margin-left: 225px;
+	padding: 10px;
+}
+
+/* The heading for the portal window */
+#window h1{
+	text-align: center;
+}
+
+/* The look for each event */
+#Event1{
+	
+}
+
+#Event2{
+	
+}
+
+#Event3{
+	
+}
+
+#Event4{
+	
+}
+/**************************/
+/*      Create Event      */
+/**************************/
+
+/* The thing that houses the sidebar and the map */
 .wrapper{
 	width: 1200px;
 	height: 854px;
 }
 
+/* The sidebar for the Create Event page */
 .create{
     background: #0780f1;
     margin: 0;
     width: 240px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    margin-top: 25px;
+    margin-top: 65px;
     margin-bottom: 20px;
     margin-left: 0px;
     font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
@@ -165,117 +212,134 @@
     font-weight: normal;
 }
 
+/* (The event type stuff is handled in the 'dropdown' area) */
+
+/* The event name overall style */
 .name input {
     width: 100%;
-    height: 42px;
+    height: 32px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 12px;
-    font-family: Poiret One;
     padding: 0 20px 0 50px;
     outline: none;
+    font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 }
 
+/* The event name textbox style */
 .name input#text {
     width: 100%;
-    text-indent: -85px;
-	height: 40px;
+	height: 30px;
 }
 
+/* What happens when the event name textbox is focused on */
 .name input#text:focus {
     width: 100%;
-    text-indent: -85px;
-	height: 40px;
+	height: 30px;
 }
 
+/* Gives the little red border around textbox when clicked on */
 .name input:active, .name input:focus {
     border: 1px solid #ff656c;
 }
 
+/* The description textbox style */
 .description textarea {
     width: 100%;
-    height: 80px;
+    height: 60px;
+    max-height: 60px;
+    max-width: 100%;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
-	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    text-indent: -85px;
+	font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 	padding: 5px;
 	text-align: justify;
     outline: none;
 }
 
+/* What happens when the description textbox is clicked */
 .description textarea:focus {
     width: 100%;
-	height: 80px;
+	height: 60px;
 }
 
-.description textarea:active, .description textarea:focus {
+/* Gives the red border around the description textbox when clicked */
+.description textarea:active,
+.description textarea:focus {
     border: 1px solid #ff656c;
 }
 
+/* (The location stuff is done in the 'dropdown' section below) */
+
+/* What the Event Dates textboxes look like overall */
 .Event-Dates input {
     width: 100%;
-    height: 42px;
+    height: 32px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 12px;
-    font-family: Poiret One;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     padding: 0 20px 0 50px;
     outline: none;
-    text-indent: -85px;
 }
 
+/* The look of the event dates textboxes */
 .Event-Dates input#text {
     width: 100%;
-    text-indent: -85px;
-	height: 40px;
+	height: 30px;
+    font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 }
 
+/* What happens when the event date textboxes are clicked */
 .Event-Dates input#text:focus {
     width: 100%;
-    text-indent: -85px;
-	height: 40px;
+	height: 30px;
 }
 
-.Event-Dates input:active, .name input:focus {
+/* Gives the red border around the event dates textboxes when clicked */
+.Event-Dates input:active,
+.name input:focus {
     border: 1px solid #ff656c;
 }
 
+/* The overall look of the Seat Prices */
 .Seat-Price input {
     width: 100%;
-    height: 42px;
+    height: 32px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 12px;
-    font-family: Poiret One;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     padding: 0 20px 0 50px;
     outline: none;
-    text-indent: -85px;
 }
 
+/* The design of the Seat Price textboxes */
 .Seat-Price input#text {
     width: 100%;
-	height: 40px;
+	height: 30px;
     text-indent: -85px;
 }
 
+/* What it looks like when a seat price textbox is clicked */
 .Seat-Price input#text:focus {
     width: 100%;
-	height: 40px;
-    text-indent: -85px;
+	height: 30px;
 }
 
+/* Gives the red border around a seat price textbox when clicked */
 .Seat-Price input:active, .Seat-Price input:focus {
     border: 1px solid #ff656c;
 }
 
+/* The overall look of both the Event Type and the Location dropdowns */
 .dropdown select {
   width: 100%;
-  height: 40px;
+  height: 30px;
   background-color: #60b6ff;
   border-color: #2e6da4;
   color: #fff;
@@ -288,18 +352,45 @@
   text-overflow: '';
 }
 
+/* The design of the submit button */
+.create input[type=submit] {
+    width: 100%;
+    height: 40px;
+    background: #60b6ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #32a3ff;
+    padding-left:20px;
+    color: #fff;
+    font-weight: bold;
+	text-align: center;
+    font-size: 14px;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+/* What happens when the submit button is hovered over */
+.create input[type=submit]:hover {
+    background: #86c8ea;
+}
+
+/* The design of the map placeholder (until we get a working map interface) */
 .map{
 	width: 874px;
-	height: 674px;
+	height: 634px;
 	border: 10px black;
 	border-radius: 10px;
 	background-image: url('Capture.JPG');
 	background-size: 874px 674px;
+    background-color: white;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin-top: -675px;
+	margin-top: -650px;
     margin-bottom: 20px;
-    margin-left: 400px;
+    margin-left: 300px;
+    text-align:center;
+    padding-top: 10px;
 }
 
 /* Positioning Icon */
@@ -307,7 +398,7 @@
     position: relative; 
 }
 
-/* Icon*/
+/* Icon */
 .inner-addon .glyphicon {
   position: absolute;
   padding: 15px;
@@ -315,5 +406,12 @@
   font-size:120%;
 }
 
-.left-addon .glyphicon  { left:  0px;}
-.right-addon .glyphicon { right: 0px;}
+/* The icon on the left */
+.left-addon .glyphicon  {
+    left:  0px;
+}
+
+/* The icon on the right */
+.right-addon .glyphicon {
+    right: 0px;
+}

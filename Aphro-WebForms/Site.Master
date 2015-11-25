@@ -8,6 +8,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/jquery") %>
         <%: Scripts.Render("~/bundles/bootstrap") %>
+        <%: Scripts.Render("~/bundles/datepicker") %>
         <%: Styles.Render("~/Content/css") %>
     </asp:PlaceHolder>
     <title><%: Page.Title %></title>

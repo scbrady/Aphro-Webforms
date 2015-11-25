@@ -19,10 +19,12 @@ namespace Aphro_WebForms.Guest
         {
             if (Page.IsValid)
             {
+                // Hash and salt the password using Bcyrpt before it gets sent to the database
                 var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
+                    // Declare the stored procedure to execute and send it the parameters it needs
                     OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn);
                     objCmd.BindByName = true;
                     objCmd.CommandType = CommandType.StoredProcedure;

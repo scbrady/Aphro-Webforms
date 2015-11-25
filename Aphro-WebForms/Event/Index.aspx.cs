@@ -65,5 +65,36 @@ namespace Aphro_WebForms.Event
                 LocationDropDown.DataBind();
             }
         }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the eventTypes command
+                var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn);
+                insertEventCommand.BindByName = true;
+                insertEventCommand.CommandType = CommandType.StoredProcedure;
+                insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventName.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, Description.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int) long.Parse(EventType.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, EventDate.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
+
+                try
+                {
+                    objConn.Open();
+                    insertEventCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                objConn.Close();
+            }
+        }
     }
 }

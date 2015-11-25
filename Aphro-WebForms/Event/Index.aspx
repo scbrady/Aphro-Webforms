@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Event.Index" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div class="container"/>
+    <div class="container"/>
 
 <div class="wrapper">
 	<div class='create'>
@@ -38,15 +38,9 @@
         <br />
 
         <%-- Event Date(s)--%>
-		<div class='Event-Dates'>
-            <asp:Label ID="StartDateLabel" runat="server" Text="Start Date:"></asp:Label>
-            <asp:TextBox ID="StartDate" runat="server"></asp:TextBox>
-
-            
-        <br />
-        <br />
-        <asp:Label ID="EndDateLabel" runat="server" Text="End Date:"></asp:Label>
-        <asp:TextBox ID="EndDate" runat="server"></asp:TextBox>
+		<div class='Event-Dates' style="position: relative">
+            <asp:Label ID="EventDateLabel" runat="server" Text="Event Date:"></asp:Label>
+            <asp:TextBox ID="EventDate" runat="server" cssclass="datepicker-field"></asp:TextBox>
         </div>
 
         <br />
@@ -63,8 +57,13 @@
         </div>
 
         <br />
-        <asp:Button ID="Submit" runat="server" Text="Submit"/>
+        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"/>
     </div>
     <div class="map"></div>
 </div>
+    <script>
+        $('.datepicker-field').datetimepicker({
+            format: 'DD-MMM-YY hh:mm A'
+        })
+    </script>
 </asp:Content>

@@ -85,40 +85,22 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.DropDownList LocationDropDown;
         
         /// <summary>
-        /// StartDateLabel control.
+        /// EventDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StartDateLabel;
+        protected global::System.Web.UI.WebControls.Label EventDateLabel;
         
         /// <summary>
-        /// StartDate control.
+        /// EventDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StartDate;
-        
-        /// <summary>
-        /// EndDateLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EndDateLabel;
-        
-        /// <summary>
-        /// EndDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EndDate;
+        protected global::System.Web.UI.WebControls.TextBox EventDate;
         
         /// <summary>
         /// RegularPriceLabel control.

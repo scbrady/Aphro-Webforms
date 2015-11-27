@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Linq;
 using AutoMapper;
@@ -50,7 +49,10 @@ namespace Aphro_WebForms.Guest
                 objConn.Close();
             }
             if (guest != null)
+            {
+                Global.CurrentPerson = guest;
                 labelMessage.Text = "Welcome " + guest.firstname;
+            }
             else
                 labelMessage.Text = "Wrong email/password";
         }

@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Guest.Index" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+﻿<%@ Page Title="Dashborad" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Guest.Index" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    </div>
-    </form>
-</body>
-</html>
+    <asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>
+    
+</asp:Content>

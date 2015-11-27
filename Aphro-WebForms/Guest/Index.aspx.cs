@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Aphro_WebForms.Guest
 {
@@ -11,7 +6,10 @@ namespace Aphro_WebForms.Guest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Global.CurrentPerson != null)
+                GuestName.Text = Global.CurrentPerson.firstname + " " + Global.CurrentPerson.lastname;
+            else
+                GuestName.Text = "Not Logged In!";
         }
     }
 }

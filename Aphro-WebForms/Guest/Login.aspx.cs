@@ -51,7 +51,7 @@ namespace Aphro_WebForms.Guest
             if (guest != null)
             {
                 Global.CurrentPerson = guest;
-                labelMessage.Text = "Welcome " + guest.firstname;
+                Response.Redirect("Index.aspx");
             }
             else
                 labelMessage.Text = "Wrong email/password";

@@ -52,6 +52,9 @@ namespace Aphro_WebForms.Guest
                     EventLocation.Text = currentEvent.building;
                     EventPrice.Text = "$" + currentEvent.regular_price;
                     EventPrimePrice.Text = "$" + currentEvent.prime_price;
+
+                    EventDateListview.DataSource = eventModel;
+                    EventDateListview.DataBind();
                 }
             }
         }

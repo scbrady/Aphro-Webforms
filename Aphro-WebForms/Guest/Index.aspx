@@ -13,8 +13,8 @@
         <EmptyDataTemplate>         
             <div id="EventContainer" runat="server">              
                 <div ID="itemPlaceholder" runat="server">                 
-                No Upcoming Events.             
-                </div>         
+                    No Upcoming Events.             
+                </div>
             </div>      
         </EmptyDataTemplate>
 

@@ -9,4 +9,17 @@
     <asp:Label ID="EventPrice" runat="server"></asp:Label>
     <br />
     <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>
+    
+    <asp:ListView ID="EventDateListview" runat="server">
+        <LayoutTemplate>         
+            <div id="EventDateContainer" runat="server">              
+                <div ID="itemPlaceholder" runat="server">              
+                </div>         
+            </div>      
+        </LayoutTemplate>
+        <ItemTemplate>
+            <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
+            <br/>
+        </ItemTemplate>
+    </asp:ListView>
 </asp:Content>

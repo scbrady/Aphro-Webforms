@@ -48,7 +48,7 @@ namespace Aphro_WebForms.Guest
                 }
 
                 if (string.IsNullOrEmpty(labelMessage.Text))
-                    labelMessage.Text = "Guest added!";
+                    Response.Redirect("Login.aspx");
             }
         }
     }

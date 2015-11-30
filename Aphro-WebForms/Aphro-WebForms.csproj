@@ -124,6 +124,7 @@
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Guest\EventSignup.aspx" />
     <Content Include="Guest\Index.aspx" />
     <Content Include="Guest\Register.aspx" />
     <Content Include="Guest\Login.aspx" />
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\EventSignup.aspx.cs">
+      <DependentUpon>EventSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guest\EventSignup.aspx.designer.cs">
+      <DependentUpon>EventSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Guest\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

@@ -134,6 +134,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Guest\EmptySeats.ashx" />
+    <Content Include="Content\maps\1.json" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Payment\Pay.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\EmptySeats.ashx.cs">
+      <DependentUpon>EmptySeats.ashx</DependentUpon>
     </Compile>
     <Compile Include="Guest\EventSignup.aspx.cs">
       <DependentUpon>EventSignup.aspx</DependentUpon>
@@ -188,6 +193,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Building.cs" />
+    <Compile Include="Models\BuildingData.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\Person.cs" />

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Aphro_WebForms.Models
 {
-    public class BuildingData
+    public class SeatingData
     {
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -26,5 +26,8 @@ namespace Aphro_WebForms.Models
 
         [JsonProperty("seats")]
         public int Empty_Seats { get; set; }
+
+        [JsonProperty("row")]
+        public string Seat_Row { get; set; }
     }
 }

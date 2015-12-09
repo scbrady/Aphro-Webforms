@@ -1,15 +1,26 @@
 ﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Event.Index" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container"/>
 
+<div class="header" />
 <div class="wrapper">
+    <div class="shadow">
+	        </div>
 	<div class='create'>
-
+        	
+        
+			<br />
+			<br />
+			<br />
         <%--Event Type--%>
         <div class="dropdown">
             <asp:Label ID="TypeLabel" runat="server" Text="Event Type:"></asp:Label>
-            <asp:DropDownList ID="EventType" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="EventType" runat="server">
+                <asp:ListItem Selected>Fine Arts</asp:ListItem>
+                <asp:ListItem>Dramatic Production</asp:ListItem>
+                <asp:ListItem>Commencement</asp:ListItem>
+                <asp:ListItem>Recital</asp:ListItem>
+            </asp:DropDownList>
         </div>
         <br />
 
@@ -28,11 +39,17 @@
         </div>
 
         <br />
+		<br />
 
         <%--Location--%>
 		<div class='dropdown'>
             <asp:Label ID="LocationLabel" runat="server" Text="Location:"></asp:Label>
-            <asp:DropDownList ID="LocationDropDown" runat="server"></asp:DropDownList>  
+            <asp:DropDownList ID="LocationDropDown" runat="server">
+                <asp:ListItem Selected>Crowne Centre</asp:ListItem>
+                <asp:ListItem>Dale Horton Auditorium</asp:ListItem>
+                <asp:ListItem>Experimental Theater</asp:ListItem>
+                <asp:ListItem>Mullenix Chapel</asp:ListItem>
+            </asp:DropDownList>  
 		</div>
 
         <br />
@@ -42,7 +59,7 @@
             <asp:Label ID="EventDateLabel" runat="server" Text="Event Date:"></asp:Label>
             <asp:TextBox ID="EventDate" runat="server" cssclass="datepicker-field"></asp:TextBox>
         </div>
-
+		<br />
         <br />
 
         <%-- Seating Prices (both regular and prime) --%>
@@ -57,9 +74,9 @@
         </div>
 
         <br />
+		<br />
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"/>
     </div>
-    <div class="map"></div>
 </div>
     <script>
         $('.datepicker-field').datetimepicker({

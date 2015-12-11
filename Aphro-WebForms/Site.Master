@@ -5,12 +5,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/jquery") %>
-        <%: Scripts.Render("~/bundles/bootstrap") %>
-        <%: Scripts.Render("~/bundles/datepicker") %>
-        <%: Styles.Render("~/Content/css") %>
-    </asp:PlaceHolder>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%: Scripts.Render("~/bundles/bootstrap") %>
+    <%: Scripts.Render("~/bundles/datepicker") %>
+    <%: Styles.Render("~/Content/css") %>
     <title><%: Page.Title %></title>
 </head>
 <body>
@@ -21,5 +19,8 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    
+    <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
+    </asp:ContentPlaceHolder>
 </body>
 </html>

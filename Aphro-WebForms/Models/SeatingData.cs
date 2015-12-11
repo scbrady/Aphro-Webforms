@@ -15,6 +15,9 @@ namespace Aphro_WebForms.Models
 
     public class RowRecord
     {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
         [JsonProperty("section")]
         public int Section_Key { get; set; }
 

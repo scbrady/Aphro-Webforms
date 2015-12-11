@@ -152,6 +152,9 @@
     <Content Include="Payment\Pay.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\highmaps\data.js" />
+    <Content Include="Scripts\highmaps\drilldown.js" />
+    <Content Include="Scripts\highmaps\highmaps.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\moment-with-locales.js" />

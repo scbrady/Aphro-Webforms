@@ -9,11 +9,15 @@ namespace Aphro_WebForms.Guest
 {
     public partial class EventSignup : System.Web.UI.Page
     {
+        protected long EventId;
+        protected long BuildingKey;
+        protected string Building;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Request.QueryString["Event"]))
             {
-                var eventId = long.Parse(Request.QueryString["Event"]);
+                EventId = long.Parse(Request.QueryString["Event"]);
 
                 DataTable eventTable = new DataTable();
                 List<Models.Event> eventModel = new List<Models.Event>();
@@ -25,7 +29,7 @@ namespace Aphro_WebForms.Guest
                     eventCommand.BindByName = true;
                     eventCommand.CommandType = CommandType.StoredProcedure;
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    eventCommand.Parameters.Add("p_EventId", OracleDbType.Int64, eventId, ParameterDirection.Input);
+                    eventCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
 
                     try
                     {
@@ -47,6 +51,9 @@ namespace Aphro_WebForms.Guest
                 if (eventModel.Count > 0)
                 {
                     var currentEvent = eventModel.FirstOrDefault();
+                    BuildingKey = currentEvent.building_key;
+                    Building = currentEvent.building;
+
                     EventName.Text = currentEvent.name;
                     EventDescription.Text = currentEvent.description;
                     EventLocation.Text = currentEvent.building;

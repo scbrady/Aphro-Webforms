@@ -24,11 +24,14 @@
         </ItemTemplate>
     </asp:ListView>
 
-    <input id="MainContent_TicketQuantity" type="number" min="1" max="20" step="1" value="1">
+    <asp:HiddenField ID="SelectedSection" runat="server" />
+    <asp:HiddenField ID="SelectedSubsection" runat="server" />
+    <asp:HiddenField ID="SelectedRow" runat="server" />
+    <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="1" max="20" step="1" value="1"/>
     <button id="refresh">Refresh</button>
     
     <div id="container" style="max-width: 1000px"></div>
-    <p id="test"></p>
+    <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
@@ -123,7 +126,8 @@
                             },
                             drillup: function () {
                                 this.setTitle(null, { text: '' });
-                                $('#test').text('');
+                                clearFields();
+                                //$('#test').text('');
                             }
                         }
                     },
@@ -133,11 +137,15 @@
                                 events: {
                                     select: function () {
                                         selectedRow = this;
-                                        $('#test').text('You selected Section: ' + this.section + ' Subsection: ' + this.subsection + ' Row: ' + this.row);
+                                        $('#MainContent_SelectedSection').val(this.section);
+                                        $('#MainContent_SelectedSubsection').val(this.subsection);
+                                        $('#MainContent_SelectedRow').val(this.row);
+                                        //$('#test').text('You selected Section: ' + this.section + ' Subsection: ' + this.subsection + ' Row: ' + this.row);
                                     },
                                     unselect: function () {
                                         if (selectedRow === this) {
-                                            $('#test').text('');
+                                            clearFields();
+                                            //$('#test').text('');
                                             selectedRow = null;
                                         }
                                     }
@@ -179,6 +187,12 @@
 
                 });
             });
+        }
+
+        function clearFields() {
+            $('#MainContent_SelectedSection').val('');
+            $('#MainContent_SelectedSubsection').val('');
+            $('#MainContent_SelectedRow').val('');
         }
     </script>
 </asp:Content>

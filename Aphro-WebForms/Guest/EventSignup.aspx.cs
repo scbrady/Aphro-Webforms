@@ -15,6 +15,9 @@ namespace Aphro_WebForms.Guest
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Global.CurrentPerson == null)
+                Response.Redirect("Login.aspx");
+
             if (!string.IsNullOrEmpty(Request.QueryString["Event"]))
             {
                 EventId = long.Parse(Request.QueryString["Event"]);
@@ -63,6 +66,36 @@ namespace Aphro_WebForms.Guest
                     EventDateListview.DataSource = eventModel;
                     EventDateListview.DataBind();
                 }
+            }
+        }
+
+        protected void GetTickets_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the inserting seats command
+                var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
+                seatCommand.BindByName = true;
+                seatCommand.CommandType = CommandType.StoredProcedure;
+                seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_Quantity", OracleDbType.Int32, int.Parse(TicketQuantity.Text), ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the command
+                    objConn.Open();
+                    seatCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+
+                objConn.Close();
             }
         }
     }

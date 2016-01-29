@@ -20,6 +20,8 @@ namespace Aphro_WebForms
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/event-css").Include(
+                      "~/Content/eventsite.css"));
         }
     }
 }

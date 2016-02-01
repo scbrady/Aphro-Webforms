@@ -43,6 +43,7 @@ namespace Aphro_WebForms.Event
                 }
                 catch (Exception ex)
                 {
+                    // TODO: Handle Exception
                     throw (ex);
                 }
 
@@ -90,6 +91,7 @@ namespace Aphro_WebForms.Event
                 }
                 catch (Exception ex)
                 {
+                    // TODO: Handle Exception
                     throw ex;
                 }
 

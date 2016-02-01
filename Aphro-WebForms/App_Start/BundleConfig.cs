@@ -20,8 +20,15 @@ namespace Aphro_WebForms
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/site.css"));
+
             bundles.Add(new StyleBundle("~/Content/event-css").Include(
-                      "~/Content/eventsite.css"));
+                      "~/Content/event.css"));
+            bundles.Add(new StyleBundle("~/Content/guest-css").Include(
+                      "~/Content/guest.css"));
+            bundles.Add(new StyleBundle("~/Content/student-css").Include(
+                      "~/Content/student.css"));
+            bundles.Add(new StyleBundle("~/Content/faculty-css").Include(
+                      "~/Content/faculty.css"));
         }
     }
 }

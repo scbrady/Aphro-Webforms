@@ -120,6 +120,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\faculty.css" />
+    <Content Include="Content\student.css" />
+    <Content Include="Content\guest.css" />
+    <Content Include="Content\event.css" />
     <Content Include="Content\site.css" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -148,6 +152,7 @@
     <Content Include="Content\maps\sections\2-6.json" />
     <Content Include="Content\maps\sections\3.json" />
     <Content Include="Content\maps\sections\4.json" />
+    <Content Include="StudentPortal.Master" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Payment\Pay.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -166,6 +171,20 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="GuestPortal.Master.cs">
+      <DependentUpon>GuestPortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuestPortal.Master.designer.cs">
+      <DependentUpon>GuestPortal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPortal.Master.cs">
+      <DependentUpon>StudentPortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPortal.Master.designer.cs">
+      <DependentUpon>StudentPortal.Master</DependentUpon>
+    </Compile>
     <Compile Include="Event\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +239,13 @@
       <DependentUpon>Pay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EventPortal.Master.cs">
+      <DependentUpon>EventPortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventPortal.Master.designer.cs">
+      <DependentUpon>EventPortal.Master</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +258,8 @@
     <Content Include="Site.Master" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="EventPortal.Master" />
+    <Content Include="GuestPortal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

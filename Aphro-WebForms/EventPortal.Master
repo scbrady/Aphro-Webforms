@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EventPortal.Master.cs" Inherits="Aphro_WebForms.Site" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/jquery") %>
+        <%: Scripts.Render("~/bundles/bootstrap") %>
+        <%: Scripts.Render("~/bundles/datepicker") %>
+        <%: Styles.Render("~/Content/css") %>
+        <%: Styles.Render("~/Content/event-css") %>
+    </asp:PlaceHolder>
+    <title><%: Page.Title %></title>
+</head>
+<body>
+    <form id="masterForm" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

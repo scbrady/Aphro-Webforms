@@ -15,7 +15,7 @@ body {
 }
 
 /* The PCC logo */
-.container{
+.PCCheader{
 	width: 100%;
 	height: 70px;
 	border-bottom: 5px solid #e4f2fb;
@@ -64,7 +64,7 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     font-size: 12px;
-    font-family: Poiret One;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     padding: 0 20px 0 50px;
     outline: none;
 }
@@ -87,7 +87,7 @@ body {
     font-weight: bold;
 	text-transform: uppercase;
     font-size: 14px;
-    font-family: Poiret One;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     outline: none;
     cursor: pointer;
 }
@@ -101,65 +101,18 @@ body {
 /*      Guest Portal      */
 /**************************/
 
-/* The sidebar of the mainpage */
-#cssmenu {
-    background: #0780f1;
-    list-style: none;
-    margin: 0;
-    width: 12em;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-}
-
-/* The design of the overall listing */
-#cssmenu ul {
-    padding: 0px;
-    margin: 0px;
-}
-
-/* The design of each listing */
-#cssmenu li {
-    font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 10px;
-    list-style: none;
-}
-
-/* The design of the listing as links */
-#cssmenu a {
-    background: #60b6ff;
-    border-radius: 5px;
-    border-bottom: 1px solid #ccc;
-    color: #ccc;
-    display: block;
-    margin: 0;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-weight: normal;
-}
-
-/* What it looks like when the a button is hovered over */
-#cssmenu a:hover {
-    background: #b4d7f3 url("hover.jpg") left center no-repeat;
-    color: #fff;
-    padding-bottom: 8px;
-}
-
 /* The guest portal window */
 #window{
-	width: 1000px;
+	position: relative;
+	width: 75%;
 	height: 500px;
-	border: 10px black;
 	border-radius: 10px;
-	background-color: gray;
-	margin-top: -340px;
-    margin-bottom: 20px;
-    margin-left: 225px;
 	padding: 10px;
+	background-color: #e4f2fb;
+	margin: auto;
+	margin-top: 70px;
+    margin-bottom: 20px;
+	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 }
 
 /* The heading for the portal window */
@@ -167,85 +120,266 @@ body {
 	text-align: center;
 }
 
-/* The look for each event */
-#Event1{
-	
+section {
+  display: block;
 }
 
-#Event2{
-	
+a {
+    text-decoration: none;
+    font-weight: normal;
 }
 
-#Event3{
-	
+a:link{
+	color: black;
 }
 
-#Event4{
-	
+a:visited{
+	color: black;
 }
+
+a:hover{
+	background-color: #75bae3;
+    color: #fff;
+    padding-bottom: 8px;
+}
+
+#options {
+  position: relative;
+  z-index: 100;
+  margin-bottom: 40px;
+}
+
+#options input[type=range]{
+	visibility: hidden;
+}
+
+.range-display{
+	visibility: hidden;
+}
+
+button{
+	border: 0px outset buttonface;
+	box-sizing: content-box;
+}
+
+.previous{
+	float: left;
+	margin-top: 70px;
+  	width: 0px;
+	height: 0px;
+	padding-right: 0.5em;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: block;
+	font-size: 30px;
+	color: #b3d6f2;
+}
+
+#next{
+	float: right;
+	margin-top: 70px;
+   	width: 0px;
+	height: 0px;
+	padding-right: 0.5em;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: block;
+	font-size: 30px;
+	color: #b3d6f2;
+}
+
+.previous:hover,
+#next:hover {
+		color: #60b6ff;
+}
+
+figure {
+  margin: 0;
+}
+
+.selector {
+                width: 300px;
+               height: 230px;
+             position: relative;
+               margin: 0 auto;
+               border: 0px solid #CCC;
+  -webkit-perspective: 1100px;
+	 -moz-perspective: 1100px;
+	   -o-perspective: 1100px;
+		  perspective: 1100px;
+}
+
+#carousel {
+                    width: 100%;
+                   height: 100%;
+                 position: absolute;
+  -webkit-transform-style: preserve-3d; 
+	 -moz-transform-style: preserve-3d;
+	   -o-transform-style: preserve-3d;
+		  transform-style: preserve-3d;
+}
+
+ .selector #carousel {
+  -webkit-transition: -webkit-transform 1s;
+	 -moz-transition: -moz-transform 1s;
+	   -o-transition: -o-transform 1s;
+		  transition: transform 1s;
+}
+
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 286px;
+  height: 216px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+  line-height: 350px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  background-position: top;
+  background-size: 300px, 225px;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+	 -moz-backface-visibility: hidden;
+	   -o-backface-visibility: hidden;
+		  backface-visibility: hidden;
+		              opacity: 1;
+}
+
+#carousel figure:hover{
+	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
+	color: white;
+}
+
+#one{
+	transform: rotateY(0deg)
+	           translateZ(215px);
+	background-color: #ffe417;
+	background-image: url('autumn leaves new_0.jpg');
+}
+
+#two{
+	transform: rotateY(72deg)
+	           translateZ(215px);
+	background-image: url('ntheatre.jpg');
+	background-color: #FF0000;
+}
+
+#three{
+	transform: rotateY(144deg) translateZ(215px);
+	background-image: url('Kings-singers-look-20292Web.jpg');
+	background-color: #dde0e5;
+}
+
+#four{
+	transform: rotateY(216deg) translateZ(215px);
+	background-image: url('images.jpg');
+	background-color: #da8185;
+}
+
+#five{
+	transform: rotateY(288deg) translateZ(215px);
+	background-image: url('commencement.JPG');
+	background-color: #528a9b;
+}
+
 /**************************/
 /*      Create Event      */
 /**************************/
 
 /* The thing that houses the sidebar and the map */
 .wrapper{
-	width: 1200px;
-	height: 854px;
+    position: relative;
+	width: 100%;
+	height: 625px;
+}
+
+.shadow{
+	position: absolute;
+	margin: 0px auto;
+	left: 11.5%;
+	top: 25px;
+	width: 77%;
+	height: 817px;
+	background: #dfedf6;
+	opacity: 0.3;
 }
 
 /* The sidebar for the Create Event page */
 .create{
-    background: #0780f1;
-    margin: 0;
-    width: 240px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-top: 65px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-    font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    position: relative;
+    top: 25px;
+    background: #e4f2fb;
+    margin: 0 auto;
+    width: 72.25%;
+    height: 800px;
+    font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
+    background-size: 310px 94px;
+	background-position: 17px 10px;
+	background-repeat: no-repeat;
     border-bottom: 1px solid #ccc;
-    color: #ccc;
+    color: #15589c;
     display: block;
     padding: 8px 12px;
     text-decoration: none;
     font-weight: normal;
+	font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 41px;
+    background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
+    position: absolute;
 }
 
 /* (The event type stuff is handled in the 'dropdown' area) */
 
-/* The event name overall style */
-.name input {
+/* The overall style of the input boxes */
+.name input,
+.Event-Dates input,
+.Seat-Price input {
+    float: right;
     width: 100%;
     height: 32px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 12px;
-    padding: 0 20px 0 50px;
+    font-family: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    padding: 10px;
     outline: none;
-    font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 }
 
-/* The event name textbox style */
-.name input#text {
+/* What the text looks like inside the input box */
+.name input#text,
+.Event-Dates input#text,
+.Seat-Price input #text {
     width: 100%;
-	height: 30px;
-}
-
-/* What happens when the event name textbox is focused on */
-.name input#text:focus {
-    width: 100%;
+    text-indent: -85px;
 	height: 30px;
 }
 
 /* Gives the little red border around textbox when clicked on */
-.name input:active, .name input:focus {
+.name input:active,
+.name input:focus,
+.description textarea:active,
+.description textarea:focus,
+.Event-Dates input:active,
+.Event-Dates input:focus,
+.Seat-Price input:active,
+.Seat-Price input:focus{
     border: 1px solid #ff656c;
 }
 
 /* The description textbox style */
 .description textarea {
+    float: right;
     width: 100%;
     height: 60px;
     max-height: 60px;
@@ -253,87 +387,11 @@ body {
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
-	font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-	padding: 5px;
+	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	text-indent: -124px;
+    padding: 10px;
 	text-align: justify;
     outline: none;
-}
-
-/* What happens when the description textbox is clicked */
-.description textarea:focus {
-    width: 100%;
-	height: 60px;
-}
-
-/* Gives the red border around the description textbox when clicked */
-.description textarea:active,
-.description textarea:focus {
-    border: 1px solid #ff656c;
-}
-
-/* (The location stuff is done in the 'dropdown' section below) */
-
-/* What the Event Dates textboxes look like overall */
-.Event-Dates input {
-    width: 100%;
-    height: 32px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 12px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    padding: 0 20px 0 50px;
-    outline: none;
-}
-
-/* The look of the event dates textboxes */
-.Event-Dates input#text {
-    width: 100%;
-	height: 30px;
-    font: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-}
-
-/* What happens when the event date textboxes are clicked */
-.Event-Dates input#text:focus {
-    width: 100%;
-	height: 30px;
-}
-
-/* Gives the red border around the event dates textboxes when clicked */
-.Event-Dates input:active,
-.name input:focus {
-    border: 1px solid #ff656c;
-}
-
-/* The overall look of the Seat Prices */
-.Seat-Price input {
-    width: 100%;
-    height: 32px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 12px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    padding: 0 20px 0 50px;
-    outline: none;
-}
-
-/* The design of the Seat Price textboxes */
-.Seat-Price input#text {
-    width: 100%;
-	height: 30px;
-    text-indent: -85px;
-}
-
-/* What it looks like when a seat price textbox is clicked */
-.Seat-Price input#text:focus {
-    width: 100%;
-	height: 30px;
-}
-
-/* Gives the red border around a seat price textbox when clicked */
-.Seat-Price input:active, .Seat-Price input:focus {
-    border: 1px solid #ff656c;
 }
 
 /* The overall look of both the Event Type and the Location dropdowns */
@@ -342,6 +400,7 @@ body {
   height: 30px;
   background-color: #60b6ff;
   border-color: #2e6da4;
+	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
   color: #fff;
   padding: .5em;
   padding-right: 2.5em;	
@@ -349,7 +408,7 @@ body {
   margin: 0;
   border-radius: 3px;
   text-indent: 0.01px;
-  text-overflow: '';
+  text-overflow:inherit;
 }
 
 /* The design of the submit button */
@@ -373,24 +432,6 @@ body {
 /* What happens when the submit button is hovered over */
 .create input[type=submit]:hover {
     background: #86c8ea;
-}
-
-/* The design of the map placeholder (until we get a working map interface) */
-.map{
-	width: 874px;
-	height: 634px;
-	border: 10px black;
-	border-radius: 10px;
-	background-image: url('Capture.JPG');
-	background-size: 874px 674px;
-    background-color: white;
-	background-repeat: no-repeat;
-	background-position: center;
-	margin-top: -650px;
-    margin-bottom: 20px;
-    margin-left: 300px;
-    text-align:center;
-    padding-top: 10px;
 }
 
 /* Positioning Icon */

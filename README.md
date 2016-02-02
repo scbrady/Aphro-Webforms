@@ -20,11 +20,11 @@
 * [ ] Dont worry about accept reject, just accept after a few seconds
 
 ###DB Changes:
-* [ ] Group table
+* [X] Group table
   * Group ID
   * Group Leader ID
   * Number of tickets
-* [ ] Group Request table
+* [X] Group Request table
   * Group ID
   * Requested ID
   * Has Accepted

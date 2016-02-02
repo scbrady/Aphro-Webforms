@@ -36,3 +36,9 @@ Someone can be requested more than once
 
 ###Faculty/ Staff:
 Same as student
+
+###Maps:
+  * Add DHA map
+    * [ ] Create DHA SVG
+    * [ ] Create DHA GeoJSON
+    * [ ] Add all DHA data to SEATS table in DB

@@ -10,7 +10,7 @@
 namespace Aphro_WebForms {
     
     
-    public partial class GuestPortal {
+    public partial class Site {
         
         /// <summary>
         /// masterForm control.
@@ -29,5 +29,14 @@ namespace Aphro_WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// ScriptsSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsSection;
     }
 }

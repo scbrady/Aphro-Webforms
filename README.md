@@ -22,12 +22,16 @@
 ###DB Changes:
 * [X] Group table
   * Group ID
+  * Event ID
   * Group Leader ID
   * Number of tickets
 * [X] Group Request table
   * Group ID
   * Requested ID
   * Has Accepted
+* [X] Season Tickets table
+  * Season ID
+  * Person ID
 
 ###Student:
 Same as guest, but with request / response  

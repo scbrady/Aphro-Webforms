@@ -11,7 +11,7 @@ namespace Aphro_WebForms.Guest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Global.CurrentPerson == null)
+            if (Global.CurrentPerson == null || Global.CurrentPerson.accountType != Account.Guest)
                 Response.Redirect("Login.aspx");
             else
                 GuestName.Text = "Hi " + Global.CurrentPerson.firstname;

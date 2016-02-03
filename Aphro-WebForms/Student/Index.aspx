@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Guest.Index" %>
+﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/StudentPortal.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Student.Index" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="StudentName" runat="server" Text="Label"></asp:Label>
     <asp:ListView ID="EventListview" runat="server">
         <LayoutTemplate>         
             <div id="EventContainer" runat="server">              

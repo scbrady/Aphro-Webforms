@@ -138,17 +138,35 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Guest\EmptySeats.ashx" />
+    <Content Include="Content\maps\1.json" />
+    <Content Include="Content\maps\sections\1-1.json" />
+    <Content Include="Content\maps\sections\1-2.json" />
+    <Content Include="Content\maps\sections\1-3.json" />
+    <Content Include="Content\maps\sections\1-4.json" />
+    <Content Include="Content\maps\sections\2-1.json" />
+    <Content Include="Content\maps\sections\2-2.json" />
+    <Content Include="Content\maps\sections\2-3.json" />
+    <Content Include="Content\maps\sections\2-4.json" />
+    <Content Include="Content\maps\sections\2-5.json" />
+    <Content Include="Content\maps\sections\2-6.json" />
+    <Content Include="Content\maps\sections\3.json" />
+    <Content Include="Content\maps\sections\4.json" />
     <Content Include="StudentPortal.Master" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Payment\Pay.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\highmaps\data.js" />
+    <Content Include="Scripts\highmaps\drilldown.js" />
+    <Content Include="Scripts\highmaps\highmaps.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Student\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +195,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\EmptySeats.ashx.cs">
+      <DependentUpon>EmptySeats.ashx</DependentUpon>
     </Compile>
     <Compile Include="Guest\EventSignup.aspx.cs">
       <DependentUpon>EventSignup.aspx</DependentUpon>
@@ -207,6 +228,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Building.cs" />
+    <Compile Include="Models\SeatingData.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\Person.cs" />
@@ -231,6 +253,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

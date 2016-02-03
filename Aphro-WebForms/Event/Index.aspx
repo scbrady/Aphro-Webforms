@@ -16,10 +16,6 @@
         <div class="dropdown">
             <asp:Label ID="TypeLabel" runat="server" Text="Event Type:"></asp:Label>
             <asp:DropDownList ID="EventType" runat="server">
-                <asp:ListItem Selected>Fine Arts</asp:ListItem>
-                <asp:ListItem>Dramatic Production</asp:ListItem>
-                <asp:ListItem>Commencement</asp:ListItem>
-                <asp:ListItem>Recital</asp:ListItem>
             </asp:DropDownList>
         </div>
         <br />
@@ -45,10 +41,6 @@
 		<div class='dropdown'>
             <asp:Label ID="LocationLabel" runat="server" Text="Location:"></asp:Label>
             <asp:DropDownList ID="LocationDropDown" runat="server">
-                <asp:ListItem Selected>Crowne Centre</asp:ListItem>
-                <asp:ListItem>Dale Horton Auditorium</asp:ListItem>
-                <asp:ListItem>Experimental Theater</asp:ListItem>
-                <asp:ListItem>Mullenix Chapel</asp:ListItem>
             </asp:DropDownList>  
 		</div>
 

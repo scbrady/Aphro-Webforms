@@ -7,37 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aphro_WebForms {
+namespace Aphro_WebForms.Student {
     
     
-    public partial class GuestPortal
-    {
+    public partial class Index {
         
         /// <summary>
-        /// masterForm control.
+        /// StudentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm masterForm;
+        protected global::System.Web.UI.WebControls.Label StudentName;
         
         /// <summary>
-        /// MainContent control.
+        /// EventListview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
-        /// ScriptsSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsSection;
+        protected global::System.Web.UI.WebControls.ListView EventListview;
     }
 }

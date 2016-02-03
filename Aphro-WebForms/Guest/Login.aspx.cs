@@ -51,6 +51,7 @@ namespace Aphro_WebForms.Guest
             if (guest != null)
             {
                 Global.CurrentPerson = guest;
+                Global.CurrentPerson.accountType = Account.Guest;
                 Response.Redirect("Index.aspx");
             }
             else

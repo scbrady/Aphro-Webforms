@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GuestPortal.Master.cs" Inherits="Aphro_WebForms.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GuestPortal.Master.cs" Inherits="Aphro_WebForms.GuestPortal" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>

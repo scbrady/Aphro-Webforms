@@ -261,6 +261,9 @@
     <Compile Include="Student\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Logout.ashx.cs">
+      <DependentUpon>Logout.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -268,6 +271,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="EventPortal.Master" />
     <Content Include="GuestPortal.Master" />
+    <Content Include="Student\Logout.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

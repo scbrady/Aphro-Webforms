@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentPortal.Master.cs" Inherits="Aphro_WebForms.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentPortal.Master.cs" Inherits="Aphro_WebForms.StudentPortal" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>
@@ -16,6 +16,7 @@
 </head>
 <body>
     <form id="masterForm" runat="server">
+    <a href="Logout.ashx">Logout</a>
     <div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         

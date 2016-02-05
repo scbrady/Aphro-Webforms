@@ -63,7 +63,7 @@ namespace Aphro_WebForms.Student
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getRandomStudent", objConn);
+                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getRandomStudent ", objConn);
                 objCmd.BindByName = true;
                 objCmd.CommandType = CommandType.StoredProcedure;
 

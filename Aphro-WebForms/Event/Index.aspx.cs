@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using Aphro_WebForms.Models;
 using AutoMapper;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Event
 {

@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using AutoMapper;
 using DevOne.Security.Cryptography.BCrypt;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 using Aphro_WebForms.Models;
 
 namespace Aphro_WebForms.Guest

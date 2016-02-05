@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data;
 using DevOne.Security.Cryptography.BCrypt;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Payment
 {

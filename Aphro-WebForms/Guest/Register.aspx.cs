@@ -1,10 +1,10 @@
 ﻿using System;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
 using System.Data;
 using DevOne.Security.Cryptography.BCrypt;
-using OracleCommand = Oracle.DataAccess.Client.OracleCommand;
-using OracleConnection = Oracle.DataAccess.Client.OracleConnection;
+using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
+using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
 
 namespace Aphro_WebForms.Guest
 {

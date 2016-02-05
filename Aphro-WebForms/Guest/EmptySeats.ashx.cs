@@ -7,7 +7,7 @@ using System.Web;
 using Aphro_WebForms.Models;
 using AutoMapper;
 using Newtonsoft.Json;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Guest
 {

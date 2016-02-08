@@ -27,7 +27,7 @@ namespace Aphro_WebForms.Guest
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
-                    // Set up the upcomingEvents command
+                    // Set up the getEvent command
                     var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
                     eventCommand.BindByName = true;
                     eventCommand.CommandType = CommandType.StoredProcedure;
@@ -83,7 +83,6 @@ namespace Aphro_WebForms.Guest
                 seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
                 seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
                 seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_Quantity", OracleDbType.Int32, int.Parse(TicketQuantity.Text), ParameterDirection.Input);
 
                 try
                 {
@@ -98,6 +97,12 @@ namespace Aphro_WebForms.Guest
 
                 objConn.Close();
             }
+        }
+
+        protected void GetExtraTickets_Click(object sender, EventArgs e)
+        {
+            // "Purchase" tickets
+            // Make new group or add this many people to the group that is already made
         }
     }
 }

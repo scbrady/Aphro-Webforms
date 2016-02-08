@@ -27,8 +27,8 @@
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />
     <asp:HiddenField ID="SelectedRow" runat="server" />
-    <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="1" max="20" step="1" value="1"/>
-    <button id="refresh">Refresh</button>
+    <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"/>
+    <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click" />
     
     <div id="container" style="max-width: 1000px"></div>
     <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
@@ -42,11 +42,6 @@
         $(function () {
             var selectedRow;
             refreshMap();
-
-            $('#refresh').click(function(event) {
-                refreshMap();
-                event.preventDefault();
-            });
         });
 
         function refreshMap() {
@@ -117,7 +112,7 @@
                                             },
                                             tooltip: {
                                                 headerFormat: 'Row {point.key}<br/>',
-                                                pointFormat: '{point.value} Empty Seats'
+                                                pointFormat: ''
                                             }
                                         });
                                     });
@@ -171,7 +166,7 @@
                             joinBy: ["join"],
                             tooltip: {
                                 headerFormat: '{point.key}<br/>',
-                                pointFormat: '{point.value} Empty Seats'
+                                pointFormat: ''
                             }
                         }
                     ],

@@ -103,6 +103,29 @@ namespace Aphro_WebForms.Guest
         {
             // "Purchase" tickets
             // Make new group or add this many people to the group that is already made
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the inserting groups command
+                var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
+                groupsCommand.BindByName = true;
+                groupsCommand.CommandType = CommandType.StoredProcedure;
+                groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraSeats", OracleDbType.Int32, int.Parse(TicketQuantity.Text), ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the command
+                    objConn.Open();
+                    groupsCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+
+                objConn.Close();
+            }
         }
     }
 }

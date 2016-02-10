@@ -9,7 +9,7 @@ using AutoMapper;
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 
-namespace Aphro_WebForms.Guest
+namespace Aphro_WebForms.Shared
 {
     /// <summary>
     /// Summary description for EmptySeats

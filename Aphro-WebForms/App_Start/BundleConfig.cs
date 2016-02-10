@@ -21,6 +21,9 @@ namespace Aphro_WebForms
             bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
                       "~/Scripts/bootstrap-datetimepicker.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/map").Include(
+                      "~/Scripts/maps.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datetimepicker.css",

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Event Signup" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="EventSignup.aspx.cs" Inherits="Aphro_WebForms.Guest.EventSignup" %>
+﻿<%@ Page Title="Event Signup" Language="C#" MasterPageFile="~/StudentPortal.Master" AutoEventWireup="true" CodeBehind="EventSignup.aspx.cs" Inherits="Aphro_WebForms.Student.EventSignup" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="EventName" runat="server"></asp:Label>
@@ -31,12 +31,29 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"/>
     <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click" />
+
+    <div class="ui-widget">
+      <label for="group-request">Name or ID: </label>
+      <input id="group-request">
+    </div>
     
     <div id="container" style="max-width: 1000px"></div>
     <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
-    <%: Scripts.Render("~/bundles/highmaps"); 
-        Scripts.Render("~/bundles/map") %>
+    <%: Scripts.Render("~/bundles/highmaps") %>
+    <%: Scripts.Render("~/bundles/map") %>
+
+<script>
+    $(function() {
+        $("#group-request").autocomplete({
+            source: "../Shared/Search.ashx",
+            minLength: 2,
+            select: function( event, ui ) {
+                console.log(ui);
+            }
+        });
+    });
+</script>
 </asp:Content>

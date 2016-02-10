@@ -10,6 +10,9 @@ namespace Aphro_WebForms
                         "~/Scripts/moment.js",
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                        "~/Scripts/jquery-ui-{version}.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/highmaps").Include(
                        "~/Scripts/highmaps/highmaps.js",
                        "~/Scripts/highmaps/data.js",
@@ -37,6 +40,8 @@ namespace Aphro_WebForms
                       "~/Content/student.css"));
             bundles.Add(new StyleBundle("~/Content/faculty-css").Include(
                       "~/Content/faculty.css"));
+            bundles.Add(new StyleBundle("~/Content/jquery-ui").Include(
+                      "~/Content/themes/base/all.css"));
         }
     }
 }

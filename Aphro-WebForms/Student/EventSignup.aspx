@@ -44,16 +44,27 @@
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/highmaps") %>
     <%: Scripts.Render("~/bundles/map") %>
+    <%: Scripts.Render("~/bundles/jquery-ui") %>
 
 <script>
     $(function() {
         $("#group-request").autocomplete({
             source: "../Shared/Search.ashx",
             minLength: 2,
+            focus: function (event, ui) {
+                $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
+                return false;
+            },
             select: function( event, ui ) {
-                console.log(ui);
+                $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
+                return false;
             }
-        });
+        })
+        .autocomplete( "instance" )._renderItem = function( ul, item ) {
+            return $( "<li>" )
+              .append(item.firstname + " " + item.lastname + "<br>" + item.id)
+              .appendTo( ul );
+        };
     });
 </script>
 </asp:Content>

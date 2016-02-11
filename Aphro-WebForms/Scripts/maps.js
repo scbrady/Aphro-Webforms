@@ -30,7 +30,7 @@
                         if (!e.seriesOptions) {
                             var chart = this;
 
-                            $.getJSON('EmptySeats.ashx?eventId=' + eventId + '&sectionKey=' + e.point.section + '&subsection=' + e.point.subsection, function (data) {
+                            $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&sectionKey=' + e.point.section + '&subsection=' + e.point.subsection, function (data) {
                                 var sectionDataMap = [];
                                 var sectionDataArray = [];
                                 $.each(data.data, function (i) {

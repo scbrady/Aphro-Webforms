@@ -16,7 +16,7 @@ namespace Aphro_WebForms.Student
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Global.CurrentPerson == null)
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Index.aspx");
 
             if (!string.IsNullOrEmpty(Request.QueryString["Event"]))
             {

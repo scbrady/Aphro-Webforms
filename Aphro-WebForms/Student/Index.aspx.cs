@@ -50,10 +50,8 @@ namespace Aphro_WebForms.Student
 
             // Fill list dropdowns with data from the database
             if (upcomingEvents.Count > 0)
-            {
                 EventListview.DataSource = upcomingEvents;
-                EventListview.DataBind();
-            }
+            EventListview.DataBind();
         }
 
         private void LoginRandomStudent()

@@ -189,6 +189,15 @@
     <Content Include="Content\maps\sections\3.json" />
     <Content Include="Content\maps\sections\4.json" />
     <Content Include="StudentPortal.Master" />
+    <Content Include="Content\maps\1b.json" />
+    <Content Include="Content\maps\sections\10.json" />
+    <Content Include="Content\maps\sections\11.json" />
+    <Content Include="Content\maps\sections\12.json" />
+    <Content Include="Content\maps\sections\5.json" />
+    <Content Include="Content\maps\sections\6.json" />
+    <Content Include="Content\maps\sections\7.json" />
+    <Content Include="Content\maps\sections\8.json" />
+    <Content Include="Content\maps\sections\9.json" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Payment\Pay.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -219,6 +228,9 @@
       <DependentUpon>GuestPortal.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\SearchResponse.cs" />
+    <Compile Include="Shared\AddToGroup.ashx.cs">
+      <DependentUpon>AddToGroup.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\Search.ashx.cs">
       <DependentUpon>Search.ashx</DependentUpon>
     </Compile>
@@ -323,6 +335,7 @@
     <Content Include="GuestPortal.Master" />
     <Content Include="Student\Logout.ashx" />
     <Content Include="Shared\Search.ashx" />
+    <Content Include="Shared\AddToGroup.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

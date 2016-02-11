@@ -12,8 +12,8 @@
 
 * Event Signup
   * [ ] Styling
-  * [ ] Map / Picking seats
-  * [ ] DB insert seats
+  * [X] Map / Picking seats
+  * [X] DB insert seats
 
 ###Request / Response:
 * [ ] Only let group leader add people
@@ -43,6 +43,6 @@ Same as student
 
 ###Maps:
   * Add DHA map
-    * [ ] Create DHA SVG
+    * [X] Create DHA SVG
     * [ ] Create DHA GeoJSON
     * [ ] Add all DHA data to SEATS table in DB

@@ -1,1 +1,159 @@
-﻿
+﻿/**************************/
+/*     Student Portal     */
+/**************************/
+
+/* Eagle's Nest Logo */
+.EaglesNestLogo{
+	width: 100%;
+	min-width: 667px;
+	height: 90px;
+	background-image: url('logo.png');
+	background-repeat: no-repeat;
+	background-size: 100px 90px;
+	background-color: #035082;
+	border-bottom: 5px solid #ffca00;
+}
+
+.container-fluid{
+	width: 100%;
+	height: 682px;
+	background-color: #cccccc;
+}
+
+.container{
+	max-width: 900px;
+	height: 500px;
+	background-color: #eaeaea;
+	margin-top: 50px;
+	color:  #035082;
+	font-family: "Montserrat", sans-serif;
+}
+
+.Signup{
+	width: 300px;
+	height: 300px;
+}
+
+.Date select{
+  width: 100%;
+  height: 40px;
+  background-color: #acadaf;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 5px;
+  text-indent: 0.01px;
+  font-size: 18px;
+}
+
+.group input{
+    padding: 0 20px 0 25px;
+}
+
+.Status #box{
+  width: 100%;
+  height: 40px;
+  background-color: #F7F5F5;
+  border: 1px solid #ccc;
+  padding: .5em;
+  padding-right: 2.5em;
+  margin: 0;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 18px;
+}
+
+#personStatus{
+	margin: -22px auto;
+	font-size: 12px;
+	text-align: right;
+}
+
+.container input[type=submit] {
+    background: #acadaf;
+    border: 1px solid #ccc;
+}
+
+.container input[type=submit]:hover {
+    background: #ccc;
+    border: 1px solid #acadaf;
+}
+
+.sfMap{
+	width: 475px;
+	height: 313px;
+	border-radius: 5px;
+	background-image: url('Capture.JPG');
+	background-size: 475px 313px;
+	background-repeat: no-repeat;
+	background-position: center;
+    border: 1px solid #ccc;
+	margin-top: -382px;
+    margin-left: 350px;
+}
+
+/*   TEST    */
+.loader:before,
+.loader:after,
+.loader {
+  border-radius: 50%;
+  width: 3px;
+  height: 3px;
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+
+.loader {
+  margin: -38px 255px;
+  position: relative;
+  /* text-indent: -9999em; */
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.loader:before {
+  left: -7px;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 7px;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #15589c;
+  }
+  
+  40% {
+    box-shadow: 0 2.5em 0 0 #15589c;
+  }
+}
+
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #15589c;
+  }
+  
+  40% {
+    box-shadow: 0 2.5em 0 0 #15589c;
+  }
+}

@@ -1,10 +1,11 @@
-﻿/**************************/
-/*    Design of Webapp    */
-/**************************/
+﻿/**********************************/
+/*    Overall Design of Webapp    */
+/**********************************/
 
 /* The overall Body of the webapp */
 body {
-    font-size: 15px;
+    font-size: 13px;
+	font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     line-height: 1.5em;
     margin: 0;
     padding: 0;
@@ -14,310 +15,24 @@ body {
     background-size: cover;
 }
 
-/* The PCC logo */
-.PCCheader{
-	width: 100%;
-	height: 70px;
-	border-bottom: 5px solid #e4f2fb;
-	padding: 20px;
-	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
-	background-repeat: no-repeat;
-	background-size: 202px 61px;
-	background-color: #75bae3;
-}
-
-/**************************/
-/*     Login/Register     */
-/**************************/
-
-/* The login/register background */
-.login-block {
-    width: 320px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #32a3dc;
-    margin: 0px auto;
-}
-
-/* The header of login/register */
-.login-block h1 {
-    text-align: center;
-    color: #000;
-    font-size: 26px;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
-/* The labels for the email and password */
-.login-block label {
-	margin: 0px;
-}
-
-/* The basic look of a textbox */
-.login-block input {
-    width: 100%;
-    height: 42px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    font-size: 12px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    padding: 0 20px 0 50px;
-    outline: none;
-}
-
-/* What happens to a textbox when a textbox is clicked */
-.login-block input:active, .login-block input:focus {
-    border: 1px solid #ff656c;
-}
-
-/* The basic look of the submit button */
-.login-block input[type=submit] {
-    width: 100%;
-    height: 40px;
-    background: #32a3dc;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #32a3ff;
-    padding-left:20px;
-    color: #fff;
-    font-weight: bold;
-	text-transform: uppercase;
-    font-size: 14px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    outline: none;
-    cursor: pointer;
-}
-
-/* The design of when the textbox is hovered over by the mouse */
-.login-block input[type=submit]:hover {
-    background: #005daa;
-}
-
-/**************************/
-/*      Guest Portal      */
-/**************************/
-
-/* The guest portal window */
-#window{
-	position: relative;
-	width: 75%;
-	height: 500px;
-	border-radius: 10px;
-	padding: 10px;
-	background-color: #e4f2fb;
-	margin: auto;
-	margin-top: 70px;
-    margin-bottom: 20px;
-	font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-}
-
-/* The heading for the portal window */
-#window h1{
-	text-align: center;
-}
-
-section {
-  display: block;
-}
-
-a {
-    text-decoration: none;
-    font-weight: normal;
-}
-
-a:link{
-	color: black;
-}
-
-a:visited{
-	color: black;
-}
-
-a:hover{
-	background-color: #75bae3;
-    color: #fff;
-    padding-bottom: 8px;
-}
-
-#options {
-  position: relative;
-  z-index: 100;
-  margin-bottom: 40px;
-}
-
-#options input[type=range]{
-	visibility: hidden;
-}
-
-.range-display{
-	visibility: hidden;
-}
-
-button{
-	border: 0px outset buttonface;
-	box-sizing: content-box;
-}
-
-.previous{
-	float: left;
-	margin-top: 70px;
-  	width: 0px;
-	height: 0px;
-	padding-right: 0.5em;
-	padding-left: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	display: block;
-	font-size: 30px;
-	color: #b3d6f2;
-}
-
-#next{
-	float: right;
-	margin-top: 70px;
-   	width: 0px;
-	height: 0px;
-	padding-right: 0.5em;
-	padding-left: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	display: block;
-	font-size: 30px;
-	color: #b3d6f2;
-}
-
-.previous:hover,
-#next:hover {
-		color: #60b6ff;
-}
-
-figure {
-  margin: 0;
-}
-
-.selector {
-                width: 300px;
-               height: 230px;
-             position: relative;
-               margin: 0 auto;
-               border: 0px solid #CCC;
-  -webkit-perspective: 1100px;
-	 -moz-perspective: 1100px;
-	   -o-perspective: 1100px;
-		  perspective: 1100px;
-}
-
-#carousel {
-                    width: 100%;
-                   height: 100%;
-                 position: absolute;
-  -webkit-transform-style: preserve-3d; 
-	 -moz-transform-style: preserve-3d;
-	   -o-transform-style: preserve-3d;
-		  transform-style: preserve-3d;
-}
-
- .selector #carousel {
-  -webkit-transition: -webkit-transform 1s;
-	 -moz-transition: -moz-transform 1s;
-	   -o-transition: -o-transform 1s;
-		  transition: transform 1s;
-}
-
-#carousel figure {
-  display: block;
-  position: absolute;
-  width: 286px;
-  height: 216px;
-  left: 10px;
-  top: 10px;
-  border: 2px solid black;
-  line-height: 350px;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  background-position: top;
-  background-size: 300px, 225px;
-  background-repeat: no-repeat;
-  -webkit-backface-visibility: hidden;
-	 -moz-backface-visibility: hidden;
-	   -o-backface-visibility: hidden;
-		  backface-visibility: hidden;
-		              opacity: 1;
-}
-
-#carousel figure:hover{
-	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
-	color: white;
-}
-
-#one{
-	transform: rotateY(0deg)
-	           translateZ(215px);
-	background-color: #ffe417;
-	background-image: url('autumn leaves new_0.jpg');
-}
-
-#two{
-	transform: rotateY(72deg)
-	           translateZ(215px);
-	background-image: url('ntheatre.jpg');
-	background-color: #FF0000;
-}
-
-#three{
-	transform: rotateY(144deg) translateZ(215px);
-	background-image: url('Kings-singers-look-20292Web.jpg');
-	background-color: #dde0e5;
-}
-
-#four{
-	transform: rotateY(216deg) translateZ(215px);
-	background-image: url('images.jpg');
-	background-color: #da8185;
-}
-
-#five{
-	transform: rotateY(288deg) translateZ(215px);
-	background-image: url('commencement.JPG');
-	background-color: #528a9b;
-}
-
-/**************************/
-/*      Create Event      */
-/**************************/
-
-/* The thing that houses the sidebar and the map */
-.wrapper{
-    position: relative;
-	width: 100%;
-	height: 625px;
-}
-
+/* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
 .shadow{
 	position: absolute;
 	margin: 0px auto;
 	left: 11.5%;
 	top: 25px;
 	width: 77%;
-	height: 817px;
 	background: #dfedf6;
 	opacity: 0.3;
 }
 
-/* The sidebar for the Create Event page */
-.create{
-    position: relative;
-    top: 25px;
+/* The main pane of each part of the webapp (except student and faculty portals) */
+.mainPane{
+	position: relative;
+	top: 25px;
     background: #e4f2fb;
     margin: 0 auto;
     width: 72.25%;
-    height: 800px;
     font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
 	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
     background-size: 310px 94px;
@@ -332,127 +47,98 @@ figure {
 	font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
 }
 
-.header {
-    width: 100%;
-    height: 41px;
-    background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
-    position: absolute;
+/* The PCC header bar */
+.header{
+	width: 100%;
+	height: 41px;
+	background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
+	position: absolute;
 }
 
-/* (The event type stuff is handled in the 'dropdown' area) */
-
-/* The overall style of the input boxes */
-.name input,
-.Event-Dates input,
-.Seat-Price input {
-    float: right;
+input{
     width: 100%;
-    height: 32px;
+    height: 42px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-family: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    padding: 10px;
+    font-size: 12px;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    padding: 0 20px 0 50px;
     outline: none;
 }
 
-/* What the text looks like inside the input box */
-.name input#text,
-.Event-Dates input#text,
-.Seat-Price input #text {
-    width: 100%;
-    text-indent: -85px;
-	height: 30px;
-}
-
-/* Gives the little red border around textbox when clicked on */
-.name input:active,
-.name input:focus,
-.description textarea:active,
-.description textarea:focus,
-.Event-Dates input:active,
-.Event-Dates input:focus,
-.Seat-Price input:active,
-.Seat-Price input:focus{
-    border: 1px solid #ff656c;
-}
-
-/* The description textbox style */
-.description textarea {
-    float: right;
-    width: 100%;
-    height: 60px;
-    max-height: 60px;
-    max-width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-	text-indent: -124px;
-    padding: 10px;
-	text-align: justify;
-    outline: none;
-}
-
-/* The overall look of both the Event Type and the Location dropdowns */
-.dropdown select {
-  width: 100%;
-  height: 30px;
-  background-color: #60b6ff;
-  border-color: #2e6da4;
-	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-  color: #fff;
-  padding: .5em;
-  padding-right: 2.5em;	
-  border: 0;
-  margin: 0;
-  border-radius: 3px;
-  text-indent: 0.01px;
-  text-overflow:inherit;
-}
-
-/* The design of the submit button */
-.create input[type=submit] {
+input[type=submit]{
     width: 100%;
     height: 40px;
-    background: #60b6ff;
+    background: #32a3dc;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #32a3ff;
-    padding-left:20px;
     color: #fff;
     font-weight: bold;
-	text-align: center;
+	text-transform: uppercase;
     font-size: 14px;
     font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     outline: none;
     cursor: pointer;
 }
 
-/* What happens when the submit button is hovered over */
-.create input[type=submit]:hover {
-    background: #86c8ea;
+/* What happens to a textbox when a textbox is clicked */
+input:active ,
+input:focus {
+	border: 1px solid #ff656c;
 }
 
-/* Positioning Icon */
-.inner-addon { 
-    position: relative; 
+/* What the text looks like inside the input box */
+input#text{
+    width: 100%;
+	height: 40px;
 }
 
-/* Icon */
-.inner-addon .glyphicon {
-  position: absolute;
-  padding: 15px;
-  pointer-events: none;
-  font-size:120%;
+input#text:focus{
+    width: 100%;
+	height: 40px;
 }
 
-/* The icon on the left */
-.left-addon .glyphicon  {
-    left:  0px;
+a {
+    text-decoration: none;
+    font-weight: normal;
 }
 
-/* The icon on the right */
-.right-addon .glyphicon {
-    right: 0px;
+link{
+	color: black;
+}
+
+visited{
+	color: black;
+}
+
+hover{
+	background-color: #75bae3;
+    color: #fff;
+    padding-bottom: 8px;
+}
+
+section{
+	display: block;
+}
+
+button{
+	border: 0px outset buttonface;
+	box-sizing: content-box;
+	font-family: courier new;
+	margin-top: 70px;
+  	width: 0px;
+	height: 0px;
+	background-color: black;
+	padding-right: 0.5em;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: block;
+	font-size: 40px;
+	color: #b3d6f2;
+	text-decoration: none;
+	text-transform: uppercase;
+    border-radius: 10px;
 }

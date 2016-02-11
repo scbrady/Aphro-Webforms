@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Aphro_WebForms.Guest.Login" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="logo"></div>
-    <div class="container"></div>
-    <div class="login-block">
+    <div class="header" />
+    <div class="wrapper">
+    <div class="shadow"></div>
+    <div class="mainPane">
         <h1>login</h1>
         <asp:Label ID="labelMessage" runat="server"></asp:Label>
         <br />
@@ -26,4 +27,5 @@
         <asp:HyperLink ID="CreateAccount" href="Register.aspx" runat="server">Create account</asp:HyperLink>
         </div>
     </div>
+</div>
 </asp:Content>

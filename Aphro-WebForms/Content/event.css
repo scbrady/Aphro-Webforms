@@ -1,1 +1,92 @@
-﻿
+﻿/**************************/
+/*      Create Event      */
+/**************************/
+
+.wrapper{
+	position: relative;
+	width: 100%;
+	height: 625px;
+}
+
+.shadow{
+	height: 817px;
+}
+
+.mainPane{
+	height: 800px;
+}
+
+.mainPane h1{
+    text-align: center;
+    font-size: 26px;
+    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin-top: 10%;
+    margin-bottom: 5px;
+}
+
+.mainPane h3 {
+	margin: 10px 100px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* The style of the input boxes */
+.name input,
+.Event-Dates input ,
+.Seat-Price input {
+	margin: auto 100px;
+	width: 75%;
+    padding: 10px;
+    font-family: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+}
+
+/* The style of the description textbox */
+.description textarea {
+	margin: 0 100px;
+	width: 75%;
+	max-width: 975px;
+    height: 80px;
+	max-height: 80px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+	font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    padding: 0 -20px 0 -50px;
+	text-align: justify;
+    outline: none;
+}
+
+/* The style of the dropdown boxes */
+.dropdown select {
+	margin: auto 100px;
+	width: 75%;
+  height: 40px;
+  background-color: #60b6ff;
+  border-color: #2e6da4;
+  color: #fff;
+  padding: 10px;
+  border: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+}
+
+/* The style of the submit button */
+.mainPane input[type=submit] {
+	margin: 20px 100px;
+	width: 75%;
+    border: 1px solid black;
+	box-shadow: 0px 5px #005eb1;
+	text-transform: lowercase;
+}
+
+/* The design of when the textbox is hovered over by the mouse */
+.mainPane input[type=submit]:hover {
+    background: #005daa;
+}
+
+/* When the button is clicked */
+.mainPane input[type=submit]:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px #005eb1;
+}

@@ -58,13 +58,22 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.Label EventPrimePrice;
         
         /// <summary>
-        /// EventDateListview control.
+        /// TypeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView EventDateListview;
+        protected global::System.Web.UI.WebControls.Label TypeLabel;
+        
+        /// <summary>
+        /// EventDateDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
         
         /// <summary>
         /// SelectedSection control.

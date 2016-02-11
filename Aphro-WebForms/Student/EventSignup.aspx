@@ -11,7 +11,13 @@
     <br />
     <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>
     
-    <asp:ListView ID="EventDateListview" runat="server">
+    <div class="dropdown">
+        <asp:Label ID="TypeLabel" runat="server" Text="Event Dates:"></asp:Label>
+        <asp:DropDownList ID="EventDateDropDown" runat="server">
+        </asp:DropDownList>
+    </div>
+
+    <%--<asp:ListView ID="EventDateListview" runat="server">
         <LayoutTemplate>         
             <div id="EventDateContainer" runat="server">              
                 <div ID="itemPlaceholder" runat="server">              
@@ -22,9 +28,9 @@
             <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
             <br/>
         </ItemTemplate>
-    </asp:ListView>
+    </asp:ListView>--%>
 
-    <input type="hidden" value="<%= EventId %>" id="eventid" />
+    <input type="hidden" value="<%= SeriesId %>" id="eventid" />
     <input type="hidden" value="<%= BuildingKey %>" id="buildingkey" />
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />

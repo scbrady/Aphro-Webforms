@@ -10,8 +10,14 @@
     <asp:Label ID="EventPrice" runat="server"></asp:Label>
     <br />
     <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>
+
+    <div class="dropdown">
+        <asp:Label ID="TypeLabel" runat="server" Text="Event Dates:"></asp:Label>
+        <asp:DropDownList ID="EventDateDropDown" runat="server">
+        </asp:DropDownList>
+    </div>
     
-    <asp:ListView ID="EventDateListview" runat="server">
+    <%--<asp:ListView ID="EventDateListview" runat="server">
         <LayoutTemplate>         
             <div id="EventDateContainer" runat="server">              
                 <div ID="itemPlaceholder" runat="server">              
@@ -22,9 +28,9 @@
             <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
             <br/>
         </ItemTemplate>
-    </asp:ListView>
+    </asp:ListView>--%>
 
-    <input type="hidden" value="<%= EventId %>" id="eventid" />
+    <input type="hidden" value="<%= SeriesId %>" id="eventid" />
     <input type="hidden" value="<%= BuildingKey %>" id="buildingkey" />
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />
@@ -37,6 +43,6 @@
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
-    <%: Scripts.Render("~/bundles/highmaps"); 
-        Scripts.Render("~/bundles/map") %>
+    <%: Scripts.Render("~/bundles/highmaps") %> 
+    <%: Scripts.Render("~/bundles/map") %>
 </asp:Content>

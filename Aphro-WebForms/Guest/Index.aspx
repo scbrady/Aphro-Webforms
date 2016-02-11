@@ -19,7 +19,7 @@
         </EmptyDataTemplate>
 
         <ItemTemplate>
-            <asp:HyperLink runat="server" ID="EventLink" NavigateUrl='<%# "EventSignup.aspx?Event="+ Eval("event_id") %>' Text='<%# Eval("name") %>'></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="EventLink" NavigateUrl='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' Text='<%# Eval("name") %>'></asp:HyperLink>
             <br/>
         </ItemTemplate>
     </asp:ListView>

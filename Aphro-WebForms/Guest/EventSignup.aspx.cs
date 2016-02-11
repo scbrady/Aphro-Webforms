@@ -9,7 +9,7 @@ namespace Aphro_WebForms.Guest
 {
     public partial class EventSignup : System.Web.UI.Page
     {
-        protected long EventId;
+        protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
 
@@ -18,9 +18,9 @@ namespace Aphro_WebForms.Guest
             if (Global.CurrentPerson == null)
                 Response.Redirect("Login.aspx");
 
-            if (!string.IsNullOrEmpty(Request.QueryString["Event"]))
+            if (!string.IsNullOrEmpty(Request.QueryString["Series"]))
             {
-                EventId = long.Parse(Request.QueryString["Event"]);
+                SeriesId = long.Parse(Request.QueryString["Series"]);
 
                 DataTable eventTable = new DataTable();
                 List<Models.Event> eventModel = new List<Models.Event>();
@@ -32,7 +32,7 @@ namespace Aphro_WebForms.Guest
                     eventCommand.BindByName = true;
                     eventCommand.CommandType = CommandType.StoredProcedure;
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    eventCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
+                    eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     try
                     {
@@ -64,8 +64,10 @@ namespace Aphro_WebForms.Guest
                     EventPrice.Text = "$" + currentEvent.regular_price;
                     EventPrimePrice.Text = "$" + currentEvent.prime_price;
 
-                    EventDateListview.DataSource = eventModel;
-                    EventDateListview.DataBind();
+                    EventDateDropDown.DataTextField = "event_datetime";
+                    EventDateDropDown.DataValueField = "event_id";
+                    EventDateDropDown.DataSource = eventModel;
+                    EventDateDropDown.DataBind();
                 }
             }
         }
@@ -78,7 +80,7 @@ namespace Aphro_WebForms.Guest
                 var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
                 seatCommand.BindByName = true;
                 seatCommand.CommandType = CommandType.StoredProcedure;
-                seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
+                seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
                 seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
                 seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
                 seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
@@ -92,6 +94,7 @@ namespace Aphro_WebForms.Guest
                 }
                 catch (Exception ex)
                 {
+                    // Couldn't get those seats (probably taken), pick again
                     throw (ex);
                 }
 
@@ -110,7 +113,7 @@ namespace Aphro_WebForms.Guest
                 groupsCommand.BindByName = true;
                 groupsCommand.CommandType = CommandType.StoredProcedure;
                 groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_EventId", OracleDbType.Int64, EventId, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 groupsCommand.Parameters.Add("p_ExtraSeats", OracleDbType.Int32, int.Parse(TicketQuantity.Text), ParameterDirection.Input);
 
                 try

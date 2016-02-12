@@ -218,12 +218,6 @@ a #twenty{
     margin-bottom: 5px;
 }
 
-.mainPane h3 {
-	margin: 10px 100px;
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
 /* The basic look of a textbox */
 .mainPane input {
 	margin: auto 100px;
@@ -241,4 +235,43 @@ a #twenty{
 
 .inner-addon left-addon {
 
+}
+
+/********************/
+/*   Event Signup   */
+/********************/
+
+#eventSignup h1 {
+    font-size: 18pt;
+    margin: 0 auto 5pt auto;
+    text-align: left;
+}
+
+#MainContent_EventDescription {
+   margin-top: -5pt;
+}
+
+span {
+    font-size: 12pt;
+    margin: 0 auto;
+}
+
+#MainContent_EventName {
+    font-size: 26pt;
+    text-transform: uppercase;
+}
+
+#ticketNumber {
+   margin: 0px;
+   text-align: left;
+}
+
+#guestSignup input{
+   margin: auto auto 10px auto;
+   width: 100%;
+}
+
+#guestSignup select {
+    margin: auto;
+    width: 100%;
 }

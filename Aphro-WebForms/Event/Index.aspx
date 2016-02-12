@@ -4,69 +4,51 @@
 
 <div class="header" />
 <div class="wrapper">
-    <div class="shadow">
-	        </div>
-	<div class='create'>
+    <div class="shadow"></div>
+	<div class='mainPane'>
         	
-        
-			<br />
-			<br />
-			<br />
         <%--Event Type--%>
+        <h1>Create Event</h1>
         <div class="dropdown">
-            <asp:Label ID="TypeLabel" runat="server" Text="Event Type:"></asp:Label>
+            <h3>Event Type:</h3>
             <asp:DropDownList ID="EventType" runat="server">
             </asp:DropDownList>
         </div>
-        <br />
 
         <%--Event Name--%>
 		<div class='name'>
-            <asp:Label ID="NameLabel" runat="server" Text="Event Name:"></asp:Label>
+			<h3>Event Name:</h3>
             <asp:TextBox ID="EventName" runat="server"></asp:TextBox>
 		</div>
 
-        <br />
-
         <%--Description--%>
 		<div class='description'>
-            <asp:Label ID="DescriptionLabel" runat="server" Text="Description:"></asp:Label>
+			<h3>Description:</h3>
             <asp:TextBox ID="Description" TextMode="multiline" runat="server"></asp:TextBox>
         </div>
 
-        <br />
-		<br />
-
         <%--Location--%>
 		<div class='dropdown'>
-            <asp:Label ID="LocationLabel" runat="server" Text="Location:"></asp:Label>
+				<h3>Location: </h3>
             <asp:DropDownList ID="LocationDropDown" runat="server">
             </asp:DropDownList>  
 		</div>
 
-        <br />
-
         <%-- Event Date(s)--%>
 		<div class='Event-Dates' style="position: relative">
-            <asp:Label ID="EventDateLabel" runat="server" Text="Event Date:"></asp:Label>
+				<h3>Event Date(s):</h3>
             <asp:TextBox ID="EventDate" runat="server" cssclass="datepicker-field"></asp:TextBox>
         </div>
-		<br />
-        <br />
 
         <%-- Seating Prices (both regular and prime) --%>
 		<div class='Seat-Price'>
-            <asp:Label ID="RegularPriceLabel" runat="server" Text="Regular Seating Price:"></asp:Label>
+			<h3>Regular Seating Price:</h3>
             <asp:TextBox ID="RegularPrice" runat="server"></asp:TextBox>
+			<h3>Prime Seating Price:</h3>
 
-            <br />
-            <br />
-            <asp:Label ID="PrimePriceLabel" runat="server" Text="Prime Seating Price:"></asp:Label>
             <asp:TextBox ID="PrimePrice" runat="server"></asp:TextBox>
         </div>
 
-        <br />
-		<br />
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"/>
     </div>
 </div>

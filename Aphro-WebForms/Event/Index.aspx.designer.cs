@@ -13,15 +13,6 @@ namespace Aphro_WebForms.Event {
     public partial class Index {
         
         /// <summary>
-        /// TypeLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeLabel;
-        
-        /// <summary>
         /// EventType control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList EventType;
-        
-        /// <summary>
-        /// NameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameLabel;
         
         /// <summary>
         /// EventName control.
@@ -49,15 +31,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox EventName;
         
         /// <summary>
-        /// DescriptionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DescriptionLabel;
-        
-        /// <summary>
         /// Description control.
         /// </summary>
         /// <remarks>
@@ -65,15 +38,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
-        
-        /// <summary>
-        /// LocationLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LocationLabel;
         
         /// <summary>
         /// LocationDropDown control.
@@ -85,15 +49,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.DropDownList LocationDropDown;
         
         /// <summary>
-        /// EventDateLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventDateLabel;
-        
-        /// <summary>
         /// EventDate control.
         /// </summary>
         /// <remarks>
@@ -103,15 +58,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox EventDate;
         
         /// <summary>
-        /// RegularPriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RegularPriceLabel;
-        
-        /// <summary>
         /// RegularPrice control.
         /// </summary>
         /// <remarks>
@@ -119,15 +65,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox RegularPrice;
-        
-        /// <summary>
-        /// PrimePriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PrimePriceLabel;
         
         /// <summary>
         /// PrimePrice control.

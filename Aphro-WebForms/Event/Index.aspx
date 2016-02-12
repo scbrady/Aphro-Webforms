@@ -35,10 +35,13 @@
 		</div>
 
         <%-- Event Date(s)--%>
-		<div class='Event-Dates' style="position: relative">
+		<div id="EventDates" class='Event-Dates' style="position: relative">
 				<h3>Event Date(s):</h3>
             <asp:TextBox ID="EventDate" runat="server" cssclass="datepicker-field"></asp:TextBox>
         </div>
+
+        <asp:Button ID="Button1" runat="server" OnClientClick="javascript:AddDate(); return false;" Text="Add Date" />
+        <asp:HiddenField ID="HiddenField1" runat="server"/>
 
         <%-- Seating Prices (both regular and prime) --%>
 		<div class='Seat-Price'>
@@ -49,12 +52,56 @@
             <asp:TextBox ID="PrimePrice" runat="server"></asp:TextBox>
         </div>
 
-        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"/>
+        <asp:Button ID="Button2" runat="server" Text="Submit" OnClientClick="javascript:AppendDates();" OnClick="Submit_Click"/>
+        <div style="display: none;">
+            <asp:Button ID="Button3" runat="server" Text="Submit" OnClick="Submit_Click"/>
+        </div>
     </div>
 </div>
     <script>
-        $('.datepicker-field').datetimepicker({
-            format: 'DD-MMM-YY hh:mm A'
-        })
+        $(function () {
+            $('.datepicker-field').datetimepicker({
+                format: 'DD-MMM-YY hh:mm A'
+            });
+        });
+
+        dateCount = 0;
+
+        function AddDate() {
+            //Create an input type dynamically.
+            var element = document.createElement("input");
+
+            //Assign different attributes to the element.
+            element.setAttribute("type", "text");
+            element.setAttribute("runat", "server");
+            element.setAttribute("class", "datepicker-field");
+            element.setAttribute("id", "date" + dateCount);
+
+            // div id, where new fields are to be added
+            var ExtraDates = document.getElementById("EventDates");
+
+            //Append the element in page.
+            ExtraDates.appendChild(element);
+
+            $('.datepicker-field').datetimepicker({
+                format: 'DD-MMM-YY hh:mm A'
+            })
+
+            dateCount += 1;
+        }
+
+        function AppendDates() {
+            var test = $("#MainContent_EventDate").val();
+
+
+            for (var x = 0; x < dateCount; x++) {
+                test = test + "," + $("#date" + x).val();
+            }
+
+            $("#MainContent_HiddenField1").val(test);
+
+            var button = document.getElementById("MainContent_Button3");
+            button.click();
+        }
     </script>
 </asp:Content>

@@ -12,6 +12,8 @@ namespace Aphro_WebForms.Student
         protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
+        protected int MemberCount;
+        protected int PurchasedTicketsCount;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +39,7 @@ namespace Aphro_WebForms.Student
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupRequestsForEvent", objConn);
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
                     requestsCommand.BindByName = true;
                     requestsCommand.CommandType = CommandType.StoredProcedure;
                     requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
@@ -86,6 +88,8 @@ namespace Aphro_WebForms.Student
 
                 if (requestsModel.Count > 0)
                 {
+                    MemberCount = requestsModel.FirstOrDefault().members;
+                    PurchasedTicketsCount = MemberCount - requestsModel.Count - 1;
                     GroupRequestsList.DataSource = requestsModel;
                     GroupRequestsList.DataBind();
                 }

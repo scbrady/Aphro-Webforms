@@ -46,9 +46,11 @@
     </div>
     <button onclick="addToGroup(event);">Add To Group</button>
     
+    <h5>Purchased Tickets Count: <%= PurchasedTicketsCount %></h5>
+    <h5>Total Requests (Max 10): <%= MemberCount %></h5>
     <asp:ListView ID="GroupRequestsList" runat="server">
-        <LayoutTemplate>         
-            <div id="GroupRequestsContainer" runat="server">              
+        <LayoutTemplate>
+            <div id="GroupRequestsContainer" runat="server">
                 <div ID="itemPlaceholder" runat="server">              
                 </div>         
             </div>      

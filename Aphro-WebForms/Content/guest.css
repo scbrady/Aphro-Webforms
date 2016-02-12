@@ -53,53 +53,63 @@ a {
   transform: translateZ(288px);
 }
 
-a #one{
+/*Event 1*/
+a #MainContent_EventListview_EventLink_0{
 	transform: rotateY(0deg);
 }
 
-a #two{
+/*Event 2*/
+a #MainContent_EventListview_EventLink_1{
 	transform: rotateY(40deg);
 }
 
-a #three{
+/*Event 3*/
+a #MainContent_EventListview_EventLink_2{
 	transform: rotateY(80deg);
 }
 
-a #four{
+/*Event 4*/
+a #MainContent_EventListview_EventLink_3{
 	transform: rotateY(120deg);
 }
 
-a #five{
+/*Event 5*/
+a #MainContent_EventListview_EventLink_4{
 	transform: rotateY(160deg);
 }
 
-a #six{
+/*Event 6*/
+a #MainContent_EventListview_EventLink_5{
 	transform: rotateY(200deg);
 }
 
-a #seven{
+/*Event 7*/
+a #MainContent_EventListview_EventLink_6{
 	transform: rotateY(240deg);
 }
 
-a #eight{
+/*Event 8*/
+a #MainContent_EventListview_EventLink_7{
 	transform: rotateY(280deg);
 }
 
-a #nine{
+/*Event 9*/
+a #MainContent_EventListview_EventLink_8{
 	transform: rotateY(320deg);
 }
 
-a #ten,
-a #eleven,
-a #twelve,
-a #thirteen,
-a #fourteen,
-a #fifteen,
-a #sixteen,
-a #seventeen,
-a #eighteen,
-a #nineteen,
-a #twenty{
+/*Event 10-20*/
+a #MainContent_EventListview_EventLink_9,
+a #MainContent_EventListview_EventLink_10,
+a #MainContent_EventListview_EventLink_11,
+a #MainContent_EventListview_EventLink_12,
+a #MainContent_EventListview_EventLink_13,
+a #MainContent_EventListview_EventLink_14,
+a #MainContent_EventListview_EventLink_15,
+a #MainContent_EventListview_EventLink_16,
+a #MainContent_EventListview_EventLink_17,
+a #MainContent_EventListview_EventLink_18,
+a #MainContent_EventListview_EventLink_19{
 	  opacity: 0;
 	transform: none;
 }
@@ -162,33 +172,33 @@ a #twenty{
 	color: white;
 }
 
-#one{
+#MainContent_EventListview_EventLink_0{
 	transform: rotateY(0deg)
 	           translateZ(215px);
 	background-color: #ffe417;
 	background-image: url('autumn leaves new_0.jpg');
 }
 
-#two{
+#MainContent_EventListview_EventLink_1{
 	transform: rotateY(72deg)
 	           translateZ(215px);
 	background-image: url('ntheatre.jpg');
 	background-color: #FF0000;
 }
 
-#three{
+#MainContent_EventListview_EventLink_2{
 	transform: rotateY(144deg) translateZ(215px);
 	background-image: url('Kings-singers-look-20292Web.jpg');
 	background-color: #dde0e5;
 }
 
-#four{
+#MainContent_EventListview_EventLink_3{
 	transform: rotateY(216deg) translateZ(215px);
 	background-image: url('images.jpg');
 	background-color: #da8185;
 }
 
-#five{
+#MainContent_EventListview_EventLink_4{
 	transform: rotateY(288deg) translateZ(215px);
 	background-image: url('commencement.JPG');
 	background-color: #528a9b;

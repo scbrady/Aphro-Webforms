@@ -6,6 +6,8 @@ namespace Aphro_WebForms
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/guestPage").Include(
+                "~/Scripts/util.js"));
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/moment.js",
                         "~/Scripts/jquery-{version}.js"));

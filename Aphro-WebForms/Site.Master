@@ -5,6 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <%: Scripts.Render("~/bundles/guestPage") %>
     <%: Scripts.Render("~/bundles/jquery") %>
     <%: Scripts.Render("~/bundles/bootstrap") %>
     <%: Scripts.Render("~/bundles/datepicker") %>

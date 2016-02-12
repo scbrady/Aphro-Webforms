@@ -1,6 +1,6 @@
 ﻿$(function () {
     var selectedRow;
-    var eventId = $('#eventid').val();
+    var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#buildingkey').val();
     $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey, function (data) {
         var buildingDataMap = [];

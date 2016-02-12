@@ -16,15 +16,15 @@ namespace Aphro_WebForms.Shared
         {
             int personId = 0;
             int personType = 0;
-            int eventId = 0;
+            int seriesId = 0;
 
             if (!string.IsNullOrEmpty(context.Request["personId"]) &&
                 !string.IsNullOrEmpty(context.Request["personType"]) &&
-                !string.IsNullOrEmpty(context.Request["eventId"]))
+                !string.IsNullOrEmpty(context.Request["seriesId"]))
             {
                 personId = int.Parse(context.Request["personId"]);
                 personType = int.Parse(context.Request["personType"]);
-                eventId = int.Parse(context.Request["eventId"]);
+                seriesId = int.Parse(context.Request["seriesId"]);
             }
             else
             {
@@ -35,7 +35,7 @@ namespace Aphro_WebForms.Shared
 
             try
             {
-                addPersonToGroup(personId, personType, eventId);
+                addPersonToGroup(personId, personType, seriesId);
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace Aphro_WebForms.Shared
             context.Response.End();
         }
 
-        private void addPersonToGroup(int personId, int personType, int eventId)
+        private void addPersonToGroup(int personId, int personType, int seriesId)
         {
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -57,7 +57,7 @@ namespace Aphro_WebForms.Shared
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 command.Parameters.Add("p_RequestedId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_RequestedType", OracleDbType.Int16, personType, ParameterDirection.Input);
-                command.Parameters.Add("p_EventId", OracleDbType.Int64, eventId, ParameterDirection.Input);
+                command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
 
                 try
                 {

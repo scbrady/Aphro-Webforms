@@ -30,7 +30,7 @@
         </ItemTemplate>
     </asp:ListView>--%>
 
-    <input type="hidden" value="<%= SeriesId %>" id="eventid" />
+    <input type="hidden" value="<%= SeriesId %>" id="seriesid" />
     <input type="hidden" value="<%= BuildingKey %>" id="buildingkey" />
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />
@@ -84,7 +84,7 @@
     {
         e.preventDefault();
  
-        $.post("../Shared/AddToGroup.ashx", { personId: $('#group-request-id').val(), personType: $('#group-request-type').val(), eventId: $('#eventid').val() })
+        $.post("../Shared/AddToGroup.ashx", { personId: $('#group-request-id').val(), personType: $('#group-request-type').val(), seriesId: $('#seriesid').val() })
             .done(function (data) {
                 alert("added Person");
             })

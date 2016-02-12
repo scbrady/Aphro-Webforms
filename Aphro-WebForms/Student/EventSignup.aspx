@@ -46,6 +46,18 @@
     </div>
     <button onclick="addToGroup(event);">Add To Group</button>
     
+    <asp:ListView ID="GroupRequestsList" runat="server">
+        <LayoutTemplate>         
+            <div id="GroupRequestsContainer" runat="server">              
+                <div ID="itemPlaceholder" runat="server">              
+                </div>         
+            </div>      
+        </LayoutTemplate>
+        <ItemTemplate>
+            <p><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
+        </ItemTemplate>
+    </asp:ListView>
+
     <div id="container" style="max-width: 1000px"></div>
     <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
 </asp:Content>
@@ -63,13 +75,13 @@
             focus: function (event, ui) {
                 $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
                 $("#group-request-id").val(ui.item.id);
-                $("#group-request-type").val(ui.item.student);
+                $("#group-request-type").val(ui.item.person_type);
                 return false;
             },
             select: function( event, ui ) {
                 $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
                 $("#group-request-id").val(ui.item.id);
-                $("#group-request-type").val(ui.item.student);
+                $("#group-request-type").val(ui.item.person_type);
                 return false;
             }
         })

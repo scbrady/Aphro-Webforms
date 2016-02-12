@@ -227,6 +227,7 @@
     <Compile Include="GuestPortal.Master.designer.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
     <Compile Include="Shared\AddToGroup.ashx.cs">
       <DependentUpon>AddToGroup.ashx</DependentUpon>

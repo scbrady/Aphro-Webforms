@@ -1,52 +1,42 @@
 ﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Guest.Index" %>
+<%@ Import Namespace="System.Web.Optimization" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-<div class="header"></div>
-<asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>
-<div class="wrapper">
-<div class="shadow">
-</div>
-	<div class="mainPane">
-		<h1 id="label">Select an Event to Purchase Tickets</h1>
+    <div class="header"></div>
+    <asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>
+    <div class="wrapper">
+        <div class="shadow"></div>
+	    <div class="mainPane">
+		    <h1 id="label">Select an Event to Purchase Tickets</h1>
 			
-		<div id="navigation">
-			<button class="previous"data-increment="-1"><</button>
-			<button class="next" data-increment="1">></button>
-			<section class="selector">
-
-				<div id="carousel" class=" panels-backface-invisible">
+		    <div id="navigation">
+			    <button class="previous"data-increment="-1"a>&lt</button>
+			    <button class="next" data-increment="1">&gt</button>
+			    <section class="selector">
                     <asp:ListView ID="EventListview" runat="server">
                         <LayoutTemplate>         
-                            <div id="EventContainer" runat="server">              
+                            <div id="carousel" class=" panels-backface-invisible">
                                 <div id="itemPlaceholder" runat="server">              
                                 </div>         
                             </div>      
                         </LayoutTemplate>
 
-                        <EmptyDataTemplate>         
-                            <div id="EventContainer" runat="server">              
-                                <div id="itemPlaceholder" runat="server">                 
-                                    No Upcoming Events.             
-                                </div>
+                        <EmptyDataTemplate>                      
+                            <div id="itemPlaceholder" runat="server">                 
+                                No Upcoming Events.             
                             </div>      
                         </EmptyDataTemplate>
 
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ID="EventLink" NavigateUrl='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' Text='<%# Eval("name") %>'></asp:HyperLink>
-                            <br/>
                         </ItemTemplate>
                     </asp:ListView>
-				</div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+</asp:Content>
 
-<section id="options">
-    <p>
-	    <label for="panel-count"></label>
-	    <input type="range" id="panel-count" value="5" min="1" max="10"/>
-	    <span class=" range-display"></span>
-    </p>
-</section>
+<asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <%: Scripts.Render("~/bundles/carousel") %> 
 </asp:Content>

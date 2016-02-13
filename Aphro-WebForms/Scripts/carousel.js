@@ -164,8 +164,11 @@ Carousel3D.prototype.modify = function() {
   this.theta = 360 / this.panelCount;
 
   // do some trig to figure out how big the carousel
-  // is in 3D space
-  this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
+    // is in 3D space
+  if (this.panelCount == 1)
+      this.radius = 0;
+  else
+    this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
 
   for ( i = 0; i < this.panelCount; i++ ) {
 	panel = this.element.children[i];
@@ -178,9 +181,9 @@ Carousel3D.prototype.modify = function() {
 
   // hide other panels
   for (  ; i < this.totalPanelCount; i++ ) {
-	panel = this.element.children[i];
-	panel.style.opacity = 0;
-	panel.style[ transformProp ] = 'none';
+    panel = this.element.children[i];
+    panel.style.opacity = 0;
+    panel.style[ transformProp ] = 'none';
   }
 
   // adjust rotation so panels are always flat
@@ -198,23 +201,24 @@ Carousel3D.prototype.transform = function() {
 
 var init = function() {
   var carousel = new Carousel3D( document.getElementById('carousel') ),
-	  panelCountInput = document.getElementById('panel-count'),
+	  //panelCountInput = document.getElementById('panel-count'),
 	  navButtons = document.querySelectorAll('#navigation button'),
 
 	  onNavButtonClick = function( event ){
 		var increment = parseInt( event.target.getAttribute('data-increment') );
 		carousel.rotation += carousel.theta * increment * -1;
 		carousel.transform();
+		event.preventDefault();
 	  };
 
   // populate on startup
-  carousel.panelCount = parseInt( panelCountInput.value, 10);
+  carousel.panelCount = carousel.totalPanelCount;
   carousel.modify();
 
-  panelCountInput.addEventListener( 'change', function( event ) {
-	carousel.panelCount = event.target.value;
-	carousel.modify();
-  }, false);
+  //panelCountInput.addEventListener( 'change', function( event ) {
+  //  carousel.panelCount = event.target.value;
+  //  carousel.modify();
+  //}, false);
 
   for (var i=0; i < 2; i++) {
 	navButtons[i].addEventListener( 'click', onNavButtonClick, false);
@@ -227,29 +231,3 @@ var init = function() {
 };
 
 window.addEventListener( 'DOMContentLoaded', init, false);
-
-// For the adding a textbox to student thingamabob
-function add() {
-
-//Create an input type dynamically.
-var element = document.createElement("input");
-
-//Create Labels
-var label = document.createElement("Label");
-label.innerHTML = "New Label";     
-
-//Assign different attributes to the element.
-element.setAttribute("type", "text");
-element.setAttribute("value", "");
-element.setAttribute("name", "Test Name");
-element.setAttribute("style", "width:200px");
-
-label.setAttribute("style", "font-weight:normal");
-
-// 'foobar' is the div id, where new fields are to be added
-var foo = document.getElementById("fooBar");
-
-//Append the element in page (in span).
-foo.appendChild(label);
-foo.appendChild(element);
-}

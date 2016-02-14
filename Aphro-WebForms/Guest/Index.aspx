@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Aphro_WebForms.Guest.Index" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 
+<asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderSection" runat="server">
+    <%:Styles.Render("~/Content/carousel") %>
+</asp:Content>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="header"></div>
     <asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>

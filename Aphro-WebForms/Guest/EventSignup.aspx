@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Event Signup" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="EventSignup.aspx.cs" Inherits="Aphro_WebForms.Guest.EventSignup" %>
 <%@ Import Namespace="System.Web.Optimization" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="header" />
 <div class="wrapper">
@@ -56,13 +57,15 @@
         <asp:HiddenField ID="SelectedSubsection" runat="server" />
         <asp:HiddenField ID="SelectedRow" runat="server" />
         <h1 id="ticketNumber">Number of Tickets</h1>
-        <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"/>
-        <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click" />
+        <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="1" max="9" step="1"/>
+        <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity"  ErrorMessage="You can only have 10 people in your group!" />
+        <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click" />
     
         <div id="container" style="max-width: 1000px"></div>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
     </div>
 </div>
+    </div>
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

@@ -1,0 +1,99 @@
+﻿#navigation .previous{
+	float: left;
+}
+
+#navigation .next{
+	float: right;
+}
+
+#navigation .previous:hover,
+#navigation .next:hover {
+	color: #60b6ff;
+}
+
+#navigation .selector {
+    width: 300px;
+    height: 230px;
+    position: relative;
+    margin: 0 auto;
+    border: 0px solid #CCC;
+    -webkit-perspective: 1100px;
+       -moz-perspective: 1100px;
+         -o-perspective: 1100px;
+            perspective: 1100px;
+}
+
+#carousel {
+    transform: translateZ(-288px) rotateY(-40deg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transform-style: preserve-3d; 
+       -moz-transform-style: preserve-3d;
+         -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+       -moz-transition: -moz-transform 1s;
+         -o-transition: -o-transform 1s;
+            transition: transform 1s;
+}
+
+#carousel a {
+  display: block;
+  position: absolute;
+  width: 286px;
+  height: 216px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+  line-height: 350px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  background-position: top;
+  background-size: 300px, 225px;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+	 -moz-backface-visibility: hidden;
+	   -o-backface-visibility: hidden;
+		  backface-visibility: hidden;
+		              opacity: 1;
+}
+
+#carousel a:hover{
+	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
+	color: white;
+}
+
+#MainContent_EventListview_EventLink_0{
+	transform: rotateY(0deg)
+	           translateZ(215px);
+	background-color: #ffe417;
+	background-image: url('autumn leaves new_0.jpg');
+}
+
+#MainContent_EventListview_EventLink_1{
+	transform: rotateY(72deg)
+	           translateZ(215px);
+	background-image: url('ntheatre.jpg');
+	background-color: #FF0000;
+}
+
+#MainContent_EventListview_EventLink_2{
+	transform: rotateY(144deg) translateZ(215px);
+	background-image: url('Kings-singers-look-20292Web.jpg');
+	background-color: #dde0e5;
+}
+
+#MainContent_EventListview_EventLink_3{
+	transform: rotateY(216deg) translateZ(215px);
+	background-image: url('images.jpg');
+	background-color: #da8185;
+}
+
+#MainContent_EventListview_EventLink_4{
+	transform: rotateY(288deg) translateZ(215px);
+	background-image: url('commencement.JPG');
+	background-color: #528a9b;
+}

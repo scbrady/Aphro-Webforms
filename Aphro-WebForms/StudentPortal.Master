@@ -16,6 +16,11 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
+    <div class="header"></div>
+    <div class="wrapper">
+        <div class="shadow"></div>
+	    <div class="mainPane">
+
     <form id="masterForm" runat="server">
     <a href="Logout.ashx">Logout</a>
     <div>

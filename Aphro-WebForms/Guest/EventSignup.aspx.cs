@@ -92,6 +92,7 @@ namespace Aphro_WebForms.Guest
                 }
                 MaxExtraTickets = (10 - Members).ToString();
                 TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
+                GroupSize.Text = Members.ToString();
             }
         }
 

@@ -54,6 +54,8 @@
         <asp:HiddenField ID="SelectedSection" runat="server" />
         <asp:HiddenField ID="SelectedSubsection" runat="server" />
         <asp:HiddenField ID="SelectedRow" runat="server" />
+        <h3>Current Group Size:</h3>
+        <asp:Label ID="GroupSize" runat="server"></asp:Label>
         <h1 id="ticketNumber">Number of Tickets</h1>
         <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="1" max="9" step="1"/>
         <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity"  ErrorMessage="You can only have 10 people in your group!" />
@@ -61,6 +63,7 @@
     
         <div id="container" style="max-width: 1000px"></div>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+    <button onclick='balcony = true; refreshMap(); return false;'>balcony</button>
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

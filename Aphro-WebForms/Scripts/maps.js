@@ -1,12 +1,17 @@
 ﻿$(function () {
     var selectedRow;
+    balcony = false;
+    refreshMap();
+});
+
+function refreshMap() {
     var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#buildingkey').val();
-    $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey, function (data) {
+    $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey + '&balcony=' + balcony, function (data) {
         var buildingDataMap = [];
         var buildingDataArray = [];
         $.each(data.data, function (i) {
-            if (this.seats >= $("#MainContent_TicketQuantity").val()) {
+            if (this.seats >= $("#MainContent_GroupSize").val()) {
                 var metaData = {}
                 metaData["name"] = this.name;
                 metaData["join"] = this.section + "-" + this.subsection;
@@ -34,7 +39,7 @@
                                 var sectionDataMap = [];
                                 var sectionDataArray = [];
                                 $.each(data.data, function (i) {
-                                    if (this.seats >= $("#MainContent_TicketQuantity").val()) {
+                                    if (this.seats >= $("#MainContent_GroupSize").val()) {
                                         var metaData = {}
                                         metaData["name"] = this.row;
                                         metaData["section"] = this.section;
@@ -79,7 +84,6 @@
                     drillup: function () {
                         this.setTitle(null, { text: '' });
                         clearFields();
-                        //$('#test').text('');
                     }
                 }
             },
@@ -92,12 +96,10 @@
                                 $('#MainContent_SelectedSection').val(this.section);
                                 $('#MainContent_SelectedSubsection').val(this.subsection);
                                 $('#MainContent_SelectedRow').val(this.row);
-                                //$('#test').text('You selected Section: ' + this.section + ' Subsection: ' + this.subsection + ' Row: ' + this.row);
                             },
                             unselect: function () {
                                 if (selectedRow === this) {
                                     clearFields();
-                                    //$('#test').text('');
                                     selectedRow = null;
                                 }
                             }
@@ -106,7 +108,7 @@
                 }
             },
             title: {
-                text: "<%= Building %>"
+                text: $('MainContent_EventLocation').val()
             },
             legend: {
                 enabled: false
@@ -116,7 +118,7 @@
             },
             series: [
                 {
-                    name: "<%= Building %>",
+                    name: $('MainContent_EventLocation').val(),
                     type: "map",
                     mapData: buildingDataMap,
                     data: buildingDataArray,
@@ -139,7 +141,7 @@
 
         });
     });
-});
+}
 
 function clearFields() {
     $('#MainContent_SelectedSection').val('');

@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Aphro_WebForms.Guest.Register" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="header"></div>
-	<div class="wrapper">
-	<div class="shadow"></div>
-		<div class='mainPane'>
         <h1>Sign Up</h1>
         <asp:Label ID="labelMessage" runat="server"></asp:Label>
 
@@ -32,6 +28,5 @@
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="Register" ValidationGroup="AllValidators" />
 
         <asp:HyperLink ID="AlreadyHaveAccount" href="login.aspx" runat="server">Already have account?</asp:HyperLink>
-    </div>
-</div>
+
 </asp:Content>

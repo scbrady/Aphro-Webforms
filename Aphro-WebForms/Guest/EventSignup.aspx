@@ -11,31 +11,30 @@
             <br />
             <br />
             <br />
-            <br />
-            <br />
             <asp:Label ID="EventName" runat="server"></asp:Label>
-
-            <h1>Event Description: </h1>
-            <asp:Label ID="EventDescription" runat="server"></asp:Label>
             <br />
 
-            <h1>Event Location: 
-            <asp:Label ID="EventLocation" runat="server"></asp:Label></h1>
+            <div class="Description">
+                <h3>Event Description: 
+                    <asp:Label ID="EventDescription" runat="server"></asp:Label></h3>
+            </div>
 
-            <h1>Regular Seating Price: 
-            <asp:Label ID="EventPrice" runat="server"></asp:Label></h1>
+            <div class="Location">
+                <h3>Event Location: 
+                    <asp:Label ID="EventLocation" runat="server"></asp:Label></h3>
+            </div>
 
-            <h1>Prime Seating Price: 
-            <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></h1>
+            <div class="Price">
+                <h3>Seating Price: 
+                    <asp:Label ID="EventPrice" runat="server"></asp:Label>
+                    (Prime: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)</h3>
+            </div>
 
-            <h1>Event Dates: </h1>
-                <div class="dropdown">
-                    <asp:DropDownList ID="EventDateDropDown" runat="server">
-                    </asp:DropDownList>
-                </div>
-            
-        </div>
-        <br />
+            <div class="dropdown" id="Dates">
+                <h3>Event Dates:
+                        <asp:DropDownList ID="EventDateDropDown" runat="server">
+                        </asp:DropDownList> </h3>
+            </div>
     
         <%--<asp:ListView ID="EventDateListview" runat="server">
             <LayoutTemplate>         
@@ -55,14 +54,15 @@
         <asp:HiddenField ID="SelectedSection" runat="server" />
         <asp:HiddenField ID="SelectedSubsection" runat="server" />
         <asp:HiddenField ID="SelectedRow" runat="server" />
-        <h1 id="ticketNumber">Number of Tickets</h1>
-        <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"/>
-        <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click" />
+        <h3>Number of Tickets:
+        <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
+        <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button></h3>
     
         <div id="container" style="max-width: 1000px"></div>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
     </div>
 </div>
+        </div>
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

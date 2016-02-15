@@ -22,7 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
-    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

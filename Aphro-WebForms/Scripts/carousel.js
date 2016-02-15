@@ -174,7 +174,6 @@ Carousel3D.prototype.modify = function() {
 	panel = this.element.children[i];
 	angle = this.theta * i;
 	panel.style.opacity = 1;
-	panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.8)';
 	// rotate panel, then push it out in 3D space
 	panel.style[ transformProp ] = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
   }

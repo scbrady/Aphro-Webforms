@@ -15,8 +15,10 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
-    
-    <div class="header" />
+    <div class="header">
+        <span class="topHeader" />
+        <span class="bottomHeader" />
+    </div>
     <div class="wrapper">
         <div class="shadow"></div>
 	    <div class='mainPane'>

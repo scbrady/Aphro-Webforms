@@ -16,7 +16,19 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <div class="header" />
+    <div class="header">
+        <span class="topHeader" />
+        <span class="bottomHeader" />
+
+            <% try{%>
+                <asp:Label ID="guestName" runat="server">
+                    <% = ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname %>
+                </asp:Label>
+            <% }
+            catch (Exception ex)
+            {
+            }%>
+    </div>
     <div class="wrapper">
         <div class="shadow"></div>
         <div class="mainPane">

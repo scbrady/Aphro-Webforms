@@ -20,7 +20,7 @@ body {
 	position: absolute;
 	margin: 0px auto;
 	left: 11.5%;
-	top: 25px;
+	top: 50px;
 	width: 77%;
 	background: #dfedf6;
 	opacity: 0.3;
@@ -29,7 +29,7 @@ body {
 /* The main pane of each part of the webapp (except student and faculty portals) */
 .mainPane{
 	position: relative;
-	top: 25px;
+	top: 50px;
     background: #e4f2fb;
     margin: 0 auto;
     width: 72.25%;
@@ -50,9 +50,22 @@ body {
 /* The PCC header bar */
 .header{
 	width: 100%;
-	height: 41px;
-	background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
+    display: table-cell;
+    vertical-align: bottom;
 	position: absolute;
+}
+
+.topHeader{
+    width: 100%;
+    height: 50px;
+    background-color:rgb(0, 152, 130);
+    position:absolute;
+}
+.bottomHeader {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(0, 93, 170);
+    position: absolute;
 }
 
 input{

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Event Signup" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="EventSignup.aspx.cs" Inherits="Aphro_WebForms.Guest.EventSignup" %>
 <%@ Import Namespace="System.Web.Optimization" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="header" />
 <div class="wrapper">
@@ -35,31 +36,38 @@
                         <asp:DropDownList ID="EventDateDropDown" runat="server">
                         </asp:DropDownList> </h3>
             </div>
+    <br />
     
-        <%--<asp:ListView ID="EventDateListview" runat="server">
-            <LayoutTemplate>         
-                <div id="EventDateContainer" runat="server">              
-                    <div ID="itemPlaceholder" runat="server">              
-                    </div>         
-                </div>      
-            </LayoutTemplate>
-            <ItemTemplate>
-                <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
-                <br/>
-            </ItemTemplate>
-        </asp:ListView>--%>
+    <%--<asp:ListView ID="EventDateListview" runat="server">
+        <LayoutTemplate>         
+            <div id="EventDateContainer" runat="server">              
+                <div ID="itemPlaceholder" runat="server">              
+                </div>         
+            </div>      
+        </LayoutTemplate>
+        <ItemTemplate>
+            <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
+            <br/>
+        </ItemTemplate>
+    </asp:ListView>--%>
 
         <input type="hidden" value="<%= SeriesId %>" id="eventid" />
         <input type="hidden" value="<%= BuildingKey %>" id="buildingkey" />
         <asp:HiddenField ID="SelectedSection" runat="server" />
         <asp:HiddenField ID="SelectedSubsection" runat="server" />
         <asp:HiddenField ID="SelectedRow" runat="server" />
-        <h3>Number of Tickets:
+
+        <h3>Current Group Size:
+        <asp:Label ID="GroupSize" runat="server"></asp:Label></h3>
+
+        <h3 id="ticketNumber">Number of Tickets:
         <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
+        <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity"  ErrorMessage="You can only have 10 people in your group!" />
         <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button></h3>
     
         <div id="container" style="max-width: 1000px"></div>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+    <button onclick='balcony = true; refreshMap(); return false;'>balcony</button>
     </div>
 </div>
         </div>

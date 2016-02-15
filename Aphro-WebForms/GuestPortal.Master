@@ -5,25 +5,41 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/jquery") %>
-        <%: Scripts.Render("~/bundles/bootstrap") %>
-        <%: Scripts.Render("~/bundles/datepicker") %>
-        <%: Styles.Render("~/Content/css") %>
-        <%: Styles.Render("~/Content/guest-css") %>
-    </asp:PlaceHolder>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%: Scripts.Render("~/bundles/bootstrap") %>
+    <%: Scripts.Render("~/bundles/datepicker") %>
+    <%: Styles.Render("~/Content/css") %>
+    <%: Styles.Render("~/Content/guest-css") %>
+    <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
+        
+    </asp:ContentPlaceHolder>
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <form id="masterForm" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
-
-        <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
-        </asp:ContentPlaceHolder>
+    <div class="header">
+        <span class="topHeader" />
+        <span class="bottomHeader" />
+            <%if (Session["CurrentPerson"] != null) { %>
+                <span id="guestName"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname %></span>
+            <%} %>
     </div>
-    </form>
+    <div class="wrapper">
+        <div class="shadow"></div>
+        <div class="mainPane">
+
+            <form id="masterForm" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+
+                <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
+                </asp:ContentPlaceHolder>
+            </div>
+            </form>
+
+        </div>
+    </div>
+
 </body>
 </html>

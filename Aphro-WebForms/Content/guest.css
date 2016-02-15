@@ -2,6 +2,11 @@
 /*      Guest Portal      */
 /**************************/
 
+/* Guest Name Header */
+#guestName{
+    font-size: 15pt;
+    color: white;
+}
 /* The guest portal window */
 .mainPane{
 	width: 55%;

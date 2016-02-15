@@ -10,8 +10,16 @@
 namespace Aphro_WebForms {
     
     
-    public partial class GuestPortal
-    {
+    public partial class GuestPortal {
+        
+        /// <summary>
+        /// HeaderSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderSection;
         
         /// <summary>
         /// masterForm control.

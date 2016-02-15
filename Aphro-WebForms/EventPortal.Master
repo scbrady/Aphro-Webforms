@@ -15,12 +15,22 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <form id="masterForm" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
+    <div class="header">
+        <span class="topHeader" />
+        <span class="bottomHeader" />
     </div>
-    </form>
+    <div class="wrapper">
+        <div class="shadow"></div>
+	    <div class='mainPane'>
+            <form id="masterForm" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

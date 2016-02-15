@@ -5,27 +5,37 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/jquery") %>
-        <%: Scripts.Render("~/bundles/bootstrap") %>
-        <%: Scripts.Render("~/bundles/datepicker") %>
-        <%: Styles.Render("~/Content/css") %>
-        <%: Styles.Render("~/Content/student-css") %>
-        <%: Styles.Render("~/Content/jquery-ui") %>
-    </asp:PlaceHolder>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%: Scripts.Render("~/bundles/bootstrap") %>
+    <%: Scripts.Render("~/bundles/datepicker") %>
+    <%: Styles.Render("~/Content/css") %>
+    <%: Styles.Render("~/Content/guest-css") %>
+    <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
+        
+    </asp:ContentPlaceHolder>
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <form id="masterForm" runat="server">
-    <a href="Logout.ashx">Logout</a>
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
-
-        <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
-        </asp:ContentPlaceHolder>
+    <div class="header">
+        <span class="topHeader" />
+        <span class="bottomHeader" />
     </div>
-    </form>
+    <div class="wrapper">
+        <div class="shadow"></div>
+	    <div class="mainPane">
+
+            <form id="masterForm" runat="server">
+            <a href="Logout.ashx">Logout</a>
+            <div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+
+                <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
+                </asp:ContentPlaceHolder>
+            </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -44,6 +44,8 @@ namespace Aphro_WebForms
                       "~/Content/faculty.css"));
             bundles.Add(new StyleBundle("~/Content/jquery-ui").Include(
                       "~/Content/themes/base/all.css"));
+            bundles.Add(new StyleBundle("~/Content/carousel").Include(
+                      "~/Content/carousel.css"));
         }
     }
 }

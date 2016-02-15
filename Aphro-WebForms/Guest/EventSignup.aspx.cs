@@ -12,6 +12,8 @@ namespace Aphro_WebForms.Guest
         protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
+        protected int Members = 1;
+        protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +26,8 @@ namespace Aphro_WebForms.Guest
 
                 DataTable eventTable = new DataTable();
                 List<Models.Event> eventModel = new List<Models.Event>();
+                DataTable requestsTable = new DataTable();
+                List<Models.GroupRequest> requestsModel = new List<Models.GroupRequest>();
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
@@ -34,6 +38,14 @@ namespace Aphro_WebForms.Guest
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
+                    // Set up the getGroupRequestsForEvent command
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
+                    requestsCommand.BindByName = true;
+                    requestsCommand.CommandType = CommandType.StoredProcedure;
+                    requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                    requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                    requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
                     try
                     {
                         // Execute the queries and auto map the results to models
@@ -41,6 +53,10 @@ namespace Aphro_WebForms.Guest
                         var eventAdapter = new OracleDataAdapter(eventCommand);
                         eventAdapter.Fill(eventTable);
                         eventModel = Mapper.DynamicMap<IDataReader, List<Models.Event>>(eventTable.CreateDataReader());
+
+                        var requestsAdapter = new OracleDataAdapter(requestsCommand);
+                        requestsAdapter.Fill(requestsTable);
+                        requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
                     }
                     catch (Exception ex)
                     {
@@ -69,6 +85,14 @@ namespace Aphro_WebForms.Guest
                     EventDateDropDown.DataSource = eventModel;
                     EventDateDropDown.DataBind();
                 }
+
+                if (requestsModel.Count > 0)
+                {
+                    Members = requestsModel.FirstOrDefault().members;
+                }
+                MaxExtraTickets = (10 - Members).ToString();
+                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
+                GroupSize.Text = Members.ToString();
             }
         }
 

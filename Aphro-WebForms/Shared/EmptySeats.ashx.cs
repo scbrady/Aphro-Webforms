@@ -23,13 +23,16 @@ namespace Aphro_WebForms.Shared
             int buildingKey = 0;
             int sectionKey = 0;
             int subsection = 0;
+            bool balcony = false;
 
             if (!string.IsNullOrEmpty(context.Request["eventId"]) &&
                 !string.IsNullOrEmpty(context.Request["buildingKey"]))
             {
                 eventId = int.Parse(context.Request["eventId"]);
                 buildingKey = int.Parse(context.Request["buildingKey"]);
-                
+                if (!string.IsNullOrEmpty(context.Request["balcony"]))
+                    balcony = bool.Parse(context.Request["balcony"]);
+
             } else if (!string.IsNullOrEmpty(context.Request["eventId"]) &&
                        !string.IsNullOrEmpty(context.Request["sectionKey"]))
             {
@@ -46,7 +49,7 @@ namespace Aphro_WebForms.Shared
             // If a building key is passed, return the empty seats for the building
             if (buildingKey > 0)
             {
-                var building = getBuildingJson(buildingKey);
+                var building = getBuildingJson(buildingKey, balcony);
                 building = getBuildingSeatData(building, buildingKey, eventId);
 
                 json = JsonConvert.SerializeObject(building);
@@ -68,9 +71,9 @@ namespace Aphro_WebForms.Shared
                 context.Response.End();
         }
 
-        private SeatingData getBuildingJson(int buildingKey)
+        private SeatingData getBuildingJson(int buildingKey, bool balcony)
         {
-            var json = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Content/maps/") + buildingKey + ".json");
+            var json = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Content/maps/") + buildingKey + (balcony == true ? "b" : "") + ".json");
             SeatingData building = JsonConvert.DeserializeObject<List<SeatingData>>(json).First();
             return building;
         }

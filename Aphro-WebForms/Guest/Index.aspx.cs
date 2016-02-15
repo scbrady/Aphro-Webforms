@@ -13,8 +13,6 @@ namespace Aphro_WebForms.Guest
         {
             if (Global.CurrentPerson == null || Global.CurrentPerson.accountType != Account.Guest)
                 Response.Redirect("Login.aspx");
-            else
-                GuestName.Text = "Hi " + Global.CurrentPerson.firstname;
 
             DataTable upcomingEventsTable = new DataTable();
             List<Models.Event> upcomingEvents = new List<Models.Event>();

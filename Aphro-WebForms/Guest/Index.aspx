@@ -6,8 +6,6 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <asp:Label ID="GuestName" runat="server" Text="Label"></asp:Label>
 	<h1 id="label">Select an Event to Purchase Tickets</h1>
 			
 	<div id="navigation">

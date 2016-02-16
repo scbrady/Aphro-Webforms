@@ -13,7 +13,12 @@ namespace Aphro_WebForms.Guest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Global.CurrentPerson != null && Global.CurrentPerson.accountType == Account.Guest)
+            {
+                Response.Redirect("Index.aspx");
+            }
+            else if (Global.CurrentPerson != null)
+                Global.CurrentPerson = null;
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)

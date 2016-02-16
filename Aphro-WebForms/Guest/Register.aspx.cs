@@ -5,6 +5,7 @@ using System.Data;
 using DevOne.Security.Cryptography.BCrypt;
 using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
 using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
+using Aphro_WebForms.Models;
 
 namespace Aphro_WebForms.Guest
 {
@@ -13,6 +14,12 @@ namespace Aphro_WebForms.Guest
         protected void Page_Load(object sender, EventArgs e)
         {
             labelMessage.Text = "";
+            if (Global.CurrentPerson != null && Global.CurrentPerson.accountType == Account.Guest)
+            {
+                Response.Redirect("Index.aspx");
+            }
+            else if (Global.CurrentPerson != null)
+                Global.CurrentPerson = null;
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)

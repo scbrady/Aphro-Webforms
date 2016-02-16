@@ -12,7 +12,10 @@ namespace Aphro_WebForms.Guest
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Global.CurrentPerson == null || Global.CurrentPerson.accountType != Account.Guest)
+            {
+                Global.CurrentPerson = null;
                 Response.Redirect("Login.aspx");
+            }
 
             DataTable upcomingEventsTable = new DataTable();
             List<Models.Event> upcomingEvents = new List<Models.Event>();

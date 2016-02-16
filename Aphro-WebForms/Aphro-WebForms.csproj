@@ -159,6 +159,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -221,6 +222,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GuestPortal.Master.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

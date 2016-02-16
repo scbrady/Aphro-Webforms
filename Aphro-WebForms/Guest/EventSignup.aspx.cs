@@ -96,6 +96,42 @@ namespace Aphro_WebForms.Guest
             }
         }
 
+        private void checkIfTicketsAlreadyPurchased(long seriesId)
+        {
+            DataTable eventSeatsTable = new DataTable();
+            List<Models.EventSeats> eventSeatsModel = new List<Models.EventSeats>();
+
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the getEventSeats command
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
+                eventSeatsCommand.BindByName = true;
+                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the queries and auto map the results to models
+                    objConn.Open();
+                    var eventSeatsAdapter = new OracleDataAdapter(eventSeatsCommand);
+                    eventSeatsAdapter.Fill(eventSeatsTable);
+                    eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
+                }
+                catch (Exception ex)
+                {
+                    // This is ok if an error comes up, let the program handle it later
+                }
+
+                objConn.Close();
+
+                // If the person already has tickets, redirect them to the page where they can review it
+                if(eventSeatsModel.Any())
+                    Response.Redirect("ReviewTickets.aspx");
+            }
+        }
+
         protected void GetTickets_Click(object sender, EventArgs e)
         {
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))

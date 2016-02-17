@@ -17,8 +17,9 @@ body {
 /* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
 .shadow {
     margin:-16px auto  0px;
-    min-width: 500px;
-    width: 55%;
+    min-width: 600px;
+    max-width: 1000px;
+    width: 65%;
     padding: 0 30px 30px;
     background-image: url('White25p.png');
 }
@@ -114,26 +115,6 @@ hover{
 
 section{
 	display: block;
-}
-
-.navButton{
-	border: 0px outset buttonface;
-	box-sizing: content-box;
-	font-family: courier new;
-	margin-top: 70px;
-  	width: 0px;
-	height: 0px;
-	background-color: black;
-	padding-right: 0.5em;
-	padding-left: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	display: block;
-	font-size: 40px;
-	color: #b3d6f2;
-	text-decoration: none;
-	text-transform: uppercase;
-    border-radius: 10px;
 }
 
 h3 {

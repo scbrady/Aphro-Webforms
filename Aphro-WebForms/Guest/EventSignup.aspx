@@ -3,13 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div id="eventSignup">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <asp:Label ID="EventName" runat="server"></asp:Label>
-    <br />
 
     <div class="Description">
         <h3>Event Description: </h3>

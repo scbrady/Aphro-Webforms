@@ -17,82 +17,87 @@ namespace Aphro_WebForms.Guest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Global.CurrentPerson == null)
-                Response.Redirect("Login.aspx");
-
-            if (!string.IsNullOrEmpty(Request.QueryString["Series"]))
+            if (!this.IsPostBack)
             {
-                SeriesId = long.Parse(Request.QueryString["Series"]);
+                if (Global.CurrentPerson == null)
+                    Response.Redirect("Login.aspx");
 
-                DataTable eventTable = new DataTable();
-                List<Models.Event> eventModel = new List<Models.Event>();
-                DataTable requestsTable = new DataTable();
-                List<Models.GroupRequest> requestsModel = new List<Models.GroupRequest>();
-
-                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+                if (!string.IsNullOrEmpty(Request.QueryString["Series"]))
                 {
-                    // Set up the getEvent command
-                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    eventCommand.BindByName = true;
-                    eventCommand.CommandType = CommandType.StoredProcedure;
-                    eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                    SeriesId = long.Parse(Request.QueryString["Series"]);
 
-                    // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
-                    requestsCommand.BindByName = true;
-                    requestsCommand.CommandType = CommandType.StoredProcedure;
-                    requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                    requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                    checkIfTicketsAlreadyPurchased(SeriesId);
 
-                    try
+                    DataTable eventTable = new DataTable();
+                    List<Models.Event> eventModel = new List<Models.Event>();
+                    DataTable requestsTable = new DataTable();
+                    List<Models.GroupRequest> requestsModel = new List<Models.GroupRequest>();
+
+                    using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                     {
-                        // Execute the queries and auto map the results to models
-                        objConn.Open();
-                        var eventAdapter = new OracleDataAdapter(eventCommand);
-                        eventAdapter.Fill(eventTable);
-                        eventModel = Mapper.DynamicMap<IDataReader, List<Models.Event>>(eventTable.CreateDataReader());
+                        // Set up the getEvent command
+                        var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
+                        eventCommand.BindByName = true;
+                        eventCommand.CommandType = CommandType.StoredProcedure;
+                        eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                        eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
-                        var requestsAdapter = new OracleDataAdapter(requestsCommand);
-                        requestsAdapter.Fill(requestsTable);
-                        requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
+                        // Set up the getGroupRequestsForEvent command
+                        var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
+                        requestsCommand.BindByName = true;
+                        requestsCommand.CommandType = CommandType.StoredProcedure;
+                        requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                        requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                        requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
+                        try
+                        {
+                            // Execute the queries and auto map the results to models
+                            objConn.Open();
+                            var eventAdapter = new OracleDataAdapter(eventCommand);
+                            eventAdapter.Fill(eventTable);
+                            eventModel = Mapper.DynamicMap<IDataReader, List<Models.Event>>(eventTable.CreateDataReader());
+
+                            var requestsAdapter = new OracleDataAdapter(requestsCommand);
+                            requestsAdapter.Fill(requestsTable);
+                            requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
+                        }
+                        catch (Exception ex)
+                        {
+                            // TODO: Handle Exception
+                            throw (ex);
+                        }
+
+                        objConn.Close();
                     }
-                    catch (Exception ex)
+
+                    // Fill list dropdowns with data from the database
+                    if (eventModel.Count > 0)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        var currentEvent = eventModel.FirstOrDefault();
+                        BuildingKey = currentEvent.building_key;
+                        Building = currentEvent.building;
+
+                        EventName.Text = currentEvent.name;
+                        EventDescription.Text = currentEvent.description;
+                        EventLocation.Text = currentEvent.building;
+                        EventPrice.Text = "$" + currentEvent.regular_price;
+                        EventPrimePrice.Text = "$" + currentEvent.prime_price;
+
+                        EventDateDropDown.DataTextField = "event_datetime";
+                        EventDateDropDown.DataValueField = "event_id";
+                        EventDateDropDown.DataSource = eventModel;
+                        EventDateDropDown.DataBind();
                     }
 
-                    objConn.Close();
+                    if (requestsModel.Count > 0)
+                    {
+                        Members = requestsModel.FirstOrDefault().members;
+                    }
+                    MaxExtraTickets = (10 - Members).ToString();
+                    TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
+                    GroupSize.Text = Members.ToString();
                 }
-
-                // Fill list dropdowns with data from the database
-                if (eventModel.Count > 0)
-                {
-                    var currentEvent = eventModel.FirstOrDefault();
-                    BuildingKey = currentEvent.building_key;
-                    Building = currentEvent.building;
-
-                    EventName.Text = currentEvent.name;
-                    EventDescription.Text = currentEvent.description;
-                    EventLocation.Text = currentEvent.building;
-                    EventPrice.Text = "$" + currentEvent.regular_price;
-                    EventPrimePrice.Text = "$" + currentEvent.prime_price;
-
-                    EventDateDropDown.DataTextField = "event_datetime";
-                    EventDateDropDown.DataValueField = "event_id";
-                    EventDateDropDown.DataSource = eventModel;
-                    EventDateDropDown.DataBind();
-                }
-
-                if (requestsModel.Count > 0)
-                {
-                    Members = requestsModel.FirstOrDefault().members;
-                }
-                MaxExtraTickets = (10 - Members).ToString();
-                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
-                GroupSize.Text = Members.ToString();
             }
         }
 
@@ -159,6 +164,7 @@ namespace Aphro_WebForms.Guest
                 }
 
                 objConn.Close();
+                Response.Redirect("ReviewTickets.aspx");
             }
         }
 
@@ -188,6 +194,10 @@ namespace Aphro_WebForms.Guest
                 }
 
                 objConn.Close();
+                Members += int.Parse(TicketQuantity.Text);
+                MaxExtraTickets = (10 - Members).ToString();
+                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
+                GroupSize.Text = Members.ToString();
             }
         }
     }

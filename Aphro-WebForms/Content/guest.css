@@ -6,269 +6,65 @@
 /**************************/
 /*    Dropdown logout     */
 /**************************/
-    div.dropdown-guest{
-        font-size: 14pt;
-        color: black;
-        float: right;
-    }
-    /* Style The Dropdown Button */
-    .dropbtn {
-        background-color: rgb(0, 93, 170);
-        min-width:129px;
-        height:100%;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        border-radius: 2px;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9 !important;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        background-color: #f9f9f9 !important;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #f1f1f1 !important}
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
-        background-color: #000EAA;
-    }
-
-/* Guest Name Header */
-#guestName{
-    font-size: 15pt;
+div.dropdown-guest{
+    font-size: 14pt;
+    color: black;
+    float: right;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: rgb(0, 93, 170);
+    min-width:129px;
+    height:100%;
     color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9 !important;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    background-color: #f9f9f9 !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1 !important}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #000EAA;
 }
 
 /* The heading for the portal window */
 .mainPane #label{
 	text-align: center;
 	margin-top: 125px;
-}
-
-#options {
-  position: relative;
-  z-index: 100;
-  margin-bottom: 40px;
-}
-
-.previous{
-	float: left;
-}
-
-.next{
-	float: right;
-}
-
-.previous:hover,
-.next:hover {
-		color: #60b6ff;
-}
-
-a {
-  margin: 0;
-  opacity: 1;
-	background-color: #d7ae70;
-  transform: translateZ(288px);
-}
-
-/*Event 1*/
-a #MainContent_EventListview_EventLink_0{
-	background-color: #d7ae70;
-	transform: rotateY(0deg);
-  background-color: #d7ae70;
-}
-
-/*Event 2*/
-a #MainContent_EventListview_EventLink_1{
-	background-color: #d7ae70;
-	transform: rotateY(40deg);
-}
-
-/*Event 3*/
-a #MainContent_EventListview_EventLink_2{
-	background-color: #d7ae70;
-	transform: rotateY(80deg);
-}
-
-/*Event 4*/
-a #MainContent_EventListview_EventLink_3{
-	background-color: #d7ae70;
-	transform: rotateY(120deg);
-}
-
-/*Event 5*/
-a #MainContent_EventListview_EventLink_4{
-	background-color: #d7ae70;
-	transform: rotateY(160deg);
-}
-
-/*Event 6*/
-a #MainContent_EventListview_EventLink_5{
-	background-color: #d7ae70;
-	transform: rotateY(200deg);
-}
-
-/*Event 7*/
-a #MainContent_EventListview_EventLink_6{
-	background-color: #d7ae70;
-	transform: rotateY(240deg);
-}
-
-/*Event 8*/
-a #MainContent_EventListview_EventLink_7{
-	background-color: #d7ae70;
-	transform: rotateY(280deg);
-}
-
-/*Event 9*/
-a #MainContent_EventListview_EventLink_8{
-	background-color: #d7ae70;
-	transform: rotateY(320deg);
-}
-
-/*Event 10-20*/
-a #MainContent_EventListview_EventLink_9,
-a #MainContent_EventListview_EventLink_10,
-a #MainContent_EventListview_EventLink_11,
-a #MainContent_EventListview_EventLink_12,
-a #MainContent_EventListview_EventLink_13,
-a #MainContent_EventListview_EventLink_14,
-a #MainContent_EventListview_EventLink_15,
-a #MainContent_EventListview_EventLink_16,
-a #MainContent_EventListview_EventLink_17,
-a #MainContent_EventListview_EventLink_18,
-a #MainContent_EventListview_EventLink_19{
-	background-color: #d7ae70;
-	  opacity: 0;
-	transform: none;
-}
-
-.selector {
-                width: 300px;
-               height: 230px;
-             position: relative;
-               margin: 0 auto;
-               border: 0px solid #CCC;
-  -webkit-perspective: 1100px;
-	 -moz-perspective: 1100px;
-	   -o-perspective: 1100px;
-		  perspective: 1100px;
-}
-
-#carousel {
-                transform: translateZ(-288px) rotateY(-40deg);
-                    width: 100%;
-                   height: 100%;
-                 position: absolute;
-  -webkit-transform-style: preserve-3d; 
-	 -moz-transform-style: preserve-3d;
-	   -o-transform-style: preserve-3d;
-		  transform-style: preserve-3d;
-}
-
- .selector #carousel {
-  -webkit-transition: -webkit-transform 1s;
-	 -moz-transition: -moz-transform 1s;
-	   -o-transition: -o-transform 1s;
-		  transition: transform 1s;
-}
-
-#carousel a {
-  display: block;
-  position: absolute;
-  width: 286px;
-  height: 216px;
-  left: 10px;
-  top: 10px;
-  border: 2px solid black;
-  line-height: 350px;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  background-position: top;
-  background-size: 300px, 225px;
-  background-repeat: no-repeat;
-  -webkit-backface-visibility: hidden;
-	 -moz-backface-visibility: hidden;
-	   -o-backface-visibility: hidden;
-		  backface-visibility: hidden;
-		              opacity: 1;
-}
-
-#carousel a:hover{
-    text-decoration: none;
-	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
-	color: white;
-}
-
-#itemPlaceholder {
-	background-color: #d7ae70;
-}
-
-#MainContent_EventListview_EventLink_0{
-    text-decoration: none;
-	transform: rotateY(0deg)
-	           translateZ(215px);
-	background-color: #d7ae70;
-	background-image: url('events_medium.jpg');
-}
-
-#MainContent_EventListview_EventLink_1{
-    text-decoration: none;
-	transform: rotateY(72deg)
-	           translateZ(215px);
-	background-image: url('events_medium.jpg');
-	background-color: #d7ae70;
-}
-
-#MainContent_EventListview_EventLink_2{
-    text-decoration: none;
-	transform: rotateY(144deg) translateZ(215px);
-	background-image: url('events_medium.jpg');
-	background-color: #d7ae70;
-}
-
-#MainContent_EventListview_EventLink_3{
-    text-decoration: none;
-	transform: rotateY(216deg) translateZ(215px);
-	background-image: url('events_medium.jpg');
-	background-color: #d7ae70;
-}
-
-#MainContent_EventListview_EventLink_4{
-    text-decoration: none;
-	transform: rotateY(288deg) translateZ(215px);
-	background-image: url('events_medium.jpg');
-	background-color: #d7ae70;
 }
 
 /**************************/
@@ -309,6 +105,10 @@ a #MainContent_EventListview_EventLink_19{
 /********************/
 /*   Event Signup   */
 /********************/
+#eventSignup {
+    clear: both;
+    padding-top: 30px;
+}
 
 #eventSignup h1 {
     font-size: 18pt;
@@ -322,9 +122,11 @@ span {
 }
 
 #MainContent_EventName {
-    font-size: 26pt;
     text-transform: uppercase;
-   margin: 0 0 0 45%;
+    font-size: 26pt;
+    margin: 0 0 40px;
+    display: block;
+    text-align: center;
 }
 
 #eventSignup h3 {

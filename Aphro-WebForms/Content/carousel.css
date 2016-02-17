@@ -6,6 +6,26 @@
 	float: right;
 }
 
+#navigation .navButton{
+	border: 0px outset buttonface;
+	box-sizing: content-box;
+	font-family: courier new;
+	margin-top: 70px;
+  	width: 0px;
+	height: 0px;
+	background-color: black;
+	padding-right: 0.5em;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: block;
+	font-size: 40px;
+	color: #b3d6f2;
+	text-decoration: none;
+	text-transform: uppercase;
+    border-radius: 10px;
+}
+
 #navigation .previous:hover,
 #navigation .next:hover {
 	color: #60b6ff;
@@ -39,6 +59,8 @@
 }
 
 #carousel a {
+  background-image: url('events_medium.jpg');
+  background-color: #d7ae70;
   display: block;
   position: absolute;
   width: 286px;
@@ -51,6 +73,7 @@
   font-weight: bold;
   color: black;
   text-align: center;
+  text-decoration: none;
   background-position: top;
   background-size: 300px, 225px;
   background-repeat: no-repeat;
@@ -64,26 +87,4 @@
 #carousel a:hover{
 	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
 	color: white;
-}
-
-#MainContent_EventListview_EventLink_0{
-	transform: rotateY(0deg)
-	           translateZ(215px);
-}
-
-#MainContent_EventListview_EventLink_1{
-	transform: rotateY(72deg)
-	           translateZ(215px);
-}
-
-#MainContent_EventListview_EventLink_2{
-	transform: rotateY(144deg) translateZ(215px);
-}
-
-#MainContent_EventListview_EventLink_3{
-	transform: rotateY(216deg) translateZ(215px);
-}
-
-#MainContent_EventListview_EventLink_4{
-	transform: rotateY(288deg) translateZ(215px);
 }

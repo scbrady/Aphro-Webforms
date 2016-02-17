@@ -9,20 +9,19 @@
     <%: Scripts.Render("~/bundles/bootstrap") %>
     <%: Scripts.Render("~/bundles/datepicker") %>
     <%: Styles.Render("~/Content/css") %>
-    <%: Styles.Render("~/Content/guest-css") %>
+    <%: Styles.Render("~/Content/student-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
         
     </asp:ContentPlaceHolder>
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <div class="header">
-        <span class="topHeader" />
-        <span class="bottomHeader" />
-    </div>
-    <div class="wrapper">
-        <div class="shadow"></div>
-	    <div class="mainPane">
+    <span class="topHeader" />
+    <span class="bottomHeader" />
+
+	<div class="EaglesNestLogo"></div>
+    <div class="container-fluid">
+    <div class="container">
 
             <form id="masterForm" runat="server">
             <a href="Logout.ashx">Logout</a>

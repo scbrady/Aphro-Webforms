@@ -10,64 +10,42 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-width: 1000px;
     background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
     background-size: cover;
 }
 
 /* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
-.shadow{
-	position: absolute;
-	margin: 0px auto;
-	left: 11.5%;
-	top: 25px;
-	width: 77%;
-	background: #dfedf6;
-	opacity: 0.3;
+.shadow {
+    margin:-16px auto  0px;
+    min-width: 500px;
+    width: 55%;
+    padding: 0 30px 30px;
+    background-image: url('White25p.png');
+}
+
+#Logo{
+    float: left;
 }
 
 /* The main pane of each part of the webapp (except student and faculty portals) */
 .mainPane{
-	position: relative;
-	top: 25px;
     background: #e4f2fb;
     margin: 0 auto;
-    width: 72.25%;
     font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-	background-image: url('http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg');
-    background-size: 310px 94px;
-	background-position: 17px 10px;
-	background-repeat: no-repeat;
     border-bottom: 1px solid #ccc;
     color: #15589c;
     display: block;
-    padding: 8px 12px;
     text-decoration: none;
     font-weight: normal;
 	font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
+    padding: 20px;
 }
-
-/* The PCC header bar */
 
 /* The PCC header bar */
 .header{
 	width: 100%;
-    display: table-cell;
-    vertical-align: bottom;
-	position: absolute;
-}
-
-.topHeader{
-    width: 100%;
-    height: 25px;
-    background-color:rgb(0, 152, 130);
-    position:absolute;
-}
-.bottomHeader {
-    width: 100%;
-    height: 21px;
-    background-color: rgb(0, 93, 170);
-    position: absolute;
+    height: 41px;
+ 	background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
 }
 
 input{
@@ -138,7 +116,7 @@ section{
 	display: block;
 }
 
-button{
+.navButton{
 	border: 0px outset buttonface;
 	box-sizing: content-box;
 	font-family: courier new;
@@ -177,4 +155,10 @@ h3 {
     border: 0;
     border-radius: 3px;
     text-indent: 0.01px;
+}
+
+.interactiveMap{
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
 }

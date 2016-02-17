@@ -16,42 +16,34 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <div class="header">
-        <span class="topHeader" />
-        <span class="bottomHeader" />
-    </div>
+    <div class="header"></div>
 
-    <div class="wrapper">
-        <div class="shadow"></div>
+        <div class="shadow">
         <div class="mainPane">
+            <img id="Logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
 
             <form id="masterForm" runat="server">
-            <div>
-                <div class="dropdown-guest">
                     <%if (Session["CurrentPerson"] != null) { %>
+                <div class="dropdown-guest">
                         <div class="dropdown">
                         <button class="dropbtn">
                                 <%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
                         <div class="dropdown-content">
                         <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
                         </div>
                         </div>
-                    <%} %>
                 </div>
-
+                    <%} %>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
                 </asp:ContentPlaceHolder>
 
                 <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
                 </asp:ContentPlaceHolder>
-            </div>
             </form>
 
         </div>
-    </div>
+        </div>
 
 </body>
 </html>

@@ -6,13 +6,10 @@
 /**************************/
 /*    Dropdown logout     */
 /**************************/
-    div.dropdown-guest{    
-        position:absolute;
-        top: -11%;
-        right: 1%;
-        padding: 8px 12px;
+    div.dropdown-guest{
         font-size: 14pt;
         color: black;
+        float: right;
     }
     /* Style The Dropdown Button */
     .dropbtn {
@@ -69,17 +66,6 @@
     font-size: 15pt;
     color: white;
 }
-/* The guest portal window */
-.mainPane{
-	width: 55%;
-	min-width: 493.625px;
-}
-
-.shadow{
-   width: 59.75%;
-   margin: 0 8.5%;
-   min-width: 530.625px;	
-}
 
 /* The heading for the portal window */
 .mainPane #label{
@@ -91,14 +77,6 @@
   position: relative;
   z-index: 100;
   margin-bottom: 40px;
-}
-
-#options input[type=range]{
-	/* visibility: hidden; */
-}
-
-.range-display{
-	/* visibility: hidden; */
 }
 
 .previous{
@@ -297,24 +275,16 @@ a #MainContent_EventListview_EventLink_19{
 /*     Login/Register     */
 /**************************/
 
-/* The shadow behind the login/register */
-.shadow{
-	height: 616.7px;
-}
-
-/* The body of the login/register */
-.mainPane{
-	height: 600px;
-}
-
 /* The header of login/register */
 .mainPane h1 {
     text-align: center;
     font-size: 26px;
     font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     text-transform: uppercase;
-    margin-top: 12%;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    padding-top: 38px;
+    margin-bottom: 0px;
+    clear: both;
 }
 
 /* The basic look of a textbox */

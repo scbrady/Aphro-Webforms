@@ -159,6 +159,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />

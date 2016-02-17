@@ -9,8 +9,8 @@
 	<h1 id="label">Select an Event to Purchase Tickets</h1>
 			
 	<div id="navigation">
-		<button class="previous"data-increment="-1"a>&lt</button>
-		<button class="next" data-increment="1">&gt</button>
+		<button class="previous navButton" data-increment="-1"a>&lt</button>
+		<button class="next navButton" data-increment="1">&gt</button>
 		<section class="selector">
             <asp:ListView ID="EventListview" runat="server">
                 <LayoutTemplate>         

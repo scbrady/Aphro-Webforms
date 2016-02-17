@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Aphro_WebForms.Guest.Register" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Aphro_WebForms.Guest.Register" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <h1>Sign Up</h1>
         <asp:Label ID="labelMessage" runat="server"></asp:Label>

@@ -22,15 +22,6 @@ namespace Aphro_WebForms.Guest {
         protected global::System.Web.UI.WebControls.Label labelMessage;
         
         /// <summary>
-        /// email_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label email_label;
-        
-        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -38,15 +29,6 @@ namespace Aphro_WebForms.Guest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox email;
-        
-        /// <summary>
-        /// password_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label password_label;
         
         /// <summary>
         /// password control.

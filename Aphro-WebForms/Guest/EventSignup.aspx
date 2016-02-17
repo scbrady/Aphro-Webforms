@@ -26,9 +26,8 @@
         <asp:DropDownList ID="EventDateDropDown" runat="server"></asp:DropDownList> 
     </div>
     
-    
-    <input type="hidden" value="<%= SeriesId %>" id="eventid" />
-    <input type="hidden" value="<%= BuildingKey %>" id="buildingkey" />
+    <asp:HiddenField ID="BuildingKeyField" runat="server"/>
+    <asp:HiddenField ID="SeriesIdField" runat="server"/>
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />
     <asp:HiddenField ID="SelectedRow" runat="server" />

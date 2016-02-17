@@ -67,6 +67,24 @@ namespace Aphro_WebForms.Guest {
         protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
         
         /// <summary>
+        /// BuildingKeyField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BuildingKeyField;
+        
+        /// <summary>
+        /// SeriesIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SeriesIdField;
+        
+        /// <summary>
         /// SelectedSection control.
         /// </summary>
         /// <remarks>

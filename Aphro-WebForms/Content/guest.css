@@ -71,6 +71,12 @@ div.dropdown-guest{
 /*     Login/Register     */
 /**************************/
 
+#MainContent_CreateAccount, #MainContent_AlreadyHaveAccount{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* The header of login/register */
 .mainPane h1 {
     text-align: center;
@@ -87,6 +93,10 @@ div.dropdown-guest{
 .mainPane input {
 	margin: auto 100px;
 	width: 75%;
+}
+
+input[type=submit] {
+    padding: 0;
 }
 
 .mainPane input[type=submit] {

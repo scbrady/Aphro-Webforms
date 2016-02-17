@@ -161,6 +161,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
+    <Content Include="Guest\ReviewTickets.aspx" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -236,6 +237,13 @@
     </Compile>
     <Compile Include="GuestPortal.Master.designer.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\ReviewTickets.aspx.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guest\ReviewTickets.aspx.designer.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\EventSeats.cs" />
     <Compile Include="Models\GroupRequest.cs" />

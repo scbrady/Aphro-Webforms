@@ -4,6 +4,7 @@ using System.Data;
 using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
+using System.IO;
 
 namespace Aphro_WebForms.Event
 {
@@ -96,6 +97,16 @@ namespace Aphro_WebForms.Event
                 }
 
                 objConn.Close();
+            }
+        }
+
+        protected void Upload(object sender, EventArgs e)
+        {
+            if (imageUpload.HasFile)
+            {
+                string fileName = Path.GetFileName(imageUpload.PostedFile.FileName);
+                imageUpload.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + fileName);
+                Response.Redirect(Request.Url.AbsoluteUri);
             }
         }
     }

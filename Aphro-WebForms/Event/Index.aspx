@@ -21,6 +21,14 @@
 	    <h3>Description:</h3>
         <asp:TextBox ID="Description" TextMode="multiline" runat="server"></asp:TextBox>
     </div>
+    
+    <%--Image Upload--%>
+    <div class='image'>
+        <h3>Image:</h3>
+        <asp:FileUpload ID="imageUpload" runat="server" />
+        <asp:Button ID="uploadButton" runat="server" Text="Upload" OnClick="Upload" />
+        <hr />
+    </div>
 
     <%--Location--%>
     <div class='dropdown'>
@@ -51,7 +59,6 @@
     <div style="display: none;">
         <asp:Button ID="Button3" runat="server" Text="Submit" OnClick="Submit_Click"/>
     </div>
-
 
     <script>
         $(function () {

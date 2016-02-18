@@ -1,9 +1,9 @@
-﻿using Aphro_WebForms.Models;
-using AutoMapper;
-using Oracle.ManagedDataAccess.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Aphro_WebForms.Models;
+using AutoMapper;
+using Oracle.ManagedDataAccess.Client;
 using System.IO;
 
 namespace Aphro_WebForms.Event
@@ -70,6 +70,14 @@ namespace Aphro_WebForms.Event
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            Guid pictureUUID = Guid.NewGuid();
+            string pictureName = pictureUUID.ToString() + ".jpeg";
+            if (imageUpload.HasFile)
+            {
+                string fileName = Path.GetFileName(imageUpload.PostedFile.FileName);
+                imageUpload.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + pictureName);
+            }
+
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the eventTypes command
@@ -84,7 +92,7 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
-
+                insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);
                 try
                 {
                     objConn.Open();
@@ -97,16 +105,6 @@ namespace Aphro_WebForms.Event
                 }
 
                 objConn.Close();
-            }
-        }
-
-        protected void Upload(object sender, EventArgs e)
-        {
-            if (imageUpload.HasFile)
-            {
-                string fileName = Path.GetFileName(imageUpload.PostedFile.FileName);
-                imageUpload.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + fileName);
-                Response.Redirect(Request.Url.AbsoluteUri);
             }
         }
     }

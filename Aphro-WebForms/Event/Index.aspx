@@ -26,7 +26,6 @@
     <div class='image'>
         <h3>Image:</h3>
         <asp:FileUpload ID="imageUpload" runat="server" />
-        <asp:Button ID="uploadButton" runat="server" Text="Upload" OnClick="Upload" />
         <hr />
     </div>
 

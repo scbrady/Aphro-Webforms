@@ -14,6 +14,7 @@ namespace Aphro_WebForms.Models
         public DateTime event_datetime { get; set; }
         public float regular_price { get; set; }
         public float prime_price { get; set; }
+        public string event_picture { get; set; }
 
         public string event_type { get; set; }
         public string building { get; set; }

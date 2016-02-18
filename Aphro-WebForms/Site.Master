@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Aphro_WebForms.Site" %>
+
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>
@@ -13,13 +14,12 @@
 </head>
 <body>
     <form id="masterForm" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
-    
+
     <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
     </asp:ContentPlaceHolder>
 </body>

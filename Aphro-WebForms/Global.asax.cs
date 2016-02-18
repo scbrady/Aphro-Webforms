@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Aphro_WebForms.Models;
+using System;
 using System.Configuration;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Aphro_WebForms.Models;
 
 namespace Aphro_WebForms
 {
@@ -25,7 +25,7 @@ namespace Aphro_WebForms
             }
         }
 
-        void Application_Start(object sender, EventArgs e)
+        private void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);

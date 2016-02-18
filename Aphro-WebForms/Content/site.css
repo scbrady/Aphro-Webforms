@@ -5,7 +5,7 @@
 /* The overall Body of the webapp */
 body {
     font-size: 13px;
-	font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     line-height: 1.5em;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
 
 /* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
 .shadow {
-    margin:-16px auto  0px;
+    margin: -16px auto 0px;
     min-width: 600px;
     max-width: 1000px;
     width: 65%;
@@ -24,12 +24,12 @@ body {
     background-image: url('White25p.png');
 }
 
-.logo{
+.logo {
     float: left;
 }
 
 /* The main pane of each part of the webapp (except student and faculty portals) */
-.mainPane{
+.mainPane {
     background: #e4f2fb;
     margin: 0 auto;
     font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
@@ -38,24 +38,24 @@ body {
     display: block;
     text-decoration: none;
     font-weight: normal;
-	font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
+    font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
     padding: 20px 20px 40px;
 }
 
-/* The heading for the portal window */
-.mainPane #label{
-	text-align: center;
-	margin-top: 125px;
-}
+    /* The heading for the portal window */
+    .mainPane #label {
+        text-align: center;
+        margin-top: 125px;
+    }
 
 /* The PCC header bar */
-.header{
-	width: 100%;
+.header {
+    width: 100%;
     height: 41px;
- 	background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
+    background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
 }
 
-input{
+input {
     width: 100%;
     height: 42px;
     box-sizing: border-box;
@@ -67,73 +67,73 @@ input{
     outline: none;
 }
 
-input[type=submit]{
-    width: 100%;
-    height: 40px;
-    background: #32a3dc;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #32a3ff;
-    color: #fff;
-    font-weight: bold;
-	text-transform: uppercase;
-    font-size: 14px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    outline: none;
-    cursor: pointer;
-}
+    input[type=submit] {
+        width: 100%;
+        height: 40px;
+        background: #32a3dc;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid #32a3ff;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+        outline: none;
+        cursor: pointer;
+    }
 
-/* What happens to a textbox when a textbox is clicked */
-input:active ,
-input:focus {
-	border: 1px solid #ff656c;
-}
+    /* What happens to a textbox when a textbox is clicked */
+    input:active,
+    input:focus {
+        border: 1px solid #ff656c;
+    }
 
-/* What the text looks like inside the input box */
-input#text{
-    width: 100%;
-	height: 40px;
-}
+    /* What the text looks like inside the input box */
+    input#text {
+        width: 100%;
+        height: 40px;
+    }
 
-input#text:focus{
-    width: 100%;
-	height: 40px;
-}
+        input#text:focus {
+            width: 100%;
+            height: 40px;
+        }
 
 a {
     text-decoration: none;
     font-weight: normal;
 }
 
-link{
-	color: black;
+link {
+    color: black;
 }
 
-visited{
-	color: black;
+visited {
+    color: black;
 }
 
-hover{
-	background-color: #75bae3;
+hover {
+    background-color: #75bae3;
     color: #fff;
     padding-bottom: 8px;
 }
 
-section{
-	display: block;
+section {
+    display: block;
 }
 
 h3 {
-	margin: 10px 100px;
-	margin-bottom: 0;
-	padding-bottom: 0;
+    margin: 10px 100px;
+    margin-bottom: 0;
+    padding-bottom: 0;
     font-size: 1.17em;
 }
 
 /* The style of the dropdown boxes */
 .dropdown select {
-	margin: auto 100px;
-	width: 75%;
+    margin: auto 100px;
+    width: 75%;
     height: 40px;
     background-color: #60b6ff;
     border-color: #2e6da4;
@@ -144,7 +144,7 @@ h3 {
     text-indent: 0.01px;
 }
 
-.interactiveMap{
+.interactiveMap {
     margin: 0 auto;
     width: 400px;
     height: 400px;
@@ -153,7 +153,7 @@ h3 {
 /**************************/
 /*    Dropdown logout     */
 /**************************/
-div.dropdown-menu{
+div.dropdown-menu {
     font-size: 14pt;
     color: black;
     float: right;
@@ -161,8 +161,8 @@ div.dropdown-menu{
 /* Style The Dropdown Button */
 .dropbtn {
     background-color: rgb(0, 93, 170);
-    min-width:129px;
-    height:100%;
+    min-width: 129px;
+    height: 100%;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -186,17 +186,19 @@ div.dropdown-menu{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    background-color: #f9f9f9 !important;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        background-color: #f9f9f9 !important;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1 !important}
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1 !important;
+        }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {

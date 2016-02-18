@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GuestPortal.Master.cs" Inherits="Aphro_WebForms.GuestPortal" %>
+
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@
     <%: Styles.Render("~/Content/css") %>
     <%: Styles.Render("~/Content/guest-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
-        
     </asp:ContentPlaceHolder>
     <title><%: Page.Title %></title>
 </head>
@@ -22,25 +22,23 @@
             <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
 
             <form id="masterForm" runat="server">
-                <%if (Session["CurrentPerson"] != null) { %>
-                    <div class="dropdown-menu">
-                        <div class="dropdown">
-                            <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
-                            <div class="dropdown-content">
-                                <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
-                            </div>
+                <%if (Session["CurrentPerson"] != null)
+                    { %>
+                <div class="dropdown-menu">
+                    <div class="dropdown">
+                        <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
+                        <div class="dropdown-content">
+                            <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
                         </div>
                     </div>
+                </div>
                 <%} %>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
                 </asp:ContentPlaceHolder>
             </form>
-
         </div>
     </div>
     <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
-
     </asp:ContentPlaceHolder>
 </body>
 </html>

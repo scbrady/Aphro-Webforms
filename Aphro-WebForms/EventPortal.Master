@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EventPortal.Master.cs" Inherits="Aphro_WebForms.EventPortal" %>
+
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>
@@ -20,13 +21,11 @@
         <div class="mainPane">
             <form id="masterForm" runat="server">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
                 </asp:ContentPlaceHolder>
             </form>
         </div>
     </div>
     <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
-
     </asp:ContentPlaceHolder>
 </body>
 </html>

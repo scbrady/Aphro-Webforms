@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using AutoMapper;
-using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Guest
 {
@@ -19,7 +19,6 @@ namespace Aphro_WebForms.Guest
                 Response.Redirect("Index.aspx");
 
             SeriesId = long.Parse(Request.QueryString["Series"]);
-
 
             DataTable eventSeatsTable = new DataTable();
             List<Models.EventSeats> eventSeatsModel = new List<Models.EventSeats>();

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Data;
-using System.Web;
-using Oracle.ManagedDataAccess.Client;
 using System.Net;
+using System.Web;
 using System.Web.SessionState;
 
 namespace Aphro_WebForms.Shared

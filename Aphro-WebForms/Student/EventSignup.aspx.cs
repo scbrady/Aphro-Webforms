@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using AutoMapper;
-using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Student
 {

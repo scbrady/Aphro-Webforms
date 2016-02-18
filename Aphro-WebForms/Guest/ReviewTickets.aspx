@@ -8,5 +8,4 @@
 
     <h4>Ticket Seat Number:</h4>
     <asp:Label ID="TicketNumber" runat="server" Text="Label"></asp:Label>
-
 </asp:Content>

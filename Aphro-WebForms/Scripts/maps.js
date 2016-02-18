@@ -27,7 +27,7 @@ function refreshMap() {
             mapData["path"] = this.path;
             buildingDataMap.push(mapData);
         });
-            
+
         $('#container').highcharts('Map', {
             chart: {
                 events: {
@@ -138,7 +138,6 @@ function refreshMap() {
                     }
                 }
             }
-
         });
     });
 }

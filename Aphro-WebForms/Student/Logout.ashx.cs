@@ -5,7 +5,6 @@ namespace Aphro_WebForms.Student
 {
     public class Logout : IHttpHandler, IRequiresSessionState
     {
-
         public void ProcessRequest(HttpContext context)
         {
             Global.CurrentPerson = null;

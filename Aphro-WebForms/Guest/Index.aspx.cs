@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Aphro_WebForms.Models;
+﻿using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Aphro_WebForms.Guest
 {

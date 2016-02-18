@@ -1,11 +1,10 @@
-﻿using System;
-using Oracle.ManagedDataAccess.Client;
-using System.Configuration;
-using System.Data;
+﻿using Aphro_WebForms.Models;
 using DevOne.Security.Cryptography.BCrypt;
+using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Data;
 using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
 using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
-using Aphro_WebForms.Models;
 
 namespace Aphro_WebForms.Guest
 {
@@ -50,7 +49,7 @@ namespace Aphro_WebForms.Guest
                     {
                         labelMessage.Text = ex.ToString();
                     }
-                               
+
                     objConn.Close();
                 }
 

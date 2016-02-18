@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Aphro_WebForms.Models;
+﻿using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
 
 namespace Aphro_WebForms.Event
@@ -40,7 +40,7 @@ namespace Aphro_WebForms.Event
                     eventTypesAdapter.Fill(eventTypeNamesTable);
                     buildingAdapter.Fill(buildingsTable);
                     eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
-                    buildings  = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
+                    buildings = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +79,7 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventName.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, Description.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int) long.Parse(EventType.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using AutoMapper;
-using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Guest
 {
@@ -133,7 +133,7 @@ namespace Aphro_WebForms.Guest
                 objConn.Close();
 
                 // If the person already has tickets, redirect them to the page where they can review it
-                if(eventSeatsModel.Any())
+                if (eventSeatsModel.Any())
                     Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             }
         }

@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Data.OracleClient;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Aphro_WebForms.Models
 {

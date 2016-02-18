@@ -6,7 +6,7 @@
 /*     Login/Register     */
 /**************************/
 
-#MainContent_CreateAccount, #MainContent_AlreadyHaveAccount{
+#MainContent_CreateAccount, #MainContent_AlreadyHaveAccount {
     display: block;
     text-align: center;
     margin-top: 20px;
@@ -26,8 +26,8 @@
 
 /* The basic look of a textbox */
 .mainPane input {
-	margin: auto 100px;
-	width: 75%;
+    margin: auto 100px;
+    width: 75%;
 }
 
 input[type=submit] {
@@ -35,16 +35,15 @@ input[type=submit] {
 }
 
 .mainPane input[type=submit] {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
-/* The design of when the textbox is hovered over by the mouse */
-.mainPane input[type=submit]:hover {
-    background: #005daa;
-}
+    /* The design of when the textbox is hovered over by the mouse */
+    .mainPane input[type=submit]:hover {
+        background: #005daa;
+    }
 
 .inner-addon left-addon {
-
 }
 
 /********************/
@@ -55,11 +54,11 @@ input[type=submit] {
     padding-top: 30px;
 }
 
-#eventSignup h1 {
-    font-size: 18pt;
-    margin: 0 auto 5pt auto;
-    text-align: left;
-}
+    #eventSignup h1 {
+        font-size: 18pt;
+        margin: 0 auto 5pt auto;
+        text-align: left;
+    }
 
 span {
     font-size: 12pt;
@@ -75,18 +74,18 @@ span {
 }
 
 #eventSignup h3 {
-   font-size: 18pt;
-   margin: 10px 0px;
+    font-size: 18pt;
+    margin: 10px 0px;
 }
 
 #guestSignup input[type=number] {
-   width: 100px;
-   margin: 0 0 0 10.5%;
+    width: 100px;
+    margin: 0 0 0 10.5%;
 }
 
-#guestSignup input{
-   margin: auto auto 10px auto;
-   width: 100%;
+#guestSignup input {
+    margin: auto auto 10px auto;
+    width: 100%;
 }
 
 #guestSignup select {
@@ -96,11 +95,11 @@ span {
 }
 
 #guestSignup #MainContent_GetExtraTickets {
-   width: 45%;
-   float: right;
-   text-align: center;
+    width: 45%;
+    float: right;
+    text-align: center;
 }
 
 input #MainContent_Submit {
-   width: 100%;
+    width: 100%;
 }

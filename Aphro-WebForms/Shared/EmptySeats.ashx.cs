@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Aphro_WebForms.Models;
+using AutoMapper;
+using Newtonsoft.Json;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
-using Aphro_WebForms.Models;
-using AutoMapper;
-using Newtonsoft.Json;
-using Oracle.ManagedDataAccess.Client;
 
 namespace Aphro_WebForms.Shared
 {
@@ -32,9 +32,9 @@ namespace Aphro_WebForms.Shared
                 buildingKey = int.Parse(context.Request["buildingKey"]);
                 if (!string.IsNullOrEmpty(context.Request["balcony"]))
                     balcony = bool.Parse(context.Request["balcony"]);
-
-            } else if (!string.IsNullOrEmpty(context.Request["eventId"]) &&
-                       !string.IsNullOrEmpty(context.Request["sectionKey"]))
+            }
+            else if (!string.IsNullOrEmpty(context.Request["eventId"]) &&
+                     !string.IsNullOrEmpty(context.Request["sectionKey"]))
             {
                 eventId = int.Parse(context.Request["eventId"]);
                 sectionKey = int.Parse(context.Request["sectionKey"]);

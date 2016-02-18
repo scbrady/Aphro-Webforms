@@ -1,5 +1,4 @@
-﻿using System;
-namespace Aphro_WebForms.Models
+﻿namespace Aphro_WebForms.Models
 {
     public class EventSeats
     {

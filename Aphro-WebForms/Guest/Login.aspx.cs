@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using Aphro_WebForms.Models;
 using AutoMapper;
 using DevOne.Security.Cryptography.BCrypt;
 using Oracle.ManagedDataAccess.Client;
-using Aphro_WebForms.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace Aphro_WebForms.Guest
 {
@@ -50,7 +50,7 @@ namespace Aphro_WebForms.Guest
                 {
                     labelMessage.Text = ex.ToString();
                 }
-        
+
                 objConn.Close();
             }
             if (guest != null)

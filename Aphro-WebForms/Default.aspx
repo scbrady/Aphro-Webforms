@@ -8,10 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <a href="Guest/Index.aspx">Guest Dashboard</a><br />
-        <a href="Student/Index.aspx">Student Dashboard</a>
-    </div>
+        <div>
+            <a href="Guest/Index.aspx">Guest Dashboard</a><br />
+            <a href="Student/Index.aspx">Student Dashboard</a>
+        </div>
     </form>
 </body>
 </html>

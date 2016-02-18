@@ -38,7 +38,7 @@
     <h3 id="ticketNumber">Number of Tickets: </h3>
     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
     <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity"  ErrorMessage="You can only have 10 people in your group!" />
-    <asp:Button ID="GetExtraTickets" runat="server" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+    <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
     
     <div class="interactiveMap" id="container"></div>
     <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />

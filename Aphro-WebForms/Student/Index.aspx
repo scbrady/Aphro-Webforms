@@ -6,15 +6,14 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <asp:Label ID="StudentName" runat="server" Text="Label"></asp:Label>
 	<h1 id="label">Select an Event to Purchase Tickets</h1>
+
 	<div id="navigation">
-		<button class="previous"data-increment="-1"a>&lt</button>
-		<button class="next" data-increment="1">&gt</button>
+		<button class="previous navButton" data-increment="-1"a>&lt</button>
+		<button class="next navButton" data-increment="1">&gt</button>
 		<section class="selector">
             <asp:ListView ID="EventListview" runat="server">
-                <LayoutTemplate>         
+                <LayoutTemplate>
                     <div id="carousel" class=" panels-backface-invisible">
                         <div id="itemPlaceholder" runat="server">              
                         </div>         
@@ -32,7 +31,7 @@
                 </ItemTemplate>
             </asp:ListView>
         </section>
-        </div>
+    </div>
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

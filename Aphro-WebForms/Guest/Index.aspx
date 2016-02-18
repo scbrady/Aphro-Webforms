@@ -32,7 +32,6 @@
             </asp:ListView>
         </section>
     </div>
-
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

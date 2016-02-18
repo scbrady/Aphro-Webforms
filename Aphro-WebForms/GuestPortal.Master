@@ -17,33 +17,30 @@
 </head>
 <body>
     <div class="header"></div>
-
-        <div class="shadow">
+    <div class="shadow">
         <div class="mainPane">
-            <img id="Logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
+            <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
 
             <form id="masterForm" runat="server">
-                    <%if (Session["CurrentPerson"] != null) { %>
-                <div class="dropdown-guest">
+                <%if (Session["CurrentPerson"] != null) { %>
+                    <div class="dropdown-menu">
                         <div class="dropdown">
-                        <button class="dropbtn">
-                                <%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
-                        <div class="dropdown-content">
-                        <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
+                            <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
+                            <div class="dropdown-content">
+                                <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
+                            </div>
                         </div>
-                        </div>
-                </div>
-                    <%} %>
+                    </div>
+                <%} %>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-                </asp:ContentPlaceHolder>
-
-                <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
                 </asp:ContentPlaceHolder>
             </form>
 
         </div>
-        </div>
+    </div>
+    <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
 
+    </asp:ContentPlaceHolder>
 </body>
 </html>

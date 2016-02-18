@@ -18,8 +18,6 @@ namespace Aphro_WebForms.Student
                 LoginRandomStudent();
             }
 
-            StudentName.Text = "Hi " + Global.CurrentPerson.firstname;
-
             DataTable upcomingEventsTable = new DataTable();
             List<Models.Event> upcomingEvents = new List<Models.Event>();
 

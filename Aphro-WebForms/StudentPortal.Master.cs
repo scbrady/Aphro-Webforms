@@ -13,5 +13,11 @@ namespace Aphro_WebForms
         {
 
         }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Global.CurrentPerson = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -78,9 +78,9 @@ span {
     margin: 10px 0px;
 }
 
-#guestSignup input[type=number] {
-    width: 100px;
-    margin: 0 0 0 10.5%;
+input[type=number] {
+    width: 25%;
+    margin: 0 0 0 0;
 }
 
 #guestSignup input {
@@ -94,12 +94,48 @@ span {
     float: right;
 }
 
-#guestSignup #MainContent_GetExtraTickets {
-    width: 45%;
+#MainContent_GetExtraTickets {
+    width: 30%;
     float: right;
     text-align: center;
+    margin: -40px -18px;
 }
 
-input #MainContent_Submit {
+#MainContent_Submit {
     width: 100%;
+    margin: 0;
+}
+
+.balcony{
+    width: 50%;
+    height: 40px;
+    background-color: deepskyblue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #32a3ff;
+    color: #fff;
+    font-weight: bold;
+	text-transform: uppercase;
+    margin: 10px 25%;
+}
+
+.mainFloor{
+    width: 50%;
+    height: 40px;
+    background-color:  deepskyblue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #32a3ff;
+    color: #fff;
+    font-weight: bold;
+	text-transform: uppercase;
+    margin: 10px 25%;
+}
+
+.dropdown select{
+    font-size: 15px;
+    width: 70%;
+    float: right;
+    margin: auto 0;
+    padding: 0 0 0 15px;
 }

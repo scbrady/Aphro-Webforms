@@ -1,6 +1,59 @@
-﻿/**************************/
-/*      Guest Portal      */
-/**************************/
+﻿/*****************************************/
+/* Styles for both GUEST and EVENT pages */
+/*****************************************/
+
+/* The overall Body of the webapp */
+body {
+    font-size: 13px;
+    font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
+    background-size: cover;
+}
+
+/* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
+.shadow {
+    margin: -16px auto 0px;
+    min-width: 600px;
+    max-width: 1000px;
+    width: 65%;
+    padding: 0 30px 30px;
+    background-image: url('White25p.png');
+}
+
+.logo {
+    float: left;
+}
+
+/* The main pane of each part of the webapp (except student and faculty portals) */
+.mainPane {
+    background: #e4f2fb;
+    margin: 0 auto;
+    font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    border-bottom: 1px solid #ccc;
+    color: #15589c;
+    display: block;
+    text-decoration: none;
+    font-weight: normal;
+    font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
+    padding: 20px 20px 40px;
+}
+
+    /* The heading for the portal window */
+    .mainPane #label {
+        text-align: center;
+        margin-top: 125px;
+    }
+
+/* The PCC header bar */
+.header {
+    width: 100%;
+    height: 41px;
+    background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
+}
 
 /**************************/
 /*     Login/Register     */
@@ -49,15 +102,16 @@ input[type=submit] {
 /********************/
 /*   Event Signup   */
 /********************/
+
 #eventSignup {
     clear: both;
     padding-top: 30px;
 }
 
     #eventSignup h1 {
-        font-size: 18pt;
-        margin: 0 auto 5pt auto;
-        text-align: left;
+        font-size: 19pt;
+        margin: 0 auto;
+        text-align: center;
     }
 
 span {
@@ -66,21 +120,23 @@ span {
 }
 
 #MainContent_EventName {
-    text-transform: uppercase;
-    font-size: 26pt;
-    margin: 0 0 40px;
+    font-size: 19pt;
     display: block;
-    text-align: center;
 }
+
+
 
 #eventSignup h3 {
     font-size: 18pt;
     margin: 10px 0px;
+    display: inline-block;
 }
 
 input[type=number] {
-    width: 25%;
+    width: 10%;
     margin: 0 0 0 0;
+    text-align: left;
+    padding: 0 10px;
 }
 
 #guestSignup input {
@@ -95,10 +151,10 @@ input[type=number] {
 }
 
 #MainContent_GetExtraTickets {
-    width: 30%;
+    width: 40%;
     float: right;
     text-align: center;
-    margin: -40px -18px;
+    margin: -41px 96px;
 }
 
 #MainContent_Submit {
@@ -134,8 +190,15 @@ input[type=number] {
 
 .dropdown select{
     font-size: 15px;
-    width: 70%;
-    float: right;
-    margin: auto 0;
-    padding: 0 0 0 15px;
+    width: 75%;
+    display: inline-block;
+    margin: 10px;
+}
+
+    .dropdown #EventType{
+        width: 100%;
+    }
+
+.dropdown {
+    display: block;
 }

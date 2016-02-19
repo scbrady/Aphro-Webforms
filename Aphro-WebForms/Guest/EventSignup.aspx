@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="eventSignup">
-        <asp:Label ID="EventName" runat="server"></asp:Label>
+        <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
 
         <div class="Description">
             <h3>Description: 
@@ -20,15 +20,16 @@
 
         <div class="Price">
             <h3>Price:
-            <asp:Label ID="EventPrice" runat="server"></asp:Label>
-                (Prime:
-                <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)</h3>
+                <asp:Label ID="EventPrice" runat="server"></asp:Label>
+                    (Prime:
+                <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)
+            </h3>
         </div>
 
         <div class="dropdown" id="Dates">
-            <h3>Dates: 
+            <h3>Dates: </h3>
                 <asp:DropDownList ID="EventDateDropDown" runat="server"></asp:DropDownList>
-            </h3>
+            
         </div>
 
         <asp:HiddenField ID="BuildingKeyField" runat="server" />

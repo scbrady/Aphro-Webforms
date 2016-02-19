@@ -4,7 +4,7 @@
 
     <%--Event Type--%>
     <h1>Create Event</h1>
-    <div class="dropdown">
+    <div class="eventCreation">
         <h3>Event Type:</h3>
         <asp:DropDownList ID="EventType" runat="server">
         </asp:DropDownList>
@@ -30,7 +30,7 @@
     </div>
 
     <%--Location--%>
-    <div class='dropdown'>
+    <div class='eventCreation'>
         <h3>Location: </h3>
         <asp:DropDownList ID="LocationDropDown" runat="server">
         </asp:DropDownList>

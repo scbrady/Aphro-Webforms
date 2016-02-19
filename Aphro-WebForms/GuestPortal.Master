@@ -24,8 +24,8 @@
             <form id="masterForm" runat="server">
                 <%if (Session["CurrentPerson"] != null)
                     { %>
-                <div class="dropdown-menu">
-                    <div class="dropdown">
+                <div class="drop-menu">
+                    <div class="dropdown-account">
                         <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
                         <div class="dropdown-content">
                             <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />

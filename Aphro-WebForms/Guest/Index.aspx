@@ -28,7 +28,7 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <asp:HyperLink runat="server" ID="EventLink" NavigateUrl='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' Text='<%# Eval("name") %>'></asp:HyperLink>
+                    <a style="background-image: url('<%# "../Content/pictures/"+ Eval("event_picture") %>')" href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>'><%# Eval("name") %></a>
                 </ItemTemplate>
             </asp:ListView>
         </section>

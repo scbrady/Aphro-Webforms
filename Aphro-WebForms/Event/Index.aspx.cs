@@ -71,12 +71,15 @@ namespace Aphro_WebForms.Event
         protected void Submit_Click(object sender, EventArgs e)
         {
             Guid pictureUUID = Guid.NewGuid();
-            string pictureName = pictureUUID.ToString() + ".jpeg";
+            string pictureName;
             if (imageUpload.HasFile)
             {
-                string fileName = Path.GetFileName(imageUpload.PostedFile.FileName);
+                string extension = Path.GetExtension(imageUpload.PostedFile.FileName);
+                pictureName = pictureUUID.ToString() + extension;
                 imageUpload.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + pictureName);
             }
+            else
+                pictureName = "events_medium.jpg";
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {

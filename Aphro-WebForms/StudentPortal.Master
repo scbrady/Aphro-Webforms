@@ -10,34 +10,34 @@
     <%: Scripts.Render("~/bundles/bootstrap") %>
     <%: Scripts.Render("~/bundles/datepicker") %>
     <%: Styles.Render("~/Content/css") %>
+    <%: Styles.Render("~/Content/font-awesome") %>
     <%: Styles.Render("~/Content/student-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <div class="header"></div>
-    <div class="shadow">
-        <div class="mainPane">
-            <img class="logo" src="http://eaglesnest.pcci.edu/images/EN2/logo.png" />
-
-            <form id="masterForm" runat="server">
+    <form id="masterForm" runat="server">
+        <header>
+            <div class="logo-holder">
+                <img class="logo" src="http://eaglesnest.pcci.edu/images/EN2/logo.png" />
+            </div>
+            <div class="top-bar">
                 <%if (Session["CurrentPerson"] != null)
                     { %>
-                <div class="dropdown-menu">
-                    <div class="dropdown">
-                        <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
-                        <div class="dropdown-content">
-                            <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
-                        </div>
-                    </div>
+                <div class="user-info">
+                    <div class="spacer"></div>
+                    <span class="user-name"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname + " " + ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).lastname%></span>
+                    <asp:LinkButton ID="Logout" CssClass="fa fa-arrow-right" runat="server" OnClick="LogoutButton_Click" Text=" Logout" />
                 </div>
                 <%} %>
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-            </form>
+            </div>
+        </header>
+        <div class="mainPane">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
-    </div>
+    </form>
     <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
     </asp:ContentPlaceHolder>
 </body>

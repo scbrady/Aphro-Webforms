@@ -122,6 +122,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\faculty.css" />
     <Content Include="Content\carousel.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\student.css" />
     <Content Include="Content\guest.css" />
     <Content Include="Content\event.css" />
@@ -161,6 +163,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Guest\ReviewTickets.aspx" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />
@@ -203,6 +206,11 @@
     <Content Include="Content\maps\sections\7.json" />
     <Content Include="Content\maps\sections\8.json" />
     <Content Include="Content\maps\sections\9.json" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />

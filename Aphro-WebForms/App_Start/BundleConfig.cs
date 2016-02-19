@@ -34,6 +34,9 @@ namespace Aphro_WebForms
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
+                      "~/Content/font-awesome.css"));
+
             bundles.Add(new StyleBundle("~/Content/event-css").Include(
                       "~/Content/event.css"));
             bundles.Add(new StyleBundle("~/Content/guest-css").Include(

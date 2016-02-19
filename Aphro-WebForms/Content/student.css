@@ -1,17 +1,81 @@
 ﻿/**************************/
 /*     Student Portal     */
 /**************************/
+html {
+    font-family: Roboto, sans-serif;
+    height: 100%;
+    font-size: 99%;
+}
 
-/* Eagle's Nest Logo */
-.EaglesNestLogo {
+body {
+    background-color: #cccccc;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(211, 213, 216,.5) 5px, rgba(211, 213, 216,.5) 6px);
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    font-size: 99%;
     width: 100%;
-    min-width: 667px;
-    height: 90px;
-    background-image: url('http://eaglesnest.pcci.edu/images/EN2/logo.png');
-    background-repeat: no-repeat;
-    background-size: 100px 90px;
-    background-color: #035082;
-    border-bottom: 5px solid #ffca00;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='rgb(0,0,0)', Direction=145, Strength=8);
+    z-index: 50000;
+}
+
+.top-bar {
+    background: #035082;
+    height: auto;
+}
+
+.spacer {
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo-holder {
+    width: 90%;
+    max-width: 74em;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 114px;
+    background: #0070b9;
+    z-index: 10001;
+    position: absolute;
+}
+
+.user-info {
+    width: 90%;
+    max-width: 74em;
+    margin: 0 auto;
+    padding-left: 125px;
+    height: 100%
+}
+
+.user-name {
+    display: inline-block;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+#Logout {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: #d3d5d8;
 }
 
 .container-fluid {

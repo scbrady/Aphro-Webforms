@@ -12,17 +12,21 @@ namespace Aphro_WebForms.Student
         protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
-        protected int MemberCount;
+        protected int Members = 1;
         protected int PurchasedTicketsCount;
+        protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Global.CurrentPerson == null)
-                Response.Redirect("Index.aspx");
-
-            if (!string.IsNullOrEmpty(Request.QueryString["Series"]))
+            if (!IsPostBack)
             {
+                if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))
+                    Response.Redirect("Index.aspx");
+
                 SeriesId = long.Parse(Request.QueryString["Series"]);
+                SeriesIdField.Value = SeriesId.ToString();
+
+                checkIfTicketsAlreadyPurchased(SeriesId);
 
                 DataTable eventTable = new DataTable();
                 List<Models.Event> eventModel = new List<Models.Event>();
@@ -73,6 +77,7 @@ namespace Aphro_WebForms.Student
                     var currentEvent = eventModel.FirstOrDefault();
                     BuildingKey = currentEvent.building_key;
                     Building = currentEvent.building;
+                    BuildingKeyField.Value = BuildingKey.ToString();
 
                     EventName.Text = currentEvent.name;
                     EventDescription.Text = currentEvent.description;
@@ -88,16 +93,56 @@ namespace Aphro_WebForms.Student
 
                 if (requestsModel.Count > 0)
                 {
-                    MemberCount = requestsModel.FirstOrDefault().members;
-                    PurchasedTicketsCount = MemberCount - requestsModel.Count - 1;
+                    Members = requestsModel.FirstOrDefault().members;
+                    PurchasedTicketsCount = Members - requestsModel.Count - 1;
                     GroupRequestsList.DataSource = requestsModel;
                     GroupRequestsList.DataBind();
                 }
+                MaxExtraTickets = (10 - Members).ToString();
+                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
+                GroupSize.Text = Members.ToString();
+            }
+        }
+
+        private void checkIfTicketsAlreadyPurchased(long seriesId)
+        {
+            DataTable eventSeatsTable = new DataTable();
+            List<Models.EventSeats> eventSeatsModel = new List<Models.EventSeats>();
+
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the getEventSeats command
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
+                eventSeatsCommand.BindByName = true;
+                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the queries and auto map the results to models
+                    objConn.Open();
+                    var eventSeatsAdapter = new OracleDataAdapter(eventSeatsCommand);
+                    eventSeatsAdapter.Fill(eventSeatsTable);
+                    eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
+                }
+                catch (Exception ex)
+                {
+                    // This is ok if an error comes up, let the program handle it later
+                }
+
+                objConn.Close();
+
+                // If the person already has tickets, redirect them to the page where they can review it
+                if (eventSeatsModel.Any())
+                    Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             }
         }
 
         protected void GetTickets_Click(object sender, EventArgs e)
         {
+            SeriesId = int.Parse(SeriesIdField.Value);
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the inserting seats command
@@ -122,6 +167,7 @@ namespace Aphro_WebForms.Student
                 }
 
                 objConn.Close();
+                Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             }
         }
 

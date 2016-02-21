@@ -32,6 +32,7 @@
                 </div>
                 <%} %>
             </div>
+            <nav id="cbp-hrmenu" class="cbp-hrmenu"></nav>
         </header>
         <div class="mainPane">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

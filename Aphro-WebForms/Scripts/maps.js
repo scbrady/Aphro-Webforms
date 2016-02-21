@@ -4,6 +4,12 @@
     refreshMap();
 });
 
+function changeBalcony(event) {
+    event.preventDefault();
+    balcony = (balcony ? false : true);
+    refreshMap();
+}
+
 function refreshMap() {
     var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#MainContent_BuildingKeyField').val();

@@ -225,6 +225,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Student\EventSignup.aspx" />
     <Content Include="Student\Index.aspx" />
+    <Content Include="Student\ReviewTickets.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -346,6 +347,13 @@
     </Compile>
     <Compile Include="Student\Logout.ashx.cs">
       <DependentUpon>Logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\ReviewTickets.aspx.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\ReviewTickets.aspx.designer.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

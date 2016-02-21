@@ -76,6 +76,24 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
         
         /// <summary>
+        /// BuildingKeyField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BuildingKeyField;
+        
+        /// <summary>
+        /// SeriesIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SeriesIdField;
+        
+        /// <summary>
         /// SelectedSection control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.TextBox TicketQuantity;
         
         /// <summary>
+        /// TicketQuantityRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator TicketQuantityRangeValidator;
+        
+        /// <summary>
         /// GetExtraTickets control.
         /// </summary>
         /// <remarks>
@@ -119,6 +146,15 @@ namespace Aphro_WebForms.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GetExtraTickets;
+        
+        /// <summary>
+        /// GroupSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GroupSize;
         
         /// <summary>
         /// GroupRequestsList control.

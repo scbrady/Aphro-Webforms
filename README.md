@@ -1,5 +1,7 @@
 ##TODO:
 ###Guest:
+* Master
+  * [ ] Link in picture header
 
 * Index
   * [ ] Logout button top
@@ -14,6 +16,12 @@
   * [ ] Styling
   * [X] Map / Picking seats
   * [X] DB insert seats
+  * [ ] Move picking seats to after confirmation
+
+###Event Creation:
+* [ ] Event page to see/delete created events
+* [ ] Ability to remove dates
+* [ ] Style upload image
 
 ###Request / Response:
 * [ ] Only let group leader add people
@@ -44,5 +52,5 @@ Same as student
 ###Maps:
   * Add DHA map
     * [X] Create DHA SVG
-    * [ ] Create DHA GeoJSON
-    * [ ] Add all DHA data to SEATS table in DB
+    * [X] Create DHA GeoJSON
+    * [X] Add all DHA data to SEATS table in DB

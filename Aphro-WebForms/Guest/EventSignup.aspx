@@ -48,9 +48,8 @@
             <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
         </h3>
 
-        <button class="balcony" onclick='balcony = true; refreshMap(); return false;'>Balcony</button>
+        <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
         <div class="interactiveMap" id="container"></div>
-        <button class="mainFloor" onclick='balcony = false; refreshMap(); return false;'>Main Floor</button>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
     </div>
 </asp:Content>

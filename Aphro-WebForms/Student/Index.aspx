@@ -28,7 +28,7 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <asp:HyperLink runat="server" ID="EventLink" NavigateUrl='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' Text='<%# Eval("name") %>'></asp:HyperLink>
+                    <a style="background-image: url('<%# "../Content/pictures/"+ Eval("event_picture") %>')" href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' data-adaptive-background data-ab-css-background><%# Eval("name") %></a>
                 </ItemTemplate>
             </asp:ListView>
         </section>
@@ -36,5 +36,10 @@
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <script>
+    $(document).ready(function(){
+        $.adaptiveBackground.run();
+    });
+    </script>
     <%: Scripts.Render("~/bundles/carousel") %>
 </asp:Content>

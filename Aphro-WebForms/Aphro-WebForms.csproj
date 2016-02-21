@@ -165,6 +165,7 @@
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Guest\ReviewTickets.aspx" />
+    <Content Include="Scripts\adaptive-backgrounds.js" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

@@ -7,7 +7,9 @@ namespace Aphro_WebForms
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/carousel").Include(
-                        "~/Scripts/carousel.js"));
+                        "~/Scripts/carousel.js",
+                        "~/Scripts/adaptive-backgrounds.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/moment.js",
                         "~/Scripts/jquery-{version}.js"));

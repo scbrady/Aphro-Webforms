@@ -79,7 +79,7 @@ namespace Aphro_WebForms.Student
                     Building = currentEvent.building;
                     BuildingKeyField.Value = BuildingKey.ToString();
 
-                    EventName.Text = currentEvent.name;
+                    EventName.InnerHtml = currentEvent.name;
                     EventDescription.Text = currentEvent.description;
                     EventLocation.Text = currentEvent.building;
                     EventPrice.Text = "$" + currentEvent.regular_price;

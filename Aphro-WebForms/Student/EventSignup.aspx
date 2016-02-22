@@ -3,14 +3,10 @@
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="EventName" runat="server"></asp:Label>
-    <br />
+    <h1 id="EventName" runat="server"></h1>
     <asp:Label ID="EventDescription" runat="server"></asp:Label>
-    <br />
     <asp:Label ID="EventLocation" runat="server"></asp:Label>
-    <br />
     <asp:Label ID="EventPrice" runat="server"></asp:Label>
-    <br />
     <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>
 
     <div class="dropdown">
@@ -18,19 +14,6 @@
         <asp:DropDownList ID="EventDateDropDown" runat="server">
         </asp:DropDownList>
     </div>
-
-    <%--<asp:ListView ID="EventDateListview" runat="server">
-        <LayoutTemplate>
-            <div id="EventDateContainer" runat="server">
-                <div ID="itemPlaceholder" runat="server">
-                </div>
-            </div>
-        </LayoutTemplate>
-        <ItemTemplate>
-            <asp:HyperLink runat="server" ID="EventDateLink" NavigateUrl='<%# "#"+ Eval("event_id") %>' Text='<%# Eval("event_datetime") %>'></asp:HyperLink>
-            <br />
-        </ItemTemplate>
-    </asp:ListView>--%>
 
     <asp:HiddenField ID="BuildingKeyField" runat="server" />
     <asp:HiddenField ID="SeriesIdField" runat="server" />

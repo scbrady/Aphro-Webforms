@@ -42,11 +42,11 @@ body {
     padding: 20px 20px 40px;
 }
 
-    /* The heading for the portal window */
-    .mainPane #label {
-        text-align: center;
-        margin-top: 125px;
-    }
+/* The heading for the portal window */
+.mainPane #label {
+    text-align: center;
+    margin-top: 125px;
+}
 
 /* The PCC header bar */
 .header {
@@ -77,10 +77,16 @@ body {
     clear: both;
 }
 
+.mainPane h3 {
+    margin: auto;
+    width: 75%;
+}
+
 /* The basic look of a textbox */
 .mainPane input {
-    margin: auto 100px;
+    margin: auto;
     width: 75%;
+    display: block;
 }
 
 input[type=submit] {
@@ -91,10 +97,10 @@ input[type=submit] {
     margin-top: 20px;
 }
 
-    /* The design of when the textbox is hovered over by the mouse */
-    .mainPane input[type=submit]:hover {
-        background: #005daa;
-    }
+/* The design of when the textbox is hovered over by the mouse */
+.mainPane input[type=submit]:hover {
+    background: #005daa;
+}
 
 .inner-addon left-addon {
 }
@@ -195,10 +201,17 @@ input[type=number] {
     margin: 10px;
 }
 
-    .dropdown #EventType{
-        width: 100%;
-    }
+.dropdown #EventType{
+    width: 100%;
+}
 
 .dropdown {
     display: block;
+}
+
+#MainContent_labelMessage {
+    width: 75%;
+    margin: 20px auto;
+    display: block;
+    color: #EC4040;
 }

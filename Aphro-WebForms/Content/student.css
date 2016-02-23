@@ -238,3 +238,24 @@ body:before {
         box-shadow: 0 2.5em 0 0 #15589c;
     }
 }
+
+/* Group Request List */
+a.panel-heading {
+    display: block;
+}
+
+.panel-title {
+    float: left;
+}
+
+.panel-heading .panel-buttons {
+    float: right;
+}
+
+.group-member {
+    display: inline;
+}
+
+.group-status {
+    float: right;
+}

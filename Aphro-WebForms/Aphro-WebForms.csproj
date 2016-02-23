@@ -164,22 +164,18 @@
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Guest\ReviewTickets.aspx" />
     <Content Include="Scripts\adaptive-backgrounds.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Event\Index.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Guest\EventSignup.aspx" />
     <Content Include="Guest\Index.aspx" />
     <Content Include="Guest\Register.aspx" />
     <Content Include="Guest\Login.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\maps.js" />
@@ -212,6 +208,14 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -224,6 +228,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Student\ChooseGroup.aspx" />
     <Content Include="Student\EventSignup.aspx" />
     <Content Include="Student\Index.aspx" />
     <Content Include="Student\ReviewTickets.aspx" />
@@ -256,6 +261,7 @@
       <DependentUpon>ReviewTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\EventSeats.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
     <Compile Include="Shared\AddToGroup.ashx.cs">
@@ -332,6 +338,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Student\ChooseGroup.aspx.cs">
+      <DependentUpon>ChooseGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\ChooseGroup.aspx.designer.cs">
+      <DependentUpon>ChooseGroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\EventSignup.aspx.cs">
       <DependentUpon>EventSignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,9 +358,6 @@
     </Compile>
     <Compile Include="Student\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Student\Logout.ashx.cs">
-      <DependentUpon>Logout.ashx</DependentUpon>
     </Compile>
     <Compile Include="Student\ReviewTickets.aspx.cs">
       <DependentUpon>ReviewTickets.aspx</DependentUpon>
@@ -363,7 +373,6 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="EventPortal.Master" />
     <Content Include="GuestPortal.Master" />
-    <Content Include="Student\Logout.ashx" />
     <Content Include="Shared\Search.ashx" />
     <Content Include="Shared\AddToGroup.ashx" />
     <None Include="Web.Debug.config">

@@ -27,6 +27,7 @@ namespace Aphro_WebForms.Student
                 SeriesIdField.Value = SeriesId.ToString();
 
                 checkIfTicketsAlreadyPurchased(SeriesId);
+                checkIfInGroup(SeriesId);
 
                 DataTable eventTable = new DataTable();
                 List<Models.Event> eventModel = new List<Models.Event>();
@@ -137,6 +138,47 @@ namespace Aphro_WebForms.Student
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                     Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
+            }
+        }
+
+        private void checkIfInGroup(long seriesId)
+        {
+            DataTable requestsTable = new DataTable();
+            List<Models.GroupRequest> requestsModel = new List<Models.GroupRequest>();
+
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the getGroupStatusForEvent command
+                var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupStatusForEvent", objConn);
+                requestsCommand.BindByName = true;
+                requestsCommand.CommandType = CommandType.StoredProcedure;
+                requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the query and auto map the results to model
+                    var requestsAdapter = new OracleDataAdapter(requestsCommand);
+                    requestsAdapter.Fill(requestsTable);
+                    requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
+                }
+                catch (Exception ex)
+                {
+                    // This is ok if an error comes up, let the program handle it later
+                }
+
+                objConn.Close();
+            }
+
+            foreach(var request in requestsModel)
+            {
+                if (request.group_leader_id == Global.CurrentPerson.person_id)
+                    break;
+                else if (request.has_accepted == 0)
+                    Response.Redirect("ChooseGroup.aspx?Series=" + SeriesId);
+                else if (request.has_accepted == 1)
+                    Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
             }
         }
 

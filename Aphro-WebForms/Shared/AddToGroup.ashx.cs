@@ -15,15 +15,12 @@ namespace Aphro_WebForms.Shared
         public void ProcessRequest(HttpContext context)
         {
             int personId = 0;
-            int personType = 0;
             int seriesId = 0;
 
             if (!string.IsNullOrEmpty(context.Request["personId"]) &&
-                !string.IsNullOrEmpty(context.Request["personType"]) &&
                 !string.IsNullOrEmpty(context.Request["seriesId"]))
             {
                 personId = int.Parse(context.Request["personId"]);
-                personType = int.Parse(context.Request["personType"]);
                 seriesId = int.Parse(context.Request["seriesId"]);
             }
             else
@@ -35,7 +32,7 @@ namespace Aphro_WebForms.Shared
 
             try
             {
-                addPersonToGroup(personId, personType, seriesId);
+                addPersonToGroup(personId, seriesId);
             }
             catch (Exception ex)
             {
@@ -46,7 +43,7 @@ namespace Aphro_WebForms.Shared
             context.Response.End();
         }
 
-        private void addPersonToGroup(int personId, int personType, int seriesId)
+        private void addPersonToGroup(int personId, int seriesId)
         {
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -56,7 +53,6 @@ namespace Aphro_WebForms.Shared
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 command.Parameters.Add("p_RequestedId", OracleDbType.Int64, personId, ParameterDirection.Input);
-                command.Parameters.Add("p_RequestedType", OracleDbType.Int16, personType, ParameterDirection.Input);
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
 
                 try

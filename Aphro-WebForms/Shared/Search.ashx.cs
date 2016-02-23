@@ -40,7 +40,7 @@ namespace Aphro_WebForms.Shared
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
-                var eventCommand = new OracleCommand("TICKETS_QUERIES.searchPeople", objConn);
+                var eventCommand = new OracleCommand("TICKETS_QUERIES.searchStudents", objConn);
                 eventCommand.BindByName = true;
                 eventCommand.CommandType = CommandType.StoredProcedure;
                 eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);

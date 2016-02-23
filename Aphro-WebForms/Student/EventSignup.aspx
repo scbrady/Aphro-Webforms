@@ -31,7 +31,6 @@
         <label for="group-request">Name or ID: </label>
         <input type= id="group-request">
         <input type="hidden" id="group-request-id" />
-        <input type="hidden" id="group-request-type" />
     </div>
     <button onclick="addToGroup(event);">Add To Group</button>
 
@@ -68,20 +67,18 @@
                 minLength: 2,
                 focus: function (event, ui) {
                     $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
-                    $("#group-request-id").val(ui.item.id);
-                    $("#group-request-type").val(ui.item.person_type);
+                    $("#group-request-id").val(ui.item.xid);
                     return false;
                 },
                 select: function (event, ui) {
                     $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
-                    $("#group-request-id").val(ui.item.id);
-                    $("#group-request-type").val(ui.item.person_type);
+                    $("#group-request-id").val(ui.item.xid);
                     return false;
                 }
             })
             .autocomplete("instance")._renderItem = function (ul, item) {
                 return $("<li>")
-                  .append(item.firstname + " " + item.lastname + "<br>" + item.id)
+                  .append(item.firstname + " " + item.lastname + "<br>" + item.xid)
                   .appendTo(ul);
             };
         });
@@ -89,7 +86,7 @@
         function addToGroup(e) {
             e.preventDefault();
 
-            $.post("../Shared/AddToGroup.ashx", { personId: $('#group-request-id').val(), personType: $('#group-request-type').val(), seriesId: $('#seriesid').val() })
+            $.post("../Shared/AddToGroup.ashx", { personId: $('#group-request-id').val(), seriesId: $('#seriesid').val() })
                 .done(function (data) {
                     alert("added Person");
                 })

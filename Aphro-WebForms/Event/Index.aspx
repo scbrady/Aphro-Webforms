@@ -50,17 +50,18 @@
     </div>
 
     <asp:Button ID="Button1" runat="server" OnClientClick="javascript:AddDate(); return false;" Text="Add Date" />
+    <div id="DeleteDate" class='Event-Dates' style="position: relative"></div>
     <asp:HiddenField ID="HiddenField1" runat="server" />
 
     <%-- Seating Prices (both regular and prime) --%>
     <div class='Seat-Price'>
         <h3>Regular Seating Price:</h3>
-        <asp:TextBox ID="RegularPrice" runat="server"></asp:TextBox>
+        <asp:TextBox ID="RegularPrice" runat="server" placeholder="XX.XX"></asp:TextBox>
         <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" Text="Required Field." Display="Dynamic"/>
         <asp:RegularExpressionValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
         <h3>Prime Seating Price:</h3>
 
-        <asp:TextBox ID="PrimePrice" runat="server"></asp:TextBox>
+        <asp:TextBox ID="PrimePrice" runat="server" placeholder="XX.XX"></asp:TextBox>
         <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="PrimePrice" Text="Required Field." Display="Dynamic"/>
         <asp:RegularExpressionValidator ValidationGroup="EventCreation" ControlToValidate="PrimePrice"  ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
     </div>
@@ -81,7 +82,8 @@
 
         function AddDate() {
             //Create an input type dynamically.
-            var element = document.createElement("input");
+            var element   = document.createElement("input");
+            var newButton = document.createElement("button");
 
             //Assign different attributes to the element.
             element.setAttribute("type", "text");
@@ -89,11 +91,16 @@
             element.setAttribute("class", "datepicker-field");
             element.setAttribute("id", "date" + dateCount);
 
+            newButton.setAttribute("value", "Delete");
+            newButton.setAttribute("id", "delete" + dateCount);
+            newButton.setAttribute("onclick", "DeleteDate(" + dateCount + "); return false;");
+
             // div id, where new fields are to be added
             var ExtraDates = document.getElementById("EventDates");
 
             //Append the element in page.
             ExtraDates.appendChild(element);
+            ExtraDates.appendChild(newButton);
 
             $('.datepicker-field').datetimepicker({
                 format: 'DD-MMM-YY hh:mm A'
@@ -106,13 +113,20 @@
             var test = $("#MainContent_EventDate").val();
 
             for (var x = 0; x < dateCount; x++) {
-                test = test + "," + $("#date" + x).val();
+                if ($("#date" + x).length > 0 && $("#date" + x).val() != "")
+                    test = test + "," + $("#date" + x).val();
             }
 
             $("#MainContent_HiddenField1").val(test);
 
             var button = document.getElementById("MainContent_Button3");
             button.click();
+        }
+
+        function DeleteDate(date)
+        {
+            $('#date' + date).remove();
+            $('#delete' + date).remove();
         }
     </script>
 </asp:Content>

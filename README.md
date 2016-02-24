@@ -1,13 +1,13 @@
 ##TODO:
 ###Guest:
 * Master
-  * [ ] Link in picture header
+  * [X] Link in picture header
 
 * Index
-  * [ ] Logout button top
-  * [ ] Carousel
+  * [X] Logout button top
+  * [X] Carousel
   * [ ] Link back to PCCI
-  * [ ] Pictures - DB
+  * [X] Pictures - DB
 
 * Login/Register
   * [ ] Small style changes
@@ -24,7 +24,7 @@
 * [ ] Style upload image
 
 ###Request / Response:
-* [ ] Only let group leader add people
+* [X] Only let group leader add people
 * [ ] Dont worry about accept reject, just accept after a few seconds
 
 ###DB Changes:

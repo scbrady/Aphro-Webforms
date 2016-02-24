@@ -11,7 +11,7 @@
             Location: 
             <asp:Label ID="EventLocation" runat="server"></asp:Label>
         </div>
-        <div class="event-summary">
+        <div class="event-dates">
             Event Dates: 
             <asp:ListView ID="EventDateList" runat="server">
                 <LayoutTemplate>
@@ -70,5 +70,7 @@
                 </div>
             </ItemTemplate>
         </asp:ListView>
+
+        <asp:HiddenField ID="SeriesIdField" runat="server" />
     </div>
 </asp:Content>

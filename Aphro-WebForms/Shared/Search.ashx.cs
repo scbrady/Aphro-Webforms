@@ -40,18 +40,18 @@ namespace Aphro_WebForms.Shared
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
-                var eventCommand = new OracleCommand("TICKETS_QUERIES.searchStudents", objConn);
-                eventCommand.BindByName = true;
-                eventCommand.CommandType = CommandType.StoredProcedure;
-                eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                eventCommand.Parameters.Add("p_SearchText", OracleDbType.Varchar2, term, ParameterDirection.Input);
+                var searchCommand = new OracleCommand("TICKETS_QUERIES.searchStudents", objConn);
+                searchCommand.BindByName = true;
+                searchCommand.CommandType = CommandType.StoredProcedure;
+                searchCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                searchCommand.Parameters.Add("p_SearchText", OracleDbType.Varchar2, term, ParameterDirection.Input);
 
                 try
                 {
                     // Execute the query and auto map the results to models
                     objConn.Open();
-                    var eventAdapter = new OracleDataAdapter(eventCommand);
-                    eventAdapter.Fill(searchTable);
+                    var searchAdapter = new OracleDataAdapter(searchCommand);
+                    searchAdapter.Fill(searchTable);
                     searchResults = Mapper.DynamicMap<IDataReader, List<SearchResponse>>(searchTable.CreateDataReader());
                 }
                 catch (Exception ex)

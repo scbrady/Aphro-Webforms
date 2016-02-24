@@ -40,6 +40,24 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.Label EventLocation;
         
         /// <summary>
+        /// EventDateDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
+        
+        /// <summary>
+        /// GroupList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView GroupList;
+        
+        /// <summary>
         /// EventPrice control.
         /// </summary>
         /// <remarks>
@@ -58,22 +76,31 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.Label EventPrimePrice;
         
         /// <summary>
-        /// TypeLabel control.
+        /// TicketQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeLabel;
+        protected global::System.Web.UI.WebControls.TextBox TicketQuantity;
         
         /// <summary>
-        /// EventDateDropDown control.
+        /// TicketQuantityRangeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
+        protected global::System.Web.UI.WebControls.RangeValidator TicketQuantityRangeValidator;
+        
+        /// <summary>
+        /// GetExtraTickets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GetExtraTickets;
         
         /// <summary>
         /// BuildingKeyField control.
@@ -119,51 +146,6 @@ namespace Aphro_WebForms.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField SelectedRow;
-        
-        /// <summary>
-        /// TicketQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TicketQuantity;
-        
-        /// <summary>
-        /// TicketQuantityRangeValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator TicketQuantityRangeValidator;
-        
-        /// <summary>
-        /// GetExtraTickets control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetExtraTickets;
-        
-        /// <summary>
-        /// GroupSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GroupSize;
-        
-        /// <summary>
-        /// GroupRequestsList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView GroupRequestsList;
         
         /// <summary>
         /// Submit control.

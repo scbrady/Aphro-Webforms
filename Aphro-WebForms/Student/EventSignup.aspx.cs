@@ -96,12 +96,12 @@ namespace Aphro_WebForms.Student
                 {
                     Members = requestsModel.FirstOrDefault().members;
                     PurchasedTicketsCount = Members - requestsModel.Count - 1;
-                    GroupRequestsList.DataSource = requestsModel;
-                    GroupRequestsList.DataBind();
                 }
+
+                GroupList.DataSource = requestsModel;
+                GroupList.DataBind();
                 MaxExtraTickets = (10 - Members).ToString();
                 TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
-                GroupSize.Text = Members.ToString();
             }
         }
 
@@ -216,6 +216,8 @@ namespace Aphro_WebForms.Student
 
         protected void GetExtraTickets_Click(object sender, EventArgs e)
         {
+            SeriesId = int.Parse(SeriesIdField.Value);
+
             // "Purchase" tickets
             // Make new group or add this many people to the group that is already made
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
@@ -240,6 +242,7 @@ namespace Aphro_WebForms.Student
                 }
 
                 objConn.Close();
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
             }
         }
     }

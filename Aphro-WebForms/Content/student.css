@@ -263,3 +263,10 @@ input[type=submit] {
     border-bottom: 2px #797979 solid;
     display: inline;
 }
+
+#MainContent_GroupList_GroupRequestContainer {
+    background-color: #D3D5D8;
+    min-height: 150px;
+    padding: 25px;
+    border-radius: 4px;
+}

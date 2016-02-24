@@ -45,10 +45,10 @@
             <div id="studentsTab" class="tab-pane fade in active">
                 <div class="ui-widget">
                     <label for="group-request">Name or ID: </label>
-                    <button onclick="addToGroup(event);">Add To Group</button>
                     <div>
-                        <input type="text" id="group-request">
+                        <input type="text" id="group-request"/>
                     </div>
+                    <button onclick="addToGroup(event);">Add To Group</button>
                     <input type="hidden" id="group-request-id" />
                 </div>
                 
@@ -69,6 +69,7 @@
     <asp:HiddenField ID="SelectedSection" runat="server" />
     <asp:HiddenField ID="SelectedSubsection" runat="server" />
     <asp:HiddenField ID="SelectedRow" runat="server" />
+    <asp:HiddenField ID="GroupSize" runat="server" />
 
     <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
     <div class="interactiveMap" id="container"></div>

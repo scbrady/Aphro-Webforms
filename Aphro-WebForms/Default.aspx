@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <a href="Event/Index.aspx">Create An Event</a><br />
             <a href="Guest/Index.aspx">Guest Dashboard</a><br />
             <a href="Student/Index.aspx">Student Dashboard</a>
         </div>

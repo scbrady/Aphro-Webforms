@@ -98,6 +98,7 @@ namespace Aphro_WebForms.Student
                     PurchasedTicketsCount = Members - requestsModel.Count - 1;
                 }
 
+                GroupSize.Value = Members.ToString();
                 GroupList.DataSource = requestsModel;
                 GroupList.DataBind();
                 MaxExtraTickets = (10 - Members).ToString();

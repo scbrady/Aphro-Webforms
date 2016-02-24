@@ -148,6 +148,15 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.HiddenField SelectedRow;
         
         /// <summary>
+        /// GroupSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField GroupSize;
+        
+        /// <summary>
         /// Submit control.
         /// </summary>
         /// <remarks>

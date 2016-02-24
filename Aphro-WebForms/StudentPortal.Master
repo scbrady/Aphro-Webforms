@@ -11,6 +11,7 @@
     <%: Scripts.Render("~/bundles/datepicker") %>
     <%: Styles.Render("~/Content/css") %>
     <%: Styles.Render("~/Content/font-awesome") %>
+    <%: Styles.Render("~/Content/jquery-ui") %>
     <%: Styles.Render("~/Content/student-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>

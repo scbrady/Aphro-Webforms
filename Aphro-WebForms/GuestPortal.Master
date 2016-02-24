@@ -19,7 +19,7 @@
     <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
-            <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
+            <asp:HyperLink runat="server" NavigateUrl="~/Guest/Index.aspx"><img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" /></asp:HyperLink>
 
             <form id="masterForm" runat="server">
                 <%if (Session["CurrentPerson"] != null)

@@ -22,15 +22,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.DropDownList EventType;
         
         /// <summary>
-        /// RequiredFieldEventType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEventType;
-        
-        /// <summary>
         /// EventName control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox EventName;
         
         /// <summary>
-        /// RegExEventName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExEventName;
-        
-        /// <summary>
         /// Description control.
         /// </summary>
         /// <remarks>
@@ -56,15 +38,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
-        
-        /// <summary>
-        /// RegExDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExDescription;
         
         /// <summary>
         /// imageUpload control.
@@ -85,15 +58,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.DropDownList LocationDropDown;
         
         /// <summary>
-        /// RequiredFieldLocationDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldLocationDropDown;
-        
-        /// <summary>
         /// EventDate control.
         /// </summary>
         /// <remarks>
@@ -101,15 +65,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EventDate;
-        
-        /// <summary>
-        /// RequiredFieldEventDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEventDate;
         
         /// <summary>
         /// Button1 control.
@@ -139,15 +94,6 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox RegularPrice;
         
         /// <summary>
-        /// RegExRegularPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExRegularPrice;
-        
-        /// <summary>
         /// PrimePrice control.
         /// </summary>
         /// <remarks>
@@ -155,15 +101,6 @@ namespace Aphro_WebForms.Event {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PrimePrice;
-        
-        /// <summary>
-        /// RegExPrimePrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExPrimePrice;
         
         /// <summary>
         /// Button2 control.

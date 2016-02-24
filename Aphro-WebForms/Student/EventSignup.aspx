@@ -71,9 +71,17 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:HiddenField ID="GroupSize" runat="server" />
 
-    <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
-    <div class="interactiveMap" id="container"></div>
-    <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Chooose Seats</button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-body">
+                <div class="interactiveMap" id="container"></div>
+                <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
+                <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+            </div>
+        </div>
+    </div>
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

@@ -1,5 +1,4 @@
-﻿using Aphro_WebForms.Models;
-using AutoMapper;
+﻿using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Data;
 
 namespace Aphro_WebForms.Student
 {
-    public partial class ChooseGroup : System.Web.UI.Page
+    public partial class AcceptedGroup : System.Web.UI.Page
     {
         protected long SeriesId;
 
@@ -36,7 +35,7 @@ namespace Aphro_WebForms.Student
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupRequestsForEvent", objConn);
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getAcceptedGroupForEvent", objConn);
                     requestsCommand.BindByName = true;
                     requestsCommand.CommandType = CommandType.StoredProcedure;
                     requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
@@ -77,34 +76,14 @@ namespace Aphro_WebForms.Student
 
                 if (requestsModel.Any())
                 {
-                    if (requestsModel.Any(r => r.requested_id == Global.CurrentPerson.person_id && r.has_accepted == 1))
-                        Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
-
-                    List<Group> groups = requestsModel.GroupBy(distinctGroup => distinctGroup.group_id).Select(group => new Group
-                    {
-                        group_id = group.First().group_id,
-                        group_leader_firstname = group.First().group_leader_firstname,
-                        group_leader_lastname = group.First().group_leader_lastname,
-                        group_requests = requestsModel.Where(r => r.group_id == group.First().group_id).ToList(),
-                        guests = group.First().members - requestsModel.Where(r => r.group_id == group.First().group_id).Count() - 1
-                    }).ToList();
-
-                    GroupsList.DataSource = groups;
-                    GroupsList.DataBind();
+                    var leaderInformation = requestsModel.First();
+                    GroupLeaderName.Text = leaderInformation.group_leader_firstname + " " + leaderInformation.group_leader_lastname;
+                    GroupList.DataSource = requestsModel;
+                    GroupList.DataBind();
                 }
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
             }
-        }
-
-        protected void AcceptButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void RejectButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

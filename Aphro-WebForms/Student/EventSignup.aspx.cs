@@ -174,12 +174,13 @@ namespace Aphro_WebForms.Student
             foreach(var request in requestsModel)
             {
                 if (request.group_leader_id == Global.CurrentPerson.person_id)
-                    break;
-                else if (request.has_accepted == 0)
-                    Response.Redirect("ChooseGroup.aspx?Series=" + SeriesId);
+                    return;
                 else if (request.has_accepted == 1)
                     Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
             }
+
+            if(requestsModel.Any())
+                Response.Redirect("ChooseGroup.aspx?Series=" + SeriesId);
         }
 
         protected void GetTickets_Click(object sender, EventArgs e)

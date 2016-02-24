@@ -28,7 +28,7 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <a style="background-image: url('<%# "../Content/pictures/"+ Eval("event_picture") %>')" href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' data-adaptive-background data-ab-css-background><%# Eval("name") %></a>
+                    <a style="background-image: url('<%# "../Content/pictures/"+ Eval("event_picture") %>')" href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>' data-adaptive-background data-ab-css-background><div><%# Eval("name") %></div></a>
                 </ItemTemplate>
             </asp:ListView>
         </section>

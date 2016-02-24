@@ -20,7 +20,7 @@
     <form id="masterForm" runat="server">
         <header>
             <div class="logo-holder">
-                <img class="logo" src="http://eaglesnest.pcci.edu/images/EN2/logo.png" />
+                <asp:HyperLink runat="server" NavigateUrl="~/Student/Index.aspx"><img class="logo" src="http://eaglesnest.pcci.edu/images/EN2/logo.png" /></asp:HyperLink>
             </div>
             <div class="top-bar">
                 <%if (Session["CurrentPerson"] != null)

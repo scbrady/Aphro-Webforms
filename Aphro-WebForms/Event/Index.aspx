@@ -92,8 +92,10 @@
             element.setAttribute("id", "date" + dateCount);
 
             newButton.setAttribute("value", "Delete");
+            newButton.setAttribute("Class", "deleteButton");
             newButton.setAttribute("id", "delete" + dateCount);
             newButton.setAttribute("onclick", "DeleteDate(" + dateCount + "); return false;");
+            newButton.innerHTML="x";
 
             // div id, where new fields are to be added
             var ExtraDates = document.getElementById("EventDates");

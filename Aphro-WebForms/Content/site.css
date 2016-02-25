@@ -39,6 +39,9 @@ input {
     input[type="image"]{
         float: left;
     }
+    input[type="button" i]{
+        background-color: aqua;
+    }
 
     /* What happens to a textbox when a textbox is clicked */
     input:active,

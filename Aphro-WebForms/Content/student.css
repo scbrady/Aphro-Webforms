@@ -275,3 +275,13 @@ input[type=submit] {
     padding-top: 25px;
     min-height: 200px;
 }
+
+.pending{
+    width: 28px;
+    height: 9px;
+}
+
+.accepted{
+    width: 12px;
+    height: 12px;
+}

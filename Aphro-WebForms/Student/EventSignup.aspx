@@ -33,7 +33,7 @@
             <ItemTemplate>
                 <div class="clearfix">
                     <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                    <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending" : "Accepted" %></p>
+                    <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending <img class='pending' src='../Content/Pending.gif'/>" : "Accepted <img class='accepted' src='../Content/Checkmark.png' />" %></p>
                 </div>
             </ItemTemplate>
         </asp:ListView>
@@ -77,7 +77,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-body">
                 <div class="interactiveMap" id="container"></div>
-                <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
+                <button class="balcony" id="mapSwitch" onclick='changeBalcony(event);'></button>
                 <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
             </div>
         </div>

@@ -7,6 +7,7 @@
 function changeBalcony(event) {
     event.preventDefault();
     balcony = (balcony ? false : true);
+    mapSwitch.text = (balcony ? "Balcony" : "Main Floor");
     refreshMap();
 }
 

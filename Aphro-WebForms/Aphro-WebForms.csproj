@@ -124,6 +124,7 @@
     <Content Include="Content\carousel.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Pending.gif" />
     <Content Include="Content\student.css" />
     <Content Include="Content\guest.css" />
     <Content Include="Content\event.css" />

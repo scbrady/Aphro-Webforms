@@ -7,8 +7,16 @@
 function changeBalcony(event) {
     event.preventDefault();
     balcony = (balcony ? false : true);
-    mapSwitch.text = (balcony ? "Balcony" : "Main Floor");
+    if (balcony == true)
+        $("#mapSwitch").html("Main Floor");
+    else
+        $("#mapSwitch").html("Balcony");
     refreshMap();
+}
+
+function changeName(btn) {
+    btn.Text = (balcony ? "Balcony" : "Main Floor");
+    return false;
 }
 
 function refreshMap() {
@@ -35,7 +43,7 @@ function refreshMap() {
             buildingDataMap.push(mapData);
         });
 
-        $('#container').highcharts('Map', {
+        $('#map').highcharts('Map', {
             chart: {
                 events: {
                     drilldown: function (e) {

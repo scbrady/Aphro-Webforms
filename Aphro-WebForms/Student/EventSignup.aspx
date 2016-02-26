@@ -71,13 +71,13 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:HiddenField ID="GroupSize" runat="server" />
 
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Chooose Seats</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Choose Seats</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-body">
-                <div class="interactiveMap" id="container"></div>
-                <button class="balcony" id="mapSwitch" onclick='changeBalcony(event);'></button>
+                <div class="interactiveMap" id="map"></div>
+                    <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
                 <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
             </div>
         </div>

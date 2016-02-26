@@ -19,7 +19,9 @@
     <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
-            <asp:HyperLink runat="server" NavigateUrl="~/Guest/Index.aspx"><img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" /></asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="~/Guest/Index.aspx">
+                <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
+            </asp:HyperLink>
 
             <form id="masterForm" runat="server">
                 <%if (Session["CurrentPerson"] != null)
@@ -29,6 +31,7 @@
                         <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
                         <div class="dropdown-content">
                             <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
+                            <asp:LinkButton ID="Home" runat="server" OnClick="Home_Click" Text="Home" />
                         </div>
                     </div>
                 </div>

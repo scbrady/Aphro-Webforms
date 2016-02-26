@@ -13,5 +13,11 @@ namespace Aphro_WebForms
             Global.CurrentPerson = null;
             Response.Redirect("Login.aspx");
         }
+
+        protected void Home_Click(object sender, EventArgs e)
+        {
+            Global.CurrentPerson = null;
+            Response.Redirect("http://csmain.studentnet.int/seproject/aphro/");
+        }
     }
 }

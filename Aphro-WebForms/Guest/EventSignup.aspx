@@ -3,6 +3,15 @@
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+<script type="text/javascript">
+    function changeBalcony(event) {
+        event.preventDefault();
+        balcony = (balcony ? false : true);
+        refreshMap();
+    }
+</script>
+
     <div id="eventSignup">
         <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
 
@@ -48,13 +57,15 @@
             <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
         </h3>
 
-        <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
-        <div class="interactiveMap" id="container"></div>
+        <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
+            <div class="interactiveMap" id="map"></div>
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
     </div>
+
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/highmaps") %>
     <%: Scripts.Render("~/bundles/map") %>
 </asp:Content>
+

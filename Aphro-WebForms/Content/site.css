@@ -33,12 +33,13 @@ input {
     input[type="file"]{
         margin: 0 auto;
         width: 75%;
-        padding: 0;
+        padding: 100px 0px 0px 0px;
     }
 
     input[type="image"]{
         float: left;
     }
+
     input[type="button" i]{
         background-color: aqua;
     }
@@ -183,4 +184,11 @@ div.drop-menu {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-account:hover .dropbtn {
     background-color: #000EAA;
+}
+
+#myModal{
+    width: 600px;
+    height: 600px;
+    margin: 10px auto;
+    background-color: white;
 }

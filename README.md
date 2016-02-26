@@ -20,7 +20,7 @@
 
 ###Event Creation:
 * [ ] Event page to see/delete created events
-* [ ] Ability to remove dates
+* [X] Ability to remove dates
 * [ ] Style upload image
 
 ###Request / Response:

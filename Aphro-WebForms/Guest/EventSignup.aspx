@@ -50,6 +50,7 @@
 
         <button class="balcony" onclick='changeBalcony(event);'>Balcony</button>
         <div class="interactiveMap" id="container"></div>
+        <asp:Label ID="Error" runat="server" Text="You need to pick seats." Visible="false" />
         <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
     </div>
 </asp:Content>

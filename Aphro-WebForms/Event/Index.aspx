@@ -28,10 +28,10 @@
     </div>
 
     <%--Image Upload--%>
-    <div class='image'>
-        <h3>Image:</h3>
-        <asp:FileUpload ID="imageUpload" runat="server" />
-        <hr />
+    <img src="../Content/defaultphoto_2x.png" id="image"  />
+    <div class="fileUpload btn btn-primary">
+        <span>Upload</span>
+        <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 
     </div>
 
     <%--Location--%>
@@ -75,6 +75,25 @@
         $(function () {
             $('.datepicker-field').datetimepicker({
                 format: 'DD-MMM-YY hh:mm A'
+
+
+            });
+
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#image').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#MainContent_uploadBtn").change(function () {
+                readURL(this);
             });
         });
 
@@ -130,5 +149,8 @@
             $('#date' + date).remove();
             $('#delete' + date).remove();
         }
+
+        
+
     </script>
 </asp:Content>

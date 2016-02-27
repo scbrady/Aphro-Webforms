@@ -72,11 +72,11 @@ namespace Aphro_WebForms.Event
         {
                 Guid pictureUUID = Guid.NewGuid();
                 string pictureName;
-                if (imageUpload.HasFile)
+                if (uploadBtn.HasFile)
                 {
-                    string extension = Path.GetExtension(imageUpload.PostedFile.FileName);
+                    string extension = Path.GetExtension(uploadBtn.PostedFile.FileName);
                     pictureName = pictureUUID.ToString() + extension;
-                    imageUpload.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + pictureName);
+                    uploadBtn.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + pictureName);
                 }
                 else
                     pictureName = "events_medium.jpg";

@@ -40,13 +40,13 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox Description;
         
         /// <summary>
-        /// imageUpload control.
+        /// uploadBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload imageUpload;
+        protected global::System.Web.UI.WebControls.FileUpload uploadBtn;
         
         /// <summary>
         /// LocationDropDown control.

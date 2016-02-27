@@ -32,8 +32,8 @@
     margin: 0 100px;
     width: 75%;
     max-width: 975px;
-    height: 80px;
-    max-height: 80px;
+    height: 120px;
+    max-height: 120px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -41,6 +41,7 @@
     padding: 0 -20px 0 -50px;
     text-align: justify;
     outline: none;
+    resize:none;
 }
 
 /* The style of the submit button */
@@ -83,15 +84,19 @@
     border-radius: 10px;
 }
 
-#imageUpload input[type="button" i]{
-    float: right;
-    background-color: deepskyblue;
+.image_upload{
+    margin: 0 18%;
+    align-content:center;
+    table-layout: fixed;
+    padding:10px;
 }
 
 .fileUpload {
     position: relative;
     overflow: hidden;
-    margin: 10px;
+    margin: 0 100px;
+    width:100%;
+    max-width:300px;
 }
 .fileUpload input.upload {
     position: absolute;
@@ -105,9 +110,11 @@
     filter: alpha(opacity=0);
 }
 
-img#image{
-        display: block;
+img#imagePreview{
+    border: 2px solid #EBE9ED;
+    display: block;
     width: 300px;
     height: 300px;
+    margin: 0 100px;
     object-fit: cover;
 }

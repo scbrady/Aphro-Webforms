@@ -28,10 +28,12 @@
     </div>
 
     <%--Image Upload--%>
-    <img src="../Content/defaultphoto_2x.png" id="image"  />
-    <div class="fileUpload btn btn-primary">
-        <span>Upload</span>
-        <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 
+    <div class="image_upload">
+        <img src="../Content/defaultphoto_2x.png" id="imagePreview"  />
+        <div class="fileUpload btn btn-primary">
+            <span>Upload</span>
+            <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 
+        </div>
     </div>
 
     <%--Location--%>
@@ -85,7 +87,7 @@
                     var reader = new FileReader();
 
                     reader.onload = function (e) {
-                        $('#image').attr('src', e.target.result);
+                        $('#imagePreview').attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);

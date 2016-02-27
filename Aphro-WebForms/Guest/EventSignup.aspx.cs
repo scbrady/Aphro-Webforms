@@ -38,18 +38,27 @@ namespace Aphro_WebForms.Guest
                 {
                     // Set up the getEvent command
                     var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    eventCommand.BindByName = true;
-                    eventCommand.CommandType = CommandType.StoredProcedure;
-                    eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-
-                    // Set up the getGroupRequestsForEvent command
                     var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
-                    requestsCommand.BindByName = true;
-                    requestsCommand.CommandType = CommandType.StoredProcedure;
-                    requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                    requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                    requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
+                    try
+                    {
+                        eventCommand.BindByName = true;
+                        eventCommand.CommandType = CommandType.StoredProcedure;
+                        eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                        eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+
+                        // Set up the getGroupRequestsForEvent command                       
+                        requestsCommand.BindByName = true;
+                        requestsCommand.CommandType = CommandType.StoredProcedure;
+                        requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                        requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                        requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                    }
+                    catch (Exception ex)
+                    {
+                        // TODO: Handle Exception
+                        Response.Redirect("www.google.com");
+                    }
 
                     try
                     {
@@ -140,33 +149,45 @@ namespace Aphro_WebForms.Guest
 
         protected void GetTickets_Click(object sender, EventArgs e)
         {
+            bool failed = false;
             SeriesId = int.Parse(SeriesIdField.Value);
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the inserting seats command
                 var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
-                seatCommand.BindByName = true;
-                seatCommand.CommandType = CommandType.StoredProcedure;
-                seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-
                 try
                 {
-                    // Execute the command
-                    objConn.Open();
-                    seatCommand.ExecuteNonQuery();
+                    seatCommand.BindByName = true;
+                    seatCommand.CommandType = CommandType.StoredProcedure;
+                    seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                    failed = false;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
-                    // Couldn't get those seats (probably taken), pick again
-                    throw (ex);
+                    Error.Visible = true;
+                    failed = true;
                 }
+                if (failed == false)
+                {
+                    try
+                    {
+                        // Execute the command
+                        objConn.Open();
+                        seatCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Couldn't get those seats (probably taken), pick again
+                        throw (ex);
+                    }
 
-                objConn.Close();
-                Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
+                    objConn.Close();
+                    Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
+                }
             }
         }
 

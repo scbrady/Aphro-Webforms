@@ -133,17 +133,17 @@ namespace Aphro_WebForms.Student
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the accepting group command
-                var acceptCommand = new OracleCommand("TICKETS_API.rejectRequest", objConn);
-                acceptCommand.BindByName = true;
-                acceptCommand.CommandType = CommandType.StoredProcedure;
-                acceptCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                acceptCommand.Parameters.Add("p_GroupId", OracleDbType.Int64, long.Parse(((Button)sender).CommandArgument), ParameterDirection.Input);
+                var rejectCommand = new OracleCommand("TICKETS_API.rejectRequest", objConn);
+                rejectCommand.BindByName = true;
+                rejectCommand.CommandType = CommandType.StoredProcedure;
+                rejectCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                rejectCommand.Parameters.Add("p_GroupId", OracleDbType.Int64, long.Parse(((Button)sender).CommandArgument), ParameterDirection.Input);
 
                 try
                 {
                     // Execute the command
                     objConn.Open();
-                    acceptCommand.ExecuteNonQuery();
+                    rejectCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {

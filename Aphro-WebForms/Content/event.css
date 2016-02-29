@@ -118,3 +118,16 @@ img#imagePreview{
     margin: 0 100px;
     object-fit: cover;
 }
+
+#headerUpcomingEventList{
+    margin-top:110px;
+}
+
+#eventList {
+    margin-top: 10px;
+    display:inline-block !important;
+}
+LinkButton#deleteButton{
+    color:red;
+    font-size:15px;
+}

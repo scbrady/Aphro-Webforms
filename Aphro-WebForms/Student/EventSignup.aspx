@@ -78,7 +78,7 @@
             <div class="modal-body">
                 <div class="interactiveMap" id="map"></div>
                     <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
-                <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+                <asp:Button class="getTickets" ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
             </div>
         </div>
     </div>

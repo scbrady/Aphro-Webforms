@@ -26,11 +26,11 @@
             <div class="top-bar">
                 <%if (Session["CurrentPerson"] != null)
                     { %>
-                <a id="HOME" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>
                 <div class="user-info">
                     <div class="spacer"></div>
                     <span class="user-name"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname + " " + ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).lastname%></span>
                     <asp:LinkButton ID="Logout" CssClass="fa fa-arrow-right" runat="server" OnClick="LogoutButton_Click" Text=" Logout" />
+                <a id="Logout" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>
                 </div>
                 <%} %>
             </div>

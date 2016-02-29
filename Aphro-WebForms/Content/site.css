@@ -192,3 +192,45 @@ div.drop-menu {
     margin: 10px auto;
     background-color: white;
 }
+
+.balcony{
+    width: 25%;
+    height: 40px;
+    background-color: deepskyblue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #32a3ff;
+    color: #fff;
+    font-weight: bold;
+	text-transform: uppercase;
+    margin: 10px 25%;
+}
+
+.getTickets{
+    width: 25%;
+    float: right;
+    background-color: green;
+    color: black;
+}
+
+.HOME{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 2px 2px 2px;
+    position: relative;
+    float: right;
+    color: white;
+    text-decoration: none;
+    background-color: deepskyblue;
+}
+.HOME:hover{
+    text-decoration: none;
+    color: pink;
+    text-decoration-color: red;
+	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,1), 0 0 10px #00ffff, 0 0 10px #00ffff;
+}
+.HOME:visited{
+    color: white;
+    text-decoration: none;
+
+}

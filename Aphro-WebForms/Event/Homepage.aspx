@@ -19,7 +19,7 @@
         <ItemTemplate>
             <div id="eventListName">
                 <h4><%# Eval("name") %> </h4> 
-                <asp:LinkButton ID="deleteButton" runat="server" CommandArgument='<%# Eval("event_id")%>' Text="X" OnClick="Delete_Event"/>
+                <asp:LinkButton ID="deleteButton" runat="server" CommandArgument='<%# Eval("series_id")%>' Text="X" OnClick="Delete_Event"/>
                 <br />
                 <p>-- <%# Eval("event_datetime") %></p>
             </div>

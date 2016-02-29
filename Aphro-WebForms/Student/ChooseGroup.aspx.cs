@@ -88,7 +88,7 @@ namespace Aphro_WebForms.Student
                         group_leader_firstname = group.First().group_leader_firstname,
                         group_leader_lastname = group.First().group_leader_lastname,
                         group_requests = requestsModel.Where(r => r.group_id == group.First().group_id).ToList(),
-                        guests = group.First().members - requestsModel.Where(r => r.group_id == group.First().group_id).Count() - 1
+                        guests = group.First().guest_tickets
                     }).ToList();
 
                     GroupsList.DataSource = groups;

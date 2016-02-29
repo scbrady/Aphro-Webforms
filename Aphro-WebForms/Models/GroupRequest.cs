@@ -6,7 +6,8 @@
         public long group_leader_id { get; set; }
         public string group_leader_firstname { get; set; }
         public string group_leader_lastname { get; set; }
-        public int members { get; set; }
+        public int guest_tickets { get; set; }
+        public int faculty_tickets { get; set; }
         public long requested_id { get; set; }
         public string requested_firstname { get; set; }
         public string requested_lastname { get; set; }

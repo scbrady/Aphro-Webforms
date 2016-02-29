@@ -12,7 +12,7 @@ namespace Aphro_WebForms.Guest
         protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
-        protected int Members = 1;
+        protected int TotalTickets = 1;
         protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -103,11 +103,11 @@ namespace Aphro_WebForms.Guest
 
                 if (requestsModel.Count > 0)
                 {
-                    Members = requestsModel.FirstOrDefault().members;
+                    TotalTickets = requestsModel.FirstOrDefault().guest_tickets + 1;
                 }
-                MaxExtraTickets = (10 - Members).ToString();
+                MaxExtraTickets = (10 - TotalTickets).ToString();
                 TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
-                GroupSize.Text = Members.ToString();
+                GroupSize.Text = TotalTickets.ToString();
             }
         }
 
@@ -194,7 +194,6 @@ namespace Aphro_WebForms.Guest
         protected void GetExtraTickets_Click(object sender, EventArgs e)
         {
             SeriesId = int.Parse(SeriesIdField.Value);
-            Members = int.Parse(GroupSize.Text);
             int extraTickets = int.Parse(TicketQuantity.Text);
             // "Purchase" tickets
             // Make new group or add this many people to the group that is already made
@@ -206,19 +205,14 @@ namespace Aphro_WebForms.Guest
                 groupsCommand.CommandType = CommandType.StoredProcedure;
                 groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, 0, ParameterDirection.Input);
 
                 try
                 {
                     // Execute the command
                     objConn.Open();
                     groupsCommand.ExecuteNonQuery();
-
-                    Members += extraTickets;
-                    MaxExtraTickets = (10 - Members).ToString();
-                    TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
-                    GroupSize.Text = Members.ToString();
-                    TicketQuantity.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -227,6 +221,8 @@ namespace Aphro_WebForms.Guest
 
                 objConn.Close();
             }
+
+            Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
         }
     }
 }

@@ -264,7 +264,7 @@ input[type=submit] {
     display: inline;
 }
 
-#MainContent_GroupList_GroupRequestContainer {
+#MainContent_GroupRequestContainer {
     background-color: #D3D5D8;
     min-height: 150px;
     padding: 25px;
@@ -284,4 +284,10 @@ input[type=submit] {
 .accepted{
     width: 12px;
     height: 12px;
+}
+
+.choose-seats {
+    margin: auto;
+    display: block;
+    width: 40%
 }

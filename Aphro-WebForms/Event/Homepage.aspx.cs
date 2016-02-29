@@ -58,7 +58,7 @@ namespace Aphro_WebForms.Event
                 var deleteCommand = new OracleCommand("TICKETS_API.deleteEvent", objConn);
                 deleteCommand.BindByName = true;
                 deleteCommand.CommandType = CommandType.StoredProcedure;
-                deleteCommand.Parameters.Add("p_EventId", OracleDbType.Int64, long.Parse(((LinkButton)sender).CommandArgument), ParameterDirection.Input);
+                deleteCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, long.Parse(((LinkButton)sender).CommandArgument), ParameterDirection.Input);
 
                 try
                 {

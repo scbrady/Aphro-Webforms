@@ -19,24 +19,27 @@
     </div>
     <div class="col-md-6">
         <h4>Group:</h4>
-        <asp:ListView ID="GroupList" runat="server">
-            <LayoutTemplate>
-                <div id="GroupRequestContainer" runat="server">
+        <div id="GroupRequestContainer" runat="server">
+            <% if (GuestTickets > 0) { %>
+            <p><%= GuestTickets %> Guest Tickets</p><hr />
+            <% } %>
+            <asp:ListView ID="GroupList" runat="server">
+                <LayoutTemplate>
                     <div id="itemPlaceholder" runat="server"></div>
-                </div>
-            </LayoutTemplate>
-            <EmptyDataTemplate>
-                <div id="GroupRequestContainer" runat="server">
-                    <p>Start Adding People To Your Group</p>
-                </div>
-            </EmptyDataTemplate>
-            <ItemTemplate>
-                <div class="clearfix">
-                    <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                    <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending <img class='pending' src='../Content/Pending.gif'/>" : "Accepted <img class='accepted' src='../Content/Checkmark.png' />" %></p>
-                </div>
-            </ItemTemplate>
-        </asp:ListView>
+                </LayoutTemplate>
+                <EmptyDataTemplate>
+                    <div id="GroupRequestContainer" runat="server">
+                        <p>Start Adding Students To Your Group</p>
+                    </div>
+                </EmptyDataTemplate>
+                <ItemTemplate>
+                    <div class="clearfix">
+                        <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
+                        <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending <img class='pending' src='../Content/Pending.gif'/>" : "Accepted <img class='accepted' src='../Content/Checkmark.png' />" %></p>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
         <ul class="nav nav-pills nav-justified">
             <li class="active"><a data-toggle="pill" href="#studentsTab">Invite Students</a></li>
             <li><a data-toggle="pill" href="#guestsTab">Buy Guest Tickets</a></li>
@@ -71,14 +74,16 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:HiddenField ID="GroupSize" runat="server" />
 
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Choose Seats</button>
+    <button type="button" class="btn btn-primary btn-lg choose-seats" data-toggle="modal" data-target="#myModal">Choose Seats</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-body">
-                <div class="interactiveMap" id="map"></div>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="interactiveMap" id="map"></div>
                     <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
-                <asp:Button class="getTickets" ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+                    <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+                </div>
             </div>
         </div>
     </div>

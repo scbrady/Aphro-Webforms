@@ -1,16 +1,19 @@
 ﻿$(function () {
     var selectedRow;
     balcony = false;
+    clearFields();
     refreshMap();
 });
 
 function changeBalcony(event) {
     event.preventDefault();
-    balcony = (balcony ? false : true);
-    if (balcony == true)
-        $("#mapSwitch").html("Main Floor");
-    else
+    if (balcony) {
+        balcony = false;
         $("#mapSwitch").html("Balcony");
+    } else {
+        balcony = true;
+        $("#mapSwitch").html("Main Floor");
+    }
     refreshMap();
 }
 
@@ -108,9 +111,7 @@ function refreshMap() {
                         events: {
                             select: function () {
                                 selectedRow = this;
-                                $('#MainContent_SelectedSection').val(this.section);
-                                $('#MainContent_SelectedSubsection').val(this.subsection);
-                                $('#MainContent_SelectedRow').val(this.row);
+                                setFields(selectedRow);
                             },
                             unselect: function () {
                                 if (selectedRow === this) {
@@ -158,7 +159,15 @@ function refreshMap() {
 }
 
 function clearFields() {
+    $("#MainContent_GetTicketsForEvent").prop("disabled", true);
     $('#MainContent_SelectedSection').val('');
     $('#MainContent_SelectedSubsection').val('');
     $('#MainContent_SelectedRow').val('');
+}
+
+function setFields(selectedSeat) {
+    $("#MainContent_GetTicketsForEvent").prop("disabled", false);
+    $('#MainContent_SelectedSection').val(selectedSeat.section);
+    $('#MainContent_SelectedSubsection').val(selectedSeat.subsection);
+    $('#MainContent_SelectedRow').val(selectedSeat.row);
 }

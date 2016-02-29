@@ -3,15 +3,6 @@
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-<script type="text/javascript">
-    function changeBalcony(event) {
-        event.preventDefault();
-        balcony = (balcony ? false : true);
-        refreshMap();
-    }
-</script>
-
     <div id="eventSignup">
         <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
 

@@ -12,8 +12,9 @@ namespace Aphro_WebForms.Student
         protected long SeriesId;
         protected long BuildingKey;
         protected string Building;
-        protected int Members = 1;
-        protected int PurchasedTicketsCount;
+        protected int GuestTickets = 0;
+        protected int RequestedTickets = 0;
+        protected int TotalSize;
         protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -94,14 +95,17 @@ namespace Aphro_WebForms.Student
 
                 if (requestsModel.Count > 0)
                 {
-                    Members = requestsModel.FirstOrDefault().members;
-                    PurchasedTicketsCount = Members - requestsModel.Count - 1;
+                    GuestTickets = requestsModel.FirstOrDefault().guest_tickets;
+                    RequestedTickets = requestsModel.Where(ticket => ticket.requested_id != 0).Count();
+                    if (RequestedTickets == 0)
+                        requestsModel.Clear();
                 }
 
-                GroupSize.Value = Members.ToString();
+                TotalSize = GuestTickets + RequestedTickets + 1;
+                GroupSize.Value = TotalSize.ToString();
                 GroupList.DataSource = requestsModel;
                 GroupList.DataBind();
-                MaxExtraTickets = (10 - Members).ToString();
+                MaxExtraTickets = (10 - TotalSize).ToString();
                 TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
             }
         }
@@ -218,6 +222,7 @@ namespace Aphro_WebForms.Student
         protected void GetExtraTickets_Click(object sender, EventArgs e)
         {
             SeriesId = int.Parse(SeriesIdField.Value);
+            int extraTickets = int.Parse(TicketQuantity.Text);
 
             // "Purchase" tickets
             // Make new group or add this many people to the group that is already made
@@ -229,7 +234,8 @@ namespace Aphro_WebForms.Student
                 groupsCommand.CommandType = CommandType.StoredProcedure;
                 groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraSeats", OracleDbType.Int32, int.Parse(TicketQuantity.Text), ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, 0, ParameterDirection.Input);
 
                 try
                 {
@@ -243,8 +249,8 @@ namespace Aphro_WebForms.Student
                 }
 
                 objConn.Close();
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
             }
+            Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
         }
     }
 }

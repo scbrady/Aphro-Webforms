@@ -21,15 +21,11 @@
     <div class="shadow">
         <div class="mainPane">
             <form id="form1" runat="server">
-                <img id="projectLogo" src="Content/Project-Logo.png" />
-                <h4>Choose a website</h4>
-                <div class="table-responsive">
-                        <asp:HyperLink runat="server" CssClass="Website" id="Event" href="Event/Index.aspx">Create An Event</asp:HyperLink>
-                        <br />
-                        <asp:HyperLink runat="server" CssClass="Website" id="Guest" href="Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
-                        <br />
-                        <asp:HyperLink runat="server" CssClass="Website" id="Student" href="Student/Index.aspx">Student Dashboard</asp:HyperLink>
-                        <br />
+                <img id="projectLogo" src="Content/fastickets.png" />
+                <div class="links">
+                    <asp:HyperLink runat="server" CssClass="websites" href="Event/Index.aspx">Create An Event</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" href="Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" href="Student/Index.aspx">Student Dashboard</asp:HyperLink>
                 </div>
             </form>
         </div>

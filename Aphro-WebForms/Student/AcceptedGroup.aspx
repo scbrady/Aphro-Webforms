@@ -28,21 +28,24 @@
     <div class="col-md-6">
         <h4>Group:</h4>
         <asp:Label ID="GroupLeaderName" runat="server"></asp:Label>
-        <asp:ListView ID="GroupList" runat="server">
-            <LayoutTemplate>
-                <div id="GroupRequestContainer" runat="server">
+        <div id="GroupRequestContainer" runat="server">
+            <% if (GuestTickets > 0) { %>
+                <p><%= GuestTickets %> Guest Tickets</p><hr />
+                <% } %>
+            <asp:ListView ID="GroupList" runat="server">
+                <LayoutTemplate>
                     <div id="itemPlaceholder" runat="server"></div>
-                </div>
-            </LayoutTemplate>
-            <EmptyItemTemplate>
-                <p>No group members to show (This is an error).</p>
-            </EmptyItemTemplate>
-            <ItemTemplate>
-                <div class="clearfix">
-                    <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                    <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending" : "Accepted" %></p>
-                </div>
-            </ItemTemplate>
-        </asp:ListView>
+                </LayoutTemplate>
+                <EmptyItemTemplate>
+                    <p>No group members to show (This is an error).</p>
+                </EmptyItemTemplate>
+                <ItemTemplate>
+                    <div class="clearfix">
+                        <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
+                        <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending" : "Accepted" %></p>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
     </div>
 </asp:Content>

@@ -32,7 +32,7 @@ namespace Aphro_WebForms.Shared
 
             try
             {
-                addPersonToGroup(personId, seriesId);
+                context.Response.Write(addPersonToGroup(personId, seriesId));
             }
             catch (Exception ex)
             {
@@ -43,14 +43,16 @@ namespace Aphro_WebForms.Shared
             context.Response.End();
         }
 
-        private void addPersonToGroup(int personId, int seriesId)
+        private long addPersonToGroup(int personId, int seriesId)
         {
+            long groupId = 0;
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
                 var command = new OracleCommand("TICKETS_API.insertGroupRequests", objConn);
                 command.BindByName = true;
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("p_Return", OracleDbType.Int64, ParameterDirection.ReturnValue);
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 command.Parameters.Add("p_RequestedId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
@@ -60,6 +62,7 @@ namespace Aphro_WebForms.Shared
                     // Execute the query and auto map the results to models
                     objConn.Open();
                     command.ExecuteNonQuery();
+                    groupId = long.Parse(command.Parameters["p_Return"].Value.ToString());
                 }
                 catch (Exception ex)
                 {
@@ -69,6 +72,8 @@ namespace Aphro_WebForms.Shared
 
                 objConn.Close();
             }
+
+            return groupId;
         }
 
         public bool IsReusable

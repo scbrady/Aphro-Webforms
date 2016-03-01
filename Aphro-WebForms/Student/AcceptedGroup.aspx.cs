@@ -10,6 +10,7 @@ namespace Aphro_WebForms.Student
     public partial class AcceptedGroup : System.Web.UI.Page
     {
         protected long SeriesId;
+        protected int GuestTickets = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -78,6 +79,7 @@ namespace Aphro_WebForms.Student
                 {
                     var leaderInformation = requestsModel.First();
                     GroupLeaderName.Text = leaderInformation.group_leader_firstname + " " + leaderInformation.group_leader_lastname;
+                    GuestTickets = leaderInformation.guest_tickets;
                     GroupList.DataSource = requestsModel;
                     GroupList.DataBind();
                 }

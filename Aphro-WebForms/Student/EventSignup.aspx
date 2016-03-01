@@ -29,14 +29,14 @@
                 </LayoutTemplate>
                 <EmptyDataTemplate>
                     <div id="GroupRequestContainer" runat="server">
-                        <p>Start Adding Students To Your Group</p>
+                        <p id="student-placeholder">Start Adding Students To Your Group</p>
                     </div>
                 </EmptyDataTemplate>
                 <ItemTemplate>
-                    <div class="clearfix">
-                        <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                        <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending <img class='pending' src='../Content/Pending.gif'/>" : "Accepted <img class='accepted' src='../Content/Checkmark.png' />" %></p>
-                    </div>
+                    <li class="clearfix request-list">
+                        <p class="group-member" data-user-id="<%# Eval("requested_id") %>" data-group-id="<%# Eval("group_id") %>"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
+                        <p class="group-status <%# Eval("has_accepted").Equals(0) ? "pending-status" : "accepted-status" %>"></p>
+                    </li>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -120,9 +120,23 @@
         function addToGroup(e) {
             e.preventDefault();
 
-            $.post("../Shared/AddToGroup.ashx", { personId: $('#group-request-id').val(), seriesId: $('#MainContent_SeriesIdField').val() })
+            var requestedId = $('#group-request-id').val();
+            var requestedName = $('#group-request').val();
+
+            // Clear the fields
+            $('#group-request-id').val('');
+            $('#group-request').val('');
+
+            $.post("../Shared/AddToGroup.ashx", { personId: requestedId, seriesId: $('#MainContent_SeriesIdField').val() })
                 .done(function (data) {
-                    alert("added Person");
+                    $('#student-placeholder').remove();
+
+                    $('#MainContent_GroupRequestContainer').append("\
+                        <li class='clearfix request-list'>\
+                            <p class='group-member' data-user-id='" + requestedId + "' data-group-id='"+ data +"'>"+ requestedName +"</p>\
+                            <p class='group-status pending-status'></p>\
+                        </li>");
+                    
                 })
                 .fail(function () {
                     alert("error");

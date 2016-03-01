@@ -23,6 +23,7 @@
                 <br />
                 <p>-- <%# Eval("event_datetime") %></p>
             </div>
+            <button onclick="Index.aspx"><a href="Index.aspx">Add an Event</a></button>
         </ItemTemplate>
     </asp:ListView>
 

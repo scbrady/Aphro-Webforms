@@ -20,8 +20,10 @@
     <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
-            <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
-            <a class="HOME" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>
+            <a href="../Default.aspx">
+                <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
+            </a>
+            <%--<a class="HOME" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>--%>
             <form id="masterForm" runat="server">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>

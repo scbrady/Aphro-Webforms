@@ -106,7 +106,7 @@ namespace Aphro_WebForms.Event
                         // TODO: Handle Exception
                         throw ex;
                     }
-
+                Response.Redirect("Homepage.aspx");
                     objConn.Close();
                 }
         }

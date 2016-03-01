@@ -23,7 +23,7 @@
             <form id="form1" runat="server">
                 <img id="projectLogo" src="Content/fastickets.png" />
                 <div class="links">
-                    <asp:HyperLink runat="server" CssClass="websites" href="Event/Index.aspx">Create An Event</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" href="Event/Homepage.aspx">Event Creation</asp:HyperLink>
                     <asp:HyperLink runat="server" CssClass="websites" href="Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
                     <asp:HyperLink runat="server" CssClass="websites" href="Student/Index.aspx">Student Dashboard</asp:HyperLink>
                 </div>

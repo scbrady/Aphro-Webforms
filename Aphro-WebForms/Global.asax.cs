@@ -25,6 +25,8 @@ namespace Aphro_WebForms
             }
         }
 
+        public static Random random = new Random();
+
         private void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup

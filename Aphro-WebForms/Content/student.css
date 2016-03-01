@@ -313,3 +313,8 @@ input[type=submit] {
     display: block;
     width: 40%
 }
+
+.error {
+    color: red;
+    display: none;
+}

@@ -278,6 +278,9 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
+    <Compile Include="Shared\PendingAcceptReject.ashx.cs">
+      <DependentUpon>PendingAcceptReject.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\AddToGroup.ashx.cs">
       <DependentUpon>AddToGroup.ashx</DependentUpon>
     </Compile>
@@ -396,6 +399,7 @@
     <Content Include="GuestPortal.Master" />
     <Content Include="Shared\Search.ashx" />
     <Content Include="Shared\AddToGroup.ashx" />
+    <Content Include="Shared\PendingAcceptReject.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

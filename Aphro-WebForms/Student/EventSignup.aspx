@@ -34,8 +34,8 @@
                 </EmptyDataTemplate>
                 <ItemTemplate>
                     <li class="clearfix request-list">
-                        <p class="group-member" data-user-id="<%# Eval("requested_id") %>" data-group-id="<%# Eval("group_id") %>"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                        <p class="group-status <%# Eval("has_accepted").Equals(0) ? "pending-status" : "accepted-status" %>"></p>
+                        <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
+                        <p class="group-status <%# Eval("has_accepted").Equals(0) ? "pending-status" : "accepted-status" %>" data-user-id="<%# Eval("requested_id") %>" data-group-id="<%# Eval("group_id") %>"></p>
                     </li>
                 </ItemTemplate>
             </asp:ListView>
@@ -48,6 +48,7 @@
             <div id="studentsTab" class="tab-pane fade in active">
                 <div class="ui-widget">
                     <label for="group-request">Name or ID: </label>
+                    <p id="student-request-error" class="error">You cannot request this student.</p>
                     <div>
                         <input type="text" id="group-request"/>
                     </div>
@@ -96,6 +97,10 @@
 
     <script>
         $(function () {
+            $("li .pending-status").each(function () {
+                resolvePendingRequest(this);
+            });
+
             $("#group-request").autocomplete({
                 source: "../Shared/Search.ashx",
                 minLength: 2,
@@ -133,13 +138,31 @@
 
                     $('#MainContent_GroupRequestContainer').append("\
                         <li class='clearfix request-list'>\
-                            <p class='group-member' data-user-id='" + requestedId + "' data-group-id='"+ data +"'>"+ requestedName +"</p>\
-                            <p class='group-status pending-status'></p>\
+                            <p class='group-member'>"+ requestedName +"</p>\
+                            <p class='group-status pending-status' data-user-id='" + requestedId + "' data-group-id='" + data + "'></p>\
                         </li>");
                     
+                    $('#student-request-error').hide();
                 })
                 .fail(function () {
-                    alert("error");
+                    $('#student-request-error').show();
+                });
+        }
+
+        function resolvePendingRequest(request) {
+            var requestedId = $(request).data("user-id");
+            var requestedGroup = $(request).data("group-id");
+
+            $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
+                .done(function (data) {
+                    if (data) {
+                        $(request).removeClass("pending-status");
+                        $(request).addClass("accepted-status");
+                    } else
+                        $(request).remove();
+                })
+                .fail(function () {
+                    // Don't worry about it, they will just stay pending
                 });
         }
     </script>

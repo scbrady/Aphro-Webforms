@@ -136,12 +136,12 @@
                 .done(function (data) {
                     $('#student-placeholder').remove();
 
-                    $('#MainContent_GroupRequestContainer').append("\
-                        <li class='clearfix request-list'>\
-                            <p class='group-member'>"+ requestedName +"</p>\
-                            <p class='group-status pending-status' data-user-id='" + requestedId + "' data-group-id='" + data + "'></p>\
-                        </li>");
-                    
+                    var newRequest = $("<li/>").addClass("clearfix request-list").append("\
+                        <p class='group-member'>" + requestedName + "</p>\
+                        <p class='group-status pending-status' data-user-id='" + requestedId + "' data-group-id='" + data + "'></p>");
+
+                    $('#MainContent_GroupRequestContainer').append(newRequest);
+                    resolvePendingRequest(newRequest.children('.pending-status'));
                     $('#student-request-error').hide();
                 })
                 .fail(function () {
@@ -153,7 +153,8 @@
             var requestedId = $(request).data("user-id");
             var requestedGroup = $(request).data("group-id");
 
-            $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
+            setTimeout(function () {
+                $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
                 .done(function (data) {
                     if (data) {
                         $(request).removeClass("pending-status");
@@ -164,6 +165,7 @@
                 .fail(function () {
                     // Don't worry about it, they will just stay pending
                 });
+            }, 5000);
         }
     </script>
 </asp:Content>

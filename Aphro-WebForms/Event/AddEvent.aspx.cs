@@ -90,7 +90,7 @@ namespace Aphro_WebForms.Event
             {
                 Store_Event(pictureName);
             }
-
+            Response.Redirect("index.aspx");
         }
 
         protected void Store_Event(string pictureName)

@@ -23,9 +23,9 @@
             <form id="form1" runat="server">
                 <img id="projectLogo" src="Content/fastickets.png" />
                 <div class="links">
-                    <asp:HyperLink runat="server" CssClass="websites" href="Event/Homepage.aspx">Event Creation</asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="websites" href="Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="websites" href="Student/Index.aspx">Student Dashboard</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Event/Index.aspx">Event Dashboard</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Student/Index.aspx">Student Dashboard</asp:HyperLink>
                 </div>
             </form>
         </div>

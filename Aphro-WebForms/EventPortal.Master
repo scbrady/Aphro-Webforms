@@ -20,9 +20,9 @@
     <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
-            <a href="../Default.aspx">
+            <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Default.aspx">
                 <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
-            </a>
+            </asp:HyperLink>
             <%--<a class="HOME" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>--%>
             <form id="masterForm" runat="server">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">

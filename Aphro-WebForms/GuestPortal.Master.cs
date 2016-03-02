@@ -11,13 +11,7 @@ namespace Aphro_WebForms
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
             Global.CurrentPerson = null;
-            Response.Redirect("../Default.aspx");
-        }
-
-        protected void Home_Click(object sender, EventArgs e)
-        {
-            Global.CurrentPerson = null;
-            Response.Redirect("http://csmain.studentnet.int/seproject/aphro/");
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

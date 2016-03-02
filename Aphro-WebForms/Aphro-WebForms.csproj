@@ -168,7 +168,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
-    <Content Include="Event\Homepage.aspx" />
+    <Content Include="Event\Index.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Guest\ReviewTickets.aspx" />
@@ -176,7 +176,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\carousel.js" />
-    <Content Include="Event\Index.aspx" />
+    <Content Include="Event\AddEvent.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Guest\EventSignup.aspx" />
     <Content Include="Guest\Index.aspx" />
@@ -253,12 +253,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Event\Homepage.aspx.cs">
-      <DependentUpon>Homepage.aspx</DependentUpon>
+    <Compile Include="Event\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Event\Homepage.aspx.designer.cs">
-      <DependentUpon>Homepage.aspx</DependentUpon>
+    <Compile Include="Event\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="GuestPortal.Master.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
@@ -294,12 +294,12 @@
     <Compile Include="StudentPortal.Master.designer.cs">
       <DependentUpon>StudentPortal.Master</DependentUpon>
     </Compile>
-    <Compile Include="Event\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Event\AddEvent.aspx.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Event\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Event\AddEvent.aspx.designer.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

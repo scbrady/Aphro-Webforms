@@ -48,17 +48,32 @@ namespace Aphro_WebForms.Event
                 EventListview.DataBind();
             }
         }
-        
+
 
         protected void Delete_Event(object sender, EventArgs e)
         {
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
+                // Get the seriesId and picture name from the button
+                string[] commandArgs = (((LinkButton)sender).CommandArgument).ToString().Split(new char[] { ',' });
+                string seriesId = commandArgs[0];
+                string pictureName = commandArgs[1];
+
+                // Delete the picture uploaded if it is not the default picture
+                if (pictureName != "events_medium.jpg")
+                {
+                    string filePath = Server.MapPath("~/Content/pictures/" + pictureName);
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                }
+
                 // Set up the delete event command
                 var deleteCommand = new OracleCommand("TICKETS_API.deleteEvent", objConn);
                 deleteCommand.BindByName = true;
                 deleteCommand.CommandType = CommandType.StoredProcedure;
-                deleteCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, long.Parse(((LinkButton)sender).CommandArgument), ParameterDirection.Input);
+                deleteCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, long.Parse(seriesId), ParameterDirection.Input);
 
                 try
                 {

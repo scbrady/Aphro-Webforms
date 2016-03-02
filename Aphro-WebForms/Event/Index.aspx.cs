@@ -70,45 +70,59 @@ namespace Aphro_WebForms.Event
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-                Guid pictureUUID = Guid.NewGuid();
-                string pictureName;
-                if (uploadBtn.HasFile)
+            Guid pictureUUID = Guid.NewGuid();
+            string pictureName = "events_medium.jpg";
+            if (uploadBtn.HasFile)
+            {
+                string extension = Path.GetExtension(uploadBtn.PostedFile.FileName);
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                 {
-                    string extension = Path.GetExtension(uploadBtn.PostedFile.FileName);
                     pictureName = pictureUUID.ToString() + extension;
                     uploadBtn.PostedFile.SaveAs(Server.MapPath("~/Content/pictures/") + pictureName);
+                    Store_Event(pictureName);
                 }
                 else
-                    pictureName = "events_medium.jpg";
-
-                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
-                    // Set up the eventTypes command
-                    var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn);
-                    insertEventCommand.BindByName = true;
-                    insertEventCommand.CommandType = CommandType.StoredProcedure;
-                    insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventName.Text, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, Description.Text, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
-                    insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);
-                    try
-                    {
-                        objConn.Open();
-                        insertEventCommand.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        // TODO: Handle Exception
-                        throw ex;
-                    }
-                Response.Redirect("Homepage.aspx");
-                    objConn.Close();
+                    Response.Write("Only .JPG or .JPEG or .PNG allowed");
                 }
+            }
+            else
+            {
+                Store_Event(pictureName);
+            }
+
+        }
+
+        protected void Store_Event(string pictureName)
+        {
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the eventTypes command
+                var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn);
+                insertEventCommand.BindByName = true;
+                insertEventCommand.CommandType = CommandType.StoredProcedure;
+                insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventName.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, Description.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);
+                try
+                {
+                    objConn.Open();
+                    insertEventCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    // TODO: Handle Exception
+                    throw ex;
+                }
+
+                objConn.Close();
+            }
         }
     }
 }

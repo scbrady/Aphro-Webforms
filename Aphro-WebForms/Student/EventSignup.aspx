@@ -138,7 +138,7 @@
 
                     var newRequest = $("<li/>").addClass("clearfix request-list").append("\
                         <p class='group-member'>" + requestedName + "</p>\
-                        <p class='group-status pending-status' data-user-id='" + requestedId + "' data-group-id='" + data + "'></p>");
+                        <p class='group-status pending-status' data-user-id='" + data.requested_id + "' data-group-id='" + data.group_id + "'></p>");
 
                     $('#MainContent_GroupRequestContainer').append(newRequest);
                     resolvePendingRequest(newRequest.children('.pending-status'));

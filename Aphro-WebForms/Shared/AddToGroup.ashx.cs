@@ -1,6 +1,11 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Aphro_WebForms.Models;
+using AutoMapper;
+using Newtonsoft.Json;
+using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.SessionState;
@@ -32,7 +37,10 @@ namespace Aphro_WebForms.Shared
 
             try
             {
-                context.Response.Write(addPersonToGroup(personId, seriesId));
+                var result = addPersonToGroup(personId, seriesId);
+                var json = JsonConvert.SerializeObject(result);
+                context.Response.ContentType = "text/json";
+                context.Response.Write(json);
             }
             catch (Exception ex)
             {
@@ -43,16 +51,18 @@ namespace Aphro_WebForms.Shared
             context.Response.End();
         }
 
-        private long addPersonToGroup(int personId, int seriesId)
+        private GroupRequest addPersonToGroup(int personId, int seriesId)
         {
-            long groupId = 0;
+            DataTable groupTable = new DataTable();
+            GroupRequest groupResult = new GroupRequest();
+
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
                 var command = new OracleCommand("TICKETS_API.insertGroupRequests", objConn);
                 command.BindByName = true;
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("p_Return", OracleDbType.Int64, ParameterDirection.ReturnValue);
+                command.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 command.Parameters.Add("p_RequestedId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
@@ -61,8 +71,11 @@ namespace Aphro_WebForms.Shared
                 {
                     // Execute the query and auto map the results to models
                     objConn.Open();
-                    command.ExecuteNonQuery();
-                    groupId = long.Parse(command.Parameters["p_Return"].Value.ToString());
+                    var groupAdapter = new OracleDataAdapter(command);
+                    groupAdapter.Fill(groupTable);
+
+                    groupResult.group_id = long.Parse(groupTable.Rows[0]["group_id"].ToString());
+                    groupResult.requested_id = long.Parse(groupTable.Rows[0]["requested_id"].ToString());
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +86,7 @@ namespace Aphro_WebForms.Shared
                 objConn.Close();
             }
 
-            return groupId;
+            return groupResult;
         }
 
         public bool IsReusable

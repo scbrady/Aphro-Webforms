@@ -13,4 +13,8 @@
 	top: 0;
 	left: 0;
 	cursor: default;
+    height: 200px;
+    width: 325px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

@@ -110,10 +110,11 @@
             element.setAttribute("type", "text");
             element.setAttribute("runat", "server");
             element.setAttribute("class", "datepicker-field");
+            element.setAttribute("class", "eventDate");
             element.setAttribute("id", "date" + dateCount);
 
             newButton.setAttribute("value", "Delete");
-            newButton.setAttribute("Class", "deleteButton");
+            newButton.setAttribute("Class", "deleteDate");
             newButton.setAttribute("id", "delete" + dateCount);
             newButton.setAttribute("onclick", "DeleteDate(" + dateCount + "); return false;");
             newButton.innerHTML="x";

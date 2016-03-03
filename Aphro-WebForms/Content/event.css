@@ -61,7 +61,11 @@
         box-shadow: 0px 0px #005eb1;
     }
 
-.deleteButton{
+input[type=text] {
+    margin-top: 10px;
+}
+
+.deleteDate{
     /*position: relative;*/
     border: 0px outset buttonface;
 	box-sizing: content-box;
@@ -154,6 +158,21 @@ LinkButton#deleteButton{
     float: right;
     display: inline-block;
     padding-right: 30px;
+    border: 0px outset buttonface;
+	box-sizing: content-box;
+    text-decoration: none;
+	margin-top: -33px;
+  	width: 0px;
+	height: 0px;
+	background-color: black;
+	padding-left: 445px;
+	padding-top: 0px;
+	padding-bottom: 0;
+	font-size: 20px;
+	color: #004682;
+	text-decoration: none;
+	text-transform: uppercase;
+    border-radius: 10px;
 }
 
 a:hover{

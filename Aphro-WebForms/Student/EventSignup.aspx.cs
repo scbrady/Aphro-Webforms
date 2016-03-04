@@ -102,6 +102,9 @@ namespace Aphro_WebForms.Student
                 }
 
                 TotalSize = GuestTickets + RequestedTickets + 1;
+                if (TotalSize > 10)
+                    TotalSize = 10;
+
                 GroupSize.Value = TotalSize.ToString();
                 GroupList.DataSource = requestsModel;
                 GroupList.DataBind();

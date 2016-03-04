@@ -22,33 +22,6 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventName;
         
         /// <summary>
-        /// EventDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventDescription;
-        
-        /// <summary>
-        /// EventLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventLocation;
-        
-        /// <summary>
-        /// EventDateDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
-        
-        /// <summary>
         /// GroupRequestContainer control.
         /// </summary>
         /// <remarks>
@@ -103,13 +76,40 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.RangeValidator TicketQuantityRangeValidator;
         
         /// <summary>
-        /// GetExtraTickets control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetExtraTickets;
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// EventDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventDescription;
+        
+        /// <summary>
+        /// EventLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventLocation;
+        
+        /// <summary>
+        /// EventDateDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EventDateDropDown;
         
         /// <summary>
         /// BuildingKeyField control.

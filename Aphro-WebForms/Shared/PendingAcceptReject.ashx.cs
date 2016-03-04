@@ -33,8 +33,8 @@ namespace Aphro_WebForms.Shared
             try
             {
                 bool accepted;
-                // Accept the request 9 times out of 10
-                if (Global.random.Next(1, 10) > 1)
+                // Accept the request 5 times out of 10
+                if (Global.random.Next(1, 11) > 5)
                     accepted = acceptRequest(personId, groupId);
                 else
                     accepted = rejectRequest(personId, groupId);

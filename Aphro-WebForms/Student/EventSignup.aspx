@@ -161,11 +161,11 @@
             setTimeout(function () {
                 $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
                 .done(function (data) {
-                    if (data) {
+                    if (data === "True") {
                         $(request).removeClass("pending-status");
                         $(request).addClass("accepted-status");
                     } else
-                        $(request).remove();
+                        $(request).parent().remove();
                 })
                 .fail(function () {
                     // Don't worry about it, they will just stay pending

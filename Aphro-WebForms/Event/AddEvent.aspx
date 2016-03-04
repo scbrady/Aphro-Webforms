@@ -24,7 +24,7 @@
         <h3>Description:</h3>
         <asp:TextBox ID="Description" TextMode="multiline" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="Description" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ControlToValidate="Description" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,200}$" runat="server" Text="Minimum of 1 character and Maximum of 200 characters." Display="Dynamic"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ControlToValidate="Description" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
     </div>
 
     <%--Image Upload--%>

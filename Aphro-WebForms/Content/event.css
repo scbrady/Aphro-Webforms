@@ -129,7 +129,6 @@ img#imagePreview{
 
 #eventList {
     margin-top: 10px;
-    display:inline-block !important;
 }
 LinkButton#deleteButton{
     color:red;

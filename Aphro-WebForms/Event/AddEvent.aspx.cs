@@ -101,8 +101,8 @@ namespace Aphro_WebForms.Event
                 var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn);
                 insertEventCommand.BindByName = true;
                 insertEventCommand.CommandType = CommandType.StoredProcedure;
-                insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventName.Text, ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, Description.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventNameInput.Text, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);

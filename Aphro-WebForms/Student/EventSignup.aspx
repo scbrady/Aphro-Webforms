@@ -37,6 +37,7 @@
                 <div id="studentsTab" class="tab-pane fade in active">
                     <div class="ui-widget">
                         <label for="group-request">Name or ID: </label>
+                        <p id="student-request-error" class="error">You cannot request this student.</p>
                         <div>
                             <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off">
                         </div>
@@ -51,7 +52,7 @@
                     <br>
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
+                    <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
                     <asp:Button ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
                 </div>
             </div>

@@ -22,22 +22,22 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.DropDownList EventType;
         
         /// <summary>
-        /// EventName control.
+        /// EventNameInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EventName;
+        protected global::System.Web.UI.WebControls.TextBox EventNameInput;
         
         /// <summary>
-        /// Description control.
+        /// DescriptionInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Description;
+        protected global::System.Web.UI.WebControls.TextBox DescriptionInput;
         
         /// <summary>
         /// uploadBtn control.

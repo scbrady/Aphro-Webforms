@@ -199,13 +199,6 @@ div.drop-menu {
     margin: 10px 25%;
 }
 
-.getTickets{
-    width: 25%;
-    float: right;
-    background-color: green;
-    color: black;
-}
-
 .HOME{
     border: 1px solid black;
     border-radius: 5px;

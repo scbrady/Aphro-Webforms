@@ -14,17 +14,17 @@
     <%--Event Name--%>
     <div class='name'>
         <h3>Event Name:</h3>
-        <asp:TextBox ID="EventName" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventName" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ControlToValidate="EventName" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
+        <asp:TextBox ID="EventNameInput" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventNameInput" Text="Required Field." Display="Dynamic"/>
+        <asp:RegularExpressionValidator ControlToValidate="EventNameInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
     </div>
 
     <%--Description--%>
     <div class='description'>
         <h3>Description:</h3>
-        <asp:TextBox ID="Description" TextMode="multiline" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="Description" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ControlToValidate="Description" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
+        <asp:TextBox ID="DescriptionInput" TextMode="multiline" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="DescriptionInput" Text="Required Field." Display="Dynamic"/>
+        <asp:RegularExpressionValidator ControlToValidate="DescriptionInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
     </div>
 
     <%--Image Upload--%>
@@ -109,8 +109,7 @@
             //Assign different attributes to the element.
             element.setAttribute("type", "text");
             element.setAttribute("runat", "server");
-            element.setAttribute("class", "datepicker-field");
-            element.setAttribute("class", "eventDate");
+            element.setAttribute("class", "datepicker-field eventDate");
             element.setAttribute("id", "date" + dateCount);
 
             newButton.setAttribute("value", "Delete");

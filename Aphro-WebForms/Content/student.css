@@ -233,6 +233,15 @@ input[type=submit] {
     border-radius: 0px !important;
     border-bottom: 2px #797979 solid;
     display: inline;
+    margin-top: 6px;
+}
+
+.balcony {
+    width: 400px;
+    margin: auto;
+    background: #32a3dc;
+    height: 25px;
+    display: block;
 }
 
 .error {
@@ -244,11 +253,6 @@ input[type=submit] {
 h4 {
     font-size: 1.6em;
     color: #737373;
-}
-
-input[type=submit] {
-    float: right;
-    margin-top: 6px;
 }
 
 .nav {
@@ -343,4 +347,15 @@ input[type=submit] {
     color: #333;
     display: block;
     margin-top: 2px;
+}
+
+#MainContent_TicketQuantityRangeValidator[style*="inline"]
+{
+    display:block !Important;
+}
+
+input[type=submit].getTickets {
+    width: 50%;
+    margin: 50px auto 0;
+    display: block;
 }

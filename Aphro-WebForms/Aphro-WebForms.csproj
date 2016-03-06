@@ -127,6 +127,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\home.css" />
+    <Content Include="Content\pcci-styles.css" />
     <Content Include="Content\Pending.gif" />
     <Content Include="Content\Project-Logo.png" />
     <Content Include="Content\student.css" />

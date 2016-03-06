@@ -11,7 +11,6 @@
         <%: Scripts.Render("~/bundles/bootstrap") %>
         <%: Scripts.Render("~/bundles/datepicker") %>
         <%: Styles.Render("~/Content/css") %>
-        <%: Styles.Render("~/Content/guest-css") %>
         <%: Styles.Render("~/Content/event-css") %>
     </asp:PlaceHolder>
     <title><%: Page.Title %></title>

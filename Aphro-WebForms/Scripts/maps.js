@@ -25,6 +25,8 @@ function changeName(btn) {
 function refreshMap() {
     var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#MainContent_BuildingKeyField').val();
+    var eventLocation = $('#MainContent_EventLocation').text();
+
     $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey + '&balcony=' + balcony, function (data) {
         var buildingDataMap = [];
         var buildingDataArray = [];
@@ -124,7 +126,7 @@ function refreshMap() {
                 }
             },
             title: {
-                text: $('MainContent_EventLocation').val()
+                text: eventLocation
             },
             legend: {
                 enabled: false
@@ -134,7 +136,7 @@ function refreshMap() {
             },
             series: [
                 {
-                    name: $('MainContent_EventLocation').val(),
+                    name: eventLocation,
                     type: "map",
                     mapData: buildingDataMap,
                     data: buildingDataArray,

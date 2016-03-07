@@ -165,8 +165,10 @@
                     if (data === "True") {
                         $(request).removeClass("pending-status");
                         $(request).addClass("accepted-status");
-                    } else
-                        $(request).parent().remove();
+                    } else {
+                        $(request).removeClass("pending-status");
+                        $(request).addClass("rejected-status");
+                    }
                 })
                 .fail(function () {
                     // Don't worry about it, they will just stay pending

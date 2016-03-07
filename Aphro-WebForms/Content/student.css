@@ -221,6 +221,10 @@ a.panel-heading {
     background-size: 100%;
 }
 
+.rejected-status:before {
+    content: "Rejected";
+}
+
 input[type=submit] {
     width: inherit;
     height: 33px;

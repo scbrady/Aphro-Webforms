@@ -22,7 +22,6 @@
     font-weight: 100;
     height: 40.5px;
     text-decoration: underline;
-    border-bottom: 1px solid #15589c;
     margin-bottom: 20px;
 }
 .Description {
@@ -31,11 +30,13 @@
 }
 .Description h3 {
     margin-top: 0 !important;
+    font-size: 25px;
+}
+.Description span {
+    font-size: 17px;
 }
 .event-side-info {
-    width: 35%;
     padding: 10px;
-    float: right;
     background: #D8E6EF;
 }
 .event-side-info h3 {
@@ -56,10 +57,6 @@
     font-size: 1em;
     margin: 0;
     font-weight: bold;
-}
-.desc-side {
-    float: left;
-    width: 65%;
 }
 #MainContent_GetExtraTickets {
     width: 60%;
@@ -101,4 +98,10 @@ span.validator[style*="inline"]
     margin: 30px auto 0;
     width: 400px;
     height: 400px;
+}
+#choose-seats {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
 }

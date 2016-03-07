@@ -29,7 +29,11 @@ input[type=text].eventDate {
     display: block;
     width: 300px;
 }
-
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
 .fileUpload input.upload {
     position: absolute;
     top: 0;

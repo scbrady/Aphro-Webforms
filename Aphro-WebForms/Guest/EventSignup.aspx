@@ -7,17 +7,14 @@
         <h1 class="eName">
             <asp:Label ID="EventName" runat="server"></asp:Label></h1>
         <div class="row">
-            <div class="desc-side">
+            <div class="col-md-8">
                 <div class="Description">
                     <h3>Description: </h3>
                     <asp:Label ID="EventDescription" runat="server"></asp:Label>
                 </div>
-
-                <div class="interactiveMap" id="map"></div>
-                <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
             </div>
 
-            <div class="event-side-info">
+            <div class="event-side-info col-md-4">
                 <div class="Location">
                     <h3>Location: </h3>
                     <asp:Label ID="EventLocation" runat="server"></asp:Label>
@@ -52,7 +49,19 @@
                 <asp:Label ID="Error" runat="server" Text="You need to pick seats." Visible="false" />
             </div>
         </div>
-        <asp:Button ID="Submit" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+
+        <button type="button" id='choose-seats' data-toggle="modal" data-target="#myModal">Choose Seats</button>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="interactiveMap" id="map"></div>
+                        <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
+                        <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>
 

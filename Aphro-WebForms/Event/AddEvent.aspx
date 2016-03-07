@@ -50,9 +50,7 @@
             <asp:TextBox ID="EventDate" runat="server" CssClass="datepicker-field"></asp:TextBox>
             <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic"/>
         </div>
-
-        <asp:Button ID="Button1" runat="server" OnClientClick="javascript:AddDate(); return false;" Text="Add Date" />
-        <div id="DeleteDate" class='Event-Dates' style="position: relative"></div>
+        <button onclick="AddDate(event)">Add Date</button>
         <asp:HiddenField ID="HiddenField1" runat="server" />
 
         <%-- Seating Prices (both regular and prime) --%>
@@ -100,7 +98,8 @@
 
         dateCount = 0;
 
-        function AddDate() {
+        function AddDate(e) {
+            e.preventDefault();
             //Create an input type dynamically.
             var element   = document.createElement("input");
             var newButton = document.createElement("button");
@@ -111,10 +110,9 @@
             element.setAttribute("class", "datepicker-field eventDate");
             element.setAttribute("id", "date" + dateCount);
 
-            newButton.setAttribute("value", "Delete");
             newButton.setAttribute("Class", "deleteDate");
             newButton.setAttribute("id", "delete" + dateCount);
-            newButton.setAttribute("onclick", "DeleteDate(" + dateCount + "); return false;");
+            newButton.setAttribute("onclick", "DeleteDate(event," + dateCount + ")");
             newButton.innerHTML="x";
 
             // div id, where new fields are to be added
@@ -145,8 +143,9 @@
             button.click();
         }
 
-        function DeleteDate(date)
+        function DeleteDate(e, date)
         {
+            e.preventDefault();
             $('#date' + date).remove();
             $('#delete' + date).remove();
         }

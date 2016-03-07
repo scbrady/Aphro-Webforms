@@ -64,7 +64,7 @@
 #MainContent_GetExtraTickets {
     width: 60%;
     min-width: 150px;
-    text-align: center;
+    margin-top: 10px;
 }
 
 #MainContent_Submit {
@@ -73,10 +73,13 @@
     margin-top: 85px;
     display: block;
 }
-.event-side-info span.validator {
-    display: block;
+span.validator {
     font-size: 14px;
     color: red;
+}
+span.validator[style*="inline"]
+{
+    display:block !Important;
 }
 
 /**************************/

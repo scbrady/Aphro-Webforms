@@ -47,7 +47,11 @@
     font-size: 1.6em;
     margin: 10px;
 }
-
+.ticket-number-btn {
+    display: inline !important;
+    padding: 0;
+    width: 20% !important;
+}
 #MainContent_EventPrimePrice {
     font-size: 1em;
     margin: 0;

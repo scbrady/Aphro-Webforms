@@ -12,27 +12,16 @@ input[type=text], textarea, select {
     resize:none;
 }
 
-.deleteDate{
-    /*position: relative;*/
-    border: 0px outset buttonface;
-	box-sizing: content-box;
-	/*font-family: courier new;*/
-    text-decoration: none;
-	margin-top: -33px;
-  	width: 0px;
-	height: 0px;
-	background-color: black;
-	padding-right: 16%;
+input[type=text].eventDate {
+    width: 91%;
+}
+
+.deleteDate {
     float: right;
-	padding-left: 445px;
-	padding-top: 0px;
-	padding-bottom: 0;
-	display: block;
-	font-size: 20px;
-	color: #004682;
-	text-decoration: none;
-	text-transform: uppercase;
-    border-radius: 10px;
+    margin: 1px 0 0 0;
+    border-radius: 5px;
+    width: 8%;
+    min-width: 25px;
 }
 
 .fileUpload.btn.btn-primary {

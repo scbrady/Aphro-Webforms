@@ -45,6 +45,11 @@ body {
     background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
 }
 
+.content-wrapper {
+    width: 80%;
+    margin: auto;
+}
+
 .mainPane h1 {
     text-align: center;
     font-size: 26px;
@@ -56,12 +61,18 @@ body {
     clear: both;
 }
 
+h3 {
+    font-size: 1.17em;
+    margin: 20px 0 5px;
+}
+
 input[type=submit], button {
     width: 100%;
     height: 40px;
+    margin-top: 10px;
     background: #32a3dc;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 0 4px 0 4px;
     border: 1px solid #32a3ff;
     color: #fff;
     font-weight: bold;
@@ -74,7 +85,7 @@ input[type=submit], button {
 }
 
 input[type=submit]:hover, button:hover {
-    background: #005daa;
+    background: #2e6da4;
 }
 
 input[type=text], textarea {
@@ -87,6 +98,10 @@ input[type=text], textarea {
     padding: 10px 15px;
     outline: none;
     color: black;
+}
+
+input[type=number] {
+    text-align: center;
 }
 
 select {

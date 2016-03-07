@@ -30,10 +30,8 @@
                 <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)
                 </div>
 
-                <div class="dropdown" id="Dates">
-                    <h3>Dates: </h3>
-                    <asp:DropDownList ID="EventDateDropDown" runat="server"></asp:DropDownList>
-                </div>
+                <h3>Dates: </h3>
+                <asp:DropDownList ID="EventDateDropDown" runat="server"></asp:DropDownList>
 
                 <asp:HiddenField ID="BuildingKeyField" runat="server" />
                 <asp:HiddenField ID="SeriesIdField" runat="server" />
@@ -48,7 +46,7 @@
                 <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
                 <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                 <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" CssClass="validator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
+                <asp:RangeValidator runat="server" Display="Dynamic" ID="TicketQuantityRangeValidator" CssClass="validator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
                 <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
 
                 <asp:Label ID="Error" runat="server" Text="You need to pick seats." Visible="false" />

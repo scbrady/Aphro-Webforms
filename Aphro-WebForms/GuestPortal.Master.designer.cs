@@ -31,13 +31,13 @@ namespace Aphro_WebForms {
         protected global::System.Web.UI.HtmlControls.HtmlForm masterForm;
         
         /// <summary>
-        /// Logout control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Logout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
         /// MainContent control.

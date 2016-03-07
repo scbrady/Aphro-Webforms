@@ -26,13 +26,14 @@
             <form id="masterForm" runat="server">
                 <%if (Session["CurrentPerson"] != null)
                     { %>
-                <div class="drop-menu">
-                    <div class="dropdown-account">
-                        <button class="dropbtn"><%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%></button>
-                        <div class="dropdown-content">
-                            <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text="Logout" />
-                        </div>
-                    </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname%>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LogoutButton_Click" Text="Logout" /></li>
+                    </ul>
                 </div>
                 <%} %>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">

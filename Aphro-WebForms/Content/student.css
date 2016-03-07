@@ -236,14 +236,6 @@ input[type=submit] {
     margin-top: 6px;
 }
 
-.balcony {
-    width: 400px;
-    margin: auto;
-    background: #32a3dc;
-    height: 25px;
-    display: block;
-}
-
 .error {
     color: red;
     display: none;
@@ -358,4 +350,17 @@ input[type=submit].getTickets {
     width: 50%;
     margin: 50px auto 0;
     display: block;
+}
+
+.balcony {
+    width: 400px;
+    margin: auto;
+    background: #32a3dc;
+    height: 25px;
+    display: block;
+}
+.interactiveMap {
+    margin: 30px auto 0;
+    width: 400px;
+    height: 400px;
 }

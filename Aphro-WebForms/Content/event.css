@@ -1,107 +1,35 @@
 ﻿/**************************/
 /*      Create Event      */
 /**************************/
-
-.mainPane h1 {
-    text-align: center;
-    font-size: 26px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    text-transform: uppercase;
-    margin-top: 10%;
+input[type=text], textarea, select {
+    width: 100%;
     margin-bottom: 5px;
 }
 
-.mainPane h3 {
-    margin: 10px 100px;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-/* The style of the input boxes */
-.name input,
-.Event-Dates input,
-.Seat-Price input {
-    margin: auto 100px;
-    width: 75%;
-    padding: 10px;
-    font-family: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-}
-
-/* The style of the description textbox */
 .description textarea {
-    margin: 0 100px;
-    width: 75%;
-    max-width: 975px;
     height: 120px;
-    max-height: 120px;
-    box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    font: 80% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    padding: 0 -20px 0 -50px;
-    text-align: justify;
-    outline: none;
     resize:none;
 }
 
-/* The style of the submit button */
-.mainPane input[type=submit] {
-    margin: 20px 100px;
-    width: 75%;
+input[type=text].eventDate {
+    width: 91%;
 }
 
-    /* The design of when the textbox is hovered over by the mouse */
-    .mainPane input[type=submit]:hover {
-        background: #005daa;
-    }
-
-    /* When the button is clicked */
-    .mainPane input[type=submit]:active {
-        transform: translateY(5px);
-        box-shadow: 0px 0px #005eb1;
-    }
-
-input[type=text] {
-    margin-top: 10px;
-}
-
-.deleteDate{
-    /*position: relative;*/
-    border: 0px outset buttonface;
-	box-sizing: content-box;
-	/*font-family: courier new;*/
-    text-decoration: none;
-	margin-top: -33px;
-  	width: 0px;
-	height: 0px;
-	background-color: black;
-	padding-right: 16%;
+.deleteDate {
     float: right;
-	padding-left: 445px;
-	padding-top: 0px;
-	padding-bottom: 0;
-	display: block;
-	font-size: 20px;
-	color: #004682;
-	text-decoration: none;
-	text-transform: uppercase;
-    border-radius: 10px;
+    margin: 1px 0 0 0;
+    border-radius: 5px;
+    width: 8%;
+    min-width: 25px;
 }
 
-.image_upload{
-    margin: 0 18%;
-    align-content:center;
-    table-layout: fixed;
-    padding:10px;
+.fileUpload.btn.btn-primary {
+    margin: auto;
+    display: block;
+    width: 300px;
 }
 
-.fileUpload {
-    position: relative;
-    overflow: hidden;
-    margin: 0 100px;
-    width:100%;
-    max-width:300px;
-}
 .fileUpload input.upload {
     position: absolute;
     top: 0;
@@ -119,7 +47,7 @@ img#imagePreview{
     display: block;
     width: 300px;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 auto;
     object-fit: cover;
 }
 
@@ -172,13 +100,4 @@ LinkButton#deleteButton{
 	text-decoration: none;
 	text-transform: uppercase;
     border-radius: 10px;
-}
-
-a:hover{
-    text-decoration: none;
-    color: deepskyblue;
-}
-
-a:visited{
-    text-decoration: none;
 }

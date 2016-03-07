@@ -33,16 +33,17 @@ namespace Aphro_WebForms
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/bootstrap-datetimepicker.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap-datetimepicker.css"));
 
             bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
                       "~/Content/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/event-css").Include(
-                      "~/Content/event.css"));
+                      "~/Content/event.css",
+                      "~/Content/pcci-styles.css"));
             bundles.Add(new StyleBundle("~/Content/guest-css").Include(
-                      "~/Content/guest.css"));
+                      "~/Content/guest.css",
+                      "~/Content/pcci-styles.css"));
             bundles.Add(new StyleBundle("~/Content/student-css").Include(
                       "~/Content/student.css"));
             bundles.Add(new StyleBundle("~/Content/faculty-css").Include(

@@ -4,92 +4,89 @@
 
     <%--Event Type--%>
     <h1>Create Event</h1>
-    <div class="eventCreation">
+    
+    <div class="content-wrapper">
         <h3>Event Type:</h3>
         <asp:DropDownList ID="EventType" runat="server">
         </asp:DropDownList>
         <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventType" Text="Required Field" Display="Dynamic"/>
-    </div>
 
-    <%--Event Name--%>
-    <div class='name'>
-        <h3>Event Name:</h3>
-        <asp:TextBox ID="EventNameInput" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventNameInput" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ControlToValidate="EventNameInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
-    </div>
+        <%--Event Name--%>
+        <div class='name'>
+            <h3>Event Name:</h3>
+            <asp:TextBox ID="EventNameInput" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventNameInput" Text="Required Field." Display="Dynamic"/>
+            <asp:RegularExpressionValidator ControlToValidate="EventNameInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
+        </div>
 
-    <%--Description--%>
-    <div class='description'>
-        <h3>Description:</h3>
-        <asp:TextBox ID="DescriptionInput" TextMode="multiline" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="DescriptionInput" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ControlToValidate="DescriptionInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
-    </div>
+        <%--Description--%>
+        <div class='description'>
+            <h3>Description:</h3>
+            <asp:TextBox ID="DescriptionInput" TextMode="multiline" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="DescriptionInput" Text="Required Field." Display="Dynamic"/>
+            <asp:RegularExpressionValidator ControlToValidate="DescriptionInput" ValidationGroup="EventCreation" ValidationExpression ="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
+        </div>
 
-    <%--Image Upload--%>
-    <div class="image_upload">
-        <img src="../Content/defaultphoto_2x.png" id="imagePreview"  />
-        <div class="fileUpload btn btn-primary">
-            <span>Upload</span>
-            <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 
+        <%--Image Upload--%>
+        <div class="image_upload">
+            <img src="../Content/defaultphoto_2x.png" id="imagePreview"  />
+            <div class="fileUpload btn btn-primary">
+                <span>Upload</span>
+                <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 
+            </div>
+        </div>
+
+        <%--Location--%>
+        <div class='eventCreation'>
+            <h3>Location: </h3>
+            <asp:DropDownList ID="LocationDropDown" runat="server">
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="LocationDropDown" Text="Required Field" Display="Dynamic"/>
+        </div>
+
+        <%-- Event Date(s)--%>
+        <div id="EventDates" class='Event-Dates' style="position: relative">
+            <h3>Event Date(s):</h3>
+            <asp:TextBox ID="EventDate" runat="server" CssClass="datepicker-field"></asp:TextBox>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic"/>
+        </div>
+        <button onclick="AddDate(event)">Add Date</button>
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+
+        <%-- Seating Prices (both regular and prime) --%>
+        <div class='Seat-Price'>
+            <h3>Regular Seating Price:</h3>
+            <asp:TextBox ID="RegularPrice" runat="server" placeholder="XX.XX"></asp:TextBox>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" Text="Required Field." Display="Dynamic"/>
+            <asp:RegularExpressionValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
+            <h3>Prime Seating Price:</h3>
+
+            <asp:TextBox ID="PrimePrice" runat="server" placeholder="XX.XX"></asp:TextBox>
+            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="PrimePrice" Text="Required Field." Display="Dynamic"/>
+            <asp:RegularExpressionValidator ValidationGroup="EventCreation" ControlToValidate="PrimePrice"  ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
+        </div>
+
+        <asp:Button ID="Button2" runat="server" Text="Submit" OnClientClick="javascript:AppendDates(); this.disabled = true; return false;"/>
+        <div style="display: none;">
+            <asp:Button ID="Button3" ValidationGroup="EventCreation" runat="server" Text="Submit" OnClick="Submit_Click"/>
         </div>
     </div>
+</asp:Content>
 
-    <%--Location--%>
-    <div class='eventCreation'>
-        <h3>Location: </h3>
-        <asp:DropDownList ID="LocationDropDown" runat="server">
-        </asp:DropDownList>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="LocationDropDown" Text="Required Field" Display="Dynamic"/>
-    </div>
 
-    <%-- Event Date(s)--%>
-    <div id="EventDates" class='Event-Dates' style="position: relative">
-        <h3>Event Date(s):</h3>
-        <asp:TextBox ID="EventDate" runat="server" CssClass="datepicker-field"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic"/>
-    </div>
-
-    <asp:Button ID="Button1" runat="server" OnClientClick="javascript:AddDate(); return false;" Text="Add Date" />
-    <div id="DeleteDate" class='Event-Dates' style="position: relative"></div>
-    <asp:HiddenField ID="HiddenField1" runat="server" />
-
-    <%-- Seating Prices (both regular and prime) --%>
-    <div class='Seat-Price'>
-        <h3>Regular Seating Price:</h3>
-        <asp:TextBox ID="RegularPrice" runat="server" placeholder="XX.XX"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
-        <h3>Prime Seating Price:</h3>
-
-        <asp:TextBox ID="PrimePrice" runat="server" placeholder="XX.XX"></asp:TextBox>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="PrimePrice" Text="Required Field." Display="Dynamic"/>
-        <asp:RegularExpressionValidator ValidationGroup="EventCreation" ControlToValidate="PrimePrice"  ValidationExpression ="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
-    </div>
-
-    <asp:Button ID="Button2" runat="server" Text="Submit" OnClientClick="javascript:AppendDates(); this.disabled = true; return false;"/>
-    <div style="display: none;">
-        <asp:Button ID="Button3" ValidationGroup="EventCreation" runat="server" Text="Submit" OnClick="Submit_Click"/>
-    </div>
-
+<asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
     <script>
         $(function () {
             $('.datepicker-field').datetimepicker({
                 format: 'DD-MMM-YY hh:mm A'
-
-
             });
 
             function readURL(input) {
-
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
-
                     reader.onload = function (e) {
                         $('#imagePreview').attr('src', e.target.result);
                     }
-
                     reader.readAsDataURL(input.files[0]);
                 }
             }
@@ -101,7 +98,8 @@
 
         dateCount = 0;
 
-        function AddDate() {
+        function AddDate(e) {
+            e.preventDefault();
             //Create an input type dynamically.
             var element   = document.createElement("input");
             var newButton = document.createElement("button");
@@ -112,10 +110,9 @@
             element.setAttribute("class", "datepicker-field eventDate");
             element.setAttribute("id", "date" + dateCount);
 
-            newButton.setAttribute("value", "Delete");
             newButton.setAttribute("Class", "deleteDate");
             newButton.setAttribute("id", "delete" + dateCount);
-            newButton.setAttribute("onclick", "DeleteDate(" + dateCount + "); return false;");
+            newButton.setAttribute("onclick", "DeleteDate(event," + dateCount + ")");
             newButton.innerHTML="x";
 
             // div id, where new fields are to be added
@@ -146,13 +143,11 @@
             button.click();
         }
 
-        function DeleteDate(date)
+        function DeleteDate(e, date)
         {
+            e.preventDefault();
             $('#date' + date).remove();
             $('#delete' + date).remove();
         }
-
-        
-
     </script>
 </asp:Content>

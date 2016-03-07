@@ -1,61 +1,4 @@
-﻿/*****************************************/
-/* Styles for both GUEST and EVENT pages */
-/*****************************************/
-
-/* The overall Body of the webapp */
-body {
-    font-size: 13px;
-    font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    line-height: 1.5em;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
-    background-size: cover;
-}
-
-/* The shadow of the main pane of each part of the webapp (except student and faculty portals) */
-.shadow {
-    margin: -16px auto 0px;
-    min-width: 600px;
-    max-width: 1000px;
-    width: 65%;
-    padding: 0 30px 30px;
-    background-image: url('White25p.png');
-}
-
-.logo {
-    float: left;
-}
-
-/* The main pane of each part of the webapp (except student and faculty portals) */
-.mainPane {
-    background: #e4f2fb;
-    margin: 0 auto;
-    font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    border-bottom: 1px solid #ccc;
-    color: #15589c;
-    display: block;
-    text-decoration: none;
-    font-weight: normal;
-    font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
-    padding: 20px 20px 40px;
-}
-
-/* The heading for the portal window */
-.mainPane #label {
-    text-align: center;
-    margin-top: 125px;
-}
-
-/* The PCC header bar */
-.header {
-    width: 100%;
-    height: 41px;
-    background-image: url('http://www.pcci.edu/Images/Backgrounds/PCCHeaderBar.png');
-}
-
-/**************************/
+﻿/**************************/
 /*     Login/Register     */
 /**************************/
 
@@ -63,137 +6,6 @@ body {
     display: block;
     text-align: center;
     margin-top: 20px;
-}
-
-/* The header of login/register */
-.mainPane h1 {
-    text-align: center;
-    font-size: 26px;
-    font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-    text-transform: uppercase;
-    margin-top: 0px;
-    padding-top: 38px;
-    margin-bottom: 0px;
-    clear: both;
-}
-
-.mainPane h3 {
-    margin: auto;
-    width: 75%;
-}
-
-/* The basic look of a textbox */
-.mainPane input {
-    margin: auto;
-    width: 75%;
-    display: block;
-}
-
-input[type=submit] {
-    padding: 0;
-}
-
-.mainPane input[type=submit] {
-    margin-top: 20px;
-}
-
-/* The design of when the textbox is hovered over by the mouse */
-.mainPane input[type=submit]:hover {
-    background: #005daa;
-}
-
-.inner-addon left-addon {
-}
-
-/********************/
-/*   Event Signup   */
-/********************/
-
-#eventSignup {
-    clear: both;
-    padding-top: 30px;
-}
-
-    #eventSignup h1 {
-        font-size: 19pt;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-span {
-    font-size: 12pt;
-    margin: 0 auto;
-}
-
-#MainContent_EventName {
-    font-size: 19pt;
-    display: block;
-}
-
-
-
-#eventSignup h3 {
-    font-size: 18pt;
-    margin: 10px 0px;
-    display: inline-block;
-}
-
-input[type=number] {
-    width: 10%;
-    margin: 0 0 0 0;
-    text-align: left;
-    padding: 0 10px;
-}
-
-#guestSignup input {
-    margin: auto auto 10px auto;
-    width: 100%;
-}
-
-#guestSignup select {
-    margin: 0 0 0 0;
-    font-size: 14pt;
-    float: right;
-}
-
-#MainContent_GetExtraTickets {
-    width: 40%;
-    float: right;
-    text-align: center;
-    margin: -41px 96px;
-}
-
-#MainContent_Submit {
-    width: 100%;
-    margin: 0;
-}
-
-.mainFloor{
-    width: 50%;
-    height: 40px;
-    background-color:  deepskyblue;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #32a3ff;
-    color: #fff;
-    font-weight: bold;
-	text-transform: uppercase;
-    margin: 10px 25%;
-}
-
-.dropdown select{
-    font-size: 15px;
-    width: 75%;
-    display: inline-block;
-    margin: 10px;
-}
-
-.dropdown #EventType{
-    width: 100%;
-}
-
-.dropdown {
-    display: block;
 }
 
 #MainContent_labelMessage {
@@ -204,17 +16,8 @@ input[type=number] {
 }
 
 /* Joe's Stuff */
-input[type=number] {
-    width: 30%;
-    text-align: center;
-}
-.shadow {
-    width: 90%;
-}
-.mainPane {
-    padding: 30px;
-}
 #MainContent_EventName {
+    display: block;
     font-size: 1.6em !important;
     font-weight: 100;
     height: 40.5px;
@@ -228,11 +31,6 @@ input[type=number] {
 }
 .Description h3 {
     margin-top: 0 !important;
-}
-.Description span {
-}
-#eventSignup h3 {
-    display: block;
 }
 .event-side-info {
     width: 35%;
@@ -249,71 +47,49 @@ input[type=number] {
     font-size: 1.6em;
     margin: 10px;
 }
-.dropdown select {
-    margin-top: 0;
-    background: #2e6da4;
+.ticket-number-btn {
+    display: inline !important;
+    padding: 0;
+    width: 20% !important;
 }
 #MainContent_EventPrimePrice {
     font-size: 1em;
     margin: 0;
     font-weight: bold;
 }
-#MainContent_GetExtraTickets {
-    width: 60%;
-    min-width: 150px;
-    float: none;
-    margin: 0 auto;
-    margin-top: 20px;
-    text-align: center;
-}
 .desc-side {
     float: left;
     width: 65%;
 }
-.ticket-number {
-    display: inline !important;
-    padding: 0;
-    width: 20% !important;
-}
-.ticket-number-btn {
-    display: inline !important;
-    padding: 0;
-    width: 20% !important;
-    background: #2e6da4;
-    color: #fff;
-    border-bottom: 2px solid #2479A5;
-}
 #MainContent_GetExtraTickets {
-    border-radius: 0 4px 0 4px;
+    width: 60%;
+    min-width: 150px;
+    margin-top: 10px;
 }
-#MainContent_Submit:hover,
-#MainContent_GetExtraTickets:hover {
-    background: #2e6da4;
-}
+
 #MainContent_Submit {
     width: 40%;
     margin: 0 auto;
     margin-top: 85px;
-    border-radius: 0 4px 0 4px;
+    display: block;
 }
-input[type=submit] {
-    border: 0;
-    border-bottom: 2px solid #2479A5;
+span.validator {
+    font-size: 14px;
+    color: red;
 }
-#show_map {
-    width: 70%;
-    padding: 0;
-    color: #fff;
-    margin: inherit;
-    margin-left: 10px;
-    margin-bottom: 15px;
-    background: #2e6da4;
-    border-bottom: 2px solid #2479A5;
-    border-radius: 0 4px 0 4px;
+span.validator[style*="inline"]
+{
+    display:block !Important;
 }
-.interactiveMap {
-    margin-top: 30px
+
+/**************************/
+/*    Dropdown logout     */
+/**************************/
+.dropdown {
+    float: right;
+    min-width: 120px;
 }
+
 .balcony {
     width: 400px;
     margin: auto;
@@ -321,22 +97,8 @@ input[type=submit] {
     height: 25px;
     display: block;
 }
-.dropbtn {
-    color: #fff;
-    background: #2e6da4;
-    padding: 10px;
-    border-bottom: 2px solid #2479A5;
-    border-radius: 0 4px 0 4px;
-}
-.ticket-number-btn:hover,
-#show_map:hover,
-.dropbtn:hover {
-    background: #286396 !important;
-    border-bottom: 2px solid #1A5877 !important;
-}
-
-.event-side-info span.validator {
-    display: block;
-    font-size: 14px;
-    color: red;
+.interactiveMap {
+    margin: 30px auto 0;
+    width: 400px;
+    height: 400px;
 }

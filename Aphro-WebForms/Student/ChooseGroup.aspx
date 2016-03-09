@@ -4,15 +4,15 @@
     <h1 id="EventName" runat="server"></h1>
     <div class="col-md-6">
         <div class="event-summary">
-            Summary: 
+            Summary:
             <asp:Label ID="EventDescription" runat="server"></asp:Label>
         </div>
         <div class="event-location">
-            Location: 
+            Location:
             <asp:Label ID="EventLocation" runat="server"></asp:Label>
         </div>
         <div class="event-dates">
-            Event Dates: 
+            Event Dates:
             <asp:ListView ID="EventDateList" runat="server">
                 <LayoutTemplate>
                     <div id="EventDates" runat="server">
@@ -20,7 +20,7 @@
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <p><%# Eval("event_datetime")%></p>
+                    <p><%# ((DateTime)Eval("event_datetime")).ToString("g")%></p>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -43,8 +43,8 @@
                     <div class="panel-heading collapsed">
                         <p class="panel-title"><%# Eval("group_leader_firstname") + " " + Eval("group_leader_lastname") %></p>
                         <div class="panel-buttons">
-                            <asp:Button ID="AcceptButton" runat="server" CommandArgument='<%# Eval("group_id")%>' Text="Accept" OnClick="AcceptButton_Click"/>
-                            <asp:Button ID="RejectButton" runat="server" CommandArgument='<%# Eval("group_id")%>' Text="Reject" OnClick="RejectButton_Click"/>
+                            <asp:Button ID="AcceptButton" runat="server" CommandArgument='<%# Eval("group_id")%>' Text="Accept" OnClick="AcceptButton_Click" />
+                            <asp:Button ID="RejectButton" runat="server" CommandArgument='<%# Eval("group_id")%>' Text="Reject" OnClick="RejectButton_Click" />
                         </div>
                         <div class="clearfix" data-toggle="collapse" data-parent="#accordion" href="#collapse<%#Container.DisplayIndex + 1%>" aria-expanded="false"></div>
                     </div>

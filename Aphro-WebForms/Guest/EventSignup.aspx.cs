@@ -47,7 +47,7 @@ namespace Aphro_WebForms.Guest
                         eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
-                        // Set up the getGroupRequestsForEvent command                       
+                        // Set up the getGroupRequestsForEvent command
                         requestsCommand.BindByName = true;
                         requestsCommand.CommandType = CommandType.StoredProcedure;
                         requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
@@ -166,7 +166,7 @@ namespace Aphro_WebForms.Guest
                     seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                     failed = false;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Error.Visible = true;
                     failed = true;

@@ -4,15 +4,15 @@
     <h1 id="EventName" runat="server"></h1>
     <div class="col-md-6">
         <div class="event-summary">
-            Summary: 
+            Summary:
             <asp:Label ID="EventDescription" runat="server"></asp:Label>
         </div>
         <div class="event-location">
-            Location: 
+            Location:
             <asp:Label ID="EventLocation" runat="server"></asp:Label>
         </div>
         <div class="event-dates">
-            Event Dates: 
+            Event Dates:
             <asp:ListView ID="EventDateList" runat="server">
                 <LayoutTemplate>
                     <div id="EventDates" runat="server">
@@ -20,7 +20,7 @@
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <p><%# Eval("event_datetime")%></p>
+                    <p><%# ((DateTime)Eval("event_datetime")).ToString("g")%></p>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -29,9 +29,11 @@
         <h4>Group:</h4>
         <asp:Label ID="GroupLeaderName" runat="server"></asp:Label>
         <div id="GroupRequestContainer" runat="server">
-            <% if (GuestTickets > 0) { %>
-                <p><%= GuestTickets %> Guest Tickets</p><hr />
-                <% } %>
+            <% if (GuestTickets > 0)
+                { %>
+            <p><%= GuestTickets %> Guest Tickets</p>
+            <hr />
+            <% } %>
             <asp:ListView ID="GroupList" runat="server">
                 <LayoutTemplate>
                     <div id="itemPlaceholder" runat="server"></div>

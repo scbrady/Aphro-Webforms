@@ -19,7 +19,7 @@
         <ItemTemplate>
             <div id="eventListName">
                 <div class="table-responsive">
-                    <h4><%# Eval("name") %> - <%# Eval("event_datetime") %></h4>
+                    <h4><%# Eval("name") %> - <%# ((DateTime)Eval("event_datetime")).ToString("g") %></h4>
                     <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event"/>
                 </div>
             </div>

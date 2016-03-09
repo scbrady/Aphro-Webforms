@@ -10,6 +10,7 @@
     <%: Scripts.Render("~/bundles/jquery") %>
     <%: Scripts.Render("~/bundles/bootstrap") %>
     <%: Styles.Render("~/Content/css") %>
+    <%: Styles.Render("~/Content/jquery-ui") %>
     <%: Styles.Render("~/Content/faculty-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>

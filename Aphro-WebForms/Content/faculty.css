@@ -175,6 +175,7 @@ h4 {
     margin: 20px auto 0;
     display: block;
     width: 40%;
+    min-width: 165px;
 }
 
 /*****************/
@@ -308,7 +309,7 @@ input[type=submit].getTickets {
     }
 }
 
-@media only screen and (max-width: 579px) {
+@media only screen and (max-width: 581px) {
     #header .EcText {
         display: inline;
         margin-top: 60px;

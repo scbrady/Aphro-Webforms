@@ -250,3 +250,86 @@ input[type=submit].getTickets {
     width: 400px;
     height: 400px;
 }
+
+
+/**************/
+/* Responsive */
+/**************/
+@media only screen and (max-width: 940px) and (min-width: 768px) {
+    header .headerContent {
+        width: 731px;
+    }
+}
+
+@media only screen and (max-width: 995px) and (min-width: 768px) {
+    .mainPane {
+        width: 768px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    #header {
+        text-align: center;
+    }
+
+    #header .EsLogo {
+        background-size: 316px 70px;
+        width: 316px;
+        height: 70px;
+        float: right;
+        margin-top: 10px;
+        margin-right: 75px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    header .headerContent {
+        width: 100%;
+    }
+    .mainPane {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 686px) {
+    #header .EsLogo {
+        background-size: 230px 50px;
+        width: 230px;
+        height: 50px;
+        float: right;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+    .mainPane {
+        width: 420px;
+    }
+}
+
+@media only screen and (max-width: 579px) {
+    #header .EcText {
+        display: inline;
+        margin-top: 60px;
+        margin-left: -120px;
+    }
+
+    #header .EcLogo {
+        padding-left: 50px;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #header .EsLogo {
+        padding: none;
+        padding-left: 50px;
+        position: relative;
+        float: none;
+        top: 17px;
+        margin-top: 7px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -168,6 +168,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
+    <Content Include="Employee\EventSignup.aspx" />
     <Content Include="Employee\Index.aspx" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -253,6 +254,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EventSignup.aspx.cs">
+      <DependentUpon>EventSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\EventSignup.aspx.designer.cs">
+      <DependentUpon>EventSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

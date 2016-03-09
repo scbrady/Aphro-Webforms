@@ -95,7 +95,8 @@ namespace Aphro_WebForms.Guest
                     EventPrice.Text = "$" + currentEvent.regular_price;
                     EventPrimePrice.Text = "$" + currentEvent.prime_price;
 
-                    EventDateDropDown.DataTextField = "event_datetime";
+                    eventModel.ForEach(ed => ed.friendly_date = ed.event_datetime.ToString("dddd, MMMM d - h:mm tt"));
+                    EventDateDropDown.DataTextField = "friendly_date";
                     EventDateDropDown.DataValueField = "event_id";
                     EventDateDropDown.DataSource = eventModel;
                     EventDateDropDown.DataBind();

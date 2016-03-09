@@ -1,4 +1,18 @@
-﻿#header {
+﻿html {
+    font-family: Roboto, sans-serif;
+    height: 100%;
+    font-size: 99%;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    font-size: 99%;
+    width: 100%;
+}
+
+#header {
     background: #fff;
     position: relative;
     padding-bottom: 5px;
@@ -85,6 +99,13 @@ header .headerContent {
 #Logout:hover {
     color:#00bbd7 ;
 }
+
+footer {
+    background: #878787;
+    padding-top: 80px;
+    margin-top: 50px;
+}
+
 .mainPane {
     position: relative;
     width: 960px;
@@ -92,6 +113,140 @@ header .headerContent {
     padding: 0;
 }
 .mainPane h1 {
-        text-align: center;
-        margin-bottom: 60px;
+    text-align: center;
+    margin: 0 0 30px;
+    font-size: 3em;
+}
+
+h4 {
+    font-size: 1.6em;
+    color: #737373;
+}
+
+#MainContent_GroupRequestContainer {
+    background-color: #D3D5D8;
+    padding: 10px;
+    min-height: auto;
+    border-radius: 0 4px 0 4px;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.nav-pills > li > a {
+    border-radius: 0;
+    color: #A0A2A5;
+}
+
+.nav-pills > li > a:hover {
+    background: transparent;
+    text-decoration: underline;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    background: #D3D5D8;
+    color: #337ab7;
+    margin: -1px;
+    border: 1px solid #337ab7;
+    border-bottom-width: 0;
+}
+
+.tab-content {
+    background: #D3D5D8;
+    box-shadow: 1px 1px 0px #337ab7, -1px -1px 0px #337ab7, 1px -1px 0 #337ab7, -1px 1px 0 #337ab7;
+    padding: 15px;
+    min-height: 160px;
+    border-radius: 0 0 0 4px;
+}
+
+#MainContent_EventDescription, #MainContent_EventLocation, .event-date select {
+    font-size: 1em;
+    color: #333;
+    display: block;
+    margin-top: 2px;
+}
+
+.choose-seats {
+    border-bottom: 3px solid #286090;
+    border-radius: 0 4px 0 4px;
+    margin: 20px auto 0;
+    display: block;
+    width: 40%;
+}
+
+/*****************/
+/* Group Request */
+/*****************/
+.request-list {
+    list-style: none;
+}
+
+.group-member {
+    display: inline;
+}
+
+.group-status {
+    float: right;
+}
+
+.pending-status:before {
+    content: "Pending";
+}
+
+.pending-status:after {
+    display: inline-block;
+    width: 28px;
+    height: 9px;
+    margin-left: 5px;
+    content: "";
+    background: url(Pending.gif) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.accepted-status:before {
+    content: "Accepted";
+}
+
+.accepted-status:after {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    content: "";
+    background: url(Checkmark.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.rejected-status:before {
+    content: "Rejected";
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+/*******************/
+/* Interactive Map */
+/*******************/
+input[type=submit].getTickets {
+    width: 50%;
+    margin: 50px auto 0;
+    display: block;
+}
+
+.balcony {
+    width: 400px;
+    margin: auto;
+    background: #32a3dc;
+    height: 25px;
+    display: block;
+}
+.interactiveMap {
+    margin: 30px auto 0;
+    width: 400px;
+    height: 400px;
 }

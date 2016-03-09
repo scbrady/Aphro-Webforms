@@ -42,6 +42,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <footer></footer>
     </form>
     <asp:ContentPlaceHolder runat="server" ID="ScriptsSection">
     </asp:ContentPlaceHolder>

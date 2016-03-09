@@ -26,6 +26,7 @@
                     <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Event/Index.aspx">Event Dashboard</asp:HyperLink>
                     <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
                     <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Student/Index.aspx">Student Dashboard</asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Employee/Index.aspx">Employee Dashboard</asp:HyperLink>
                 </div>
             </form>
         </div>

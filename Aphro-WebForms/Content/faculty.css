@@ -1,1 +1,97 @@
-﻿
+﻿#header {
+    background: #fff;
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    z-index: 12;
+}
+
+#header .top {
+    position: relative;
+    box-shadow: 0 5px 9px 1px rgba(0,0,0,0.22);
+    background: #00c7e6;
+    background: -moz-linear-gradient(top, #00c7e6 0%, #0090a5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00c7e6), color-stop(100%,#0090a5));
+    background: -webkit-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
+    background: -o-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
+    background: -ms-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
+    background: linear-gradient(to bottom, #00c7e6 0%,#0090a5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c7e6', endColorstr='#0090a5',GradientType=0 );
+    background-size: cover;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+header .headerContent {
+    width: 863px;
+    margin: auto;
+}
+
+#header .EcLogo {
+    background: url('https://www.abekaservices.com/Images/Graphics/EmployeeCentralLogo.svg') no-repeat;
+    background-size: 250px 70px;
+    display: block;
+    width: 250px;
+    height: 70px;
+    float: left;
+    text-decoration: none;
+    margin-top: 0px;
+}
+
+#header .EcText {
+    position: absolute;
+    margin-top: 61px;
+    margin-left: 4px;
+    text-decoration: none;
+    color: rgba(120,230,250,1.00);
+    font-size: 8pt;
+    white-space: nowrap;
+}
+
+#header .EsLogo {
+    background: url('https://www.abekaservices.com/Images/images/ES_Logo_gradient.png') no-repeat;
+    background-size: 410px 90px;
+    display: block;
+    width: 410px;
+    height: 90px;
+    float: right;
+    margin-top: 12px;
+    margin-left: 30px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.user-info {
+    clear: both;
+    text-align: center;
+    float: right;
+    margin: 10px 0 3px;
+}
+
+.user-name {
+    font-size: 9.5pt !important;
+    color: rgba(120,220,240,1.00) !important;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#Logout {
+    display: block;
+    background: #017c8e;
+    color: white;
+    padding: 3px 25px;
+    text-decoration: none;
+}
+#Logout:hover {
+    color:#00bbd7 ;
+}
+.mainPane {
+    position: relative;
+    width: 960px;
+    margin: 10px auto 0;
+    padding: 0;
+}
+.mainPane h1 {
+        text-align: center;
+        margin-bottom: 60px;
+}

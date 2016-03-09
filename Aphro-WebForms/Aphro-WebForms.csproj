@@ -168,6 +168,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\White25p.png" />
     <Content Include="Default.aspx" />
+    <Content Include="Employee\Index.aspx" />
     <Content Include="Event\Index.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -253,6 +254,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Employee\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Event\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,6 +294,13 @@
     </Compile>
     <Compile Include="Shared\Search.ashx.cs">
       <DependentUpon>Search.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePortal.Master.cs">
+      <DependentUpon>EmployeePortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeePortal.Master.designer.cs">
+      <DependentUpon>EmployeePortal.Master</DependentUpon>
     </Compile>
     <Compile Include="StudentPortal.Master.cs">
       <DependentUpon>StudentPortal.Master</DependentUpon>
@@ -400,6 +415,7 @@
     <Content Include="Shared\Search.ashx" />
     <Content Include="Shared\AddToGroup.ashx" />
     <Content Include="Shared\PendingAcceptReject.ashx" />
+    <Content Include="EmployeePortal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

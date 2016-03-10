@@ -12,59 +12,62 @@ namespace Aphro_WebForms.Event
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable eventTypeNamesTable = new DataTable();
-            DataTable buildingsTable = new DataTable();
-            List<EventType> eventTypes = new List<EventType>();
-            List<Building> buildings = new List<Building>();
-
-            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            if (!Page.IsPostBack)
             {
-                // Set up the eventTypes command
-                var eventTypesCommand = new OracleCommand("TICKETS_QUERIES.getEventTypeNames", objConn);
-                eventTypesCommand.BindByName = true;
-                eventTypesCommand.CommandType = CommandType.StoredProcedure;
-                eventTypesCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                DataTable eventTypeNamesTable = new DataTable();
+                DataTable buildingsTable = new DataTable();
+                List<EventType> eventTypes = new List<EventType>();
+                List<Building> buildings = new List<Building>();
 
-                // Set up the buildings command
-                var buildingsCommand = new OracleCommand("TICKETS_QUERIES.getBuildingNames", objConn);
-                buildingsCommand.BindByName = true;
-                buildingsCommand.CommandType = CommandType.StoredProcedure;
-                buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-
-                try
+                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
-                    // Execute the queries and auto map the results to models
-                    objConn.Open();
-                    var eventTypesAdapter = new OracleDataAdapter(eventTypesCommand);
-                    var buildingAdapter = new OracleDataAdapter(buildingsCommand);
-                    eventTypesAdapter.Fill(eventTypeNamesTable);
-                    buildingAdapter.Fill(buildingsTable);
-                    eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
-                    buildings = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
+                    // Set up the eventTypes command
+                    var eventTypesCommand = new OracleCommand("TICKETS_QUERIES.getEventTypeNames", objConn);
+                    eventTypesCommand.BindByName = true;
+                    eventTypesCommand.CommandType = CommandType.StoredProcedure;
+                    eventTypesCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
+                    // Set up the buildings command
+                    var buildingsCommand = new OracleCommand("TICKETS_QUERIES.getBuildingNames", objConn);
+                    buildingsCommand.BindByName = true;
+                    buildingsCommand.CommandType = CommandType.StoredProcedure;
+                    buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
+                    try
+                    {
+                        // Execute the queries and auto map the results to models
+                        objConn.Open();
+                        var eventTypesAdapter = new OracleDataAdapter(eventTypesCommand);
+                        var buildingAdapter = new OracleDataAdapter(buildingsCommand);
+                        eventTypesAdapter.Fill(eventTypeNamesTable);
+                        buildingAdapter.Fill(buildingsTable);
+                        eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
+                        buildings = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
+                    }
+                    catch (Exception ex)
+                    {
+                        // TODO: Handle Exception
+                        throw (ex);
+                    }
+
+                    objConn.Close();
                 }
-                catch (Exception ex)
+
+                // Fill list dropdowns with data from the database
+                if (eventTypes.Count > 0)
                 {
-                    // TODO: Handle Exception
-                    throw (ex);
+                    EventType.DataTextField = "name";
+                    EventType.DataValueField = "event_type_id";
+                    EventType.DataSource = eventTypes;
+                    EventType.DataBind();
                 }
-
-                objConn.Close();
-            }
-
-            // Fill list dropdowns with data from the database
-            if (eventTypes.Count > 0)
-            {
-                EventType.DataTextField = "name";
-                EventType.DataValueField = "event_type_id";
-                EventType.DataSource = eventTypes;
-                EventType.DataBind();
-            }
-            if (buildings.Count > 0)
-            {
-                LocationDropDown.DataTextField = "description";
-                LocationDropDown.DataValueField = "building_key";
-                LocationDropDown.DataSource = buildings;
-                LocationDropDown.DataBind();
+                if (buildings.Count > 0)
+                {
+                    LocationDropDown.DataTextField = "description";
+                    LocationDropDown.DataValueField = "building_key";
+                    LocationDropDown.DataSource = buildings;
+                    LocationDropDown.DataBind();
+                }
             }
         }
 
@@ -104,7 +107,7 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventNameInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, int.Parse(EventType.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);

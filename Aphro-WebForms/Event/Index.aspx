@@ -2,9 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="headerUpcomingEventList">Upcoming Event List</h1>
+    <a href="AddEvent.aspx">+Add an Event</a>
     <asp:ListView ID="EventListview" runat="server">
         <LayoutTemplate>
-            <div id="eventList">
+            <div class="row">
                 <div id="itemPlaceholder" runat="server">
                 </div>
             </div>
@@ -17,15 +18,14 @@
         </EmptyDataTemplate>
 
         <ItemTemplate>
-            <div id="eventListName">
-                <div class="table-responsive">
-                    <h4><%# Eval("name") %> - <%# ((DateTime)Eval("event_datetime")).ToString("g") %></h4>
-                    <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event"/>
-                </div>
+            <div class="col-md-4 col-xs-6 event-item">
+                <h4><%# Eval("name") %></h4>
+                <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event"/>
+                <p><%# ((DateTime)Eval("event_datetime")).ToString("g") %></p>
             </div>
         </ItemTemplate>
     </asp:ListView>
     <br />
-    <a href="AddEvent.aspx">Add an Event</a>
+    
     <br />
 </asp:Content>

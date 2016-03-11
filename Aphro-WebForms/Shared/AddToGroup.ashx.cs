@@ -37,6 +37,7 @@ namespace Aphro_WebForms.Shared
 
             try
             {
+                PersonInGroup(personId, seriesId);
                 var result = addPersonToGroup(personId, seriesId);
                 var json = JsonConvert.SerializeObject(result);
                 context.Response.ContentType = "text/json";
@@ -87,6 +88,30 @@ namespace Aphro_WebForms.Shared
             }
 
             return groupResult;
+        }
+
+        private void PersonInGroup(int personId, int seriesId)
+        {
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                var command = new OracleCommand("TICKETS_QUERIES.getHasAccepted", objConn);
+                command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
+                command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    // Execute the query and auto map the results to models
+                    objConn.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    //Todo: handle exception
+                    throw ex;
+                }
+            }
         }
 
         public bool IsReusable

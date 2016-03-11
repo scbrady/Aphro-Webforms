@@ -225,6 +225,16 @@ a.panel-heading {
     content: "Rejected";
 }
 
+.rejected-status:after {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    content: "";
+    background: url(x.png) no-repeat 0 0;
+    background-size: 85%;
+}
+
 input[type=submit] {
     width: inherit;
     height: 33px;
@@ -238,6 +248,10 @@ input[type=submit] {
     border-bottom: 2px #797979 solid;
     display: inline;
     margin-top: 6px;
+}
+
+input[type=text]{
+    display: inline;
 }
 
 .error {
@@ -284,7 +298,12 @@ h4 {
 
 .nav-pills > li > a:hover {
     background: transparent;
-    text-decoration: underline;
+    font-weight: bold;
+}
+
+.guestTab > li{
+    border-bottom-width: 0;
+    border-top-width: 0;
 }
 
 .nav-pills > li.active > a,
@@ -295,6 +314,8 @@ h4 {
     margin: -1px;
     border: 1px solid #337ab7;
     border-bottom-width: 0;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
 .choose-seats {
@@ -367,4 +388,20 @@ input[type=submit].getTickets {
     margin: 30px auto 0;
     width: 400px;
     height: 400px;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav-pills > li > a {
+        border-radius: 0 4px 0 0;
+        background: #D3D5D8;
+        color: #337ab7;
+        margin: -1px;
+        border: 1px solid #337ab7;
+        border-bottom-width: 0;
+    }
+
+    .nav-pills > li > a:hover{
+        color: #337ab7;
+        background: #D3D5D8;
+    }
 }

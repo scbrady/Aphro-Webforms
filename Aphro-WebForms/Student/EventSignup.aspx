@@ -39,17 +39,17 @@
                         <label for="group-request">Name or ID: </label>
                         <p id="student-request-error" class="error">You cannot request this student.</p>
                         <div>
-                            <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off">
+                            <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
+                            <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
                         </div>
-                        <input type="submit" onclick="addToGroup(event);" value="Add to Group">
-                        <input type="hidden" id="group-request-id">
+                        <input type="hidden" id="group-request-id" />
                     </div>
                 </div>
                 <div id="guestsTab" class="tab-pane fade">
 
                     <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
                     <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
-                    <br>
+                    <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />

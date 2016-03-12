@@ -8,7 +8,6 @@
 <head runat="server">
     <%: Scripts.Render("~/bundles/jquery") %>
     <%: Scripts.Render("~/bundles/bootstrap") %>
-    <%: Scripts.Render("~/bundles/datepicker") %>
     <%: Styles.Render("~/Content/css") %>
     <%: Styles.Render("~/Content/font-awesome") %>
     <%: Styles.Render("~/Content/jquery-ui") %>

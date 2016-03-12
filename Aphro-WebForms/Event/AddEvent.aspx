@@ -1,4 +1,9 @@
 ﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/EventPortal.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="Aphro_WebForms.Event.AddEvent" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+
+<asp:Content ID="Content" ContentPlaceHolderID="HeaderSection" runat="server">
+    <%: Styles.Render("~/Content/datepicker") %>
+</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -75,11 +80,14 @@
 
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <%: Scripts.Render("~/bundles/datepicker") %>
     <script>
         $(function () {
-            $('.datepicker-field').datetimepicker({
-                format: 'DD-MMM-YY hh:mm A'
-            });
+            addCalendar($('#MainContent_EventDate').get(0));
+
+            //$('.datepicker-field').datetimepicker({
+            //    format: 'DD-MMM-YY hh:mm A'
+            //});
 
             function readURL(input) {
                 if (input.files && input.files[0]) {
@@ -105,6 +113,7 @@
             var newButton = document.createElement("button");
 
             //Assign different attributes to the element.
+            var newElementId = "date" + dateCount;
             element.setAttribute("type", "text");
             element.setAttribute("runat", "server");
             element.setAttribute("class", "datepicker-field eventDate");
@@ -122,9 +131,7 @@
             ExtraDates.appendChild(element);
             ExtraDates.appendChild(newButton);
 
-            $('.datepicker-field').datetimepicker({
-                format: 'DD-MMM-YY hh:mm A'
-            })
+            addCalendar($('#' + newElementId).get(0));
 
             dateCount += 1;
         }
@@ -148,6 +155,19 @@
             e.preventDefault();
             $('#date' + date).remove();
             $('#delete' + date).remove();
+        }
+
+        function addCalendar(element) {
+            rome(element, {
+                "inputFormat": "DD-MMM-YY hh:mm A",
+                "timeFormat": "hh:mm a",
+                "timeInterval": 900,
+                "styles": {
+                    "back": "rd-back calendar-button-fix",
+                    "next": "rd-next calendar-button-fix",
+                    "selectedTime": "rd-time-selected time-selected",
+                }
+            });
         }
     </script>
 </asp:Content>

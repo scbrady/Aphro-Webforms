@@ -13,6 +13,15 @@ namespace Aphro_WebForms {
     public partial class EventPortal {
         
         /// <summary>
+        /// HeaderSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderSection;
+        
+        /// <summary>
         /// masterForm control.
         /// </summary>
         /// <remarks>

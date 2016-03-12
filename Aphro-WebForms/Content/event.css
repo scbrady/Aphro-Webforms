@@ -97,6 +97,22 @@ img#imagePreview{
       font-style: italic;
       font-size: .9em;
    }
+   .calendar-button-fix {
+        width: inherit;
+        height: inherit;
+        color: black;
+        font-family: inherit;
+   }
+   .calendar-button-fix:hover {
+       background: none;
+   }
+   .rd-days {
+        border-spacing: 5px;
+        border-collapse: separate;
+   }
+   .rd-time-selected.time-selected {
+       padding: 5px 15px;
+   }
    @media screen and (max-width: 767px) {
       .event-item {
          width: 48%;

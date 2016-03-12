@@ -8,24 +8,26 @@
   * [X] Carousel
   * [ ] Link back to PCCI
   * [X] Pictures - DB
+  * [ ] Allow Purchase Of Season Tickets
 
 * Login/Register
-  * [ ] Small style changes
+  * [X] Small style changes
 
 * Event Signup
-  * [ ] Styling
+  * [X] Styling
   * [X] Map / Picking seats
   * [X] DB insert seats
-  * [ ] Move picking seats to after confirmation
+  * [X] Move picking seats to after confirmation
 
 ###Event Creation:
-* [ ] Event page to see/delete created events
+* [X] Event page to see/delete created events
 * [X] Ability to remove dates
-* [ ] Style upload image
+* [X] Style upload image
+* [ ] Add Seasons
 
 ###Request / Response:
 * [X] Only let group leader add people
-* [ ] Dont worry about accept reject, just accept after a few seconds
+* [X] Dont worry about accept reject, just accept after a few seconds
 
 ###DB Changes:
 * [X] Group table

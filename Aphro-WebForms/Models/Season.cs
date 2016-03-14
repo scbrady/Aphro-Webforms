@@ -2,7 +2,7 @@
 {
     public class Season
     {
-        public int season_id { get; set; }
+        public long season_id { get; set; }
         public string name { get; set; }
     }
 }

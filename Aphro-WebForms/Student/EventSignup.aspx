@@ -8,9 +8,10 @@
         <div class="col-md-6">
             <h4>Group:</h4>
             <div id="GroupRequestContainer" runat="server">
-                <% if (GuestTickets > 0) { %>
-                <p><%= GuestTickets %> Guest Tickets</p>
-                <hr />
+                <% if (GuestTickets > 0)
+                   { %>
+                       <p><%= GuestTickets %> Guest Tickets</p>
+                       <hr />
                 <% } %>
                 <asp:ListView ID="GroupList" runat="server">
                     <LayoutTemplate>
@@ -47,8 +48,10 @@
                 </div>
                 <div id="guestsTab" class="tab-pane fade">
 
-                    <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
-                    <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
+                    <span class="pull-left">Regular Price:
+                        <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
+                    <span class="pull-right">Prime Price:
+                        <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
                     <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>

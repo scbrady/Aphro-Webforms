@@ -8,8 +8,9 @@
         <div class="col-md-6">
             <h4>Group:</h4>
             <div id="GroupRequestContainer" runat="server">
-                <% if (GuestTickets > 0) { %>
-                <p><%= GuestTickets %> Guest Tickets</p>
+                <% if (GuestTickets > 0)
+                   { %>
+                       <p><%= GuestTickets %> Guest Tickets</p>
                 <hr />
                 <% } %>
                 <asp:ListView ID="GroupList" runat="server">
@@ -32,6 +33,7 @@
             <ul class="nav nav-pills nav-justified">
                 <li class="active"><a data-toggle="pill" href="#studentsTab">Invite Students</a></li>
                 <li><a data-toggle="pill" href="#guestsTab">Buy Guest Tickets</a></li>
+                <li><a data-toggle="pill" href="#facultyTab">Buy Faculty Tickets</a></li>
             </ul>
             <div class="tab-content">
                 <div id="studentsTab" class="tab-pane fade in active">
@@ -39,21 +41,35 @@
                         <label for="group-request">Name or ID: </label>
                         <p id="student-request-error" class="error">You cannot request this student.</p>
                         <div>
-                            <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off">
+                            <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
+                            <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
                         </div>
-                        <input type="submit" onclick="addToGroup(event);" value="Add to Group">
-                        <input type="hidden" id="group-request-id">
+                        <input type="hidden" id="group-request-id" />
                     </div>
                 </div>
                 <div id="guestsTab" class="tab-pane fade">
 
-                    <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
-                    <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
-                    <br>
+                    <span class="pull-left" style="visibility: hidden">Regular Price:
+                        <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
+                    <span class="pull-right" style="visibility: hidden">Prime Price:
+                        <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
+                    <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
                     <asp:Button ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+                </div>
+                <div id="facultyTab" class="tab-pane fade">
+
+                    <span class="pull-left" style="visibility: hidden">Regular Price:
+                        <asp:Label ID="Label1" runat="server"></asp:Label></span>
+                    <span class="pull-right" style="visibility: hidden">Prime Price:
+                        <asp:Label ID="Label2" runat="server"></asp:Label></span>
+                    <br />
+                    <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
+                    <asp:TextBox TextMode="Number" ID="TextBox1" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
+                    <asp:RangeValidator runat="server" ID="RangeValidator1" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
+                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
                 </div>
             </div>
         </div>

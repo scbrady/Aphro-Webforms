@@ -17,7 +17,7 @@
     <title><%: Page.Title %></title>
 </head>
 <body>
-<div class="header"></div>
+    <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
             <form id="form1" runat="server">

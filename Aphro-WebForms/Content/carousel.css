@@ -1,34 +1,32 @@
-﻿#navigation .previous{
-	float: left;
+﻿#navigation .previous {
+    float: left;
 }
 
-#navigation .next{
-	float: right;
+#navigation .next {
+    float: right;
 }
 
-#navigation .navButton{
-	border: 0px outset buttonface;
-	box-sizing: content-box;
-	font-family: courier new;
-	margin-top: 70px;
-  	width: 0px;
-	height: 0px;
-	background-color: black;
-	padding-right: 0.5em;
-	padding-left: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	display: block;
-	font-size: 40px;
-	color: #004682;
-	text-decoration: none;
-	text-transform: uppercase;
+#navigation .navButton {
+    border: 0px outset buttonface;
+    box-sizing: content-box;
+    font-family: courier new;
+    margin-top: 70px;
+    background-color: transparent;
+    padding-right: 0.5em;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: block;
+    font-size: 40px;
+    color: #004682;
+    text-decoration: none;
+    text-transform: uppercase;
     border-radius: 10px;
 }
 
 #navigation .previous:hover,
 #navigation .next:hover {
-	color: #60b6ff;
+    color: #60b6ff;
 }
 
 #navigation .selector {
@@ -38,9 +36,9 @@
     margin: 0 auto;
     border: 0px solid #CCC;
     -webkit-perspective: 1100px;
-       -moz-perspective: 1100px;
-         -o-perspective: 1100px;
-            perspective: 1100px;
+    -moz-perspective: 1100px;
+    -o-perspective: 1100px;
+    perspective: 1100px;
 }
 
 #carousel {
@@ -49,48 +47,48 @@
     height: 100%;
     position: absolute;
     -webkit-transform-style: preserve-3d;
-       -moz-transform-style: preserve-3d;
-         -o-transform-style: preserve-3d;
-            transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 1s;
-       -moz-transition: -moz-transform 1s;
-         -o-transition: -o-transform 1s;
-            transition: transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
 }
 
-#carousel a {
-    background-color: #fff;
-    display: block;
-    position: absolute;
-    width: 286px;
-    height: 216px;
-    left: 10px;
-    top: 10px;
-    border: 2px solid black;
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-backface-visibility: hidden;
-	    -moz-backface-visibility: hidden;
-	    -o-backface-visibility: hidden;
-		    backface-visibility: hidden;
-		                opacity: 1;
-}
+    #carousel a {
+        background-color: #fff;
+        display: block;
+        position: absolute;
+        width: 286px;
+        height: 216px;
+        left: 10px;
+        top: 10px;
+        border: 2px solid black;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+        opacity: 1;
+    }
 
-#carousel a:hover{
-	box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
-}
+        #carousel a:hover {
+            box-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #00ffff, 0 0 70px #00ffff;
+        }
 
-#carousel a div {
-    background-color: white;
-    padding: 10px 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-}
+        #carousel a div {
+            background-color: white;
+            padding: 10px 0;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+        }

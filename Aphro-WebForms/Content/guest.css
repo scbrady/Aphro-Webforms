@@ -24,40 +24,49 @@
     text-decoration: underline;
     margin-bottom: 20px;
 }
+
 .Description {
     width: 100%;
     padding: 10px;
 }
-.Description h3 {
-    margin-top: 0 !important;
-    font-size: 25px;
-}
-.Description span {
-    font-size: 17px;
-}
+
+    .Description h3 {
+        margin-top: 0 !important;
+        font-size: 25px;
+    }
+
+    .Description span {
+        font-size: 17px;
+    }
+
 .event-side-info {
     padding: 10px;
     background: #D8E6EF;
 }
-.event-side-info h3 {
-    color: #95B5CA;
-    text-transform: uppercase;
-    font-size: 1.2em !important;
-}
-.event-side-info span {
-    font-size: 1.6em;
-    margin: 10px;
-}
+
+    .event-side-info h3 {
+        color: #95B5CA;
+        text-transform: uppercase;
+        font-size: 1.2em !important;
+    }
+
+    .event-side-info span {
+        font-size: 1.6em;
+        margin: 10px;
+    }
+
 .ticket-number-btn {
     display: inline !important;
     padding: 0;
     width: 20% !important;
 }
+
 #MainContent_EventPrimePrice {
     font-size: 1em;
     margin: 0;
     font-weight: bold;
 }
+
 #MainContent_GetExtraTickets {
     width: 60%;
     min-width: 150px;
@@ -70,14 +79,15 @@
     margin-top: 85px;
     display: block;
 }
+
 span.validator {
     font-size: 14px;
     color: red;
 }
-span.validator[style*="inline"]
-{
-    display:block !Important;
-}
+
+    span.validator[style*="inline"] {
+        display: block !Important;
+    }
 
 /**************************/
 /*    Dropdown logout     */
@@ -94,11 +104,13 @@ span.validator[style*="inline"]
     height: 25px;
     display: block;
 }
+
 .interactiveMap {
     margin: 30px auto 0;
     width: 400px;
     height: 400px;
 }
+
 #choose-seats {
     width: 40%;
     margin: 0 auto;

@@ -20,12 +20,12 @@
         <ItemTemplate>
             <div class="col-md-4 col-xs-6 event-item">
                 <h4><%# Eval("name") %></h4>
-                <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event"/>
+                <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event" />
                 <p><%# ((DateTime)Eval("event_datetime")).ToString("g") %></p>
             </div>
         </ItemTemplate>
     </asp:ListView>
     <br />
-    
+
     <br />
 </asp:Content>

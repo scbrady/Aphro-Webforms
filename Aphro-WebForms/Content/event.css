@@ -9,7 +9,7 @@ input[type=text], textarea, select {
 .description textarea {
     height: 120px;
     border-radius: 5px;
-    resize:none;
+    resize: none;
 }
 
 input[type=text].eventDate {
@@ -29,24 +29,26 @@ input[type=text].eventDate {
     display: block;
     width: 300px;
 }
+
 .fileUpload {
     position: relative;
     overflow: hidden;
     margin: 10px;
 }
-.fileUpload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
 
-img#imagePreview{
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+img#imagePreview {
     border: 2px solid #EBE9ED;
     display: block;
     width: 300px;
@@ -56,65 +58,78 @@ img#imagePreview{
 }
 
 /* Joe's stuff */
-   #headerUpcomingEventList {
-      font-size: 2.7em;
-      font-weight: 100;
-      padding-top: 40px;
-      width: 100%;
-      text-align: center;
-      margin-left: 0;
-      text-decoration: underline;
-      margin-bottom: 10px;;
-   }
-   #headerUpcomingEventList + a {
-      margin-bottom: 10px;
-      padding-left: 10px;
-   }
-   #eventList {
-      width: 100%;
-   }
-   .event-item {
-      background: rgba(255,255,255,.5);
-      transition: .2s ease-in-out all;
-      margin: 1%;
-      border-radius: 4px 0 4px 0;
-      width: 31%;
-   }
-   .event-item:hover {
-      background: rgba(255,255,255,.8);
-   }
-   .event-item h4 {
-      display: inline-block;
-      width: 90%;
-   }
-   .event-item a {
-      float: right;
-      position: absolute;
-      padding-left: 10px;
-      padding-top: 10px;
-   }
-   .event-item p {
-      font-style: italic;
-      font-size: .9em;
-   }
-   .calendar-button-fix {
-        width: inherit;
-        height: inherit;
-        color: black;
-        font-family: inherit;
-   }
-   .calendar-button-fix:hover {
-       background: none;
-   }
-   .rd-days {
-        border-spacing: 5px;
-        border-collapse: separate;
-   }
-   .rd-time-selected.time-selected {
-       padding: 5px 15px;
-   }
-   @media screen and (max-width: 767px) {
-      .event-item {
-         width: 48%;
-      }
-   }
+#headerUpcomingEventList {
+    font-size: 2.7em;
+    font-weight: 100;
+    padding-top: 40px;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    ;
+}
+
+    #headerUpcomingEventList + a {
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+
+#eventList {
+    width: 100%;
+}
+
+.event-item {
+    background: rgba(255,255,255,.5);
+    transition: .2s ease-in-out all;
+    margin: 1%;
+    border-radius: 4px 0 4px 0;
+    width: 31%;
+}
+
+    .event-item:hover {
+        background: rgba(255,255,255,.8);
+    }
+
+    .event-item h4 {
+        display: inline-block;
+        width: 90%;
+    }
+
+    .event-item a {
+        float: right;
+        position: absolute;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .event-item p {
+        font-style: italic;
+        font-size: .9em;
+    }
+
+.calendar-button-fix {
+    width: inherit;
+    height: inherit;
+    color: black;
+    font-family: inherit;
+}
+
+    .calendar-button-fix:hover {
+        background: none;
+    }
+
+.rd-days {
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+
+.rd-time-selected.time-selected {
+    padding: 5px 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .event-item {
+        width: 48%;
+    }
+}

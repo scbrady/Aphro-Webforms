@@ -312,6 +312,7 @@
     <Compile Include="Guest\ReviewTickets.aspx.designer.cs">
       <DependentUpon>ReviewTickets.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Season.cs" />
     <Compile Include="Models\EventSeats.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />

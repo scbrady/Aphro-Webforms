@@ -16,8 +16,10 @@ namespace Aphro_WebForms.Event
             {
                 DataTable eventTypeNamesTable = new DataTable();
                 DataTable buildingsTable = new DataTable();
+                DataTable seasonsTable = new DataTable();
                 List<EventType> eventTypes = new List<EventType>();
                 List<Building> buildings = new List<Building>();
+                List<Season> seasons = new List<Season>();
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
@@ -33,16 +35,25 @@ namespace Aphro_WebForms.Event
                     buildingsCommand.CommandType = CommandType.StoredProcedure;
                     buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
+                    // Set up the seasons command
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonNames", objConn);
+                    seasonsCommand.BindByName = true;
+                    seasonsCommand.CommandType = CommandType.StoredProcedure;
+                    seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
                     try
                     {
                         // Execute the queries and auto map the results to models
                         objConn.Open();
                         var eventTypesAdapter = new OracleDataAdapter(eventTypesCommand);
                         var buildingAdapter = new OracleDataAdapter(buildingsCommand);
+                        var seasonsAdapter = new OracleDataAdapter(seasonsCommand);
                         eventTypesAdapter.Fill(eventTypeNamesTable);
                         buildingAdapter.Fill(buildingsTable);
+                        seasonsAdapter.Fill(seasonsTable);
                         eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
                         buildings = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
+                        seasons = Mapper.DynamicMap<IDataReader, List<Season>>(seasonsTable.CreateDataReader());
                     }
                     catch (Exception ex)
                     {
@@ -67,6 +78,13 @@ namespace Aphro_WebForms.Event
                     LocationDropDown.DataValueField = "building_key";
                     LocationDropDown.DataSource = buildings;
                     LocationDropDown.DataBind();
+                }
+                if (seasons.Count > 0)
+                {
+                    SeasonDropDown.DataTextField = "name";
+                    SeasonDropDown.DataValueField = "season_id";
+                    SeasonDropDown.DataSource = seasons;
+                    SeasonDropDown.DataBind();
                 }
             }
         }

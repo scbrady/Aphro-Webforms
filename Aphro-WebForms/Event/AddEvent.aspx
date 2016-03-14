@@ -49,6 +49,13 @@
             <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="LocationDropDown" Text="Required Field" Display="Dynamic"/>
         </div>
 
+        <%--Season--%>
+        <div class='eventCreation'>
+            <h3>Season: </h3>
+            <asp:DropDownList ID="SeasonDropDown" runat="server">
+            </asp:DropDownList>
+        </div>
+
         <%-- Event Date(s)--%>
         <div id="EventDates" class='Event-Dates' style="position: relative">
             <h3>Event Date(s):</h3>

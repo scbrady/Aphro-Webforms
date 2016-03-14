@@ -248,6 +248,7 @@
     <Content Include="Content\maps\sections\30.json" />
     <Content Include="Content\maps\sections\31.json" />
     <Content Include="Content\maps\sections\32.json" />
+    <Content Include="Event\InsertSeason.ashx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\highmaps\data.js" />
     <Content Include="Scripts\highmaps\drilldown.js" />
@@ -290,6 +291,9 @@
     </Compile>
     <Compile Include="Employee\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Event\InsertSeason.ashx.cs">
+      <DependentUpon>InsertSeason.ashx</DependentUpon>
     </Compile>
     <Compile Include="Event\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

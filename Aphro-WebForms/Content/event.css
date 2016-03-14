@@ -128,6 +128,11 @@ img#imagePreview {
     padding: 5px 15px;
 }
 
+.error {
+    color: red;
+    display: none;
+}
+
 @media screen and (max-width: 767px) {
     .event-item {
         width: 48%;

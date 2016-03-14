@@ -5,6 +5,7 @@ using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace Aphro_WebForms.Event
 {
@@ -85,6 +86,10 @@ namespace Aphro_WebForms.Event
                     SeasonDropDown.DataValueField = "season_id";
                     SeasonDropDown.DataSource = seasons;
                     SeasonDropDown.DataBind();
+                    SeasonDropDown.Items.Insert(0, new ListItem("No Season", "-1"));
+                    SeasonDropDown.Items.Insert(1, new ListItem("Add New Season", "-1"));
+                    SeasonDropDown.ClearSelection();
+                    SeasonDropDown.SelectedIndex = 0;
                 }
             }
         }
@@ -126,11 +131,17 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, int.Parse(EventType.SelectedValue), ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);
+
+                if (SeasonDropDown.SelectedValue.Equals("-1"))
+                    insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
+                else
+                    insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
+
+
                 try
                 {
                     objConn.Open();

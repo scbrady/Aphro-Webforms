@@ -82,6 +82,25 @@
         <div style="display: none;">
             <asp:Button ID="Button3" ValidationGroup="EventCreation" runat="server" Text="Submit" OnClick="Submit_Click"/>
         </div>
+
+        <%-- Add Season Modal --%>
+        <div class="modal fade" id="addSeason" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Add A New Season</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="error">Could Not Add Season</p>
+                    <label for="season-name">Name:</label>
+                    <input type="text" id="season-name-input" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" onclick="addSeason(event)">Add Season</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 </asp:Content>
 
@@ -91,10 +110,6 @@
     <script>
         $(function () {
             addCalendar($('#MainContent_EventDate').get(0));
-
-            //$('.datepicker-field').datetimepicker({
-            //    format: 'DD-MMM-YY hh:mm A'
-            //});
 
             function readURL(input) {
                 if (input.files && input.files[0]) {
@@ -108,6 +123,14 @@
 
             $("#MainContent_uploadBtn").change(function () {
                 readURL(this);
+            });
+
+            $("#MainContent_SeasonDropDown").change(function () {
+                var pickedValue = this[this.selectedIndex].textContent;
+                if (pickedValue === 'Add New Season')
+                {
+                    $('#addSeason').modal('show');
+                }
             });
         });
 
@@ -175,6 +198,21 @@
                     "selectedTime": "rd-time-selected time-selected",
                 }
             });
+        }
+
+        function addSeason(e) {
+            e.preventDefault();
+            var seasonName = $('#season-name-input').val()
+            $.post("InsertSeason.ashx", { seasonName: seasonName })
+                .done(function (data) {
+                    $('#addSeason').modal('hide');
+                    $('.error').hide();
+
+                    $('#MainContent_SeasonDropDown').append('<option value="' + data + '">' + seasonName + '</option>');
+                })
+                .fail(function () {
+                    $('.error').show();
+                });
         }
     </script>
 </asp:Content>

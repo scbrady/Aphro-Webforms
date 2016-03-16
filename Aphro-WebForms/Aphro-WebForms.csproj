@@ -124,12 +124,15 @@
     <Content Include="Content\fastickets.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\slick.svg" />
     <Content Include="Content\home.css" />
     <Content Include="Content\pcci-styles.css" />
     <Content Include="Content\Pending.gif" />
     <Content Include="Content\Project-Logo.png" />
     <Content Include="Content\rome.css" />
     <Content Include="Content\rome.min.css" />
+    <Content Include="Content\slick-theme.css" />
+    <Content Include="Content\slick.css" />
     <Content Include="Scripts\rome.standalone.js" />
     <Content Include="Scripts\rome.standalone.min.js" />
     <Content Include="Content\student.css" />
@@ -189,6 +192,8 @@
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\maps.js" />
+    <Content Include="Scripts\slick-init.js" />
+    <Content Include="Scripts\slick.js" />
     <Content Include="Shared\EmptySeats.ashx" />
     <Content Include="Content\maps\1.json" />
     <Content Include="Content\maps\sections\1-1.json" />
@@ -249,6 +254,9 @@
     <Content Include="Content\maps\sections\31.json" />
     <Content Include="Content\maps\sections\32.json" />
     <Content Include="Event\InsertSeason.ashx" />
+    <Content Include="Content\fonts\slick.eot" />
+    <Content Include="Content\fonts\slick.ttf" />
+    <Content Include="Content\fonts\slick.woff" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\highmaps\data.js" />
     <Content Include="Scripts\highmaps\drilldown.js" />
@@ -451,6 +459,7 @@
     <Content Include="Shared\AddToGroup.ashx" />
     <Content Include="Shared\PendingAcceptReject.ashx" />
     <Content Include="EmployeePortal.Master" />
+    <Content Include="Scripts\slick.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -31,6 +31,10 @@ namespace Aphro_WebForms
             bundles.Add(new ScriptBundle("~/bundles/map").Include(
                       "~/Scripts/maps.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/slick").Include(
+                      "~/Scripts/slick.js",
+                      "~/Scripts/slick-init.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css"));
 
@@ -54,6 +58,9 @@ namespace Aphro_WebForms
                       "~/Content/themes/base/all.css"));
             bundles.Add(new StyleBundle("~/Content/carousel").Include(
                       "~/Content/carousel.css"));
+            bundles.Add(new StyleBundle("~/Content/slick").Include(
+                      "~/Content/slick.css",
+                      "~/Content/slick-theme.css"));
             bundles.Add(new StyleBundle("~/Content/home").Include(
                       "~/Content/home.css"));
         }

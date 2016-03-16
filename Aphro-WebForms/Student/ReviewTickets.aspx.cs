@@ -49,8 +49,15 @@ namespace Aphro_WebForms.Student
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                 {
+                    Section.Text = eventSeatsModel.FirstOrDefault().description;
                     TicketRow.Text = eventSeatsModel.FirstOrDefault().seat_row;
-                    TicketNumber.Text = eventSeatsModel.FirstOrDefault().seat_number.ToString();
+                    TicketSeat.Text = eventSeatsModel.Min(t => t.seat_number).ToString();
+                    TicketSeatMax.Text = eventSeatsModel.Max(t => t.seat_number).ToString();
+                    TicketDoor.Text = eventSeatsModel.FirstOrDefault().door;
+
+                    eventSeatsModel.RemoveAll(t => t.firstname == null);
+                    GroupList.DataSource = eventSeatsModel;
+                    GroupList.DataBind();
                 }
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);

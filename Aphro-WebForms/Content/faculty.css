@@ -41,6 +41,25 @@ header .headerContent {
     margin: auto;
 }
 
+input[type=submit] {
+    width: inherit;
+    height: 33px;
+    color: white;
+    background: #0090a5;
+    padding: 10px;
+    font-weight: normal;
+    font-size: 11px;
+    border: 0;
+    border-radius: 0px !important;
+    border-bottom: 2px #00c7e6 solid;
+    display: inline;
+    margin-top: 6px;
+}
+
+input[type=text] {
+    display: inline;
+}
+
 #header .EcLogo {
     background: url('https://www.abekaservices.com/Images/Graphics/EmployeeCentralLogo.svg') no-repeat;
     background-size: 250px 70px;
@@ -255,20 +274,6 @@ input[type=submit].getTickets {
     width: 50%;
     margin: 50px auto 0;
     display: block;
-}
-
-.balcony {
-    width: 400px;
-    margin: auto;
-    background: #32a3dc;
-    height: 25px;
-    display: block;
-}
-
-.interactiveMap {
-    margin: 30px auto 0;
-    width: 400px;
-    height: 400px;
 }
 
 /**************/

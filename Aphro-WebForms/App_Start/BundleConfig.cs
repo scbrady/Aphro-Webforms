@@ -56,6 +56,8 @@ namespace Aphro_WebForms
                       "~/Content/carousel.css"));
             bundles.Add(new StyleBundle("~/Content/home").Include(
                       "~/Content/home.css"));
+            bundles.Add(new StyleBundle("~/Content/map-css").Include(
+                      "~/Content/map-modal.css"));
         }
     }
 }

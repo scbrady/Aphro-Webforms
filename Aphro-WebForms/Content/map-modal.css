@@ -1,0 +1,16 @@
+﻿.interactiveMap {
+    margin: 30px auto 0;
+    width: 400px;
+    height: 400px;
+}
+
+.balcony {
+    width: 400px;
+    margin: auto;
+    background: #32a3dc;
+    height: 25px;
+    display: block;
+
+    /*copy/paste*/
+
+}

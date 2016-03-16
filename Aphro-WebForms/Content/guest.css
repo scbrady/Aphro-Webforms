@@ -97,20 +97,6 @@ span.validator {
     min-width: 120px;
 }
 
-.balcony {
-    width: 400px;
-    margin: auto;
-    background: #32a3dc;
-    height: 25px;
-    display: block;
-}
-
-.interactiveMap {
-    margin: 30px auto 0;
-    width: 400px;
-    height: 400px;
-}
-
 #choose-seats {
     width: 40%;
     margin: 0 auto;

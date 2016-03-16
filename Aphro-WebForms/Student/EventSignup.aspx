@@ -2,6 +2,10 @@
 
 <%@ Import Namespace="System.Web.Optimization" %>
 
+<asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderSection" runat="server">
+    <%: Styles.Render("~/Content/map-css") %>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="EventName" runat="server"></h1>
     <div class="row">

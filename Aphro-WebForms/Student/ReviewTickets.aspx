@@ -3,19 +3,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>You have tickets for this event.</h1>
 
-    <asp:Label ID="Section" runat="server" Text="Label"></asp:Label><br />
-    Row <asp:Label ID="TicketRow" runat="server" Text="Label"></asp:Label>,
-    Seat <asp:Label ID="TicketSeat" runat="server" Text="Label"></asp:Label>-<asp:Label ID="TicketSeatMax" runat="server" Text="Label"></asp:Label><br />
-    Enter by door <asp:Label ID="TicketDoor" runat="server" Text="Label"></asp:Label>
+    <div class="col-md-6">
+        <h3 ID="Date" runat="server"></h3>
+        <h4 ID="Section" runat="server"></h4>
+        <h4 ID="Location" runat="server"></h4>
+        <h4 ID="Door" runat="server"></h4>
+    </div>
 
-    <asp:ListView ID="GroupList" runat="server">
-        <LayoutTemplate>
-            <div id="itemPlaceholder" runat="server"></div>
-        </LayoutTemplate>
-        <ItemTemplate>
-            <li class="clearfix request-list">
-                <p class="group-member"><%# Eval("firstname") + " " + Eval("lastname") %></p>
-            </li>
-        </ItemTemplate>
-    </asp:ListView>
+    <% if (!string.IsNullOrEmpty(LeaderName)) { %>
+    <div class="col-md-6">
+        <h4>Group:</h4>
+        <h3>Leader: <%= LeaderName %></h3>
+        <div id="GroupRequestContainer" runat="server">
+            <% if (GuestTickets > 0) { %>
+            <p><%= GuestTickets %> Guest Tickets</p>
+            <hr />
+            <% } %>
+            <asp:ListView ID="GroupList" runat="server">
+                <LayoutTemplate>
+                    <div id="itemPlaceholder" runat="server"></div>
+                </LayoutTemplate>
+                <EmptyItemTemplate>
+                    <p>No group members to show (This is an error).</p>
+                </EmptyItemTemplate>
+                <ItemTemplate>
+                    <li class="clearfix request-list">
+                        <p class="group-member"><%# Eval("firstname") + " " + Eval("lastname") %></p>
+                    </li>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
+    </div>
+    <% } %>
 </asp:Content>

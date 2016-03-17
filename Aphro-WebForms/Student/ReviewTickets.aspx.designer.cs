@@ -13,49 +13,49 @@ namespace Aphro_WebForms.Student {
     public partial class ReviewTickets {
         
         /// <summary>
+        /// Date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Date;
+        
+        /// <summary>
         /// Section control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Section;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Section;
         
         /// <summary>
-        /// TicketRow control.
+        /// Location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketRow;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Location;
         
         /// <summary>
-        /// TicketSeat control.
+        /// Door control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketSeat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Door;
         
         /// <summary>
-        /// TicketSeatMax control.
+        /// GroupRequestContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketSeatMax;
-        
-        /// <summary>
-        /// TicketDoor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketDoor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GroupRequestContainer;
         
         /// <summary>
         /// GroupList control.

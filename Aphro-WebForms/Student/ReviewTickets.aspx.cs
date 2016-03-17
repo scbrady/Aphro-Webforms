@@ -10,6 +10,8 @@ namespace Aphro_WebForms.Student
     public partial class ReviewTickets : System.Web.UI.Page
     {
         protected long SeriesId;
+        protected int GuestTickets = 0;
+        protected string LeaderName = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,15 +51,39 @@ namespace Aphro_WebForms.Student
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                 {
-                    Section.Text = eventSeatsModel.FirstOrDefault().description;
-                    TicketRow.Text = eventSeatsModel.FirstOrDefault().seat_row;
-                    TicketSeat.Text = eventSeatsModel.Min(t => t.seat_number).ToString();
-                    TicketSeatMax.Text = eventSeatsModel.Max(t => t.seat_number).ToString();
-                    TicketDoor.Text = eventSeatsModel.FirstOrDefault().door;
+                    Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
+                    Section.InnerText = eventSeatsModel.FirstOrDefault().description;
 
-                    eventSeatsModel.RemoveAll(t => t.firstname == null);
-                    GroupList.DataSource = eventSeatsModel;
-                    GroupList.DataBind();
+                    string location = "Row: ";
+                    location += eventSeatsModel.FirstOrDefault().seat_row + ", ";
+                    if (eventSeatsModel.Count > 1)
+                    {
+                        location += "Seats ";
+                        location += eventSeatsModel.Min(t => t.seat_number).ToString() + "-";
+                        location += eventSeatsModel.Max(t => t.seat_number).ToString();
+                    }
+                    else
+                    {
+                        location += "Seat ";
+                        location += eventSeatsModel.FirstOrDefault().seat_number.ToString();
+                    }
+                    Location.InnerText = location;
+
+                    Door.InnerText = "Enter By Door " + eventSeatsModel.FirstOrDefault().door;
+
+                    try
+                    {
+                        var leaderInformation = eventSeatsModel.First(t => t.leader == 1);
+                        LeaderName = leaderInformation.firstname + " " + leaderInformation.lastname;
+                        GuestTickets = leaderInformation.guest_tickets;
+                        eventSeatsModel.RemoveAll(t => t.leader == 1);
+                        GroupList.DataSource = eventSeatsModel;
+                        GroupList.DataBind();
+                    }
+                    catch
+                    {
+                        // This means that there was no group, this person is by himself
+                    }
                 }
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);

@@ -14,10 +14,5 @@ namespace Aphro_WebForms.Models
         public string requested_firstname { get; set; }
         public string requested_lastname { get; set; }
         public int has_accepted { get; set; }
-
-        public static implicit operator GroupRequest(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

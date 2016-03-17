@@ -59,10 +59,10 @@
                                     <p>No requests (This is an error).</p>
                                 </EmptyItemTemplate>
                                 <ItemTemplate>
-                                    <div class="clearfix">
+                                    <li class="clearfix request-list">
                                         <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
-                                        <p class="group-status"><%# Eval("has_accepted").Equals(0) ? "Pending" : "Accepted" %></p>
-                                    </div>
+                                        <p class="group-status <%# Eval("has_accepted").Equals(0) ? "pending-status" : "accepted-status" %>" data-user-id="<%# Eval("requested_id") %>" data-group-id="<%# Eval("group_id") %>"></p>
+                                    </li>
                                 </ItemTemplate>
                             </asp:ListView>
                         </div>

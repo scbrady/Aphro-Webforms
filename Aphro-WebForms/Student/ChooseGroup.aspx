@@ -11,7 +11,7 @@
             Location:
             <asp:Label ID="EventLocation" runat="server"></asp:Label>
         </div>
-        <div class="event-dates">
+        <div class="event-date">
             Event Dates:
             <asp:ListView ID="EventDateList" runat="server">
                 <LayoutTemplate>
@@ -20,7 +20,7 @@
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <p><%# ((DateTime)Eval("event_datetime")).ToString("g")%></p>
+                    <p>&bull; <%# ((DateTime)Eval("event_datetime")).ToString("dddd, MMMM d - h:mm tt")%></p>
                 </ItemTemplate>
             </asp:ListView>
         </div>

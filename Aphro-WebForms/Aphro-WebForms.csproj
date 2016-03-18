@@ -134,6 +134,8 @@
     <Content Include="Content\rome.min.css" />
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
+    <Content Include="Employee\ReviewTickets.aspx" />
+    <Content Include="Scripts\group_requests.js" />
     <Content Include="Scripts\rome.standalone.js" />
     <Content Include="Scripts\rome.standalone.min.js" />
     <Content Include="Content\student.css" />
@@ -300,6 +302,13 @@
     </Compile>
     <Compile Include="Employee\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ReviewTickets.aspx.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\ReviewTickets.aspx.designer.cs">
+      <DependentUpon>ReviewTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Event\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

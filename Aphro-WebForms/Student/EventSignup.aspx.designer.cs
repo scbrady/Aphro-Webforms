@@ -73,7 +73,7 @@ namespace Aphro_WebForms.Student {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator TicketQuantityRangeValidator;
+        protected global::System.Web.UI.WebControls.CustomValidator TicketQuantityRangeValidator;
         
         /// <summary>
         /// Button1 control.

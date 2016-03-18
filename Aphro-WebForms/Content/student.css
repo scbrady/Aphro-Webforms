@@ -354,16 +354,17 @@ h4 {
     font-size: 1.6em;
     color: #737373;
     height: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
     #MainContent_EventDescription,
     #MainContent_EventLocation,
-    .event-date select {
+    .event-date select,
+    .event-date p {
         font-size: .7em;
         color: #333;
         display: block;
-        margin-top: 2px;
+        margin: 2px 0 0;
     }
 
 #MainContent_TicketQuantityRangeValidator[style*="inline"] {

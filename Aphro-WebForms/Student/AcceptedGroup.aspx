@@ -11,7 +11,7 @@
             Location:
             <asp:Label ID="EventLocation" runat="server"></asp:Label>
         </div>
-        <div class="event-dates">
+        <div class="event-date">
             Event Dates:
             <asp:ListView ID="EventDateList" runat="server">
                 <LayoutTemplate>
@@ -20,14 +20,14 @@
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <p><%# ((DateTime)Eval("event_datetime")).ToString("g")%></p>
+                    <p>&bull; <%# ((DateTime)Eval("event_datetime")).ToString("dddd, MMMM d - h:mm tt")%></p>
                 </ItemTemplate>
             </asp:ListView>
         </div>
     </div>
     <div class="col-md-6">
         <h4>Group:</h4>
-        <asp:Label ID="GroupLeaderName" runat="server"></asp:Label>
+        <h3>Leader: <asp:Label ID="GroupLeaderName" runat="server"></asp:Label></h3>
         <div id="GroupRequestContainer" runat="server">
             <% if (GuestTickets > 0)
                 { %>

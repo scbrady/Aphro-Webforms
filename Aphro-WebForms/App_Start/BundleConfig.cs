@@ -31,6 +31,9 @@ namespace Aphro_WebForms
             bundles.Add(new ScriptBundle("~/bundles/map").Include(
                       "~/Scripts/maps.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/group_requests").Include(
+                      "~/Scripts/group_requests.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/slick").Include(
                       "~/Scripts/slick.js",
                       "~/Scripts/slick-init.js"));

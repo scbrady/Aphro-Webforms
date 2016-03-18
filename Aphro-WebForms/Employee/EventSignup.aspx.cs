@@ -13,9 +13,9 @@ namespace Aphro_WebForms.Employee
         protected long BuildingKey;
         protected string Building;
         protected int GuestTickets = 0;
+        protected int FacultyTickets = 0;
         protected int RequestedTickets = 0;
         protected int TotalSize;
-        protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -96,20 +96,19 @@ namespace Aphro_WebForms.Employee
                 if (requestsModel.Count > 0)
                 {
                     GuestTickets = requestsModel.FirstOrDefault().guest_tickets;
+                    FacultyTickets = requestsModel.FirstOrDefault().faculty_tickets;
                     RequestedTickets = requestsModel.Where(ticket => ticket.requested_id != 0).Count();
                     if (RequestedTickets == 0)
                         requestsModel.Clear();
                 }
 
-                TotalSize = GuestTickets + RequestedTickets + 1;
+                TotalSize = GuestTickets + FacultyTickets + RequestedTickets + 1;
                 if (TotalSize > 10)
                     TotalSize = 10;
 
                 GroupSize.Value = TotalSize.ToString();
                 GroupList.DataSource = requestsModel;
                 GroupList.DataBind();
-                MaxExtraTickets = (10 - TotalSize).ToString();
-                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
             }
         }
 
@@ -197,6 +196,40 @@ namespace Aphro_WebForms.Employee
                 groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
                 groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, 0, ParameterDirection.Input);
+
+                try
+                {
+                    // Execute the command
+                    objConn.Open();
+                    groupsCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+
+                objConn.Close();
+            }
+            Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
+        }
+
+        protected void GetExtraFacultyTickets_Click(object sender, EventArgs e)
+        {
+            SeriesId = int.Parse(SeriesIdField.Value);
+            int extraTickets = int.Parse(FacultyTicketQuantity.Text);
+
+            // "Purchase" tickets
+            // Make new group or add this many people to the group that is already made
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                // Set up the inserting groups command
+                var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
+                groupsCommand.BindByName = true;
+                groupsCommand.CommandType = CommandType.StoredProcedure;
+                groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, 0, ParameterDirection.Input);
+                groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
 
                 try
                 {

@@ -15,7 +15,6 @@ namespace Aphro_WebForms.Student
         protected int GuestTickets = 0;
         protected int RequestedTickets = 0;
         protected int TotalSize;
-        protected string MaxExtraTickets;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,8 +108,6 @@ namespace Aphro_WebForms.Student
                 GroupSize.Value = TotalSize.ToString();
                 GroupList.DataSource = requestsModel;
                 GroupList.DataBind();
-                MaxExtraTickets = (10 - TotalSize).ToString();
-                TicketQuantityRangeValidator.MaximumValue = MaxExtraTickets;
             }
         }
 

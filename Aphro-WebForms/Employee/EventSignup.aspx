@@ -16,6 +16,11 @@
                    { %>
                        <p><%= GuestTickets %> Guest Tickets</p>
                        <hr />
+                <% } 
+                   if (FacultyTickets > 0)
+                   { %>
+                       <p><%= FacultyTickets %> Faculty Tickets</p>
+                       <hr />
                 <% } %>
                 <asp:ListView ID="GroupList" runat="server">
                     <LayoutTemplate>
@@ -44,6 +49,7 @@
                     <div class="ui-widget">
                         <label for="group-request">Name or ID: </label>
                         <p id="student-request-error" class="error">You cannot request this student.</p>
+                        <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
                         <div>
                             <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
                             <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
@@ -52,28 +58,19 @@
                     </div>
                 </div>
                 <div id="guestsTab" class="tab-pane fade">
-
-                    <span class="pull-left" style="visibility: hidden">Regular Price:
-                        <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
-                    <span class="pull-right" style="visibility: hidden">Prime Price:
-                        <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
+                    <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
+                    <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
                     <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:RangeValidator runat="server" ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
+                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server"  ControlToValidate = "TicketQuantity" ErrorMessage = "You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
                     <asp:Button ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
                 </div>
                 <div id="facultyTab" class="tab-pane fade">
-
-                    <span class="pull-left" style="visibility: hidden">Regular Price:
-                        <asp:Label ID="Label1" runat="server"></asp:Label></span>
-                    <span class="pull-right" style="visibility: hidden">Prime Price:
-                        <asp:Label ID="Label2" runat="server"></asp:Label></span>
-                    <br />
                     <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
-                    <asp:TextBox TextMode="Number" ID="TextBox1" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:RangeValidator runat="server" ID="RangeValidator1" ValidationGroup="buyTicketsValidator" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
-                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+                    <asp:TextBox TextMode="Number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
+                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server"  ControlToValidate = "FacultyTicketQuantity" ErrorMessage = "You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
+                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
                 </div>
             </div>
         </div>
@@ -120,80 +117,5 @@
     <%: Scripts.Render("~/bundles/highmaps") %>
     <%: Scripts.Render("~/bundles/map") %>
     <%: Scripts.Render("~/bundles/jquery-ui") %>
-
-    <script>
-        $(function () {
-            $("li .pending-status").each(function () {
-                resolvePendingRequest(this);
-            });
-
-            $("#group-request").autocomplete({
-                source: "../Shared/Search.ashx",
-                minLength: 2,
-                focus: function (event, ui) {
-                    $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
-                    $("#group-request-id").val(ui.item.xid);
-                    return false;
-                },
-                select: function (event, ui) {
-                    $("#group-request").val(ui.item.firstname + " " + ui.item.lastname);
-                    $("#group-request-id").val(ui.item.xid);
-                    return false;
-                }
-            })
-            .autocomplete("instance")._renderItem = function (ul, item) {
-                return $("<li>")
-                  .append(item.firstname + " " + item.lastname + "<br>" + item.xid)
-                  .appendTo(ul);
-            };
-        });
-
-        function addToGroup(e) {
-            e.preventDefault();
-
-            var requestedId = $('#group-request-id').val();
-            var requestedName = $('#group-request').val();
-
-            // Clear the fields
-            $('#group-request-id').val('');
-            $('#group-request').val('');
-
-            $.post("../Shared/AddToGroup.ashx", { personId: requestedId, seriesId: $('#MainContent_SeriesIdField').val() })
-                .done(function (data) {
-                    $('#student-placeholder').remove();
-
-                    var newRequest = $("<li />").addClass("clearfix request-list").append("\
-                        <p class='group-member'>" + requestedName + "</p>\
-                        <p class='group-status pending-status' data-user-id='" + data.requested_id + "' data-group-id='" + data.group_id + "'></p>");
-
-                    $('#MainContent_GroupRequestContainer').append(newRequest);
-                    resolvePendingRequest(newRequest.children('.pending-status'));
-                    $('#student-request-error').hide();
-                })
-                .fail(function () {
-                    $('#student-request-error').show();
-                });
-        }
-
-        function resolvePendingRequest(request) {
-            var requestedId = $(request).data("user-id");
-            var requestedGroup = $(request).data("group-id");
-
-            setTimeout(function () {
-                $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
-                .done(function (data) {
-                    if (data === "True") {
-                        $(request).removeClass("pending-status");
-                        $(request).addClass("accepted-status");
-                    } else {
-                        $(request).removeClass("pending-status");
-                        $(request).addClass("rejected-status");
-                    }
-                })
-                .fail(function () {
-                    // Don't worry about it, they will just stay pending
-                });
-            }, 5000);
-        }
-    </script>
+    <%: Scripts.Render("~/bundles/group_requests") %>
 </asp:Content>

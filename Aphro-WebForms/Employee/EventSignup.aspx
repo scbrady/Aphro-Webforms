@@ -63,13 +63,13 @@
                     <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server"  ControlToValidate = "TicketQuantity" ErrorMessage = "You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
+                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
                     <asp:Button ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
                 </div>
                 <div id="facultyTab" class="tab-pane fade">
                     <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server"  ControlToValidate = "FacultyTicketQuantity" ErrorMessage = "You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
+                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
                     <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
                 </div>
             </div>

@@ -10,6 +10,12 @@ body {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     font-size: 99%;
     width: 100%;
+    height: 100%;
+}
+
+#masterForm {
+    min-height: 100%;
+    position: relative;
 }
 
 #header {
@@ -122,15 +128,18 @@ input[type=text] {
 
 footer {
     background: #878787;
-    padding-top: 80px;
-    margin-top: 80px;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .mainPane {
     position: relative;
     width: 960px;
     margin: 10px auto 0;
-    padding: 0;
+    padding: 0 0 100px;
 }
 
     .mainPane h1 {

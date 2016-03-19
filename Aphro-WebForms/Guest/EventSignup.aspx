@@ -11,14 +11,14 @@
         <h1 class="eName">
             <asp:Label ID="EventName" runat="server"></asp:Label></h1>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="Description">
                     <h3>Description: </h3>
                     <asp:Label ID="EventDescription" runat="server"></asp:Label>
                 </div>
             </div>
 
-            <div class="event-side-info col-md-4">
+            <div class="event-side-info col-md-5">
                 <div class="Location">
                     <h3>Location: </h3>
                     <asp:Label ID="EventLocation" runat="server"></asp:Label>

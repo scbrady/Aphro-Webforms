@@ -24,7 +24,7 @@
         </EmptyDataTemplate>
 
         <ItemTemplate>
-            <a href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>'>
+            <a class="carousel-item" href='<%# "EventSignup.aspx?Series="+ Eval("series_id") %>'>
                 <span style="background-image: url('<%# "../Content/pictures/"+ Eval("event_picture") %>')"></span>
                 <h2><%# Eval("name") %></h2>
             </a>

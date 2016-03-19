@@ -125,7 +125,6 @@
 #carousel {
     width: 480px;
     margin: 30px auto;
-    display: block;
 }
 #carousel a:hover,
 #carousel a:focus {
@@ -145,4 +144,14 @@
     text-align: center;
     text-decoration: none;
     color: black;
+}
+
+#carousel .carousel-item {
+    display: none;
+}
+#carousel .carousel-item:first-child {
+    display: block;
+}
+#carousel.slick-initialized .carousel-item {
+    display: block;
 }

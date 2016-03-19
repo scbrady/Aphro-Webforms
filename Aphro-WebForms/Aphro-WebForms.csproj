@@ -317,6 +317,9 @@
     <Compile Include="Event\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event\InsertSeason.ashx.cs">
+      <DependentUpon>InsertSeason.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GuestPortal.Master.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

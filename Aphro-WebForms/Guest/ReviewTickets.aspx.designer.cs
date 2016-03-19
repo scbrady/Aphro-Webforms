@@ -13,21 +13,39 @@ namespace Aphro_WebForms.Guest {
     public partial class ReviewTickets {
         
         /// <summary>
-        /// TicketRow control.
+        /// Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketRow;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Date;
         
         /// <summary>
-        /// TicketNumber control.
+        /// Section control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TicketNumber;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Section;
+        
+        /// <summary>
+        /// Location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Location;
+        
+        /// <summary>
+        /// Door control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Door;
     }
 }

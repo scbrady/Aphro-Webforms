@@ -51,8 +51,25 @@ namespace Aphro_WebForms.Guest
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                 {
-                    TicketRow.Text = eventSeatsModel.FirstOrDefault().seat_row;
-                    TicketNumber.Text = eventSeatsModel.FirstOrDefault().seat_number.ToString();
+                    Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
+                    Section.InnerText = eventSeatsModel.FirstOrDefault().description;
+
+                    string location = "Row ";
+                    location += eventSeatsModel.FirstOrDefault().seat_row + ", ";
+                    if (eventSeatsModel.Count > 1)
+                    {
+                        location += "Seats ";
+                        location += eventSeatsModel.Min(t => t.seat_number).ToString() + "-";
+                        location += eventSeatsModel.Max(t => t.seat_number).ToString();
+                    }
+                    else
+                    {
+                        location += "Seat ";
+                        location += eventSeatsModel.FirstOrDefault().seat_number.ToString();
+                    }
+                    Location.InnerText = location;
+
+                    Door.InnerText = "Enter By Door " + eventSeatsModel.FirstOrDefault().door;
                 }
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);

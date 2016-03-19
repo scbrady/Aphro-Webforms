@@ -54,7 +54,7 @@ namespace Aphro_WebForms.Student
                     Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
                     Section.InnerText = eventSeatsModel.FirstOrDefault().description;
 
-                    string location = "Row: ";
+                    string location = "Row ";
                     location += eventSeatsModel.FirstOrDefault().seat_row + ", ";
                     if (eventSeatsModel.Count > 1)
                     {

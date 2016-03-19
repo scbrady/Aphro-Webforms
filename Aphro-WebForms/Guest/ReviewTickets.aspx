@@ -3,9 +3,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>You have tickets for this event.</h1>
 
-    <h4>Ticket Row:</h4>
-    <asp:Label ID="TicketRow" runat="server" Text="Label"></asp:Label>
-
-    <h4>Ticket Seat Number:</h4>
-    <asp:Label ID="TicketNumber" runat="server" Text="Label"></asp:Label>
+    <h3 ID="Date" runat="server"></h3>
+    <h4 ID="Section" runat="server"></h4>
+    <h4 ID="Location" runat="server"></h4>
+    <h4 ID="Door" runat="server"></h4>
 </asp:Content>

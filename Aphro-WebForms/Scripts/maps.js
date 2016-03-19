@@ -26,6 +26,7 @@ function refreshMap() {
     var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#MainContent_BuildingKeyField').val();
     var eventLocation = $('#MainContent_EventLocation').text();
+    clearFields();
 
     $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey + '&balcony=' + balcony, function (data) {
         var buildingDataMap = [];

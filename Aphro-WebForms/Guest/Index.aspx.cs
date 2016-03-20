@@ -4,6 +4,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Aphro_WebForms.Guest
 {
@@ -13,8 +14,11 @@ namespace Aphro_WebForms.Guest
         {
             if (Global.CurrentPerson == null || Global.CurrentPerson.accountType != Account.Guest)
             {
-                Global.CurrentPerson = null;
-                Response.Redirect("Login.aspx");
+                //Global.CurrentPerson = null;
+                //Response.Redirect("Login.aspx");
+
+                // Login - for expo purposes, we are just grabbing a random guest from the DB
+                LoginRandomGuest();
             }
 
             DataTable upcomingEventsTable = new DataTable();
@@ -49,6 +53,45 @@ namespace Aphro_WebForms.Guest
             if (upcomingEvents.Count > 0)
                 EventListview.DataSource = upcomingEvents;
             EventListview.DataBind();
+        }
+
+
+        private void LoginRandomGuest()
+        {
+            DataTable guestTable = new DataTable();
+            Person guest = null;
+
+            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            {
+                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getRandomStudent ", objConn);
+                objCmd.BindByName = true;
+                objCmd.CommandType = CommandType.StoredProcedure;
+
+                objCmd.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
+                try
+                {
+                    objConn.Open();
+                    OracleDataAdapter adapter = new OracleDataAdapter(objCmd);
+                    adapter.Fill(guestTable);
+                    guest = Mapper.DynamicMap<IDataReader, List<Person>>(guestTable.CreateDataReader()).FirstOrDefault();
+                }
+                catch (Exception ex)
+                {
+                    // TODO: handle exception
+                    throw (ex);
+                }
+
+                objConn.Close();
+            }
+            if (guest != null)
+            {
+                Global.CurrentPerson = guest;
+                Global.CurrentPerson.accountType = Account.guest;
+            }
+            else
+                // TODO: handle exception
+                throw (new Exception("Could not get a random guest"));
         }
     }
 }

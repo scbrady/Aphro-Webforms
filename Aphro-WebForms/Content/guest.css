@@ -5,7 +5,12 @@
 #MainContent_CreateAccount, #MainContent_AlreadyHaveAccount {
     display: block;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
+    width: 100px;
+}
+
+#MainContent_CreateAccount:visited, #MainContent_AlreadyHaveAccount:visited {
+    color: inherit;
 }
 
 #MainContent_labelMessage {

@@ -13,6 +13,7 @@
     {
         Guest,
         Student,
-        Faculty
+        Faculty,
+        guest
     }
 }

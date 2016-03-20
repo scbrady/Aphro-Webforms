@@ -134,8 +134,8 @@
 #carousel a span {
     border: 2px solid black;
     display: block;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     margin: auto;
     background-size: cover;
 }

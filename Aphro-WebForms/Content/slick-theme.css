@@ -23,7 +23,7 @@
     line-height: 0;
 
     position: absolute;
-    top: 50%;
+    top: 35%;
 
     display: block;
 
@@ -89,11 +89,13 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    content: '<';
+    font-family: 'Courier New';
+    font-size: 30px;
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '→';
+    content: '>';
 }
 
 .slick-next
@@ -107,11 +109,13 @@
 }
 .slick-next:before
 {
-    content: '→';
+    content: '>';
+    font-family: 'Courier New';
+    font-size: 30px;
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '←';
+    content: '<';
 }
 
 /* Dots */
@@ -123,7 +127,6 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -45px;
 
     display: block;
 

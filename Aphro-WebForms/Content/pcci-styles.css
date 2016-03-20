@@ -93,7 +93,7 @@ input[type=submit]:hover, button:hover, input[type="button"]:hover {
     background: #2e6da4;
 }
 
-input[type=text], textarea {
+input[type=text], textarea, input[type=password] {
     width: 100%;
     box-sizing: border-box;
     border-radius: 5px;

@@ -139,13 +139,13 @@ footer {
     position: relative;
     width: 960px;
     margin: 10px auto 0;
-    padding: 0 0 100px;
+    padding: 0 0 20px;
 }
 
     .mainPane h1 {
         text-align: center;
         margin: 0 0 30px;
-        font-size: 3em;
+        font-size: 30px;
     }
 
 h4 {

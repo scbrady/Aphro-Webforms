@@ -86,11 +86,11 @@ namespace Aphro_WebForms.Event
                     SeasonDropDown.DataValueField = "season_id";
                     SeasonDropDown.DataSource = seasons;
                     SeasonDropDown.DataBind();
-                    SeasonDropDown.Items.Insert(0, new ListItem("No Season", "-1"));
-                    SeasonDropDown.Items.Insert(1, new ListItem("Add New Season", "-1"));
-                    SeasonDropDown.ClearSelection();
-                    SeasonDropDown.SelectedIndex = 0;
                 }
+                SeasonDropDown.Items.Insert(0, new ListItem("No Season", "-1"));
+                SeasonDropDown.Items.Insert(1, new ListItem("Add New Season", "-1"));
+                SeasonDropDown.ClearSelection();
+                SeasonDropDown.SelectedIndex = 0;
             }
         }
 

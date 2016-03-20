@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/EventPortal.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="Aphro_WebForms.Event.AddEvent" %>
+﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/EventPortal.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="Aphro_WebForms.Event.AddEvent" EnableEventValidation="false" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="HeaderSection" runat="server">
@@ -209,6 +209,7 @@
                     $('.error').hide();
 
                     $('#MainContent_SeasonDropDown').append('<option value="' + data + '">' + seasonName + '</option>');
+                    $("#MainContent_SeasonDropDown option[value='" + data + "']").prop('selected', true);
                 })
                 .fail(function () {
                     $('.error').show();

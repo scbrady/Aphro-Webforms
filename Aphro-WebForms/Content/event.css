@@ -85,6 +85,7 @@ img#imagePreview {
     margin: 1%;
     border-radius: 4px 0 4px 0;
     width: 31%;
+    height: 100px;
 }
 
     .event-item:hover {
@@ -98,7 +99,6 @@ img#imagePreview {
 
     .event-item a {
         float: right;
-        position: absolute;
         padding-left: 10px;
         padding-top: 10px;
     }
@@ -107,6 +107,11 @@ img#imagePreview {
         font-style: italic;
         font-size: .9em;
     }
+
+    .editButton {
+        padding-bottom: 10px;
+    }
+
 
 .calendar-button-fix {
     width: inherit;

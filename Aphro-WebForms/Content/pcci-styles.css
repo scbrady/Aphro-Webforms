@@ -8,6 +8,7 @@ body {
     width: 100%;
     background: url(http://www.pcci.edu/Images/Backgrounds/Crowne-Centre-Palms-Light14.jpg) no-repeat scroll center top #5AB5E2;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* The shadow of the main pane */

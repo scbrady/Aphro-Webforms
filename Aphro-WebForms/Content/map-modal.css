@@ -10,7 +10,8 @@
     background: #32a3dc;
     height: 25px;
     display: block;
+}
 
-    /*copy/paste*/
-
+.getTickets:disabled {
+    opacity: .5;
 }

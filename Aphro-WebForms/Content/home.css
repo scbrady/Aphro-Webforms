@@ -29,3 +29,48 @@ h4 {
     padding: 0 10px;
     margin: 0 auto;
 }
+
+.rows {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-bottom: 232px;
+}
+
+.col-sm-6 {
+    padding: 10px;
+}
+
+.module {
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background-color: #e6e6e6;
+    border: 2px solid #9a9a9a;
+    border-radius: 10px;
+    border-bottom: 6px solid #9a9a9a;
+    transition: background-color 0.3s ease-in, border 0.3s ease-in, border-bottom 0.3s ease-in, color 0.3s ease-in;
+}
+
+    .module:active {
+        transform: translateY(5px);
+    }
+
+    .module:hover {
+        background: #92d7ff;
+        color: black;
+    }
+
+.inner_mod {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media only screen and (max-width: 767px) {
+    .rows {
+        margin-bottom: 0px;
+    }
+}

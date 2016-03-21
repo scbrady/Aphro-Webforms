@@ -92,8 +92,6 @@ body {
 .mainPane {
     background: rgba(255,255,255,0.7);
     padding: 20px 20px 90px;
-    overflow: auto;
-    overflow-x: hidden;
     width: 90%;
     max-width: 74em;
     margin: 25px auto;

@@ -134,10 +134,11 @@
 #carousel a span {
     border: 2px solid black;
     display: block;
-    width: 250px;
+    width: 425px;
     height: 250px;
     margin: auto;
     background-size: cover;
+    background-repeat:no-repeat;
 }
 #carousel a h2 {
     

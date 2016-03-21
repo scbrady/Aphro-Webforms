@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Aphro_WebForms.Default" %>
+﻿<%@ Page Title="Home" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Aphro_WebForms.Default" %>
 
 <%@ Import Namespace="System.Web.Optimization" %>
 
@@ -14,6 +14,7 @@
         <%: Styles.Render("~/Content/home") %>
         <%: Styles.Render("~/Content/guest-css") %>
     </asp:PlaceHolder>
+    <link rel="shortcut icon" href="Content/fasticketsSymbol.ico"/>
     <title><%: Page.Title %></title>
 </head>
 <body>
@@ -22,11 +23,44 @@
         <div class="mainPane">
             <form id="form1" runat="server">
                 <img id="projectLogo" src="Content/fastickets.png" />
-                <div class="links">
-                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Event/Index.aspx">Event Dashboard</asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">Guest Dashboard</asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Student/Index.aspx">Student Dashboard</asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Employee/Index.aspx">Employee Dashboard</asp:HyperLink>
+                <div class="rows">
+                    <div class="col-sm-6">
+                        <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Event/Index.aspx">
+                            <div class="module">
+                                <div class="inner_mod">
+                                    Create an Event
+                                </div>
+                            </div>
+                        </asp:HyperLink>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">
+                            <div class="module">
+                                <div class="inner_mod">
+                                    Buy Tickets as a Guest
+                                </div>
+                            </div>
+                        </asp:HyperLink>
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Student/Index.aspx">
+                            <div class="module">
+                                <div class="inner_mod">
+                                    Buy Tickets as a Student
+                                </div>
+                            </div>
+                        </asp:HyperLink>
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:HyperLink runat="server" CssClass="websites"  NavigateUrl="~/Employee/Index.aspx">
+                            <div class="module">
+                                <div class="inner_mod">
+                                    Buy Tickets as an Employee
+                                </div>
+                            </div>
+                        </asp:HyperLink>
+                    </div>
                 </div>
             </form>
         </div>

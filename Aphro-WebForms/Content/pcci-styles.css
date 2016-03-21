@@ -89,9 +89,9 @@ input[type=submit] {
     margin-top: 40px;
 }
 
-input[type=submit]:hover, button:hover, input[type="button"]:hover {
-    background: #2e6da4;
-}
+    input[type=submit]:hover, button:hover, input[type="button"]:hover {
+        background: #2e6da4;
+    }
 
 input[type=text], textarea, input[type=password] {
     width: 100%;

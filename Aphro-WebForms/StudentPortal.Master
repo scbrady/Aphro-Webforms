@@ -14,6 +14,7 @@
     <%: Styles.Render("~/Content/student-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>
+    <link href="http://eaglesnest.pcci.edu/favicon.ico" rel="icon" type="image/x-icon" />
     <title><%: Page.Title %></title>
 </head>
 <body>

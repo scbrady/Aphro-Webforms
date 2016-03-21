@@ -14,7 +14,7 @@
         <%: Styles.Render("~/Content/home") %>
         <%: Styles.Render("~/Content/guest-css") %>
     </asp:PlaceHolder>
-    <link rel="shortcut icon" href="Content/fasticketsSymbol.ico"/>
+    <link rel="shortcut icon" href="Content/fasticketsSymbol.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>
@@ -53,7 +53,7 @@
                         </asp:HyperLink>
                     </div>
                     <div class="col-sm-6">
-                        <asp:HyperLink runat="server" CssClass="websites"  NavigateUrl="~/Employee/Index.aspx">
+                        <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Employee/Index.aspx">
                             <div class="module">
                                 <div class="inner_mod">
                                     Buy Tickets as an Employee

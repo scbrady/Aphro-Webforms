@@ -55,7 +55,6 @@ namespace Aphro_WebForms.Guest
             EventListview.DataBind();
         }
 
-
         private void LoginRandomGuest()
         {
             DataTable guestTable = new DataTable();

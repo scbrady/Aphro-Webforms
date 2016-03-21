@@ -14,28 +14,28 @@
     <%: Styles.Render("~/Content/faculty-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>
+    <link rel="icon" href="/Content/EmployeeCentralLogo.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>
     <form id="masterForm" runat="server">
 
-
         <header id="header">
             <section class="top">
                 <div class="headerContent">
-				    <div id="headerImages">
-					    <p class="EcText">Serving Pensacola Christian College and Affiliates</p>
+                    <div id="headerImages">
+                        <p class="EcText">Serving Pensacola Christian College and Affiliates</p>
                         <asp:HyperLink CssClass="EcLogo" runat="server" NavigateUrl="~/Employee/Index.aspx"></asp:HyperLink>
-					    <div class="EsLogo"></div>
-				    </div>
+                        <div class="EsLogo"></div>
+                    </div>
                     <%if (Session["CurrentPerson"] != null)
-                    { %>
+                        { %>
                     <div class="user-info">
                         <span class="user-name">Hello, <%= ((Aphro_WebForms.Models.Person)Session["CurrentPerson"]).firstname %></span>
                         <asp:LinkButton ID="Logout" runat="server" OnClick="LogoutButton_Click" Text=" Logout" />
                     </div>
                     <%} %>
-				    <div class="clearfix"></div>
+                    <div class="clearfix"></div>
                 </div>
             </section>
         </header>

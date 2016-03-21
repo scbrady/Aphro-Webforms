@@ -9,9 +9,9 @@
     width: 100px;
 }
 
-#MainContent_CreateAccount:visited, #MainContent_AlreadyHaveAccount:visited {
-    color: inherit;
-}
+    #MainContent_CreateAccount:visited, #MainContent_AlreadyHaveAccount:visited {
+        color: inherit;
+    }
 
 #MainContent_labelMessage {
     width: 75%;

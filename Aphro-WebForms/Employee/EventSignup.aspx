@@ -42,7 +42,7 @@
             <ul class="nav nav-pills nav-justified">
                 <li class="active"><a data-toggle="pill" href="#studentsTab">Invite Students</a></li>
                 <li><a data-toggle="pill" href="#guestsTab">Buy Guest Tickets</a></li>
-                <li><a data-toggle="pill" href="#facultyTab">Buy Faculty Tickets</a></li>
+                <li><a data-toggle="pill" href="#facultyTab">Faculty Tickets</a></li>
             </ul>
             <div class="tab-content">
                 <div id="studentsTab" class="tab-pane fade in active">
@@ -70,7 +70,7 @@
                     <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
-                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
+                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Rquest Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
                 </div>
             </div>
         </div>
@@ -98,6 +98,7 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:HiddenField ID="GroupSize" runat="server" />
 
+    <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
     <button type="button" class="btn btn-primary btn-lg choose-seats" data-toggle="modal" data-target="#myModal">Choose Seats</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

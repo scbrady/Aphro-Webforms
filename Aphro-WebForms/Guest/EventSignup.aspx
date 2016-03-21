@@ -49,11 +49,10 @@
                 <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
                 <asp:RangeValidator runat="server" Display="Dynamic" ID="TicketQuantityRangeValidator" CssClass="validator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
                 <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
-
-                <asp:Label ID="Error" runat="server" Text="You need to pick seats." Visible="false" />
             </div>
         </div>
 
+        <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
         <button type="button" id='choose-seats' data-toggle="modal" data-target="#myModal">Choose Seats</button>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">

@@ -57,7 +57,7 @@ namespace Aphro_WebForms.Guest
                     catch (Exception ex)
                     {
                         // TODO: Handle Exception
-                        Response.Redirect("www.google.com");
+                        Response.Redirect("Index.aspx");
                     }
 
                     try
@@ -183,7 +183,7 @@ namespace Aphro_WebForms.Guest
                     catch (Exception ex)
                     {
                         // Couldn't get those seats (probably taken), pick again
-                        throw (ex);
+                        Error.Visible = true;
                     }
 
                     objConn.Close();

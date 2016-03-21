@@ -86,7 +86,7 @@ namespace Aphro_WebForms.Guest
             if (guest != null)
             {
                 Global.CurrentPerson = guest;
-                Global.CurrentPerson.accountType = Account.guest;
+                Global.CurrentPerson.accountType = Account.Guest;
             }
             else
                 // TODO: handle exception

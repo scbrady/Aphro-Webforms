@@ -171,7 +171,7 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    Error.Visible = true;
                 }
 
                 objConn.Close();

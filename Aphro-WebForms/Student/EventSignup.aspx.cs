@@ -212,7 +212,7 @@ namespace Aphro_WebForms.Student
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    Error.Visible = true;
                 }
 
                 objConn.Close();

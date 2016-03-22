@@ -65,8 +65,8 @@ namespace Aphro_WebForms.Employee
                     }
                     catch (Exception ex)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        // This shouldn't happen, redirect them back to the event chosing page
+                        Response.Redirect("Index.aspx");
                     }
 
                     objConn.Close();
@@ -150,6 +150,7 @@ namespace Aphro_WebForms.Employee
 
         protected void GetTickets_Click(object sender, EventArgs e)
         {
+            bool error = false;
             SeriesId = int.Parse(SeriesIdField.Value);
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -171,16 +172,20 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    Error.Visible = true;
+                    Error.Text = "Those seats are no longer available.Please pick new seats.";
+                   Error.Visible = true;
+                    error = true;
                 }
 
                 objConn.Close();
-                Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             }
+            if (!error)
+                Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
         }
 
         protected void GetExtraTickets_Click(object sender, EventArgs e)
         {
+            bool error = false;
             SeriesId = int.Parse(SeriesIdField.Value);
             int extraTickets = int.Parse(TicketQuantity.Text);
 
@@ -205,16 +210,20 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    error = true;
+                    Error.Text = "There was a problem purchasing tickets, please try again.";
+                    Error.Visible = true;
                 }
 
                 objConn.Close();
             }
-            Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
+            if(!error)
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
         }
 
         protected void GetExtraFacultyTickets_Click(object sender, EventArgs e)
         {
+            bool error = false;
             SeriesId = int.Parse(SeriesIdField.Value);
             int extraTickets = int.Parse(FacultyTicketQuantity.Text);
 
@@ -239,12 +248,15 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    error = true;
+                    Error.Text = "There was a problem purchasing tickets, please try again.";
+                    Error.Visible = true;
                 }
 
                 objConn.Close();
             }
-            Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
+            if (!error)
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
         }
     }
 }

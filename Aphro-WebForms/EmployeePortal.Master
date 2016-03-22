@@ -14,7 +14,7 @@
     <%: Styles.Render("~/Content/faculty-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>
-    <link rel="icon" href="/Content/EmployeeCentralLogo.ico" />
+    <link rel="icon" href="~/Content/AbsFavicon.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>

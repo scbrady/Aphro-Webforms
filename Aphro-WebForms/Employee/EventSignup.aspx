@@ -8,6 +8,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="EventName" runat="server"></h1>
+    <asp:Label ID="Error" runat="server"  Visible="false" />
     <div class="row">
         <div class="col-md-6">
             <h4>Group:</h4>
@@ -60,7 +61,7 @@
                 <div id="guestsTab" class="tab-pane fade">
                     <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
                     <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
-                    <br />
+                    <br /><br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
@@ -70,7 +71,7 @@
                     <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <asp:TextBox TextMode="Number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
-                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Rquest Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
+                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Request Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
                 </div>
             </div>
         </div>
@@ -98,7 +99,6 @@
     <asp:HiddenField ID="SelectedRow" runat="server" />
     <asp:HiddenField ID="GroupSize" runat="server" />
 
-    <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
     <button type="button" class="btn btn-primary btn-lg choose-seats" data-toggle="modal" data-target="#myModal">Choose Seats</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

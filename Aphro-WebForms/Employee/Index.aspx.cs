@@ -39,8 +39,7 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    // TODO: Handle Exception
-                    throw (ex);
+                    Response.Redirect("../Default.aspx");
                 }
 
                 objConn.Close();
@@ -74,8 +73,7 @@ namespace Aphro_WebForms.Employee
                 }
                 catch (Exception ex)
                 {
-                    // TODO: handle exception
-                    throw (ex);
+                    Response.Redirect("../Default.aspx");
                 }
 
                 objConn.Close();
@@ -86,8 +84,7 @@ namespace Aphro_WebForms.Employee
                 Global.CurrentPerson.accountType = Account.Faculty;
             }
             else
-                // TODO: handle exception
-                throw (new Exception("Could not get a random employee"));
+                Response.Redirect("../Default.aspx");
         }
     }
 }

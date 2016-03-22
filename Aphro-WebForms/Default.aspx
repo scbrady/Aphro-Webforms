@@ -14,7 +14,7 @@
         <%: Styles.Render("~/Content/home") %>
         <%: Styles.Render("~/Content/guest-css") %>
     </asp:PlaceHolder>
-    <link rel="shortcut icon" href="Content/fasticketsSymbol.ico" />
+    <link rel="shortcut icon" href="~/Content/fasticketsSymbol.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>

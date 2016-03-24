@@ -31,5 +31,11 @@ namespace Aphro_WebForms.Models
 
         [JsonProperty("row")]
         public string Seat_Row { get; set; }
+
+        [JsonProperty("prime")]
+        public int Prime_Row { get; set; }
+
+        [JsonProperty("prime-seat")]
+        public string Is_Prime_Seat { get; set; }
     }
 }

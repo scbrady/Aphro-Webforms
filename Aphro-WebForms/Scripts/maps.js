@@ -65,9 +65,10 @@ function refreshMap() {
                                         metaData["name"] = this.row;
                                         metaData["section"] = this.section;
                                         metaData["subsection"] = this.subsection;
+                                        metaData["prime"] = this.prime;
                                         metaData["row"] = this.row;
                                         metaData["join"] = this.row;
-                                        metaData["value"] = this.seats;
+                                        metaData["value"] = this.value;
                                         sectionDataArray.push(metaData);
                                     }
 
@@ -108,6 +109,7 @@ function refreshMap() {
                     }
                 }
             },
+
             plotOptions: {
                 series: {
                     point: {
@@ -126,11 +128,30 @@ function refreshMap() {
                     }
                 }
             },
+            legend: {
+                align: 'left',
+                y: 10,
+                verticalAlign: 'top',
+                floating: true,
+                layout: 'vertical',
+                valueDecimals: 0,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)'
+            },
+            colorAxis: {
+                dataClasses: [{
+                    from: 0,
+                    to: 0,
+                    color: '#C40401',
+                    name: 'Regular'
+                }, {
+                    from: 1,
+                    to: 1,
+                    color: '#0200D0',
+                    name: 'Prime'
+                }]
+            },
             title: {
                 text: eventLocation
-            },
-            legend: {
-                enabled: false
             },
             mapNavigation: {
                 enabled: false
@@ -153,10 +174,11 @@ function refreshMap() {
                     relativeTo: 'spacingBox',
                     position: {
                         x: 0,
-                        y: 60
+                        y: 50
                     }
                 }
-            }
+            },
+            colors: ['#000']
         });
     });
 }

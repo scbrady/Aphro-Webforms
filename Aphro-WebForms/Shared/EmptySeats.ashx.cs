@@ -171,7 +171,10 @@ namespace Aphro_WebForms.Shared
                     foreach (var row in section.Data)
                     {
                         if (row.Seat_Row == seat.Seat_Row)
+                        {
                             row.Empty_Seats = seat.Empty_Seats;
+                            row.Prime_Row = string.IsNullOrEmpty(seat.Is_Prime_Seat) ? 0 : 1;
+                        }
                     }
                 }
             }

@@ -53,15 +53,7 @@ namespace Aphro_WebForms.Guest
                         requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                         requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                    }
-                    catch (Exception ex)
-                    {
-                        // TODO: Handle Exception
-                        Response.Redirect("Index.aspx");
-                    }
 
-                    try
-                    {
                         // Execute the queries and auto map the results to models
                         objConn.Open();
                         var eventAdapter = new OracleDataAdapter(eventCommand);
@@ -74,8 +66,7 @@ namespace Aphro_WebForms.Guest
                     }
                     catch (Exception ex)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        Response.Redirect("Index.aspx");
                     }
 
                     objConn.Close();

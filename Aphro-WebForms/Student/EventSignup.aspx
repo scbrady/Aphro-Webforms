@@ -60,7 +60,7 @@
                     <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
                     <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
                     <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize"></asp:CustomValidator>
                     <asp:Button Style="display: block; margin: 10px auto 0; width: 50%" ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>

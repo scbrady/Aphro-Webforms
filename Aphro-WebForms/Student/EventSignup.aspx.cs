@@ -18,6 +18,8 @@ namespace Aphro_WebForms.Student
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            TicketQuantity.Attributes.Add("readonly", "readonly");
+
             if (!IsPostBack)
             {
                 if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))

@@ -21,6 +21,9 @@ namespace Aphro_WebForms.Employee
         {
             if (!IsPostBack)
             {
+                TicketQuantity.Attributes.Add("readonly", "readonly");
+                FacultyTicketQuantity.Attributes.Add("readonly", "readonly");
+
                 if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))
                     Response.Redirect("Index.aspx");
 

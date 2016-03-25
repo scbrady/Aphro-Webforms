@@ -86,11 +86,11 @@ function refreshMap() {
                                     cursor: 'pointer',
                                     states: {
                                         hover: {
-                                            color: '#BADA55'
+                                            color: '#3BFFB0' // light emerald
                                         },
                                         select: {
-                                            color: '#006D91',
-                                            borderColor: 'black',
+                                            color: '#6464D1',      // light purple
+                                            borderColor: '#B0B0B0', // border grey
                                             dashStyle: 'dot'
                                         }
                                     },
@@ -143,12 +143,12 @@ function refreshMap() {
                 dataClasses: [{
                     from: 0,
                     to: 0,
-                    color: '#C40401',
+                    color: '#BDE5F2', // light blue
                     name: 'Regular'
                 }, {
                     from: 1,
                     to: 1,
-                    color: '#0200D0',
+                    color: '#E4BDF2', // light purple
                     name: 'Prime'
                 }]
             },
@@ -196,7 +196,7 @@ function refreshMap() {
                     }
                 }
             },
-            colors: ['#000']
+            colors: ['#E8E5E3'] // light grey
         });
     });
 }

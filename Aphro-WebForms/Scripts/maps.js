@@ -109,7 +109,9 @@ function refreshMap() {
                     }
                 }
             },
-
+            lang: {
+                drillUpText: 'Back'
+            },
             plotOptions: {
                 series: {
                     point: {
@@ -175,6 +177,22 @@ function refreshMap() {
                     position: {
                         x: 0,
                         y: 50
+                    },
+                    theme: {
+                        fill: '#32a3dc',
+                        stroke: 'silver',
+                        r: 3,
+                        states: {
+                            hover: {
+                                fill: '#2e6da4'
+                            },
+                            select: {
+                                fill: '#2e6da4'
+                            }
+                        },
+                        style: {
+                            color: 'white'
+                        }
                     }
                 }
             },

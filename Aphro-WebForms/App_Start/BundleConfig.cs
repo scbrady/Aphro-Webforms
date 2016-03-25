@@ -29,7 +29,8 @@ namespace Aphro_WebForms
                       "~/Scripts/rome.standalone.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/map").Include(
-                      "~/Scripts/maps.js"));
+                      "~/Scripts/maps.js",
+                      "~/Scripts/plus_minus_buttons.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/group_requests").Include(
                       "~/Scripts/group_requests.js"));

@@ -54,7 +54,7 @@
                     <div class="modal-body">
                         <div class="interactiveMap" id="map"></div>
                         <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
-                        <p>Price: $<span id="priceField"></span></p>
+                        <h4 id="priceText">Price: $<span id="priceField"></span></h4>
                         <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
                     </div>
                 </div>
@@ -66,41 +66,4 @@
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/highmaps") %>
     <%: Scripts.Render("~/bundles/map") %>
-    <script>
-        $('.add-qty').click(function (e) {
-            // Stops the button from being a button
-            e.preventDefault();
-
-            // Set the needed variables
-            field_name = $(this).attr('field');
-            var max_val = 10;
-            var current_val = parseInt($('#' + field_name).val());
-
-            // Make sure counter can't go higher than max_val
-            if (!isNaN(current_val) && current_val < max_val) {
-                $('#' + field_name).val(current_val + 1);
-            } else if (current_val == max_val) {
-                $('#' + field_name).val(max_val);
-            } else {
-                // Just in case something goes wrong, you get 0. Sorry bud
-                $('#' + field_name).val(0);
-            }
-        });
-        $(".sub-qty").click(function (e) {
-            // Stops the button from being a button
-            e.preventDefault();
-
-            // Set the needed variables
-            field_name = $(this).attr('field');
-            var min_val = 1;
-            var current_val = parseInt($('#' + field_name).val());
-
-            // Make sure counter can't go lower than min_val
-            if (!isNaN(current_val) && current_val > min_val) {
-                $('#' + field_name).val(current_val - 1);
-            } else {
-                $('#' + field_name).val(min_val);
-            }
-        });
-    </script>
 </asp:Content>

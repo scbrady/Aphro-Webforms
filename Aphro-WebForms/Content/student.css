@@ -95,6 +95,7 @@ body {
     width: 90%;
     max-width: 74em;
     margin: 25px auto;
+    min-height: 300px;
 }
 
     .mainPane h1 {
@@ -233,7 +234,8 @@ a.panel-heading {
     background-size: 85%;
 }
 
-input[type=submit] {
+input[type=submit],
+input[type=button] {
     width: inherit;
     height: 33px;
     color: white;
@@ -248,8 +250,20 @@ input[type=submit] {
     margin-top: 6px;
 }
 
+input[type=button] {
+    width: 35px;
+    height: 35px;
+}
+
 input[type=text] {
     display: inline;
+}
+
+input[type=number] {
+    text-align: end;
+    padding: 5px 0;
+    width: 35px;
+    height: 35px;
 }
 
 .error {
@@ -296,7 +310,7 @@ h4 {
 
 .nav-pills > li > a:hover {
     background: transparent;
-    font-weight: bold;
+    color: #656565;
 }
 
 .guestTab > li {
@@ -325,7 +339,8 @@ h4 {
 }
 
 #MainContent_TicketQuantityRangeValidator {
-    line-height: 46px;
+    display: inline-block;
+    margin: auto;
 }
 
 #MainContent_GroupRequestContainer {

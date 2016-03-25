@@ -10,6 +10,10 @@
     background: #32a3dc;
     height: 25px;
     display: block;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 0 25px;
 }
 
 .getTickets:disabled {

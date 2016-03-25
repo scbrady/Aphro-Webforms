@@ -5,6 +5,9 @@
     // Set the needed variables
     field_name = $(this).attr('field');
     var max_val = 10;
+    var group_size;
+    if ((group_size = parseInt($("#MainContent_GroupSize").val(), 10)) != null)
+        max_val = 10 - group_size;
     var current_val = parseInt($('#' + field_name).val());
 
     // Make sure counter can't go higher than max_val

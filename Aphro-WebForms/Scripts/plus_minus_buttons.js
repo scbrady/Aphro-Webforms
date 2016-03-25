@@ -4,7 +4,7 @@
 
     // Set the needed variables
     field_name = $(this).attr('field');
-    var max_val = 9;
+    var max_val = 10;
     var current_val = parseInt($('#' + field_name).val());
 
     // Make sure counter can't go higher than max_val

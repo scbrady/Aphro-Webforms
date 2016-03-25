@@ -138,6 +138,16 @@ img#imagePreview {
     display: none;
 }
 
+.col-sm-4 {
+    width: 30%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.row {
+    padding: 0 15px;
+}
+
 @media screen and (max-width: 767px) {
     .event-item {
         width: 48%;

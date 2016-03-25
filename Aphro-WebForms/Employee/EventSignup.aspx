@@ -8,20 +8,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="EventName" runat="server"></h1>
-    <asp:Label ID="Error" runat="server"  Visible="false" />
+    <asp:Label ID="Error" runat="server" Visible="false" />
     <div class="row">
         <div class="col-md-6">
             <h4>Group:</h4>
             <div id="GroupRequestContainer" runat="server">
                 <% if (GuestTickets > 0)
-                   { %>
-                       <p><%= GuestTickets %> Guest Tickets</p>
-                       <hr />
-                <% } 
-                   if (FacultyTickets > 0)
-                   { %>
-                       <p><%= FacultyTickets %> Faculty Tickets</p>
-                       <hr />
+                    { %>
+                <p><%= GuestTickets %> Guest Tickets</p>
+                <hr />
+                <% }
+                    if (FacultyTickets > 0)
+                    { %>
+                <p><%= FacultyTickets %> Faculty Tickets</p>
+                <hr />
                 <% } %>
                 <asp:ListView ID="GroupList" runat="server">
                     <LayoutTemplate>
@@ -59,19 +59,25 @@
                     </div>
                 </div>
                 <div id="guestsTab" class="tab-pane fade">
-                    <span class="pull-left">Regular Price: <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
-                    <span class="pull-right">Prime Price: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
-                    <br /><br />
+                    <span class="pull-left">Regular Price:
+                        <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
+                    <span class="pull-right">Prime Price:
+                        <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
+                    <br />
                     <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
-                    <asp:TextBox TextMode="Number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
-                    <asp:Button ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0" ReadOnly="true"></asp:TextBox>
+                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
+                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize"></asp:CustomValidator>
+                    <asp:Button Style="display: block; margin: 20px auto 0; width: 50%" ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
                 </div>
                 <div id="facultyTab" class="tab-pane fade">
                     <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
-                    <asp:TextBox TextMode="Number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize" ></asp:CustomValidator>
-                    <asp:Button ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Request Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
+                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0" ReadOnly="true"></asp:TextBox>
+                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
+                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize"></asp:CustomValidator>
+                    <asp:Button Style="display: block; margin: 20px auto; width: 50%" ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Request Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
                 </div>
             </div>
         </div>
@@ -119,4 +125,42 @@
     <%: Scripts.Render("~/bundles/map") %>
     <%: Scripts.Render("~/bundles/jquery-ui") %>
     <%: Scripts.Render("~/bundles/group_requests") %>
+
+    <script>
+        $('.add-qty').click(function (e) {
+            // Stops the button from being a button
+            e.preventDefault();
+
+            // Set the needed variables
+            field_name = $(this).attr('field');
+            var max_val = 9;
+            var current_val = parseInt($('#' + field_name).val());
+
+            // Make sure counter can't go higher than max_val
+            if (!isNaN(current_val) && current_val < max_val) {
+                $('#' + field_name).val(current_val + 1);
+            } else if (current_val == max_val) {
+                $('#' + field_name).val(max_val);
+            } else {
+                // Just in case something goes wrong, you get 0. Sorry bud
+                $('#' + field_name).val(0);
+            }
+        });
+        $(".sub-qty").click(function (e) {
+            // Stops the button from being a button
+            e.preventDefault();
+
+            // Set the needed variables
+            field_name = $(this).attr('field');
+            var min_val = 0;
+            var current_val = parseInt($('#' + field_name).val());
+
+            // Make sure counter can't go lower than min_val
+            if (!isNaN(current_val) && current_val > min_val) {
+                $('#' + field_name).val(current_val - 1);
+            } else {
+                $('#' + field_name).val(min_val);
+            }
+        });
+    </script>
 </asp:Content>

@@ -8,8 +8,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="eventSignup">
-        <h1 class="eName">
-            <asp:Label ID="EventName" runat="server"></asp:Label></h1>
+        <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
+        <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
         <div class="row">
             <div class="col-md-7">
                 <div class="Description">
@@ -40,19 +40,13 @@
                 <asp:HiddenField ID="SelectedSubsection" runat="server" />
                 <asp:HiddenField ID="SelectedRow" runat="server" />
 
-                <h3>Current Group Size: </h3>
-                <asp:Label ID="GroupSize" runat="server"></asp:Label>
-
                 <h3 id="ticketNumber">Number of Tickets:</h3>
-                <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                <asp:RangeValidator runat="server" Display="Dynamic" ID="TicketQuantityRangeValidator" CssClass="validator" ValidationGroup="buyTicketsValidator" Type="Integer" MinimumValue="0" MaximumValue="1" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" />
-                <asp:Button ID="GetExtraTickets" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+                <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GroupSize' />
+                <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GroupSize" runat="server" min="1" max="10" step="1" value="1"></asp:TextBox>
+                <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GroupSize' />
             </div>
         </div>
 
-        <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
         <button type="button" id='choose-seats' data-toggle="modal" data-target="#myModal">Choose Seats</button>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -60,6 +54,7 @@
                     <div class="modal-body">
                         <div class="interactiveMap" id="map"></div>
                         <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
+                        <p>Price: $<span id="priceField"></span></p>
                         <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
                     </div>
                 </div>
@@ -78,7 +73,7 @@
 
             // Set the needed variables
             field_name = $(this).attr('field');
-            var max_val = 9;
+            var max_val = 10;
             var current_val = parseInt($('#' + field_name).val());
 
             // Make sure counter can't go higher than max_val
@@ -97,7 +92,7 @@
 
             // Set the needed variables
             field_name = $(this).attr('field');
-            var min_val = 0;
+            var min_val = 1;
             var current_val = parseInt($('#' + field_name).val());
 
             // Make sure counter can't go lower than min_val

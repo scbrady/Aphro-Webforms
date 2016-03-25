@@ -188,6 +188,7 @@ function clearFields() {
     $('#MainContent_SelectedSection').val('');
     $('#MainContent_SelectedSubsection').val('');
     $('#MainContent_SelectedRow').val('');
+    $('#priceField').text('0.00');
 }
 
 function setFields(selectedSeat) {
@@ -195,4 +196,13 @@ function setFields(selectedSeat) {
     $('#MainContent_SelectedSection').val(selectedSeat.section);
     $('#MainContent_SelectedSubsection').val(selectedSeat.subsection);
     $('#MainContent_SelectedRow').val(selectedSeat.row);
+
+    var groupSize = parseInt($("#MainContent_GroupSize").val(), 10);
+    var price;
+    if (selectedSeat.prime == 0)
+        price = parseFloat($("#MainContent_EventPrice").text().replace("$", ""));
+    else
+        price = parseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
+
+    $('#priceField').text((groupSize * price).toFixed(2));
 }

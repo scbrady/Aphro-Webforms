@@ -9,7 +9,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="eventSignup">
         <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
-        <asp:Label ID="Error" runat="server" Text="Those seats are no longer available. Please pick new seats." Visible="false" />
+        <asp:Label ID="Error" runat="server" Visible="false" />
         <div class="row">
             <div class="col-md-7">
                 <div class="Description">
@@ -40,10 +40,15 @@
                 <asp:HiddenField ID="SelectedSubsection" runat="server" />
                 <asp:HiddenField ID="SelectedRow" runat="server" />
 
+                <%if (AlreadyPurchasedTickets > 0) { %>
+                <h3>Already Purchased Tickets:</h3>
+                <asp:Label ID="GroupSize" runat="server"></asp:Label>
+                <% } %>
+
                 <h3 id="ticketNumber">Number of Tickets:</h3>
-                <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GroupSize' />
-                <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GroupSize" runat="server" min="1" max="10" step="1" value="1"></asp:TextBox>
-                <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GroupSize' />
+                <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
+                <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GuestTicketsSize" runat="server" min="1" max="10" step="1" value="1"></asp:TextBox>
+                <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
             </div>
         </div>
 

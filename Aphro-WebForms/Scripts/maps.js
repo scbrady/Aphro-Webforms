@@ -26,13 +26,20 @@ function refreshMap() {
     var eventId = $('#MainContent_EventDateDropDown').val();
     var buildingkey = $('#MainContent_BuildingKeyField').val();
     var eventLocation = $('#MainContent_EventLocation').text();
+
+    var groupSizeElement;
+    if ($("#MainContent_GroupSize").length)
+        groupSizeElement = $("#MainContent_GroupSize");
+    else
+        groupSizeElement = $("#MainContent_GuestTicketsSize");
+
     clearFields();
 
     $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey + '&balcony=' + balcony, function (data) {
         var buildingDataMap = [];
         var buildingDataArray = [];
         $.each(data.data, function (i) {
-            if (this.seats >= $("#MainContent_GroupSize").val()) {
+            if (this.seats >= groupSizeElement.val()) {
                 var metaData = {}
                 metaData["name"] = this.name;
                 metaData["join"] = this.section + "-" + this.subsection;
@@ -60,7 +67,7 @@ function refreshMap() {
                                 var sectionDataMap = [];
                                 var sectionDataArray = [];
                                 $.each(data.data, function (i) {
-                                    if (this.seats >= $("#MainContent_GroupSize").val()) {
+                                    if (this.seats >= groupSizeElement.val()) {
                                         var metaData = {}
                                         metaData["name"] = this.row;
                                         metaData["section"] = this.section;
@@ -215,7 +222,7 @@ function setFields(selectedSeat) {
     $('#MainContent_SelectedSubsection').val(selectedSeat.subsection);
     $('#MainContent_SelectedRow').val(selectedSeat.row);
 
-    var groupSize = parseInt($("#MainContent_GroupSize").val(), 10);
+    var groupSize = parseInt($("#MainContent_GuestTicketsSize").val(), 10);
     var price;
     if (selectedSeat.prime == 0)
         price = parseFloat($("#MainContent_EventPrice").text().replace("$", ""));

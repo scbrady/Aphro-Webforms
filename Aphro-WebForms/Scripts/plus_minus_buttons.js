@@ -6,7 +6,7 @@
     field_name = $(this).attr('field');
     var max_val = 10;
     var group_size;
-    if ((group_size = parseInt($("#MainContent_GroupSize").val(), 10)) != null)
+    if (!isNaN(group_size = parseInt($("#MainContent_GroupSize").text(), 10)) || !isNaN(group_size = parseInt($("#MainContent_GroupSize").val(), 10)))
         max_val = 10 - group_size;
     var current_val = parseInt($('#' + field_name).val());
 
@@ -27,6 +27,8 @@ $(".sub-qty").click(function (e) {
     // Set the needed variables
     field_name = $(this).attr('field');
     var min_val = 0;
+    if (!$("#MainContent_GroupSize").length)
+        min_val = 1;
     var current_val = parseInt($('#' + field_name).val());
 
     // Make sure counter can't go lower than min_val

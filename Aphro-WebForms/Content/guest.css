@@ -20,6 +20,14 @@
     color: #EC4040;
 }
 
+#MainContent_Error {
+    color: red;
+    font-size: 1.3em;
+    margin: 0 auto 25px;
+    display: block;
+    text-align: center;
+}
+
 /* Joe's Stuff */
 #MainContent_EventName {
     display: block;

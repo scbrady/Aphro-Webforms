@@ -1,4 +1,6 @@
-﻿$('.add-qty').click(function (e) {
+﻿$('.sub-qty').css("opacity",".5")
+
+$('.add-qty').click(function (e) {
     // Stops the button from being a button
     e.preventDefault();
 
@@ -29,8 +31,19 @@
 
     // Make sure counter can't go higher than max_val
     if (!isNaN(current_val) && current_val < max_val) {
+        $(".add-qty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+        $(".sub-qty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+        if (current_val == (max_val - 1))
+        {
+            $(".add-qty").addClass("disabled");
+            $("input.disabled").css("opacity", ".5");
+        }
         $('#' + field_name).val(current_val + 1);
     } else if (current_val == max_val) {
+        $(".add-qty").addClass("disabled");
+        $("input.disabled").css("opacity", ".5");
         $('#' + field_name).val(max_val);
     } else {
         // Just in case something goes wrong, you get 0. Sorry bud
@@ -50,8 +63,19 @@ $(".sub-qty").click(function (e) {
 
     // Make sure counter can't go lower than min_val
     if (!isNaN(current_val) && current_val > min_val) {
+        $(".sub-qty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+        $(".add-qty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+        if (current_val == (min_val + 1))
+        {
+            $(".sub-qty").addClass("disabled");
+            $("input.disabled").css("opacity", ".5");
+        }
         $('#' + field_name).val(current_val - 1);
     } else {
+        $(".sub-qty").addClass("disabled");
+        $("input.disabled").css("opacity", ".5");
         $('#' + field_name).val(min_val);
     }
 });

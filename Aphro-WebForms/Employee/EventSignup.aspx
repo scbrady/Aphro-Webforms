@@ -61,9 +61,9 @@
                 <!-- Faculty Request -->
                 <label id="facultyTicketNumber" for="MainContent_FacultyTicketsSize">Number of Faculty Tickets:</label>
                 <div>
-                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
+                    <input type='button' value='-' class='subfaculty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
                     <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="FacultyTicketsSize" runat="server" step="1" value="0"></asp:TextBox>
-                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
+                    <input type='button' value='+' class='addfaculty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
                 </div>
             </div>
         </div>

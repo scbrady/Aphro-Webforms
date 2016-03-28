@@ -43,7 +43,7 @@ namespace Aphro_WebForms.Student
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                 }
 
                 objConn.Close();

@@ -43,7 +43,7 @@ namespace Aphro_WebForms.Guest
                 }
                 catch (Exception ex)
                 {
-                    Response.Redirect("Index.aspx");
+                    Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                 }
 
                 objConn.Close();

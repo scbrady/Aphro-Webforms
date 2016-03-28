@@ -59,8 +59,7 @@ namespace Aphro_WebForms.Student
                     }
                     catch (Exception ex)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                     }
 
                     objConn.Close();
@@ -101,6 +100,8 @@ namespace Aphro_WebForms.Student
 
         protected void AcceptButton_Click(object sender, EventArgs e)
         {
+            bool failed = false;
+
             SeriesId = int.Parse(SeriesIdField.Value);
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -119,20 +120,25 @@ namespace Aphro_WebForms.Student
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    failed = true;
+                    Error.Text = "Could not accept the group. Try again later";
+                    Error.Visible = true;
                 }
 
                 objConn.Close();
             }
-            Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
+            
+            if (!failed)
+                Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
         }
 
         protected void RejectButton_Click(object sender, EventArgs e)
         {
+            bool failed = false;
             SeriesId = int.Parse(SeriesIdField.Value);
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                // Set up the accepting group command
+                // Set up the rejecting group command
                 var rejectCommand = new OracleCommand("TICKETS_API.rejectRequest", objConn);
                 rejectCommand.BindByName = true;
                 rejectCommand.CommandType = CommandType.StoredProcedure;
@@ -147,12 +153,16 @@ namespace Aphro_WebForms.Student
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    failed = true;
+                    Error.Text = "Could not reject group. Try again later.";
+                    Error.Visible = true;
                 }
 
                 objConn.Close();
             }
-            Response.Redirect("ChooseGroup.aspx?Series=" + SeriesId);
+
+            if (!failed)
+                Response.Redirect("ChooseGroup.aspx?Series=" + SeriesId);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="EventName" runat="server"></h1>
+    <asp:Label ID="Error" runat="server" Visible="false" />
     <div class="col-md-6">
         <div class="event-summary">
             Summary:

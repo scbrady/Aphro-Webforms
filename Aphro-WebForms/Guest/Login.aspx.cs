@@ -48,7 +48,7 @@ namespace Aphro_WebForms.Guest
                 }
                 catch (Exception ex)
                 {
-                    labelMessage.Text = ex.ToString();
+                    labelMessage.Text = "Could not login. Try again later.";
                 }
 
                 objConn.Close();

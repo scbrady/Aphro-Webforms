@@ -47,7 +47,7 @@ namespace Aphro_WebForms.Guest
                     }
                     catch (Exception ex)
                     {
-                        labelMessage.Text = ex.ToString();
+                        labelMessage.Text = "Could not register. Try again later.";
                     }
 
                     objConn.Close();

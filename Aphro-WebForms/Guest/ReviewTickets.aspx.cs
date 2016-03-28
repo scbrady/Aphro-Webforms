@@ -43,7 +43,7 @@ namespace Aphro_WebForms.Guest
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                    Response.Redirect("Index.aspx");
                 }
 
                 objConn.Close();

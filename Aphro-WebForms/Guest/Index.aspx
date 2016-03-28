@@ -9,7 +9,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="label">Select an Event to Purchase Tickets</h1>
 
-    <asp:ListView ID="EventListview" runat="server">
+    <asp:ListView ID="EventListView" runat="server">
         <LayoutTemplate>
             <div id="carousel" class=" panels-backface-invisible">
                 <div id="itemPlaceholder" runat="server">

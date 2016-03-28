@@ -10,15 +10,24 @@
 namespace Aphro_WebForms.Guest {
     
     
-    public partial class Index {
+    public partial class BuySeasonTickets {
         
         /// <summary>
-        /// EventListView control.
+        /// SeasonDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView EventListView;
+        protected global::System.Web.UI.WebControls.DropDownList SeasonDropDown;
+        
+        /// <summary>
+        /// Submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }

@@ -50,8 +50,8 @@ namespace Aphro_WebForms.Guest
 
             // Fill list dropdowns with data from the database
             if (upcomingEvents.Count > 0)
-                EventListview.DataSource = upcomingEvents;
-            EventListview.DataBind();
+                EventListView.DataSource = upcomingEvents;
+            EventListView.DataBind();
         }
 
         private void LoginRandomGuest()

@@ -13,5 +13,9 @@ namespace Aphro_WebForms
             Global.CurrentPerson = null;
             Response.Redirect("~/Default.aspx");
         }
+        protected void BuySeasonTickets_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Guest/BuySeasonTickets.aspx");
+        }
     }
 }

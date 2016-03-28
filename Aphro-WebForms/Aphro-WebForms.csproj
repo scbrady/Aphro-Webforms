@@ -136,6 +136,7 @@
     <Content Include="Content\slick.css" />
     <Content Include="Employee\ReviewTickets.aspx" />
     <Content Include="Event\EditEvent.aspx" />
+    <Content Include="Guest\BuySeasonTickets.aspx" />
     <Content Include="Scripts\group_requests.js" />
     <Content Include="Scripts\plus_minus_buttons.js" />
     <Content Include="Scripts\rome.standalone.js" />
@@ -335,6 +336,13 @@
     </Compile>
     <Compile Include="GuestPortal.Master.designer.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\BuySeasonTickets.aspx.cs">
+      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guest\BuySeasonTickets.aspx.designer.cs">
+      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Guest\ReviewTickets.aspx.cs">
       <DependentUpon>ReviewTickets.aspx</DependentUpon>

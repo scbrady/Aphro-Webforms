@@ -35,19 +35,17 @@ namespace Aphro_WebForms.Guest
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
-                    // Set up the commands
-                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
-
                     try
                     {
                         // Set up the getEvent command
+                        var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
                         eventCommand.BindByName = true;
                         eventCommand.CommandType = CommandType.StoredProcedure;
                         eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                         // Set up the getGroupRequestsForEvent command
+                        var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
                         requestsCommand.BindByName = true;
                         requestsCommand.CommandType = CommandType.StoredProcedure;
                         requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
@@ -193,17 +191,22 @@ namespace Aphro_WebForms.Guest
 
             int.TryParse(GroupSize.Text, out AlreadyPurchasedTickets);
 
-            if (!long.TryParse(SeriesIdField.Value, out SeriesId) ||  !int.TryParse(GuestTicketsSize.Text, out extraTickets) ||
-                (AlreadyPurchasedTickets == 0 && (extraTickets <= 0 || extraTickets > 10)) ||
-                (AlreadyPurchasedTickets >  0 && (extraTickets <  0 || extraTickets > 10 - AlreadyPurchasedTickets)))
+            if (!long.TryParse(SeriesIdField.Value, out SeriesId) ||  !int.TryParse(GuestTicketsSize.Text, out extraTickets))
             {
                 Error.Text = "Could not buy extra tickets, try again later.";
                 return false;
             }
 
+            if ((AlreadyPurchasedTickets == 0 && (extraTickets <= 0 || extraTickets > 10)) ||
+                (AlreadyPurchasedTickets >  0 && (extraTickets <  0 || extraTickets > 10 - AlreadyPurchasedTickets)))
+            {
+                Error.Text = "You may not have more than 10 members in your group (including yourself).";
+                return false;
+            }
+
             extraTickets = AlreadyPurchasedTickets == 0 ? extraTickets - 1 : extraTickets;
 
-            if (extraTickets >= 0)
+            if (extraTickets > 0)
             {
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {

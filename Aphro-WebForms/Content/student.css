@@ -31,6 +31,10 @@ body {
         z-index: 50000;
     }
 
+label {
+    margin: 10px 0 0;
+}
+
 .top-bar {
     background: #035082;
     height: auto;
@@ -89,9 +93,17 @@ body {
     padding-left: 114px;
 }
 
+#MainContent_Error {
+    color: red;
+    font-size: 1.3em;
+    margin: 0 auto 25px;
+    display: block;
+    text-align: center;
+}
+
 .mainPane {
     background: rgba(255,255,255,0.7);
-    padding: 20px 20px 90px;
+    padding: 30px 20px;
     width: 90%;
     max-width: 74em;
     margin: 25px auto;
@@ -100,72 +112,10 @@ body {
 
     .mainPane h1 {
         text-align: center;
-        margin-bottom: 60px;
+        font-size: 3em;
+        margin-bottom: 30px;
+        margin-top: 0;
     }
-
-.Signup {
-    width: 300px;
-    height: 300px;
-}
-
-.Date select {
-    width: 100%;
-    height: 40px;
-    background-color: #acadaf;
-    padding: .5em;
-    padding-right: 2.5em;
-    border: 0;
-    margin: 0;
-    border-radius: 5px;
-    text-indent: 0.01px;
-    font-size: 18px;
-}
-
-.group input {
-    padding: 0 20px 0 25px;
-}
-
-.Status #box {
-    width: 100%;
-    height: 40px;
-    background-color: #F7F5F5;
-    border: 1px solid #ccc;
-    padding: .5em;
-    padding-right: 2.5em;
-    margin: 0;
-    border-radius: 5px;
-    text-align: left;
-    font-size: 18px;
-}
-
-#personStatus {
-    margin: -22px auto;
-    font-size: 12px;
-    text-align: right;
-}
-
-.container input[type=submit] {
-    background: #acadaf;
-    border: 1px solid #ccc;
-}
-
-    .container input[type=submit]:hover {
-        background: #ccc;
-        border: 1px solid #acadaf;
-    }
-
-.sfMap {
-    width: 475px;
-    height: 313px;
-    border-radius: 5px;
-    background-image: url('Capture.JPG');
-    background-size: 475px 313px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid #ccc;
-    margin-top: -382px;
-    margin-left: 350px;
-}
 
 /* Group Request List */
 a.panel-heading {
@@ -277,57 +227,13 @@ h4 {
     color: #737373;
 }
 
-.nav {
-    margin-top: 10px;
-}
-
-.mainPane {
-    padding: 30px 20px;
-}
-
-    .mainPane h1 {
-        font-size: 3em;
-        margin-bottom: 30px;
-        margin-top: 0;
-    }
-
 .tab-content {
     background: #D3D5D8;
     box-shadow: 1px 1px 0px #337ab7, -1px -1px 0px #337ab7, 1px -1px 0 #337ab7, -1px 1px 0 #337ab7;
     padding: 15px;
     min-height: 160px;
     border-radius: 0 0 0 4px;
-}
-
-.nav-pills > li > a {
-    border-radius: 0 4px 0 0;
-    color: #A0A2A5;
-}
-
-.nav-pills > li:first-child > a {
-    border-radius: 0;
-}
-
-.nav-pills > li > a:hover {
-    background: transparent;
-    color: #656565;
-}
-
-.guestTab > li {
-    border-bottom-width: 0;
-    border-top-width: 0;
-}
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-    background: #D3D5D8;
-    color: #337ab7;
-    margin: -1px;
-    border: 1px solid #337ab7;
-    border-bottom-width: 0;
-    font-weight: bolder;
-    text-decoration: none;
+    margin-top: 10px;
 }
 
 .choose-seats {
@@ -336,11 +242,6 @@ h4 {
     margin: 20px auto 0;
     display: block;
     width: 40%;
-}
-
-#MainContent_TicketQuantityRangeValidator {
-    display: inline-block;
-    margin: auto;
 }
 
 #MainContent_GroupRequestContainer {
@@ -361,47 +262,22 @@ h4 {
         font-style: italic;
     }
 
-.event-summary,
-.event-location,
-.event-date {
-    font-size: 1.6em;
-    color: #737373;
+.event-detail {
     height: 100%;
     margin-bottom: 10px;
 }
-
-    #MainContent_EventDescription,
-    #MainContent_EventLocation,
-    .event-date select,
-    .event-date p {
-        font-size: .7em;
-        color: #333;
-        display: block;
-        margin: 2px 0 0;
+    .event-detail h3 {
+        font-size: 1.6em;
+        color: #737373;
     }
 
-#MainContent_TicketQuantityRangeValidator[style*="inline"] {
-    display: block !Important;
-}
+    .event-detail span {
+        margin: 2px 0 0;
+        color: #333;
+    }
 
 input[type=submit].getTickets {
     width: 50%;
     margin: 50px auto 0;
     display: block;
-}
-
-@media only screen and (max-width: 700px) {
-    .nav-pills > li > a {
-        border-radius: 0 4px 0 0;
-        background: #D3D5D8;
-        color: #337ab7;
-        margin: -1px;
-        border: 1px solid #337ab7;
-        border-bottom-width: 0;
-    }
-
-        .nav-pills > li > a:hover {
-            color: #337ab7;
-            background: #D3D5D8;
-        }
 }

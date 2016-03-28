@@ -22,6 +22,15 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventName;
         
         /// <summary>
+        /// Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Error;
+        
+        /// <summary>
         /// GroupRequestContainer control.
         /// </summary>
         /// <remarks>
@@ -40,49 +49,13 @@ namespace Aphro_WebForms.Student {
         protected global::System.Web.UI.WebControls.ListView GroupList;
         
         /// <summary>
-        /// EventPrice control.
+        /// GuestTicketsSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventPrice;
-        
-        /// <summary>
-        /// EventPrimePrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventPrimePrice;
-        
-        /// <summary>
-        /// TicketQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TicketQuantity;
-        
-        /// <summary>
-        /// TicketQuantityRangeValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator TicketQuantityRangeValidator;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox GuestTicketsSize;
         
         /// <summary>
         /// EventDescription control.
@@ -101,6 +74,24 @@ namespace Aphro_WebForms.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label EventLocation;
+        
+        /// <summary>
+        /// EventPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventPrice;
+        
+        /// <summary>
+        /// EventPrimePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventPrimePrice;
         
         /// <summary>
         /// EventDateDropDown control.
@@ -164,15 +155,6 @@ namespace Aphro_WebForms.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField GroupSize;
-        
-        /// <summary>
-        /// Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Error;
         
         /// <summary>
         /// GetTicketsForEvent control.

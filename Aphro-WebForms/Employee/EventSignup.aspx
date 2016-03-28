@@ -40,59 +40,50 @@
                     </ItemTemplate>
                 </asp:ListView>
             </div>
-            <ul class="nav nav-pills nav-justified">
-                <li class="active"><a data-toggle="pill" href="#studentsTab">Invite Students</a></li>
-                <li><a data-toggle="pill" href="#guestsTab">Buy Guest Tickets</a></li>
-                <li><a data-toggle="pill" href="#facultyTab">Faculty Tickets</a></li>
-            </ul>
             <div class="tab-content">
-                <div id="studentsTab" class="tab-pane fade in active">
-                    <div class="ui-widget">
-                        <label for="group-request">Name or ID: </label>
-                        <p id="student-request-error" class="error">You cannot request this student.</p>
-                        <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
-                        <div>
-                            <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
-                            <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
-                        </div>
-                        <input type="hidden" id="group-request-id" />
-                    </div>
+                <!-- Student Request -->
+                <label for="group-request">Request Student: </label>
+                <p id="student-request-error" class="error">You cannot request this student.</p>
+                <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
+                <div>
+                    <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
+                    <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
                 </div>
-                <div id="guestsTab" class="tab-pane fade">
-                    <span class="pull-left">Regular Price:
-                        <asp:Label ID="EventPrice" runat="server"></asp:Label></span>
-                    <span class="pull-right">Prime Price:
-                        <asp:Label ID="EventPrimePrice" runat="server"></asp:Label></span>
-                    <br />
-                    <label id="ticketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
-                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="TicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_TicketQuantity' />
-                    <asp:CustomValidator ID="TicketQuantityRangeValidator" ValidationGroup="buyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="TicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize"></asp:CustomValidator>
-                    <asp:Button Style="display: block; margin: 20px auto 0; width: 50%" ID="Button1" runat="server" ValidationGroup="buyTicketsValidator" Text="Buy Extra Tickets" OnClick="GetExtraTickets_Click"></asp:Button>
+                <input type="hidden" id="group-request-id" />
+
+                <!-- Guest Request -->
+                <label id="ticketNumber" for="MainContent_GuestTicketsSize">Number of Guest Tickets:</label>
+                <div>
+                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GuestTicketsSize" runat="server" step="1" value="0"></asp:TextBox>
+                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
                 </div>
-                <div id="facultyTab" class="tab-pane fade">
-                    <label id="facultyTicketNumber" for="MainContent_TicketQuantity">Number of Tickets:</label>
-                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_FacultyTicketQuantity' />
-                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="FacultyTicketQuantity" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_FacultyTicketQuantity' />
-                    <asp:CustomValidator ID="FacultyTicketQuantityRangeValidator" ValidationGroup="buyFacultyTicketsValidator" runat="server" Display="Dynamic" ControlToValidate="FacultyTicketQuantity" ErrorMessage="You can only have 10 people in your group!" ClientValidationFunction="validateSize"></asp:CustomValidator>
-                    <asp:Button Style="display: block; margin: 20px auto; width: 50%" ID="Button2" runat="server" ValidationGroup="buyFacultyTicketsValidator" Text="Request Tickets" OnClick="GetExtraFacultyTickets_Click"></asp:Button>
+                <!-- Faculty Request -->
+                <label id="facultyTicketNumber" for="MainContent_FacultyTicketsSize">Number of Faculty Tickets:</label>
+                <div>
+                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="FacultyTicketsSize" runat="server" step="1" value="0"></asp:TextBox>
+                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_FacultyTicketsSize' />
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="event-summary">
-                <h4>Summary:</h4>
+            <div class="event-detail">
+                <h3>Summary:</h3>
                 <asp:Label ID="EventDescription" runat="server"></asp:Label>
             </div>
-            <div class="event-location">
-                <h4>Location:</h4>
+            <div class="event-detail">
+                <h3>Location:</h3>
                 <asp:Label ID="EventLocation" runat="server"></asp:Label>
             </div>
-            <div class="event-date">
-                <h4>Event Dates:</h4>
+            <div class="event-detail">
+                <h3>Price:</h3>
+                <asp:Label ID="EventPrice" runat="server"></asp:Label>
+                <span>(Prime: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)</span>
+            </div>
+            <div class="event-detail">
+                <h3>Event Dates:</h3>
                 <asp:DropDownList ID="EventDateDropDown" runat="server"></asp:DropDownList>
             </div>
         </div>
@@ -113,6 +104,7 @@
                 <div class="modal-body">
                     <div class="interactiveMap" id="map"></div>
                     <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
+                    <h4 id="priceText">Price: $<span id="priceField"></span></h4>
                     <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
                 </div>
             </div>

@@ -1,7 +1,4 @@
-﻿/**************************/
-/*     Student Portal     */
-/**************************/
-html {
+﻿html {
     font-family: Roboto, sans-serif;
     height: 100%;
     font-size: 99%;
@@ -275,9 +272,3 @@ h4 {
         margin: 2px 0 0;
         color: #333;
     }
-
-input[type=submit].getTickets {
-    width: 50%;
-    margin: 50px auto 0;
-    display: block;
-}

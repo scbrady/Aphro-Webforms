@@ -49,76 +49,22 @@ namespace Aphro_WebForms.Employee {
         protected global::System.Web.UI.WebControls.ListView GroupList;
         
         /// <summary>
-        /// EventPrice control.
+        /// GuestTicketsSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventPrice;
+        protected global::System.Web.UI.WebControls.TextBox GuestTicketsSize;
         
         /// <summary>
-        /// EventPrimePrice control.
+        /// FacultyTicketsSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EventPrimePrice;
-        
-        /// <summary>
-        /// TicketQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TicketQuantity;
-        
-        /// <summary>
-        /// TicketQuantityRangeValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator TicketQuantityRangeValidator;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// FacultyTicketQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FacultyTicketQuantity;
-        
-        /// <summary>
-        /// FacultyTicketQuantityRangeValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator FacultyTicketQuantityRangeValidator;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox FacultyTicketsSize;
         
         /// <summary>
         /// EventDescription control.
@@ -137,6 +83,24 @@ namespace Aphro_WebForms.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label EventLocation;
+        
+        /// <summary>
+        /// EventPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventPrice;
+        
+        /// <summary>
+        /// EventPrimePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EventPrimePrice;
         
         /// <summary>
         /// EventDateDropDown control.

@@ -15,15 +15,15 @@ namespace Aphro_WebForms.Employee
         protected int GuestTickets = 0;
         protected int FacultyTickets = 0;
         protected int RequestedTickets = 0;
-        protected int TotalSize;
+        protected int TotalSize = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            GuestTicketsSize.Attributes.Add("readonly", "readonly");
+            FacultyTicketsSize.Attributes.Add("readonly", "readonly");
+
             if (!IsPostBack)
             {
-                TicketQuantity.Attributes.Add("readonly", "readonly");
-                FacultyTicketQuantity.Attributes.Add("readonly", "readonly");
-
                 if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))
                     Response.Redirect("Index.aspx");
 
@@ -103,6 +103,12 @@ namespace Aphro_WebForms.Employee
                     RequestedTickets = requestsModel.Where(ticket => ticket.requested_id != 0).Count();
                     if (RequestedTickets == 0)
                         requestsModel.Clear();
+
+                    if (Request.QueryString["Error"] != null)
+                    {
+                        Error.Text = "Those seats are no longer available. Please pick new seats.";
+                        Error.Visible = true;
+                    }
                 }
 
                 TotalSize = GuestTickets + FacultyTickets + RequestedTickets + 1;
@@ -153,113 +159,96 @@ namespace Aphro_WebForms.Employee
 
         protected void GetTickets_Click(object sender, EventArgs e)
         {
-            bool error = false;
-            SeriesId = int.Parse(SeriesIdField.Value);
+            bool failed = false;
+
+            if (!getExtraTickets())
+            {
+                Error.Visible = true;
+                return;
+            }
+
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                // Set up the inserting seats command
-                var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
-                seatCommand.BindByName = true;
-                seatCommand.CommandType = CommandType.StoredProcedure;
-                seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
-                seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-
                 try
                 {
+                    // Set up the inserting seats command
+                    var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
+                    seatCommand.BindByName = true;
+                    seatCommand.CommandType = CommandType.StoredProcedure;
+                    seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_SeatRow", OracleDbType.Varchar2, SelectedRow.Value, ParameterDirection.Input);
+                    seatCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
                     // Execute the command
                     objConn.Open();
                     seatCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    Error.Text = "Those seats are no longer available.Please pick new seats.";
-                   Error.Visible = true;
-                    error = true;
+                    // Couldn't get those seats (probably taken), pick again
+                    failed = true;
                 }
 
                 objConn.Close();
             }
-            if (!error)
+            if (!failed)
                 Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
+            else
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=1");
         }
 
-        protected void GetExtraTickets_Click(object sender, EventArgs e)
+        // "Purchase" tickets
+        // Make new group or add this many people to the group that is already made
+        protected bool getExtraTickets()
         {
-            bool error = false;
-            SeriesId = int.Parse(SeriesIdField.Value);
-            int extraTickets = int.Parse(TicketQuantity.Text);
+            int extraGuestTickets;
+            int extraFacultyTickets;
 
-            // "Purchase" tickets
-            // Make new group or add this many people to the group that is already made
-            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            int.TryParse(GroupSize.Value, out TotalSize);
+
+            if (!long.TryParse(SeriesIdField.Value, out SeriesId) || !int.TryParse(GuestTicketsSize.Text, out extraGuestTickets) || !int.TryParse(FacultyTicketsSize.Text, out extraFacultyTickets))
             {
-                // Set up the inserting groups command
-                var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
-                groupsCommand.BindByName = true;
-                groupsCommand.CommandType = CommandType.StoredProcedure;
-                groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, 0, ParameterDirection.Input);
-
-                try
-                {
-                    // Execute the command
-                    objConn.Open();
-                    groupsCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    error = true;
-                    Error.Text = "There was a problem purchasing tickets, please try again.";
-                    Error.Visible = true;
-                }
-
-                objConn.Close();
+                Error.Text = "Could not buy extra tickets, try again later.";
+                return false;
             }
-            if(!error)
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
-        }
 
-        protected void GetExtraFacultyTickets_Click(object sender, EventArgs e)
-        {
-            bool error = false;
-            SeriesId = int.Parse(SeriesIdField.Value);
-            int extraTickets = int.Parse(FacultyTicketQuantity.Text);
-
-            // "Purchase" tickets
-            // Make new group or add this many people to the group that is already made
-            using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+            if (extraGuestTickets < 0 || extraFacultyTickets < 0 || extraGuestTickets + extraFacultyTickets > 10 - TotalSize)
             {
-                // Set up the inserting groups command
-                var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
-                groupsCommand.BindByName = true;
-                groupsCommand.CommandType = CommandType.StoredProcedure;
-                groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, 0, ParameterDirection.Input);
-                groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
-
-                try
-                {
-                    // Execute the command
-                    objConn.Open();
-                    groupsCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    error = true;
-                    Error.Text = "There was a problem purchasing tickets, please try again.";
-                    Error.Visible = true;
-                }
-
-                objConn.Close();
+                Error.Text = "You may not have more than 10 members in your group (including yourself).";
+                return false;
             }
-            if (!error)
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
+
+            if (extraGuestTickets > 0 || extraFacultyTickets > 0)
+            {
+                using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
+                {
+                    try
+                    {
+                        // Set up the inserting groups command
+                        var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
+                        groupsCommand.BindByName = true;
+                        groupsCommand.CommandType = CommandType.StoredProcedure;
+                        groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                        groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
+                        groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraGuestTickets, ParameterDirection.Input);
+                        groupsCommand.Parameters.Add("p_ExtraFacultySeats", OracleDbType.Int32, extraFacultyTickets, ParameterDirection.Input);
+
+                        // Execute the command
+                        objConn.Open();
+                        groupsCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Error.Text = "Could not buy extra tickets, try again later.";
+                        return false;
+                    }
+
+                    objConn.Close();
+                }
+            }
+            return true;
         }
     }
 }

@@ -36,22 +36,23 @@
                 </asp:ListView>
             </div>
             <div class="tab-content">
-                    <label for="group-request">Request Student: </label>
-                    <p id="student-request-error" class="error">You cannot request this student.</p>
-                    <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
-                    <div>
-                        <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
-                        <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
-                    </div>
-                    <input type="hidden" id="group-request-id" />
+                <!-- Student Request -->
+                <label for="group-request">Request Student: </label>
+                <p id="student-request-error" class="error">You cannot request this student.</p>
+                <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
+                <div>
+                    <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />
+                    <input type="submit" onclick="addToGroup(event);" value="Add to Group" />
+                </div>
+                <input type="hidden" id="group-request-id" />
 
-                    <label id="ticketNumber" for="MainContent_GuestTicketsSize">Number of Guest Tickets:</label>
-                    <div>
-                        <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
-                        <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GuestTicketsSize" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
-                        <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
-                    </div>
-
+                <!-- Guest Request -->
+                <label id="ticketNumber" for="MainContent_GuestTicketsSize">Number of Guest Tickets:</label>
+                <div>
+                    <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
+                    <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GuestTicketsSize" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
+                    <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
+                </div>
             </div>
         </div>
 

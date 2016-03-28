@@ -67,6 +67,7 @@ namespace Aphro_WebForms.Student
                     }
                     catch (Exception ex)
                     {
+                        // This shouldn't happen, redirect them back to the event chosing page
                         Response.Redirect("Index.aspx");
                     }
 

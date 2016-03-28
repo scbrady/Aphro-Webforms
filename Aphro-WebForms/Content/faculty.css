@@ -13,6 +13,10 @@ body {
     height: 100%;
 }
 
+label {
+    margin: 10px 0 0;
+}
+
 #masterForm {
     min-height: 100%;
     position: relative;
@@ -166,54 +170,28 @@ h4 {
     border-radius: 0 4px 0 4px;
 }
 
-.nav {
-    margin-top: 10px;
-}
-
-.nav-pills > li.active {
-    font-weight: bold;
-}
-
-.nav-pills > li > a {
-    border-radius: 0;
-    color: #A0A2A5;
-    padding: 3px;
-    border-bottom-width: 0;
-}
-
-    .nav-pills > li > a:hover {
-        background: transparent;
-        color: #d3d1d1;
-    }
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-    background: #D3D5D8;
-    color: #337ab7;
-    margin: -1px;
-    border: 1px solid #337ab7;
-    border-bottom-width: 0;
-}
-
-.nav-pills > li + li {
-    margin-left: 0;
-}
-
 .tab-content {
     background: #D3D5D8;
     box-shadow: 1px 1px 0px #337ab7, -1px -1px 0px #337ab7, 1px -1px 0 #337ab7, -1px 1px 0 #337ab7;
     padding: 15px;
     min-height: 160px;
     border-radius: 0 0 0 4px;
+    margin-top: 10px;
 }
 
-#MainContent_EventDescription, #MainContent_EventLocation, .event-date select {
-    font-size: 1em;
-    color: #333;
-    display: block;
-    margin-top: 2px;
+.event-detail {
+    height: 100%;
+    margin-bottom: 10px;
 }
+    .event-detail h3 {
+        font-size: 1.6em;
+        color: #737373;
+    }
+
+    .event-detail span {
+        margin: 2px 0 0;
+        color: #333;
+    }
 
 .choose-seats {
     border-bottom: 3px solid #286090;
@@ -301,15 +279,6 @@ input[type=number] {
     height: 35px;
 }
 
-/*******************/
-/* Interactive Map */
-/*******************/
-input[type=submit].getTickets {
-    width: 50%;
-    margin: 50px auto 0;
-    display: block;
-}
-
 /**************/
 /* Responsive */
 /**************/
@@ -347,24 +316,6 @@ input[type=submit].getTickets {
 
     .mainPane {
         width: 300px;
-    }
-
-    .nav-pills > li > a {
-        border-radius: 0 4px 0 0;
-        background: #D3D5D8;
-        color: #337ab7;
-        margin: -1px;
-        border: 1px solid #337ab7;
-        border-bottom-width: 0;
-    }
-
-    .nav-pills > li.active {
-        background-color: aqua;
-    }
-
-    .nav-pills > li > a:hover {
-        color: #337ab7;
-        background: #D3D5D8;
     }
 }
 
@@ -408,25 +359,5 @@ input[type=submit].getTickets {
         margin-top: 7px;
         margin-left: auto;
         margin-right: auto;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .nav-pills > li > a {
-        border-radius: 0 4px 0 0;
-        background: #D3D5D8;
-        color: #337ab7;
-        margin: -1px;
-        border: 1px solid #337ab7;
-        border-bottom-width: 0;
-    }
-
-    .nav-pills > li.active {
-        background-color: aqua;
-    }
-
-    .nav-pills > li > a:hover {
-        color: #337ab7;
-        background: #D3D5D8;
     }
 }

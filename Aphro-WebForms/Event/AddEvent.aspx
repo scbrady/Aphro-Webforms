@@ -182,6 +182,8 @@
                     <p class="error">Could Not Add Season</p>
                     <label for="season-name">Name:</label>
                     <input type="text" id="season-name-input" />
+                    <label for="season-price">Price:</label>
+                    <input type="text" id="season-price-input" placeholder="XX.XX"/>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" onclick="addSeason(event)">Add Season</button>
@@ -290,8 +292,9 @@
 
         function addSeason(e) {
             e.preventDefault();
-            var seasonName = $('#season-name-input').val()
-            $.post("InsertSeason.ashx", { seasonName: seasonName })
+            var seasonName = $('#season-name-input').val();
+            var seasonPrice = $('#season-price-input').val();
+            $.post("InsertSeason.ashx", { seasonName: seasonName, seasonPrice: seasonPrice })
                 .done(function (data) {
                     $('#addSeason').modal('hide');
                     $('.error').hide();

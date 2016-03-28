@@ -14,10 +14,12 @@ namespace Aphro_WebForms.Event
         public void ProcessRequest(HttpContext context)
         {
             string seasonName = "";
+            float seasonPrice = 0.0f;
 
-            if (!string.IsNullOrEmpty(context.Request["seasonName"]))
+            if (!string.IsNullOrEmpty(context.Request["seasonName"]) || context.Request["seasonPrice"] != null)
             {
-                seasonName = context.Request["seasonName"];
+                seasonName  = context.Request["seasonName"];
+                seasonPrice = float.Parse(context.Request["seasonPrice"]);
             }
             else
             {
@@ -28,7 +30,7 @@ namespace Aphro_WebForms.Event
 
             try
             {
-                long seasonId = AddSeason(seasonName);
+                long seasonId = AddSeason(seasonName, seasonPrice);
                 context.Response.Write(seasonId);
             }
             catch (Exception ex)
@@ -40,7 +42,7 @@ namespace Aphro_WebForms.Event
             context.Response.End();
         }
 
-        private long AddSeason(string seasonName)
+        private long AddSeason(string seasonName, float seasonPrice)
         {
             long seasonId = 0;
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
@@ -48,6 +50,7 @@ namespace Aphro_WebForms.Event
                 var command = new OracleCommand("TICKETS_API.insertSeason", objConn);
                 command.Parameters.Add("p_Return", OracleDbType.Int64, ParameterDirection.ReturnValue);
                 command.Parameters.Add("p_SeasonName", OracleDbType.Varchar2, seasonName, ParameterDirection.Input);
+                command.Parameters.Add("p_SeasonPrice", OracleDbType.Decimal, seasonPrice, ParameterDirection.Input);
                 command.CommandType = CommandType.StoredProcedure;
 
                 try

@@ -39,6 +39,7 @@
                 <asp:HiddenField ID="SelectedSection" runat="server" />
                 <asp:HiddenField ID="SelectedSubsection" runat="server" />
                 <asp:HiddenField ID="SelectedRow" runat="server" />
+                <asp:HiddenField ID="SeasonTickets" runat="server" />
 
                 <%if (AlreadyPurchasedTickets > 0) { %>
                 <h3>Already Purchased Tickets:</h3>

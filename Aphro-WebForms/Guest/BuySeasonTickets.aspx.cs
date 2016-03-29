@@ -63,8 +63,8 @@ namespace Aphro_WebForms.Guest
                 var insertPersonSeason = new OracleCommand("TICKETS_API.insertPersonSeason", objConn);
                 insertPersonSeason.BindByName = true;
                 insertPersonSeason.CommandType = CommandType.StoredProcedure;
-                insertPersonSeason.Parameters.Add("p_PersonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
-                insertPersonSeason.Parameters.Add("p_SeasonId", OracleDbType.Int32, Global.CurrentPerson.person_id, ParameterDirection.Input);
+                insertPersonSeason.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
+                insertPersonSeason.Parameters.Add("p_PersonId", OracleDbType.Int32, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
                 try
                 {

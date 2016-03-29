@@ -70,7 +70,7 @@ namespace Aphro_WebForms.Shared
 
                 try
                 {
-                    // Execute the query and auto map the results to models
+                    // Execute the query and map the results to models
                     objConn.Open();
                     var groupAdapter = new OracleDataAdapter(command);
                     groupAdapter.Fill(groupTable);

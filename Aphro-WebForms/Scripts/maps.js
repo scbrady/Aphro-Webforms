@@ -223,11 +223,12 @@ function setFields(selectedSeat) {
     $('#MainContent_SelectedRow').val(selectedSeat.row);
 
     var groupSize = parseInt($("#MainContent_GuestTicketsSize").val(), 10);
+    var seasonTickets = parseInt($("#MainContent_SeasonTickets").val(), 10);
     var price;
     if (selectedSeat.prime == 0)
         price = parseFloat($("#MainContent_EventPrice").text().replace("$", ""));
     else
         price = parseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
 
-    $('#priceField').text((groupSize * price).toFixed(2));
+    $('#priceField').text(((groupSize-seasonTickets) * price).toFixed(2));
 }

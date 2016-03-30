@@ -110,6 +110,10 @@ span.validator {
     min-width: 180px;
 }
 
+.btn-primary {
+    background-color: #005DAA;
+}
+
 #choose-seats {
     width: 40%;
     margin: 0 auto;

@@ -23,10 +23,11 @@ namespace Aphro_WebForms.Guest
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the seasons command
-                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonNames", objConn);
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonsForPurchase", objConn);
                     seasonsCommand.BindByName = true;
                     seasonsCommand.CommandType = CommandType.StoredProcedure;
                     seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                    seasonsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
                     try
                     {
@@ -48,10 +49,22 @@ namespace Aphro_WebForms.Guest
                 // Fill list dropdowns with data from the database
                 if (seasons.Count > 0)
                 {
+                    var seasonsWithEvents = seasons.GroupBy(s => s.season_id).Select(season => new Season()
+                    {
+                        season_id = season.First().season_id,
+                        name = season.First().name,
+                        price = season.First().price,
+                        ticket_count = season.First().ticket_count,
+                        event_names = seasons.Where(ev => ev.season_id == season.First().season_id).Select(en => en.event_name).ToList()
+                    }).ToList();
+
                     SeasonDropDown.DataTextField = "name";
                     SeasonDropDown.DataValueField = "season_id";
-                    SeasonDropDown.DataSource = seasons;
+                    SeasonDropDown.DataSource = seasonsWithEvents;
                     SeasonDropDown.DataBind();
+
+                    SeasonListView.DataSource = seasonsWithEvents;
+                    SeasonListView.DataBind();
                 }
             }
         }

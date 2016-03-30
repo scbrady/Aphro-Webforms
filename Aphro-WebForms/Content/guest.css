@@ -116,3 +116,15 @@ span.validator {
     margin-top: 50px;
     display: block;
 }
+
+/*************************/
+/*       Seasons         */
+/*************************/
+#season-header {
+    margin-bottom: 40px;
+}
+.season-summary {
+    display: none;
+    padding: 10px;
+    background: #D8E6EF;
+}

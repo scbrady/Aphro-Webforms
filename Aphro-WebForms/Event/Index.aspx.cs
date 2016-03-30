@@ -20,7 +20,7 @@ namespace Aphro_WebForms.Event
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the upcomingEvents command
-                    var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getAllUpcomingEvents", objConn);
+                    var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getAllEvents", objConn);
                     upcomingEventsCommand.BindByName = true;
                     upcomingEventsCommand.CommandType = CommandType.StoredProcedure;
                     upcomingEventsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);

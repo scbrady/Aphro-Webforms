@@ -5,6 +5,7 @@
 
     <div class="row">
         <div class="col-md-6">
+            <h4>Pick Season:</h4>
             <asp:DropDownList ID="SeasonDropDown" runat="server"></asp:DropDownList>
         </div>
         <div class="col-md-6">

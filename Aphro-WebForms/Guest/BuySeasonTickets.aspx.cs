@@ -93,7 +93,7 @@ namespace Aphro_WebForms.Guest
                 objConn.Close();
             }
 
-            Response.Redirect("Index.aspx");
+            Response.Redirect("BuySeasonTickets.aspx");
         }
     }
 }

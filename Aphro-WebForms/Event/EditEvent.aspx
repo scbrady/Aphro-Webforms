@@ -79,7 +79,7 @@
         dateCount = 0;
 
         $(function () {
-            $('#imagePreview').attr('src', '<%=  Page.ResolveUrl(String.Concat("~/Content/pictures/", image))%>');            
+            $('#imagePreview').attr('src', '<%=  Page.ResolveUrl(String.Concat("~/Content/pictures/", image))%>');
 
             function readURL(input) {
                 if (input.files && input.files[0]) {
@@ -94,33 +94,8 @@
             $("#MainContent_uploadBtn").change(function () {
                 readURL(this);
             });
+
         });
-
-        function addDatesOnload()
-        {
-            var element   = document.createElement("input");
-            var newButton = document.createElement("button");
-
-            //Assign different attributes to the element.
-            element.setAttribute("type", "text");
-            element.setAttribute("runat", "server");
-            element.setAttribute("class", "datepicker-field eventDate");
-            element.setAttribute("id", "date" + dateCount);
-
-            newButton.setAttribute("Class", "deleteDate");
-            newButton.setAttribute("id", "delete" + dateCount);
-            newButton.setAttribute("onclick", "DeleteDate(event," + dateCount + ")");
-            newButton.innerHTML = "x";
-
-            // div id, where new fields are to be added
-            var ExtraDates = document.getElementById("EventDates");
-
-            //Append the element in page.
-            ExtraDates.appendChild(element);
-            ExtraDates.appendChild(newButton);
-
-            dateCount += 1;
-        }
 
         function AddDate(e) {
             e.preventDefault();

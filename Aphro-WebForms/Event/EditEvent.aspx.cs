@@ -113,19 +113,14 @@ namespace Aphro_WebForms.Event
             LocationDropDown.SelectedValue = currentEvent.building_key.ToString();
             RegularPrice.Text = currentEvent.regular_price.ToString();
             PrimePrice.Text = currentEvent.prime_price.ToString();
-
-
+            
             lowestId = (int)currentEvent.event_id;
             foreach (var a in events)
             {
                 if (lowestId > (int)a.event_id)
                     lowestId = (int)a.event_id;
             }
-
-            for (totalDates = 0; totalDates < events.Count(); totalDates++)
-            {
-                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:addDatesOnload(); ", true);
-            }
+            
 
         }
 

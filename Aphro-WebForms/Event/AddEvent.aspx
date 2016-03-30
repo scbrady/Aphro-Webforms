@@ -59,98 +59,10 @@
         <%-- Event Date(s)--%>
         <div id="EventDates" class='Event-Dates' style="position: relative">
             <h3>Event Date(s):</h3>
-            <div class="row">
-                <asp:DropDownList CssClass="col-sm-4 month" runat="server">
-                    <asp:ListItem Text="January" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="February"></asp:ListItem>
-                    <asp:ListItem Text="March"></asp:ListItem>
-                    <asp:ListItem Text="April"></asp:ListItem>
-                    <asp:ListItem Text="May"></asp:ListItem>
-                    <asp:ListItem Text="June"></asp:ListItem>
-                    <asp:ListItem Text="July"></asp:ListItem>
-                    <asp:ListItem Text="August"></asp:ListItem>
-                    <asp:ListItem Text="September"></asp:ListItem>
-                    <asp:ListItem Text="October"></asp:ListItem>
-                    <asp:ListItem Text="November"></asp:ListItem>
-                    <asp:ListItem Text="December"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList CssClass="col-sm-4 day" runat="server">
-                    <asp:ListItem Text="1" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="2"></asp:ListItem>
-                    <asp:ListItem Text="3"></asp:ListItem>
-                    <asp:ListItem Text="4"></asp:ListItem>
-                    <asp:ListItem Text="5"></asp:ListItem>
-                    <asp:ListItem Text="6"></asp:ListItem>
-                    <asp:ListItem Text="7"></asp:ListItem>
-                    <asp:ListItem Text="8"></asp:ListItem>
-                    <asp:ListItem Text="9"></asp:ListItem>
-                    <asp:ListItem Text="10"></asp:ListItem>
-                    <asp:ListItem Text="11"></asp:ListItem>
-                    <asp:ListItem Text="12"></asp:ListItem>
-                    <asp:ListItem Text="13"></asp:ListItem>
-                    <asp:ListItem Text="14"></asp:ListItem>
-                    <asp:ListItem Text="15"></asp:ListItem>
-                    <asp:ListItem Text="16"></asp:ListItem>
-                    <asp:ListItem Text="17"></asp:ListItem>
-                    <asp:ListItem Text="18"></asp:ListItem>
-                    <asp:ListItem Text="19"></asp:ListItem>
-                    <asp:ListItem Text="20"></asp:ListItem>
-                    <asp:ListItem Text="21"></asp:ListItem>
-                    <asp:ListItem Text="22"></asp:ListItem>
-                    <asp:ListItem Text="23"></asp:ListItem>
-                    <asp:ListItem Text="24"></asp:ListItem>
-                    <asp:ListItem Text="25"></asp:ListItem>
-                    <asp:ListItem Text="26"></asp:ListItem>
-                    <asp:ListItem Text="27"></asp:ListItem>
-                    <asp:ListItem Text="28"></asp:ListItem>
-                    <asp:ListItem Text="29"></asp:ListItem>
-                    <asp:ListItem Text="30"></asp:ListItem>
-                    <asp:ListItem Text="31"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList CssClass="col-sm-4 year" runat="server">
-                    <asp:ListItem Text="2016" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="2017"></asp:ListItem>
-                    <asp:ListItem Text="2018"></asp:ListItem>
-                    <asp:ListItem Text="2019"></asp:ListItem>
-                    <asp:ListItem Text="2020"></asp:ListItem>
-                    <asp:ListItem Text="2021"></asp:ListItem>
-                    <asp:ListItem Text="2022"></asp:ListItem>
-                    <asp:ListItem Text="2023"></asp:ListItem>
-                    <asp:ListItem Text="2024"></asp:ListItem>
-                    <asp:ListItem Text="2025"></asp:ListItem>
-                    <asp:ListItem Text="2026"></asp:ListItem>
-                    <asp:ListItem Text="2027"></asp:ListItem>
-                    <asp:ListItem Text="2028"></asp:ListItem>
-                    <asp:ListItem Text="2029"></asp:ListItem>
-                    <asp:ListItem Text="2030"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList CssClass="col-sm-4 hour" runat="server">
-                    <asp:ListItem Text="1"></asp:ListItem>
-                    <asp:ListItem Text="2"></asp:ListItem>
-                    <asp:ListItem Text="3"></asp:ListItem>
-                    <asp:ListItem Text="4"></asp:ListItem>
-                    <asp:ListItem Text="5"></asp:ListItem>
-                    <asp:ListItem Text="6"></asp:ListItem>
-                    <asp:ListItem Text="7"></asp:ListItem>
-                    <asp:ListItem Text="8"></asp:ListItem>
-                    <asp:ListItem Text="9"></asp:ListItem>
-                    <asp:ListItem Text="10"></asp:ListItem>
-                    <asp:ListItem Text="11"></asp:ListItem>
-                    <asp:ListItem Text="12" Selected="True"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList CssClass="col-sm-4 minute" runat="server">
-                    <asp:ListItem Text="00" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="30"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList CssClass="col-sm-4 amPm" runat="server">
-                    <asp:ListItem Text="am"></asp:ListItem>
-                    <asp:ListItem Text="pm" Selected="True"></asp:ListItem>
-                </asp:DropDownList>
-        <button onclick="AddDate(event)">Add Date</button>
-            <asp:TextBox ID="EventDate" runat="server" style="visibility:hidden" CssClass="datepicker-field"></asp:TextBox>
+            <asp:TextBox ID="EventDate" runat="server" CssClass="datepicker-field"></asp:TextBox>   
             <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic"/>
         </div>
-            </div>
+        <button onclick="AddDate(event)">Add Date</button>
         <asp:HiddenField ID="HiddenField1" runat="server" />
 
         <%-- Seating Prices (both regular and prime) --%>

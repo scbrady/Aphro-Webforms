@@ -262,6 +262,7 @@ h4 {
 .error {
     color: red;
     display: none;
+    margin: 5px 0 0;
 }
 
 #MainContent_Error {

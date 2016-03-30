@@ -4,6 +4,7 @@ namespace Aphro_WebForms.Models
 {
     public class EventSeats
     {
+        public string name { get; set; }
         public long person_id { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Review Tickets" Language="C#" MasterPageFile="~/EmployeePortal.Master" AutoEventWireup="true" CodeBehind="ReviewTickets.aspx.cs" Inherits="Aphro_WebForms.Employee.ReviewTickets" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>You have tickets for this event.</h1>
+    <h1>You have tickets for <asp:Label ID="Event" runat="server"></asp:Label></h1>
 
     <div class="col-md-6">
         <h3 ID="Date" runat="server"></h3>

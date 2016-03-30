@@ -13,9 +13,7 @@ namespace Aphro_WebForms.Guest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Global.CurrentPerson == null)
-                Response.Redirect("Login.aspx");
-            else if (string.IsNullOrEmpty(Request.QueryString["Series"]))
+            if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))
                 Response.Redirect("Index.aspx");
 
             SeriesId = long.Parse(Request.QueryString["Series"]);
@@ -51,6 +49,7 @@ namespace Aphro_WebForms.Guest
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                 {
+                    Event.Text = eventSeatsModel.FirstOrDefault().name;
                     Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
                     Section.InnerText = eventSeatsModel.FirstOrDefault().description;
 

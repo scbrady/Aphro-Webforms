@@ -52,6 +52,7 @@ namespace Aphro_WebForms.Employee
                 // If the person already has tickets, redirect them to the page where they can review it
                 if (eventSeatsModel.Any())
                 {
+                    Event.Text = eventSeatsModel.FirstOrDefault().name;
                     Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
                     Section.InnerText = eventSeatsModel.FirstOrDefault().description;
 

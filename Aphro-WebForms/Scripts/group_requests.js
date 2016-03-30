@@ -34,12 +34,12 @@ function validateSize(oSrc, args) {
 function addToGroup(e) {
     e.preventDefault();
 
+    $('#student-request-error').hide();
     if (groupSize >= 10) {
         $('#student-group-error').show();
         return;
     } else
         $('#student-group-error').hide();
-
 
     var requestedId = $('#group-request-id').val();
     var requestedName = $('#group-request').val();

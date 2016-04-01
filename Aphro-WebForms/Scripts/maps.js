@@ -222,13 +222,31 @@ function setFields(selectedSeat) {
     $('#MainContent_SelectedSubsection').val(selectedSeat.subsection);
     $('#MainContent_SelectedRow').val(selectedSeat.row);
 
-    var groupSize = parseInt($("#MainContent_GuestTicketsSize").val(), 10);
-    var seasonTickets = parseInt($("#MainContent_SeasonTickets").val(), 10);
+    var guests = tryParseInt($("#MainContent_GuestTicketsSize").val(), 10);
+    var seasonTickets = tryParseInt($("#MainContent_SeasonTickets").val(), 10);
     var price;
     if (selectedSeat.prime == 0)
-        price = parseFloat($("#MainContent_EventPrice").text().replace("$", ""));
+        price = tryParseFloat($("#MainContent_EventPrice").text().replace("$", ""));
     else
-        price = parseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
+        price = tryParseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
 
-    $('#priceField').text(((groupSize-seasonTickets) * price).toFixed(2));
+    $('#priceField').text(((guests-seasonTickets) * price).toFixed(2));
+}
+
+function tryParseInt(number) {
+    var parsed;
+    parsed = parseFloat(number);
+    if (!isNaN(parsed))
+        return parsed;
+    else
+        return 0;
+}
+
+function tryParseFloat(number) {
+    var parsed;
+    parsed = parseFloat(number);
+    if (!isNaN(parsed))
+        return parsed;
+    else
+        return 0;
 }

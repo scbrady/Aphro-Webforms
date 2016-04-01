@@ -39,8 +39,7 @@ namespace Aphro_WebForms.Guest
                     }
                     catch (Exception ex)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        Response.Redirect("Index.aspx");
                     }
 
                     objConn.Close();
@@ -66,11 +65,18 @@ namespace Aphro_WebForms.Guest
                     SeasonListView.DataSource = seasonsWithEvents;
                     SeasonListView.DataBind();
                 }
+                if (Request.QueryString["Success"] != null)
+                {
+                    Error.Text = "Successfully purchased season ticket!";
+                    Error.Visible = true;
+                }
             }
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            bool failed = false;
+
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 var insertPersonSeason = new OracleCommand("TICKETS_API.insertPersonSeason", objConn);
@@ -86,14 +92,19 @@ namespace Aphro_WebForms.Guest
                 }
                 catch (Exception ex)
                 {
-                    // TODO: Handle Exception
-                    throw ex;
+                    failed = true;
                 }
 
                 objConn.Close();
             }
 
-            Response.Redirect("BuySeasonTickets.aspx");
+            if (!failed)
+                Response.Redirect("BuySeasonTickets.aspx?Success=1");
+            else
+            {
+                Error.Text = "Could not buy season ticket, try again later.";
+                Error.Visible = true;
+            }
         }
     }
 }

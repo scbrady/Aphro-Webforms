@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="season-header">Buy Season Tickets</h1>
-
+    <asp:Label ID="Error" runat="server" Visible="false" />
     <div class="row">
         <div class="col-md-6">
             <h4>Pick Season:</h4>
@@ -17,7 +17,7 @@
                 <ItemTemplate>
                     <div id="summary-<%# Eval("season_id") %>" class="season-summary">
                         <h4>Price: $<%# Eval("price") %></h4>
-                        <h4>Already Purchased: <%# Eval("ticket_count") %></h4>
+                        <h4 runat="server" Visible='<%# (int) Eval("ticket_count") > 0 %>'>Already Purchased: <%# Eval("ticket_count") %></h4>
                         <h4>Events in this season:</h4>
                         <asp:ListView ID="GroupRequestsList" runat="server" DataSource='<%# Eval("event_names") %>'>
                             <LayoutTemplate>

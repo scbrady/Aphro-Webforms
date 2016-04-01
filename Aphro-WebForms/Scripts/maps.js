@@ -230,7 +230,7 @@ function setFields(selectedSeat) {
     else
         price = tryParseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
 
-    $('#priceField').text(((guests-seasonTickets) * price).toFixed(2));
+    $('#priceField').text(((guests > seasonTickets ? guests-seasonTickets : 0) * price).toFixed(2));
 }
 
 function tryParseInt(number) {

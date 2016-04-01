@@ -98,8 +98,8 @@ namespace Aphro_WebForms.Employee
 
                 if (requestsModel.Count > 0)
                 {
-                    GuestTickets = requestsModel.FirstOrDefault().guest_tickets;
-                    FacultyTickets = requestsModel.FirstOrDefault().faculty_tickets;
+                    GuestTickets     = requestsModel.FirstOrDefault().guest_tickets;
+                    FacultyTickets   = requestsModel.FirstOrDefault().faculty_tickets;
                     RequestedTickets = requestsModel.Where(ticket => ticket.requested_id != 0).Count();
                     if (RequestedTickets == 0)
                         requestsModel.Clear();

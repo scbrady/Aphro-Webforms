@@ -13,6 +13,7 @@ $('.add-qty').click(function (e) {
         !isNaN(group_size = parseInt($("#MainContent_GroupSize").val(),  10)))
         max_val = 10 - group_size;
     var current_val = parseInt($('#' + field_name).val());
+    var another_val = parseInt($('#MainContent_FacultyTicketsSize').val());
 
     // Fixes for Employee Portal
     if ($("#MainContent_FacultyTicketsSize").length)
@@ -36,6 +37,12 @@ $('.add-qty').click(function (e) {
         $("input.disabled").css("opacity", "1");
         $(".sub-qty").removeClass("disabled");
         $("input.disabled").css("opacity", "1");
+        if (another_val == 0)
+        {
+            $(".subfaculty").addClass("disabled");
+            $("input.disabled").css("opacity", "0.5");
+        }
+
         if (current_val == (max_val - 1))
         {
             $(".add-qty").addClass("disabled");
@@ -49,7 +56,7 @@ $('.add-qty').click(function (e) {
         $("input.disabled").css("opacity", ".5");
         $('#' + field_name).val(max_val);
     } else {
-        // Just in case something goes wrong, you get 0. Sorry bud
+        // Just in case something goes wrong, you get 0. Sorry 
         $('#' + field_name).val(0);
     }
 });
@@ -65,6 +72,7 @@ $(".sub-qty").click(function (e) {
     if (!$("#MainContent_GroupSize").length)
         min_val = 1;
     var current_val = parseInt($('#' + field_name).val());
+    var another_val = parseInt($('#MainContent_FacultyTicketsSize').val());
 
     // Make sure counter can't go lower than min_val
     if (!isNaN(current_val) && current_val > min_val) {
@@ -72,6 +80,15 @@ $(".sub-qty").click(function (e) {
         $("input.disabled").css("opacity", "1");
         $(".add-qty").removeClass("disabled");
         $("input.disabled").css("opacity", "1");
+        $(".addfaculty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+
+        if (another_val == 0) {
+            $(".subfaculty").addClass("disabled");
+            $("input.disabled").css("opacity", "0.5");
+        }
+
+
         if (current_val == (min_val + 1))
         {
             $(".sub-qty").addClass("disabled");
@@ -97,6 +114,7 @@ $('.addfaculty').click(function (e) {
         !isNaN(group_size = parseInt($("#MainContent_GroupSize").val(), 10)))
         max_val = 10 - group_size;
     var current_val = parseInt($('#' + field_name).val());
+    var another_val = parseInt($('#MainContent_GuestTicketsSize').val());
 
     // Fixes for Employee Portal
     if ($("#MainContent_FacultyTicketsSize").length) {
@@ -118,6 +136,13 @@ $('.addfaculty').click(function (e) {
         $("input.disabled").css("opacity", "1");
         $(".subfaculty").removeClass("disabled");
         $("input.disabled").css("opacity", "1");
+
+        if (another_val == 0)
+        {
+            $(".sub-qty").addClass("disabled");
+            $("input.disabled").css("opacity", "0.5");
+        }
+
         if (current_val == (max_val - 1)) {
             $(".addfaculty").addClass("disabled");
             $("input.disabled").css("opacity", ".5");
@@ -145,6 +170,7 @@ $(".subfaculty").click(function (e) {
     if (!$("#MainContent_GroupSize").length)
         min_val = 1;
     var current_val = parseInt($('#' + field_name).val());
+    var another_val = parseInt($('#MainContent_GuestTicketsSize').val());
 
     // Make sure counter can't go lower than min_val
     if (!isNaN(current_val) && current_val > min_val) {
@@ -152,6 +178,14 @@ $(".subfaculty").click(function (e) {
         $("input.disabled").css("opacity", "1");
         $(".addfaculty").removeClass("disabled");
         $("input.disabled").css("opacity", "1");
+        $(".add-qty").removeClass("disabled");
+        $("input.disabled").css("opacity", "1");
+
+        if (another_val == 0) {
+            $(".sub-qty").addClass("disabled");
+            $("input.disabled").css("opacity", "0.5");
+        }
+
         if (current_val == (min_val + 1)) {
             $(".subfaculty").addClass("disabled");
             $("input.disabled").css("opacity", ".5");

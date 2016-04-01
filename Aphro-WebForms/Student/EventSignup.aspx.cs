@@ -102,10 +102,24 @@ namespace Aphro_WebForms.Student
                     if (RequestedTickets == 0)
                         requestsModel.Clear();
 
-                    if (Request.QueryString["Error"] != null)
+                    var error = "";
+                    if ((error = Request.QueryString["Error"]) != null)
                     {
-                        Error.Text = "Those seats are no longer available. Please pick new seats.";
-                        Error.Visible = true;
+                        if (error.Equals("1"))
+                        {
+                            Error.Text = "Those seats are no longer available. Please pick new seats.";
+                            Error.Visible = true;
+                        }
+                        else if (error.Equals("2"))
+                        {
+                            Error.Text = "Could not buy extra tickets, try again later.";
+                            Error.Visible = true;
+                        }
+                        else if (error.Equals("3"))
+                        {
+                            Error.Text = "You may not have more than 10 members in your group (including yourself).";
+                            Error.Visible = true;
+                        }
                     }
                 }
 
@@ -201,11 +215,7 @@ namespace Aphro_WebForms.Student
         {
             bool failed = false;
 
-            if (!getExtraTickets())
-            {
-                Error.Visible = true;
-                return;
-            }
+            getExtraTickets();
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -241,23 +251,17 @@ namespace Aphro_WebForms.Student
 
         // "Purchase" tickets
         // Make new group or add this many people to the group that is already made
-        protected bool getExtraTickets()
+        protected void getExtraTickets()
         {
-            int extraTickets;
+            int extraTickets = 0;
 
             int.TryParse(GroupSize.Value, out TotalSize);
 
             if (!long.TryParse(SeriesIdField.Value, out SeriesId) || !int.TryParse(GuestTicketsSize.Text, out extraTickets))
-            {
-                Error.Text = "Could not buy extra tickets, try again later.";
-                return false;
-            }
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=2");
 
             if(extraTickets < 0 || extraTickets > 10 - TotalSize)
-            {
-                Error.Text = "You may not have more than 10 members in your group (including yourself).";
-                return false;
-            }
+                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=3");
 
             if (extraTickets > 0)
             {
@@ -280,14 +284,12 @@ namespace Aphro_WebForms.Student
                     }
                     catch (Exception ex)
                     {
-                        Error.Text = "Could not buy extra tickets, try again later.";
-                        return false;
+                        Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=2");
                     }
 
                     objConn.Close();
                 }
             }
-            return true;
         }
     }
 }

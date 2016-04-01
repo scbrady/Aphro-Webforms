@@ -12,29 +12,19 @@
         <%: Scripts.Render("~/bundles/datepicker") %>
         <%: Styles.Render("~/Content/css") %>
         <%: Styles.Render("~/Content/home") %>
-        <%: Styles.Render("~/Content/guest-css") %>
     </asp:PlaceHolder>
     <link rel="shortcut icon" href="~/Content/fasticketsSymbol.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>
-    <div class="header"></div>
     <div class="shadow">
         <div class="mainPane">
             <form id="form1" runat="server">
-                <img id="projectLogo" src="Content/fastickets.png" />
+                <div class="spotlight">
+                <img id="projectLogo" />
+                </div>
                 <div class="rows">
-                    <div class="col-sm-6">
-                        <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Event/Index.aspx">
-                            <div class="module">
-                                <div class="inner_mod">
-                                    Create an Event
-                                </div>
-                            </div>
-                        </asp:HyperLink>
-                    </div>
-
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">
                             <div class="module">
                                 <div class="inner_mod">
@@ -43,7 +33,7 @@
                             </div>
                         </asp:HyperLink>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Student/Index.aspx">
                             <div class="module">
                                 <div class="inner_mod">
@@ -52,7 +42,7 @@
                             </div>
                         </asp:HyperLink>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Employee/Index.aspx">
                             <div class="module">
                                 <div class="inner_mod">

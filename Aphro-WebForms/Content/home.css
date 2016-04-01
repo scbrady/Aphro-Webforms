@@ -1,7 +1,53 @@
-﻿#projectLogo {
-    margin: 0 auto;
-    padding: 0 20%;
+﻿body {
+    font-size: 13px;
+    font-family: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
     width: 100%;
+    background: url('curtains.jpg') no-repeat scroll center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.shadow {
+    margin: 75px auto 0px;
+    min-width: 600px;
+    max-width: 1200px;
+    width: 85%;
+    padding: 0 30px 30px;
+}
+
+.mainPane {
+    margin: 0 auto;
+    font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    display: block;
+    text-decoration: none;
+    font-weight: normal;
+    font-family: verdana, Verdana, Geneva, sans-serifsans-serif;
+    padding: 0px 20px 0px;
+}
+
+#projectLogo {
+    width: 40%;
+    margin: 0 auto;
+    position:absolute;
+}
+
+.spotlight {
+    position: relative;
+    border-radius: 50%;
+    box-shadow: white 0 0 30px 10px;
+    width: 30%;
+    height: auto;
+    padding-top: 30%;
+    background: white;
+    opacity: 1;
+    margin: 0px auto 0px;
+    background-image: url('fastickets.png');
+    background-size: 85%;
+    background-repeat:no-repeat;
+    background-position:center;
 }
 
 h4 {
@@ -33,10 +79,9 @@ h4 {
 .rows {
     margin-top: 20px;
     margin-left: auto;
-    margin-bottom: 232px;
 }
 
-.col-sm-6 {
+.col-sm-4 {
     padding: 10px;
 }
 
@@ -72,5 +117,6 @@ h4 {
 @media only screen and (max-width: 767px) {
     .rows {
         margin-bottom: 0px;
+        margin-top: 0px;
     }
 }

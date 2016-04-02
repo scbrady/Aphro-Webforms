@@ -4,7 +4,6 @@
         min_val = 1;
 
     var max_tickets = 10;
-    var at_max = false;
     disableEnableButtons();
 
     $('.add-qty').click(function (e) {
@@ -14,10 +13,9 @@
         // Set the needed variables
         var field_name = $(this).attr('field');
         var current_val = tryParseInt($('#' + field_name).val());
-        didHitMax();
 
         // Make sure counter can't go higher than the max tickets allowed
-        if (!at_max) {
+        if (!didHitMax()) {
             $('#' + field_name).val(current_val + 1);
         } else {
             $('#' + field_name).val(current_val);
@@ -59,14 +57,13 @@
             extra_tickets += current_val;
         });
 
-        at_max = group_size + extra_tickets >= max_tickets;
+        return group_size + extra_tickets >= max_tickets;
     }
 
     function disableEnableButtons() {
         // Disable all add buttons if at the max number of tickets allowed
         // Else enable all of them
-        didHitMax();
-        if (at_max)
+        if (didHitMax())
             $('.add-qty').prop("disabled", true);
         else
             $('.add-qty').prop("disabled", false);

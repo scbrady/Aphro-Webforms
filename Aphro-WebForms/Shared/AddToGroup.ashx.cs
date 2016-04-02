@@ -1,11 +1,8 @@
 ﻿using Aphro_WebForms.Models;
-using AutoMapper;
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.SessionState;
@@ -68,21 +65,12 @@ namespace Aphro_WebForms.Shared
                 command.Parameters.Add("p_RequestedId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
 
-                try
-                {
-                    // Execute the query and map the results to models
-                    objConn.Open();
-                    var groupAdapter = new OracleDataAdapter(command);
-                    groupAdapter.Fill(groupTable);
-
-                    groupResult.group_id = long.Parse(groupTable.Rows[0]["group_id"].ToString());
-                    groupResult.requested_id = long.Parse(groupTable.Rows[0]["requested_id"].ToString());
-                }
-                catch (Exception ex)
-                {
-                    //Todo: handle exception
-                    throw (ex);
-                }
+                // Execute the query and map the results to models
+                objConn.Open();
+                var groupAdapter = new OracleDataAdapter(command);
+                groupAdapter.Fill(groupTable);
+                groupResult.group_id = long.Parse(groupTable.Rows[0]["group_id"].ToString());
+                groupResult.requested_id = long.Parse(groupTable.Rows[0]["requested_id"].ToString());
 
                 objConn.Close();
             }
@@ -99,27 +87,15 @@ namespace Aphro_WebForms.Shared
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
                 command.CommandType = CommandType.StoredProcedure;
 
-                try
-                {
-                    // Execute the query and auto map the results to models
-                    objConn.Open();
-                    command.ExecuteNonQuery();
-
-                }
-                catch (Exception ex)
-                {
-                    //Todo: handle exception
-                    throw ex;
-                }
+                // Execute the query and auto map the results to models
+                objConn.Open();
+                command.ExecuteNonQuery();
             }
         }
 
         public bool IsReusable
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
     }
 }

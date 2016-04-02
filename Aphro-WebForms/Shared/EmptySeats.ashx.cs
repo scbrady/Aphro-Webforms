@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace Aphro_WebForms.Shared
@@ -49,22 +50,38 @@ namespace Aphro_WebForms.Shared
             // If a building key is passed, return the empty seats for the building
             if (buildingKey > 0)
             {
-                var building = getBuildingJson(buildingKey, balcony);
-                building = getBuildingSeatData(building, buildingKey, eventId);
+                try {
+                    var building = getBuildingJson(buildingKey, balcony);
+                    building = getBuildingSeatData(building, buildingKey, eventId);
 
-                json = JsonConvert.SerializeObject(building);
-                context.Response.ContentType = "text/json";
-                context.Response.Write(json);
+                    json = JsonConvert.SerializeObject(building);
+                    context.Response.ContentType = "text/json";
+                    context.Response.Write(json);
+                }
+                catch (Exception ex)
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    context.Response.ContentType = "text/plain";
+                    context.Response.End();
+                }
             }
             // Else, if a section key is passed, return the empty seats for sections
             else if (sectionKey > 0)
             {
-                var section = getSectionJson(sectionKey, subsection);
-                section = getSectionSeatData(section, sectionKey, subsection, eventId);
+                try {
+                    var section = getSectionJson(sectionKey, subsection);
+                    section = getSectionSeatData(section, sectionKey, subsection, eventId);
 
-                json = JsonConvert.SerializeObject(section);
-                context.Response.ContentType = "text/json";
-                context.Response.Write(json);
+                    json = JsonConvert.SerializeObject(section);
+                    context.Response.ContentType = "text/json";
+                    context.Response.Write(json);
+                }
+                catch (Exception ex)
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    context.Response.ContentType = "text/plain";
+                    context.Response.End();
+                }
             }
             // Else, return an empty response
             else
@@ -101,18 +118,11 @@ namespace Aphro_WebForms.Shared
                 eventCommand.Parameters.Add("p_EventId", OracleDbType.Int64, eventId, ParameterDirection.Input);
                 eventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int64, buildingKey, ParameterDirection.Input);
 
-                try
-                {
-                    // Execute the queries and auto map the results to models
-                    objConn.Open();
-                    var eventAdapter = new OracleDataAdapter(eventCommand);
-                    eventAdapter.Fill(seatsTable);
-                    seats = Mapper.DynamicMap<IDataReader, List<RowRecord>>(seatsTable.CreateDataReader());
-                }
-                catch (Exception ex)
-                {
-                    throw (ex);
-                }
+                // Execute the queries and auto map the results to models
+                objConn.Open();
+                var eventAdapter = new OracleDataAdapter(eventCommand);
+                eventAdapter.Fill(seatsTable);
+                seats = Mapper.DynamicMap<IDataReader, List<RowRecord>>(seatsTable.CreateDataReader());
 
                 objConn.Close();
             }
@@ -148,18 +158,11 @@ namespace Aphro_WebForms.Shared
                 eventCommand.Parameters.Add("p_SectionKey", OracleDbType.Int64, sectionKey, ParameterDirection.Input);
                 eventCommand.Parameters.Add("p_Subsection", OracleDbType.Int64, subsection, ParameterDirection.Input);
 
-                try
-                {
-                    // Execute the queries and auto map the results to models
-                    objConn.Open();
-                    var eventAdapter = new OracleDataAdapter(eventCommand);
-                    eventAdapter.Fill(seatsTable);
-                    seats = Mapper.DynamicMap<IDataReader, List<RowRecord>>(seatsTable.CreateDataReader());
-                }
-                catch (Exception ex)
-                {
-                    throw (ex);
-                }
+                // Execute the queries and auto map the results to models
+                objConn.Open();
+                var eventAdapter = new OracleDataAdapter(eventCommand);
+                eventAdapter.Fill(seatsTable);
+                seats = Mapper.DynamicMap<IDataReader, List<RowRecord>>(seatsTable.CreateDataReader());
 
                 objConn.Close();
             }
@@ -184,10 +187,7 @@ namespace Aphro_WebForms.Shared
 
         public bool IsReusable
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
     }
 }

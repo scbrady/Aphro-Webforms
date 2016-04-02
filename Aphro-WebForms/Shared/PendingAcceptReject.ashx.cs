@@ -61,17 +61,9 @@ namespace Aphro_WebForms.Shared
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_GroupId", OracleDbType.Int64, groupId, ParameterDirection.Input);
 
-                try
-                {
-                    // Execute the query
-                    objConn.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    //Todo: handle exception
-                    throw (ex);
-                }
+                // Execute the query
+                objConn.Open();
+                command.ExecuteNonQuery();
 
                 objConn.Close();
             }
@@ -89,17 +81,9 @@ namespace Aphro_WebForms.Shared
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_GroupId", OracleDbType.Int64, groupId, ParameterDirection.Input);
 
-                try
-                {
-                    // Execute the query
-                    objConn.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    //Todo: handle exception
-                    throw (ex);
-                }
+                // Execute the query
+                objConn.Open();
+                command.ExecuteNonQuery();
 
                 objConn.Close();
             }
@@ -108,10 +92,7 @@ namespace Aphro_WebForms.Shared
 
         public bool IsReusable
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
     }
 }

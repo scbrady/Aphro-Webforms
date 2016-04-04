@@ -135,6 +135,7 @@
     <Content Include="Content\images\x.png" />
     <Content Include="Content\map-modal.css" />
     <Content Include="Content\pcci-styles.css" />
+    <Content Include="Content\pictures\default_event_image.jpg" />
     <Content Include="Content\rome.css" />
     <Content Include="Content\rome.min.css" />
     <Content Include="Content\slick-theme.css" />
@@ -189,10 +190,8 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Guest\ReviewTickets.aspx" />
-    <Content Include="Scripts\adaptive-backgrounds.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\carousel.js" />
     <Content Include="Event\AddEvent.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Guest\EventSignup.aspx" />
@@ -267,6 +266,7 @@
     <Content Include="Content\fonts\slick.eot" />
     <Content Include="Content\fonts\slick.ttf" />
     <Content Include="Content\fonts\slick.woff" />
+    <None Include="Properties\PublishProfiles\Project Deployment.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\highmaps\data.js" />
     <Content Include="Scripts\highmaps\drilldown.js" />

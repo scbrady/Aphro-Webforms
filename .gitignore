@@ -80,3 +80,4 @@ _[Ss]cripts
 # Ignore uploaded images
 Aphro-WebForms/Content/pictures/*
 !Aphro-WebForms/Content/pictures/default_event_image.jpg
+Aphro-WebForms/Properties/PublishProfiles/Project Deployment.pubxml

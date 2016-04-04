@@ -31,7 +31,7 @@
 #projectLogo {
     width: 40%;
     margin: 0 auto;
-    position:absolute;
+    position: absolute;
 }
 
 .spotlight {
@@ -46,8 +46,8 @@
     margin: 0px auto 0px;
     background-image: url('fastickets.png');
     background-size: 85%;
-    background-repeat:no-repeat;
-    background-position:center;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h4 {
@@ -66,14 +66,6 @@ h4 {
 .websites {
     display: block;
     font-size: 22px;
-}
-
-.table-responsive {
-    border: none;
-    overflow-y: visible;
-    overflow-x: visible;
-    padding: 0 10px;
-    margin: 0 auto;
 }
 
 .rows {

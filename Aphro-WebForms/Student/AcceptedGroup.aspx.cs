@@ -2,8 +2,8 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data;
+using System.Linq;
 
 namespace Aphro_WebForms.Student
 {
@@ -29,16 +29,12 @@ namespace Aphro_WebForms.Student
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the getEvent command
-                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    eventCommand.BindByName = true;
-                    eventCommand.CommandType = CommandType.StoredProcedure;
+                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getAcceptedGroupForEvent", objConn);
-                    requestsCommand.BindByName = true;
-                    requestsCommand.CommandType = CommandType.StoredProcedure;
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getAcceptedGroupForEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                     requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -55,7 +51,7 @@ namespace Aphro_WebForms.Student
                         requestsAdapter.Fill(requestsTable);
                         requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                     }
@@ -77,7 +73,7 @@ namespace Aphro_WebForms.Student
                 if (requestsModel.Any())
                 {
                     var leaderInformation = requestsModel.First();
-                    GroupLeaderName.Text = leaderInformation.group_leader_firstname + " " + leaderInformation.group_leader_lastname;
+                    GroupLeaderName.Text = string.Format("{0} {1}", leaderInformation.group_leader_firstname, leaderInformation.group_leader_lastname);
                     GuestTickets = leaderInformation.guest_tickets;
                     GroupList.DataSource = requestsModel;
                     GroupList.DataBind();

@@ -22,7 +22,6 @@
             <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Default.aspx">
                 <img class="logo" src="http://www.pcci.edu/Images/Graphics/Logos/PensacolaChristianCollegeLogo.svg" />
             </asp:HyperLink>
-            <%--<a class="HOME" href="http://csmain.studentnet.int/seproject/aphro/">HOME</a>--%>
             <form id="masterForm" runat="server">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>

@@ -41,7 +41,7 @@ namespace Aphro_WebForms.Shared
 
                 context.Response.Write(accepted);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "text/plain";
@@ -55,9 +55,7 @@ namespace Aphro_WebForms.Shared
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
-                var command = new OracleCommand("TICKETS_API.acceptRequest", objConn);
-                command.BindByName = true;
-                command.CommandType = CommandType.StoredProcedure;
+                var command = new OracleCommand("TICKETS_API.acceptRequest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_GroupId", OracleDbType.Int64, groupId, ParameterDirection.Input);
 
@@ -75,9 +73,7 @@ namespace Aphro_WebForms.Shared
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
-                var command = new OracleCommand("TICKETS_API.rejectRequest", objConn);
-                command.BindByName = true;
-                command.CommandType = CommandType.StoredProcedure;
+                var command = new OracleCommand("TICKETS_API.rejectRequest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_GroupId", OracleDbType.Int64, groupId, ParameterDirection.Input);
 

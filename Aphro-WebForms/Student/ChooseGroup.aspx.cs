@@ -3,8 +3,8 @@ using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace Aphro_WebForms.Student
@@ -31,16 +31,12 @@ namespace Aphro_WebForms.Student
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the getEvent command
-                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    eventCommand.BindByName = true;
-                    eventCommand.CommandType = CommandType.StoredProcedure;
+                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupRequestsForEvent", objConn);
-                    requestsCommand.BindByName = true;
-                    requestsCommand.CommandType = CommandType.StoredProcedure;
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupRequestsForEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                     requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -57,7 +53,7 @@ namespace Aphro_WebForms.Student
                         requestsAdapter.Fill(requestsTable);
                         requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                     }
@@ -106,9 +102,7 @@ namespace Aphro_WebForms.Student
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the accepting group command
-                var acceptCommand = new OracleCommand("TICKETS_API.acceptRequest", objConn);
-                acceptCommand.BindByName = true;
-                acceptCommand.CommandType = CommandType.StoredProcedure;
+                var acceptCommand = new OracleCommand("TICKETS_API.acceptRequest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 acceptCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 acceptCommand.Parameters.Add("p_GroupId", OracleDbType.Int64, long.Parse(((Button)sender).CommandArgument), ParameterDirection.Input);
 
@@ -118,7 +112,7 @@ namespace Aphro_WebForms.Student
                     objConn.Open();
                     acceptCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     failed = true;
                     Error.Text = "Could not accept the group. Try again later";
@@ -127,7 +121,7 @@ namespace Aphro_WebForms.Student
 
                 objConn.Close();
             }
-            
+
             if (!failed)
                 Response.Redirect("AcceptedGroup.aspx?Series=" + SeriesId);
         }
@@ -139,9 +133,7 @@ namespace Aphro_WebForms.Student
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the rejecting group command
-                var rejectCommand = new OracleCommand("TICKETS_API.rejectRequest", objConn);
-                rejectCommand.BindByName = true;
-                rejectCommand.CommandType = CommandType.StoredProcedure;
+                var rejectCommand = new OracleCommand("TICKETS_API.rejectRequest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 rejectCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 rejectCommand.Parameters.Add("p_GroupId", OracleDbType.Int64, long.Parse(((Button)sender).CommandArgument), ParameterDirection.Input);
 
@@ -151,7 +143,7 @@ namespace Aphro_WebForms.Student
                     objConn.Open();
                     rejectCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     failed = true;
                     Error.Text = "Could not reject group. Try again later.";

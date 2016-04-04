@@ -23,9 +23,7 @@ namespace Aphro_WebForms.Guest
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the seasons command
-                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonsForPurchase", objConn);
-                    seasonsCommand.BindByName = true;
-                    seasonsCommand.CommandType = CommandType.StoredProcedure;
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonsForPurchase", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     seasonsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
@@ -37,7 +35,7 @@ namespace Aphro_WebForms.Guest
                         seasonsAdapter.Fill(seasonsTable);
                         seasons = Mapper.DynamicMap<IDataReader, List<Season>>(seasonsTable.CreateDataReader());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Response.Redirect("Index.aspx");
                     }
@@ -79,9 +77,7 @@ namespace Aphro_WebForms.Guest
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                var insertPersonSeason = new OracleCommand("TICKETS_API.insertPersonSeason", objConn);
-                insertPersonSeason.BindByName = true;
-                insertPersonSeason.CommandType = CommandType.StoredProcedure;
+                var insertPersonSeason = new OracleCommand("TICKETS_API.insertPersonSeason", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 insertPersonSeason.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
                 insertPersonSeason.Parameters.Add("p_PersonId", OracleDbType.Int32, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
@@ -90,7 +86,7 @@ namespace Aphro_WebForms.Guest
                     objConn.Open();
                     insertPersonSeason.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     failed = true;
                 }
@@ -105,6 +101,11 @@ namespace Aphro_WebForms.Guest
                 Error.Text = "Could not buy season ticket, try again later.";
                 Error.Visible = true;
             }
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
         }
     }
 }

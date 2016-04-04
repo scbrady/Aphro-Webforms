@@ -22,7 +22,7 @@
                 <h4><%# Eval("name") %></h4>
                 <asp:LinkButton CssClass="deleteButton" runat="server" CommandArgument='<%# Eval("series_id") + "," +Eval("event_picture")%>' Text="X" OnClick="Delete_Event" />
                 <p><%# ((DateTime)Eval("event_datetime")).ToString("g") %></p>
-                <a class="editButton" href='<%# "EditEvent.aspx?Series="+ Eval("series_id") %>'>Edit</a>  
+                <a class="editButton" href='<%# "EditEvent.aspx?Series="+ Eval("series_id") %>'>Edit</a>
             </div>
         </ItemTemplate>
     </asp:ListView>

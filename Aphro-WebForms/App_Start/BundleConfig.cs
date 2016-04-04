@@ -6,10 +6,6 @@ namespace Aphro_WebForms
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/carousel").Include(
-                        "~/Scripts/carousel.js",
-                        "~/Scripts/adaptive-backgrounds.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/moment.js",
                         "~/Scripts/jquery-{version}.js"));
@@ -51,22 +47,27 @@ namespace Aphro_WebForms
             bundles.Add(new StyleBundle("~/Content/event-css").Include(
                       "~/Content/event.css",
                       "~/Content/pcci-styles.css"));
+
             bundles.Add(new StyleBundle("~/Content/guest-css").Include(
                       "~/Content/guest.css",
                       "~/Content/pcci-styles.css"));
+
             bundles.Add(new StyleBundle("~/Content/student-css").Include(
                       "~/Content/student.css"));
+
             bundles.Add(new StyleBundle("~/Content/faculty-css").Include(
                       "~/Content/faculty.css"));
+
             bundles.Add(new StyleBundle("~/Content/jquery-ui").Include(
                       "~/Content/themes/base/all.css"));
-            bundles.Add(new StyleBundle("~/Content/carousel").Include(
-                      "~/Content/carousel.css"));
+
             bundles.Add(new StyleBundle("~/Content/slick").Include(
                       "~/Content/slick.css",
                       "~/Content/slick-theme.css"));
+
             bundles.Add(new StyleBundle("~/Content/home").Include(
                       "~/Content/home.css"));
+
             bundles.Add(new StyleBundle("~/Content/map-css").Include(
                       "~/Content/map-modal.css"));
         }

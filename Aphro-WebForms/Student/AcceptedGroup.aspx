@@ -27,7 +27,8 @@
     </div>
     <div class="col-md-6">
         <h4>Group:</h4>
-        <h3>Leader: <asp:Label ID="GroupLeaderName" runat="server"></asp:Label></h3>
+        <h3>Leader:
+            <asp:Label ID="GroupLeaderName" runat="server"></asp:Label></h3>
         <div id="GroupRequestContainer" runat="server">
             <% if (GuestTickets > 0)
                 { %>

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Aphro_WebForms.Models;
+﻿using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Web.UI.WebControls;
 
@@ -25,21 +25,15 @@ namespace Aphro_WebForms.Event
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the eventTypes command
-                    var eventTypesCommand = new OracleCommand("TICKETS_QUERIES.getEventTypeNames", objConn);
-                    eventTypesCommand.BindByName = true;
-                    eventTypesCommand.CommandType = CommandType.StoredProcedure;
+                    var eventTypesCommand = new OracleCommand("TICKETS_QUERIES.getEventTypeNames", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     eventTypesCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
                     // Set up the buildings command
-                    var buildingsCommand = new OracleCommand("TICKETS_QUERIES.getBuildingNames", objConn);
-                    buildingsCommand.BindByName = true;
-                    buildingsCommand.CommandType = CommandType.StoredProcedure;
+                    var buildingsCommand = new OracleCommand("TICKETS_QUERIES.getBuildingNames", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
                     // Set up the seasons command
-                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonNames", objConn);
-                    seasonsCommand.BindByName = true;
-                    seasonsCommand.CommandType = CommandType.StoredProcedure;
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonNames", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
                     try
@@ -124,9 +118,7 @@ namespace Aphro_WebForms.Event
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the eventTypes command
-                var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn);
-                insertEventCommand.BindByName = true;
-                insertEventCommand.CommandType = CommandType.StoredProcedure;
+                var insertEventCommand = new OracleCommand("TICKETS_API.insertEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 insertEventCommand.Parameters.Add("p_EventName", OracleDbType.Varchar2, EventNameInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
@@ -140,7 +132,6 @@ namespace Aphro_WebForms.Event
                     insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
                 else
                     insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
-
 
                 try
                 {

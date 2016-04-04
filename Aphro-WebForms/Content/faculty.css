@@ -1,4 +1,7 @@
-﻿html {
+﻿/**************************************************************/
+/* General HTML and body styling, including header and footer */
+/**************************************************************/
+html {
     font-family: Roboto, sans-serif;
     height: 100%;
     font-size: 99%;
@@ -13,14 +16,18 @@ body {
     height: 100%;
 }
 
-label {
-    margin: 10px 0 0;
+.mainPane {
+    position: relative;
+    width: 960px;
+    margin: 10px auto 0;
+    padding: 0 0 100px;
 }
 
-#masterForm {
-    min-height: 100%;
-    position: relative;
-}
+    .mainPane h1 {
+        text-align: center;
+        margin: 0 0 30px;
+        font-size: 30px;
+    }
 
 #header {
     background: #fff;
@@ -38,7 +45,6 @@ label {
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00c7e6), color-stop(100%,#0090a5));
         background: -webkit-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
         background: -o-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
-        background: -ms-linear-gradient(top, #00c7e6 0%,#0090a5 100%);
         background: linear-gradient(to bottom, #00c7e6 0%,#0090a5 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c7e6', endColorstr='#0090a5',GradientType=0 );
         background-size: cover;
@@ -46,9 +52,64 @@ label {
         margin-bottom: 10px;
     }
 
+    #header .EcLogo {
+        background: url('https://www.abekaservices.com/Images/Graphics/EmployeeCentralLogo.svg') no-repeat;
+        background-size: 250px 70px;
+        display: block;
+        width: 250px;
+        height: 70px;
+        float: left;
+        text-decoration: none;
+        margin-top: 0px;
+    }
+
+    #header .EcText {
+        position: absolute;
+        margin-top: 61px;
+        margin-left: 4px;
+        text-decoration: none;
+        color: rgba(120,230,250,1.00);
+        font-size: 8pt;
+        white-space: nowrap;
+    }
+
+    #header .EsLogo {
+        background: url('https://www.abekaservices.com/Images/images/ES_Logo_gradient.png') no-repeat;
+        background-size: 410px 90px;
+        display: block;
+        width: 410px;
+        height: 90px;
+        float: right;
+        margin-top: 12px;
+        margin-left: 30px;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
 header .headerContent {
     width: 863px;
     margin: auto;
+}
+
+footer {
+    background: #878787;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/*******************/
+/* General Styling */
+/*******************/
+label {
+    margin: 10px 0 0;
+}
+
+#masterForm {
+    min-height: 100%;
+    position: relative;
 }
 
 input[type=submit],
@@ -72,46 +133,19 @@ input[type=button] {
     height: 35px;
 }
 
-input[type=button]:disabled {
-    opacity: .5;
-}
+    input[type=button]:disabled {
+        opacity: .5;
+    }
 
 input[type=text] {
     display: inline;
 }
 
-#header .EcLogo {
-    background: url('https://www.abekaservices.com/Images/Graphics/EmployeeCentralLogo.svg') no-repeat;
-    background-size: 250px 70px;
-    display: block;
-    width: 250px;
-    height: 70px;
-    float: left;
-    text-decoration: none;
-    margin-top: 0px;
-}
-
-#header .EcText {
-    position: absolute;
-    margin-top: 61px;
-    margin-left: 4px;
-    text-decoration: none;
-    color: rgba(120,230,250,1.00);
-    font-size: 8pt;
-    white-space: nowrap;
-}
-
-#header .EsLogo {
-    background: url('https://www.abekaservices.com/Images/images/ES_Logo_gradient.png') no-repeat;
-    background-size: 410px 90px;
-    display: block;
-    width: 410px;
-    height: 90px;
-    float: right;
-    margin-top: 12px;
-    margin-left: 30px;
-    margin-right: 10px;
-    text-decoration: none;
+input[type=number] {
+    text-align: end;
+    padding: 5px 0;
+    width: 35px;
+    height: 35px;
 }
 
 .user-info {
@@ -140,28 +174,6 @@ input[type=text] {
         color: #00bbd7;
     }
 
-footer {
-    background: #878787;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.mainPane {
-    position: relative;
-    width: 960px;
-    margin: 10px auto 0;
-    padding: 0 0 100px;
-}
-
-    .mainPane h1 {
-        text-align: center;
-        margin: 0 0 30px;
-        font-size: 30px;
-    }
-
 h4 {
     font-size: 1.6em;
     color: #737373;
@@ -170,7 +182,7 @@ h4 {
 #MainContent_GroupRequestContainer {
     background-color: #D3D5D8;
     padding: 10px;
-    min-height: auto;
+    min-height: inherit;
     border-radius: 0 4px 0 4px;
 }
 
@@ -187,6 +199,7 @@ h4 {
     height: 100%;
     margin-bottom: 10px;
 }
+
     .event-detail h3 {
         font-size: 1.6em;
         color: #737373;
@@ -277,13 +290,6 @@ h4 {
     text-align: center;
 }
 
-input[type=number] {
-    text-align: end;
-    padding: 5px 0;
-    width: 35px;
-    height: 35px;
-}
-
 /**************/
 /* Responsive */
 /**************/
@@ -356,7 +362,7 @@ input[type=number] {
     }
 
     #header .EsLogo {
-        padding: none;
+        padding: 0;
         padding-left: 50px;
         position: relative;
         float: none;

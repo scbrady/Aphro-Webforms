@@ -17,7 +17,7 @@
                 <ItemTemplate>
                     <div id="summary-<%# Eval("season_id") %>" class="season-summary">
                         <h4>Price: $<%# Eval("price") %></h4>
-                        <h4 runat="server" Visible='<%# (int) Eval("ticket_count") > 0 %>'>Already Purchased: <%# Eval("ticket_count") %></h4>
+                        <h4 runat="server" visible='<%# (int) Eval("ticket_count") > 0 %>'>Already Purchased: <%# Eval("ticket_count") %></h4>
                         <h4>Events in this season:</h4>
                         <asp:ListView ID="GroupRequestsList" runat="server" DataSource='<%# Eval("event_names") %>'>
                             <LayoutTemplate>
@@ -32,6 +32,7 @@
             </asp:ListView>
         </div>
     </div>
+    <asp:Button ID="back" runat="server" Text="< Back" OnClick="back_Click" />
     <asp:Button ID="Submit" runat="server" Text="Buy" OnClick="Submit_Click" />
 </asp:Content>
 
@@ -46,8 +47,7 @@
             });
         });
 
-        function refreshSummaryList(selected_id)
-        {
+        function refreshSummaryList(selected_id) {
             $(".season-summary").hide();
             $("#summary-" + selected_id).show();
         }

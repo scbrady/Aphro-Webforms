@@ -26,9 +26,7 @@ namespace Aphro_WebForms.Student
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the getEventSeats command
-                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
-                eventSeatsCommand.BindByName = true;
-                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -41,7 +39,7 @@ namespace Aphro_WebForms.Student
                     eventSeatsAdapter.Fill(eventSeatsTable);
                     eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                 }
@@ -75,7 +73,7 @@ namespace Aphro_WebForms.Student
                     try
                     {
                         var leaderInformation = eventSeatsModel.First(t => t.leader == 1);
-                        LeaderName = leaderInformation.firstname + " " + leaderInformation.lastname;
+                        LeaderName = string.Format("{0} {1}", leaderInformation.firstname, leaderInformation.lastname);
                         GuestTickets = leaderInformation.guest_tickets;
                         eventSeatsModel.RemoveAll(t => t.leader == 1);
                         GroupList.DataSource = eventSeatsModel;
@@ -89,6 +87,11 @@ namespace Aphro_WebForms.Student
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
             }
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
         }
     }
 }

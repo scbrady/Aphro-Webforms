@@ -68,7 +68,8 @@
             <div class="event-detail">
                 <h3>Price:</h3>
                 <asp:Label ID="EventPrice" runat="server"></asp:Label>
-                <span>(Prime: <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)</span>
+                <span>(Prime:
+                    <asp:Label ID="EventPrimePrice" runat="server"></asp:Label>)</span>
             </div>
             <div class="event-detail">
                 <h3>Event Dates:</h3>

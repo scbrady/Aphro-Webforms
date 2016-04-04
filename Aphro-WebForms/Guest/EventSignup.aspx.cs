@@ -19,7 +19,7 @@ namespace Aphro_WebForms.Guest
         protected void Page_Load(object sender, EventArgs e)
         {
             GuestTicketsSize.Attributes.Add("readonly", "readonly");
-            if (!IsPostBack )
+            if (!IsPostBack)
             {
                 if (Global.CurrentPerson == null || string.IsNullOrEmpty(Request.QueryString["Series"]))
                     Response.Redirect("Index.aspx");
@@ -41,24 +41,18 @@ namespace Aphro_WebForms.Guest
                     try
                     {
                         // Set up the getEvent command
-                        var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                        eventCommand.BindByName = true;
-                        eventCommand.CommandType = CommandType.StoredProcedure;
+                        var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                         eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                         // Set up the getGroupRequestsForEvent command
-                        var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
-                        requestsCommand.BindByName = true;
-                        requestsCommand.CommandType = CommandType.StoredProcedure;
+                        var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                         requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                         requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
                         // Set up the getSeasonTickets command
-                        var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonTickets", objConn);
-                        seasonsCommand.BindByName = true;
-                        seasonsCommand.CommandType = CommandType.StoredProcedure;
+                        var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonTickets", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                         seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                         seasonsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
@@ -76,7 +70,7 @@ namespace Aphro_WebForms.Guest
                         seasonsAdapter.Fill(seasonsTable);
                         seasonsModel = Mapper.DynamicMap<IDataReader, List<Models.Season>>(seasonsTable.CreateDataReader());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Response.Redirect("Index.aspx");
                     }
@@ -117,7 +111,7 @@ namespace Aphro_WebForms.Guest
                     AlreadyPurchasedTickets = requestsModel.FirstOrDefault().guest_tickets + 1;
                     GroupSize.Text = AlreadyPurchasedTickets.ToString();
                     GuestTicketsSize.Text = "0";
-                    if(Request.QueryString["Error"] != null)
+                    if (Request.QueryString["Error"] != null)
                     {
                         Error.Text = "Those seats are no longer available. Please pick new seats.";
                         Error.Visible = true;
@@ -136,9 +130,7 @@ namespace Aphro_WebForms.Guest
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the getEventSeats command
-                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
-                eventSeatsCommand.BindByName = true;
-                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -151,7 +143,7 @@ namespace Aphro_WebForms.Guest
                     eventSeatsAdapter.Fill(eventSeatsTable);
                     eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // This is ok if an error comes up, let the program handle it later
                 }
@@ -168,7 +160,7 @@ namespace Aphro_WebForms.Guest
         {
             bool failed = false;
 
-            if(!getExtraTickets())
+            if (!getExtraTickets())
             {
                 Error.Visible = true;
                 return;
@@ -179,9 +171,7 @@ namespace Aphro_WebForms.Guest
                 try
                 {
                     // Set up the inserting seats command
-                    var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
-                    seatCommand.BindByName = true;
-                    seatCommand.CommandType = CommandType.StoredProcedure;
+                    var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
                     seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
                     seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
@@ -192,7 +182,7 @@ namespace Aphro_WebForms.Guest
                     objConn.Open();
                     seatCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Couldn't get those seats (probably taken), pick again
                     failed = true;
@@ -203,7 +193,7 @@ namespace Aphro_WebForms.Guest
             if (!failed)
                 Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             else
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=1");
+                Response.Redirect(string.Format("EventSignup.aspx?Series={0}&Error=1", SeriesId));
         }
 
         // "Purchase" tickets
@@ -214,14 +204,14 @@ namespace Aphro_WebForms.Guest
 
             int.TryParse(GroupSize.Text, out AlreadyPurchasedTickets);
 
-            if (!long.TryParse(SeriesIdField.Value, out SeriesId) ||  !int.TryParse(GuestTicketsSize.Text, out extraTickets))
+            if (!long.TryParse(SeriesIdField.Value, out SeriesId) || !int.TryParse(GuestTicketsSize.Text, out extraTickets))
             {
                 Error.Text = "Could not buy extra tickets, try again later.";
                 return false;
             }
 
             if ((AlreadyPurchasedTickets == 0 && (extraTickets <= 0 || extraTickets > 10)) ||
-                (AlreadyPurchasedTickets >  0 && (extraTickets <  0 || extraTickets > 10 - AlreadyPurchasedTickets)))
+                (AlreadyPurchasedTickets > 0 && (extraTickets < 0 || extraTickets > 10 - AlreadyPurchasedTickets)))
             {
                 Error.Text = "You may not have more than 10 members in your group (including yourself).";
                 return false;
@@ -236,9 +226,7 @@ namespace Aphro_WebForms.Guest
                     try
                     {
                         // Set up the inserting groups command
-                        var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
-                        groupsCommand.BindByName = true;
-                        groupsCommand.CommandType = CommandType.StoredProcedure;
+                        var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                         groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                         groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                         groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraTickets, ParameterDirection.Input);
@@ -248,7 +236,7 @@ namespace Aphro_WebForms.Guest
                         objConn.Open();
                         groupsCommand.ExecuteNonQuery();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Error.Text = "Could not buy extra tickets, try again later.";
                         return false;

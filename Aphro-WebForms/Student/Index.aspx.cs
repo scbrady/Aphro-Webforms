@@ -24,9 +24,7 @@ namespace Aphro_WebForms.Student
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the upcomingEvents command
-                var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getUpcomingEvents", objConn);
-                upcomingEventsCommand.BindByName = true;
-                upcomingEventsCommand.CommandType = CommandType.StoredProcedure;
+                var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getUpcomingEvents", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 upcomingEventsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
                 try
@@ -37,7 +35,7 @@ namespace Aphro_WebForms.Student
                     upcomingEventsAdapter.Fill(upcomingEventsTable);
                     upcomingEvents = Mapper.DynamicMap<IDataReader, List<Models.Event>>(upcomingEventsTable.CreateDataReader());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Response.Redirect("../Default.aspx");
                 }
@@ -58,9 +56,7 @@ namespace Aphro_WebForms.Student
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
-                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getRandomStudent ", objConn);
-                objCmd.BindByName = true;
-                objCmd.CommandType = CommandType.StoredProcedure;
+                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.getRandomStudent ", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
 
                 objCmd.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
@@ -71,7 +67,7 @@ namespace Aphro_WebForms.Student
                     adapter.Fill(studentTable);
                     student = Mapper.DynamicMap<IDataReader, List<Person>>(studentTable.CreateDataReader()).FirstOrDefault();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Response.Redirect("../Default.aspx");
                 }

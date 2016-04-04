@@ -21,7 +21,7 @@
         <div class="mainPane">
             <form id="form1" runat="server">
                 <div class="spotlight">
-                <img id="projectLogo" />
+                    <img id="projectLogo" />
                 </div>
                 <div class="rows">
                     <div class="col-sm-4">

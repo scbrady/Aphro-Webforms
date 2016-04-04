@@ -28,7 +28,9 @@
     text-align: center;
 }
 
-/* Joe's Stuff */
+/****************/
+/* Event Signup */
+/****************/
 #MainContent_EventName {
     display: block;
     font-size: 1.6em !important;
@@ -86,10 +88,24 @@
     margin-top: 10px;
 }
 
-#MainContent_Submit {
+#MainContent_Submit,
+#MainContent_back {
     width: 40%;
     margin: 0 auto;
     margin-top: 85px;
+    display: block;
+}
+
+#MainContent_back {
+    float: left;
+    width: 15%;
+    margin: 0 0 10px;
+}
+
+#choose-seats {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
     display: block;
 }
 
@@ -114,19 +130,13 @@ span.validator {
     background-color: #005DAA;
 }
 
-#choose-seats {
-    width: 40%;
-    margin: 0 auto;
-    margin-top: 50px;
-    display: block;
-}
-
 /*************************/
 /*       Seasons         */
 /*************************/
 #season-header {
     margin-bottom: 40px;
 }
+
 .season-summary {
     display: none;
     padding: 10px;

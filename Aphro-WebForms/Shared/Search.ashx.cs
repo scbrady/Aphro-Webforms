@@ -34,7 +34,7 @@ namespace Aphro_WebForms.Shared
                 context.Response.ContentType = "text/json";
                 context.Response.Write(json);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "text/plain";
@@ -50,9 +50,7 @@ namespace Aphro_WebForms.Shared
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the searchPeople command
-                var searchCommand = new OracleCommand("TICKETS_QUERIES.searchStudents", objConn);
-                searchCommand.BindByName = true;
-                searchCommand.CommandType = CommandType.StoredProcedure;
+                var searchCommand = new OracleCommand("TICKETS_QUERIES.searchStudents", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 searchCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 searchCommand.Parameters.Add("p_SearchText", OracleDbType.Varchar2, term, ParameterDirection.Input);
 

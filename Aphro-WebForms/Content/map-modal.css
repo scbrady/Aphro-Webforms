@@ -1,9 +1,15 @@
-﻿.interactiveMap {
+﻿/*************************/
+/* Interactive Map Modal */
+/*************************/
+
+/* The modal itself */
+.interactiveMap {
     margin: 30px auto 0;
     width: 400px;
     height: 400px;
 }
 
+/* The balcony/main floor button */
 .balcony {
     width: 400px;
     margin: auto;
@@ -16,18 +22,21 @@
     padding: 5px 0 25px;
 }
 
-.getTickets:disabled {
-    opacity: .5;
-}
-
-#priceText {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: -20px;
-}
-
+/* The get tickets button */
 input[type=submit].getTickets {
     width: 50%;
     margin: 50px auto 0;
     display: block;
+}
+
+/* The get tickets button when disabled */
+.getTickets:disabled {
+    opacity: .5;
+}
+
+/* The price of the tickets */
+#priceText {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: -20px;
 }

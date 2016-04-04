@@ -1,4 +1,7 @@
-﻿html {
+﻿/*********************************/
+/* General HTML and body styling */
+/*********************************/
+html {
     font-family: Roboto, sans-serif;
     height: 100%;
     font-size: 99%;
@@ -26,6 +29,22 @@ body {
         box-shadow: 0px 0px 10px rgba(0,0,0,.6);
         filter: progid:DXImageTransform.Microsoft.Shadow(color='rgb(0,0,0)', Direction=145, Strength=8);
         z-index: 50000;
+    }
+
+.mainPane {
+    background: rgba(255,255,255,0.7);
+    padding: 30px 20px;
+    width: 90%;
+    max-width: 74em;
+    margin: 25px auto;
+    min-height: 300px;
+}
+
+    .mainPane h1 {
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 30px;
+        margin-top: 0;
     }
 
 label {
@@ -98,23 +117,61 @@ label {
     text-align: center;
 }
 
-.mainPane {
-    background: rgba(255,255,255,0.7);
-    padding: 30px 20px;
-    width: 90%;
-    max-width: 74em;
-    margin: 25px auto;
-    min-height: 300px;
+h4 {
+    font-size: 1.6em;
+    color: #737373;
 }
 
-    .mainPane h1 {
-        text-align: center;
-        font-size: 3em;
-        margin-bottom: 30px;
-        margin-top: 0;
+/*******************/
+/* General Styling */
+/*******************/
+input[type=submit],
+input[type=button] {
+    width: inherit;
+    height: 33px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    font-weight: normal;
+    font-size: 11px;
+    border: 0;
+    border-radius: 0px !important;
+    border-bottom: 2px #797979 solid;
+    display: inline;
+    margin-top: 6px;
+}
+
+input[type=button] {
+    width: 35px;
+    height: 35px;
+}
+
+    input[type=button]:disabled {
+        opacity: .5;
     }
 
+input[type=text] {
+    display: inline;
+}
+
+input[type=number] {
+    text-align: end;
+    padding: 5px 0;
+    width: 35px;
+    height: 35px;
+}
+
+.choose-seats {
+    border-bottom: 3px solid #286090;
+    border-radius: 0 4px 0 4px;
+    margin: 20px auto 0;
+    display: block;
+    width: 40%;
+}
+
+/**********************/
 /* Group Request List */
+/**********************/
 a.panel-heading {
     display: block;
 }
@@ -181,52 +238,10 @@ a.panel-heading {
     background-size: 85%;
 }
 
-input[type=submit],
-input[type=button] {
-    width: inherit;
-    height: 33px;
-    color: white;
-    background: rgba(0,0,0,0.4);
-    padding: 10px;
-    font-weight: normal;
-    font-size: 11px;
-    border: 0;
-    border-radius: 0px !important;
-    border-bottom: 2px #797979 solid;
-    display: inline;
-    margin-top: 6px;
-}
-
-input[type=button] {
-    width: 35px;
-    height: 35px;
-}
-
-input[type=button]:disabled {
-    opacity: .5;
-}
-
-input[type=text] {
-    display: inline;
-}
-
-input[type=number] {
-    text-align: end;
-    padding: 5px 0;
-    width: 35px;
-    height: 35px;
-}
-
 .error {
     color: red;
     display: none;
     margin: 5px 0 0;
-}
-
-/* Joe's Stuff */
-h4 {
-    font-size: 1.6em;
-    color: #737373;
 }
 
 .tab-content {
@@ -238,18 +253,10 @@ h4 {
     margin-top: 10px;
 }
 
-.choose-seats {
-    border-bottom: 3px solid #286090;
-    border-radius: 0 4px 0 4px;
-    margin: 20px auto 0;
-    display: block;
-    width: 40%;
-}
-
 #MainContent_GroupRequestContainer {
     background-color: #D3D5D8;
     padding: 10px;
-    min-height: auto;
+    min-height: inherit;
     border-radius: 0 4px 0 4px;
 }
 
@@ -264,10 +271,14 @@ h4 {
         font-style: italic;
     }
 
+/*****************/
+/* Event Summary */
+/*****************/
 .event-detail {
     height: 100%;
     margin-bottom: 10px;
 }
+
     .event-detail h3 {
         font-size: 1.6em;
         color: #737373;

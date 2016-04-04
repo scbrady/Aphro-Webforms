@@ -24,9 +24,7 @@ namespace Aphro_WebForms.Guest
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the getEventSeats command
-                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
-                eventSeatsCommand.BindByName = true;
-                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -39,7 +37,7 @@ namespace Aphro_WebForms.Guest
                     eventSeatsAdapter.Fill(eventSeatsTable);
                     eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
                 }
@@ -53,18 +51,14 @@ namespace Aphro_WebForms.Guest
                     Date.InnerText = eventSeatsModel.FirstOrDefault().event_datetime.ToString("dddd, MMMM d - h:mm tt");
                     Section.InnerText = eventSeatsModel.FirstOrDefault().description;
 
-                    string location = "Row ";
-                    location += eventSeatsModel.FirstOrDefault().seat_row + ", ";
+                    string location = string.Format("Row {0}, ", eventSeatsModel.FirstOrDefault().seat_row);
                     if (eventSeatsModel.Count > 1)
                     {
-                        location += "Seats ";
-                        location += eventSeatsModel.Min(t => t.seat_number).ToString() + "-";
-                        location += eventSeatsModel.Max(t => t.seat_number).ToString();
+                        location += string.Format("Seats {0}-{1}", eventSeatsModel.Min(t => t.seat_number), eventSeatsModel.Max(t => t.seat_number));
                     }
                     else
                     {
-                        location += "Seat ";
-                        location += eventSeatsModel.FirstOrDefault().seat_number.ToString();
+                        location += "Seat " + eventSeatsModel.FirstOrDefault().seat_number.ToString();
                     }
                     Location.InnerText = location;
 
@@ -73,6 +67,11 @@ namespace Aphro_WebForms.Guest
                 else
                     Response.Redirect("EventSignup.aspx?Series=" + SeriesId);
             }
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
         }
     }
 }

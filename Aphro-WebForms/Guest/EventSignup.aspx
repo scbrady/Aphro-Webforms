@@ -8,7 +8,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="eventSignup">
-        <h1 class="eName"><asp:Label ID="EventName" runat="server"></asp:Label></h1>
+        <h1 class="eName">
+            <asp:Label ID="EventName" runat="server"></asp:Label></h1>
         <asp:Label ID="Error" runat="server" Visible="false" />
         <div class="row">
             <div class="col-md-7">
@@ -41,7 +42,8 @@
                 <asp:HiddenField ID="SelectedRow" runat="server" />
                 <asp:HiddenField ID="SeasonTickets" runat="server" />
 
-                <%if (AlreadyPurchasedTickets > 0) { %>
+                <%if (AlreadyPurchasedTickets > 0)
+                    { %>
                 <h3>Already Purchased Tickets:</h3>
                 <asp:Label ID="GroupSize" runat="server"></asp:Label>
                 <% } %>
@@ -61,7 +63,7 @@
                         <div class="interactiveMap" id="map"></div>
                         <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
                         <h4 id="priceText">Price: $<span id="priceField"></span></h4>
-                        <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
+                        <asp:Button CssClass="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
                     </div>
                 </div>
             </div>

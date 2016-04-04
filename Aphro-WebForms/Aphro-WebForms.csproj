@@ -120,7 +120,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\defaultphoto_2x.png" />
     <Content Include="Content\faculty.css" />
-    <Content Include="Content\carousel.css" />
     <Content Include="Content\fastickets.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -129,7 +128,6 @@
     <Content Include="Content\map-modal.css" />
     <Content Include="Content\pcci-styles.css" />
     <Content Include="Content\Pending.gif" />
-    <Content Include="Content\Project-Logo.png" />
     <Content Include="Content\rome.css" />
     <Content Include="Content\rome.min.css" />
     <Content Include="Content\slick-theme.css" />

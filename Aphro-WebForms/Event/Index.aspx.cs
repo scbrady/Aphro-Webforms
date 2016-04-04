@@ -1,8 +1,8 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Oracle.ManagedDataAccess.Client;
 using System.Web.UI.WebControls;
 
 namespace Aphro_WebForms.Event
@@ -11,7 +11,6 @@ namespace Aphro_WebForms.Event
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 DataTable upcomingEventsTable = new DataTable();
@@ -20,9 +19,7 @@ namespace Aphro_WebForms.Event
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the upcomingEvents command
-                    var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getAllEvents", objConn);
-                    upcomingEventsCommand.BindByName = true;
-                    upcomingEventsCommand.CommandType = CommandType.StoredProcedure;
+                    var upcomingEventsCommand = new OracleCommand("TICKETS_QUERIES.getAllEvents", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     upcomingEventsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
                     try
@@ -49,7 +46,6 @@ namespace Aphro_WebForms.Event
             }
         }
 
-
         protected void Delete_Event(object sender, EventArgs e)
         {
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
@@ -70,9 +66,7 @@ namespace Aphro_WebForms.Event
                 }
 
                 // Set up the delete event command
-                var deleteCommand = new OracleCommand("TICKETS_API.deleteEvent", objConn);
-                deleteCommand.BindByName = true;
-                deleteCommand.CommandType = CommandType.StoredProcedure;
+                var deleteCommand = new OracleCommand("TICKETS_API.deleteEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 deleteCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, long.Parse(seriesId), ParameterDirection.Input);
 
                 try
@@ -90,7 +84,5 @@ namespace Aphro_WebForms.Event
             }
             Response.Redirect("Index.aspx");
         }
-
     }
-
 }

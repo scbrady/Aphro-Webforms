@@ -40,16 +40,12 @@ namespace Aphro_WebForms.Employee
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Set up the getEvent command
-                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn);
-                    eventCommand.BindByName = true;
-                    eventCommand.CommandType = CommandType.StoredProcedure;
+                    var eventCommand = new OracleCommand("TICKETS_QUERIES.getEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     eventCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     eventCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
 
                     // Set up the getGroupRequestsForEvent command
-                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn);
-                    requestsCommand.BindByName = true;
-                    requestsCommand.CommandType = CommandType.StoredProcedure;
+                    var requestsCommand = new OracleCommand("TICKETS_QUERIES.getGroupForEvent", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     requestsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                     requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                     requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -66,7 +62,7 @@ namespace Aphro_WebForms.Employee
                         requestsAdapter.Fill(requestsTable);
                         requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // This shouldn't happen, redirect them back to the event chosing page
                         Response.Redirect("Index.aspx");
@@ -98,8 +94,8 @@ namespace Aphro_WebForms.Employee
 
                 if (requestsModel.Count > 0)
                 {
-                    GuestTickets     = requestsModel.FirstOrDefault().guest_tickets;
-                    FacultyTickets   = requestsModel.FirstOrDefault().faculty_tickets;
+                    GuestTickets = requestsModel.FirstOrDefault().guest_tickets;
+                    FacultyTickets = requestsModel.FirstOrDefault().faculty_tickets;
                     RequestedTickets = requestsModel.Where(ticket => ticket.requested_id != 0).Count();
                     if (RequestedTickets == 0)
                         requestsModel.Clear();
@@ -143,9 +139,7 @@ namespace Aphro_WebForms.Employee
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
                 // Set up the getEventSeats command
-                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn);
-                eventSeatsCommand.BindByName = true;
-                eventSeatsCommand.CommandType = CommandType.StoredProcedure;
+                var eventSeatsCommand = new OracleCommand("TICKETS_QUERIES.getEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                 eventSeatsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 eventSeatsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                 eventSeatsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
@@ -158,7 +152,7 @@ namespace Aphro_WebForms.Employee
                     eventSeatsAdapter.Fill(eventSeatsTable);
                     eventSeatsModel = Mapper.DynamicMap<IDataReader, List<Models.EventSeats>>(eventSeatsTable.CreateDataReader());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // This is ok if an error comes up, let the program handle it later
                 }
@@ -182,9 +176,7 @@ namespace Aphro_WebForms.Employee
                 try
                 {
                     // Set up the inserting seats command
-                    var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn);
-                    seatCommand.BindByName = true;
-                    seatCommand.CommandType = CommandType.StoredProcedure;
+                    var seatCommand = new OracleCommand("TICKETS_API.insertEventSeats", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                     seatCommand.Parameters.Add("p_EventId", OracleDbType.Int64, int.Parse(EventDateDropDown.SelectedValue), ParameterDirection.Input);
                     seatCommand.Parameters.Add("p_SectionKey", OracleDbType.Int32, int.Parse(SelectedSection.Value), ParameterDirection.Input);
                     seatCommand.Parameters.Add("p_Subsection", OracleDbType.Int32, int.Parse(SelectedSubsection.Value), ParameterDirection.Input);
@@ -195,7 +187,7 @@ namespace Aphro_WebForms.Employee
                     objConn.Open();
                     seatCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Couldn't get those seats (probably taken), pick again
                     failed = true;
@@ -206,7 +198,7 @@ namespace Aphro_WebForms.Employee
             if (!failed)
                 Response.Redirect("ReviewTickets.aspx?Series=" + SeriesId);
             else
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=1");
+                Response.Redirect(string.Format("EventSignup.aspx?Series={0}&Error=1", SeriesId));
         }
 
         // "Purchase" tickets
@@ -219,10 +211,10 @@ namespace Aphro_WebForms.Employee
             int.TryParse(GroupSize.Value, out TotalSize);
 
             if (!long.TryParse(SeriesIdField.Value, out SeriesId) || !int.TryParse(GuestTicketsSize.Text, out extraGuestTickets) || !int.TryParse(FacultyTicketsSize.Text, out extraFacultyTickets))
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=2");
+                Response.Redirect(string.Format("EventSignup.aspx?Series={0}&Error=2", SeriesId));
 
             if (extraGuestTickets < 0 || extraFacultyTickets < 0 || extraGuestTickets + extraFacultyTickets > 10 - TotalSize)
-                Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=3");
+                Response.Redirect(string.Format("EventSignup.aspx?Series={0}&Error=3", SeriesId));
 
             if (extraGuestTickets > 0 || extraFacultyTickets > 0)
             {
@@ -231,9 +223,7 @@ namespace Aphro_WebForms.Employee
                     try
                     {
                         // Set up the inserting groups command
-                        var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn);
-                        groupsCommand.BindByName = true;
-                        groupsCommand.CommandType = CommandType.StoredProcedure;
+                        var groupsCommand = new OracleCommand("TICKETS_API.insertGroups", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
                         groupsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                         groupsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                         groupsCommand.Parameters.Add("p_ExtraGuestSeats", OracleDbType.Int32, extraGuestTickets, ParameterDirection.Input);
@@ -243,9 +233,9 @@ namespace Aphro_WebForms.Employee
                         objConn.Open();
                         groupsCommand.ExecuteNonQuery();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        Response.Redirect("EventSignup.aspx?Series=" + SeriesId + "&Error=2");
+                        Response.Redirect(string.Format("EventSignup.aspx?Series={0}&Error=2", SeriesId));
                     }
 
                     objConn.Close();

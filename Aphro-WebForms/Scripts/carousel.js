@@ -1,6 +1,6 @@
 // ======================= DOM Utility Functions from PastryKit =============================== //
 
-// Sure, we could use jQuery or XUI for these, 
+// Sure, we could use jQuery or XUI for these,
 // but these are concise and will work with plain vanilla JS
 
 Element.prototype.hasClassName = function (a) {
@@ -21,7 +21,7 @@ Element.prototype.removeClassName = function (b) {
 };
 
 Element.prototype.toggleClassName = function (a) {
-  this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
+    this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
 };
 
 // ======================= Modernizr =============================== //
@@ -33,200 +33,186 @@ Element.prototype.toggleClassName = function (a) {
 
 // =================== DDD mini framework =========================== //
 
-(function(){
+(function () {
+    var DDD = {};
+    // again, borrowed from PastryKit
+    DDD.isTangible = !!('createTouch' in document);
+    DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
+    DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
+    DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
 
+    // get i.e. 'WebkitTransform'
+    var transformProp = Modernizr.prefixed('transform');
 
+    /* ==================== EventHandler ==================== */
 
-var DDD = {};
-// again, borrowed from PastryKit
-DDD.isTangible = !!('createTouch' in document);
-DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
-DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
-DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
+    DDD.EventHandler = function () { };
 
-// get i.e. 'WebkitTransform'
-var transformProp = Modernizr.prefixed('transform');
+    DDD.EventHandler.prototype.handleEvent = function (event) {
+        if (this[event.type]) {
+            this[event.type](event);
+        }
+    };
 
-/* ==================== EventHandler ==================== */
+    /* ==================== RangeDisplay ==================== */
 
-DDD.EventHandler = function() {};
+    // displays the value of a range input
+    // why isn't this in the HTML5 spec?
 
-DDD.EventHandler.prototype.handleEvent = function( event ) {
-  if ( this[event.type] ) {
-    this[event.type](event);
-  }
-};
+    DDD.RangeDisplay = function (range) {
+        this.range = range;
+        this.output = document.createElement('span');
+        this.output.addClassName('range-display');
 
+        this.units = this.range.getAttribute('data-units') || '';
 
-/* ==================== RangeDisplay ==================== */
+        // this.output.textContent = this.range.value;
+        this.change();
 
-// displays the value of a range input
-// why isn't this in the HTML5 spec?
+        this.range.parentNode.appendChild(this.output);
 
-DDD.RangeDisplay = function ( range ) {
-  this.range = range;
-  this.output = document.createElement('span');
-  this.output.addClassName('range-display');
-  
-  
-  this.units = this.range.getAttribute('data-units') || '';
-  
-  // this.output.textContent = this.range.value;
-  this.change();
-  
-  
-  this.range.parentNode.appendChild( this.output );
-  
-  this.range.addEventListener( 'change', this, false);
-};
+        this.range.addEventListener('change', this, false);
+    };
 
-DDD.RangeDisplay.prototype = new DDD.EventHandler();
+    DDD.RangeDisplay.prototype = new DDD.EventHandler();
 
-DDD.RangeDisplay.prototype.change = function( event ) {
-  this.output.textContent = this.range.value + this.units;
-};
+    DDD.RangeDisplay.prototype.change = function (event) {
+        this.output.textContent = this.range.value + this.units;
+    };
 
-/* ==================== Test 3D transform support ==================== */
+    /* ==================== Test 3D transform support ==================== */
 
-DDD.translate = Modernizr.csstransforms3d ?
-  function( x, y ) {
-    return 'translate3d(' + x + 'px, ' + y + 'px, 0 )';
-  } :
-  function( x, y ) {
-    return 'translate(' + x + 'px, ' + y + 'px)';
-  };
+    DDD.translate = Modernizr.csstransforms3d ?
+      function (x, y) {
+          return 'translate3d(' + x + 'px, ' + y + 'px, 0 )';
+      } :
+      function (x, y) {
+          return 'translate(' + x + 'px, ' + y + 'px)';
+      };
 
-/* ==================== Start Up ==================== */
+    /* ==================== Start Up ==================== */
 
+    DDD.init = function () {
+        var ranges = document.querySelectorAll('input[type="range"]'),
+            rangesLen = ranges.length,
+            i;
 
-DDD.init = function() {
-  
-  var ranges = document.querySelectorAll('input[type="range"]'),
-      rangesLen = ranges.length,
-      i;
-  
-  if ( rangesLen ) {
-    
-     // create range output display
-    for ( i=0; i < rangesLen; i++ ) {
-      new DDD.RangeDisplay( ranges[i] );
-    }
-    
-    // check browser support for range input
-    // this has been hacked together from Modernizr range input test
-    // -> Thanks Faruk Ates, Paul Irish, and Mike Taylor http://modernizr.com
-    var isRangeSupported = (function() {
-      var isSupported = ranges[0].type !== 'text';
-      if ( isSupported ) {
-        var appearanceProp = Modernizr.prefixed('appearance');
-        isSupported = getComputedStyle( ranges[0] )[ appearanceProp ] !== 'textfield';
-      }
-      return isSupported;
-    })();
-    
-    // create range inputs for iOS
-    if ( !isRangeSupported ) {
-      for ( i=0; i < rangesLen; i++ ) {
-        new DDD.ProxyRange( ranges[i] );
-      }
-    }
-  }
-};
+        if (rangesLen) {
+            // create range output display
+            for (i = 0; i < rangesLen; i++) {
+                new DDD.RangeDisplay(ranges[i]);
+            }
 
-window.addEventListener( 'DOMContentLoaded', DDD.init, false);
+            // check browser support for range input
+            // this has been hacked together from Modernizr range input test
+            // -> Thanks Faruk Ates, Paul Irish, and Mike Taylor http://modernizr.com
+            var isRangeSupported = (function () {
+                var isSupported = ranges[0].type !== 'text';
+                if (isSupported) {
+                    var appearanceProp = Modernizr.prefixed('appearance');
+                    isSupported = getComputedStyle(ranges[0])[appearanceProp] !== 'textfield';
+                }
+                return isSupported;
+            })();
 
-// put in global namespace
-window.DDD = DDD;
+            // create range inputs for iOS
+            if (!isRangeSupported) {
+                for (i = 0; i < rangesLen; i++) {
+                    new DDD.ProxyRange(ranges[i]);
+                }
+            }
+        }
+    };
 
+    window.addEventListener('DOMContentLoaded', DDD.init, false);
+
+    // put in global namespace
+    window.DDD = DDD;
 })();
 
 // from the html code
 var transformProp = Modernizr.prefixed('transform');
 
-function Carousel3D ( el ) {
-  this.element = el;
+function Carousel3D(el) {
+    this.element = el;
 
-  this.rotation = 0;
-  this.panelCount = 0;
-  this.totalPanelCount = this.element.children.length;
-  this.theta = 0;
+    this.rotation = 0;
+    this.panelCount = 0;
+    this.totalPanelCount = this.element.children.length;
+    this.theta = 0;
 
-  this.isHorizontal = true;
-
+    this.isHorizontal = true;
 }
 
-Carousel3D.prototype.modify = function() {
+Carousel3D.prototype.modify = function () {
+    var panel, angle, i;
 
-  var panel, angle, i;
+    this.panelSize = this.element[this.isHorizontal ? 'offsetWidth' : 'offsetHeight'];
+    this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
+    this.theta = 360 / this.panelCount;
 
-  this.panelSize = this.element[ this.isHorizontal ? 'offsetWidth' : 'offsetHeight' ];
-  this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
-  this.theta = 360 / this.panelCount;
-
-  // do some trig to figure out how big the carousel
+    // do some trig to figure out how big the carousel
     // is in 3D space
-  if (this.panelCount == 1)
-      this.radius = 0;
-  else
-    this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
+    if (this.panelCount === 1)
+        this.radius = 0;
+    else
+        this.radius = Math.round((this.panelSize / 2) / Math.tan(Math.PI / this.panelCount));
 
-  for ( i = 0; i < this.panelCount; i++ ) {
-	panel = this.element.children[i];
-	angle = this.theta * i;
-	panel.style.opacity = 1;
-	// rotate panel, then push it out in 3D space
-	panel.style[ transformProp ] = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
-  }
+    for (i = 0; i < this.panelCount; i++) {
+        panel = this.element.children[i];
+        angle = this.theta * i;
+        panel.style.opacity = 1;
+        // rotate panel, then push it out in 3D space
+        panel.style[transformProp] = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
+    }
 
-  // hide other panels
-  for (  ; i < this.totalPanelCount; i++ ) {
-    panel = this.element.children[i];
-    panel.style.opacity = 0;
-    panel.style[ transformProp ] = 'none';
-  }
+    // hide other panels
+    for (; i < this.totalPanelCount; i++) {
+        panel = this.element.children[i];
+        panel.style.opacity = 0;
+        panel.style[transformProp] = 'none';
+    }
 
-  // adjust rotation so panels are always flat
-  this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
+    // adjust rotation so panels are always flat
+    this.rotation = Math.round(this.rotation / this.theta) * this.theta;
 
-  this.transform();
-
+    this.transform();
 };
 
-Carousel3D.prototype.transform = function() {
-  // push the carousel back in 3D space,
-  // and rotate it
-  this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
+Carousel3D.prototype.transform = function () {
+    // push the carousel back in 3D space,
+    // and rotate it
+    this.element.style[transformProp] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
 };
 
-var init = function() {
-  var carousel = new Carousel3D( document.getElementById('carousel') ),
-	  //panelCountInput = document.getElementById('panel-count'),
-	  navButtons = document.querySelectorAll('#navigation button'),
+var init = function () {
+    var carousel = new Carousel3D(document.getElementById('carousel')),
+        //panelCountInput = document.getElementById('panel-count'),
+        navButtons = document.querySelectorAll('#navigation button'),
 
-	  onNavButtonClick = function( event ){
-		var increment = parseInt( event.target.getAttribute('data-increment') );
-		carousel.rotation += carousel.theta * increment * -1;
-		carousel.transform();
-		event.preventDefault();
-	  };
+        onNavButtonClick = function (event) {
+            var increment = parseInt(event.target.getAttribute('data-increment'));
+            carousel.rotation += carousel.theta * increment * -1;
+            carousel.transform();
+            event.preventDefault();
+        };
 
-  // populate on startup
-  carousel.panelCount = carousel.totalPanelCount;
-  carousel.modify();
+    // populate on startup
+    carousel.panelCount = carousel.totalPanelCount;
+    carousel.modify();
 
-  //panelCountInput.addEventListener( 'change', function( event ) {
-  //  carousel.panelCount = event.target.value;
-  //  carousel.modify();
-  //}, false);
+    //panelCountInput.addEventListener( 'change', function( event ) {
+    //  carousel.panelCount = event.target.value;
+    //  carousel.modify();
+    //}, false);
 
-  for (var i=0; i < 2; i++) {
-	navButtons[i].addEventListener( 'click', onNavButtonClick, false);
-  }
+    for (var i = 0; i < 2; i++) {
+        navButtons[i].addEventListener('click', onNavButtonClick, false);
+    }
 
-  setTimeout( function(){
-	document.body.addClassName('ready');
-  }, 0);
-
+    setTimeout(function () {
+        document.body.addClassName('ready');
+    }, 0);
 };
 
-window.addEventListener( 'DOMContentLoaded', init, false);
+window.addEventListener('DOMContentLoaded', init, false);

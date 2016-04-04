@@ -31,9 +31,7 @@ namespace Aphro_WebForms.Guest
                 // Hash and salt the password using Bcrypt before checking it with the hashed password in the Database
                 var saltedPassword = BCryptHelper.HashPassword(password.Text, Global.Salt);
 
-                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.loginGuest", objConn);
-                objCmd.BindByName = true;
-                objCmd.CommandType = CommandType.StoredProcedure;
+                OracleCommand objCmd = new OracleCommand("TICKETS_QUERIES.loginGuest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
 
                 objCmd.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 objCmd.Parameters.Add("p_Email", OracleDbType.Varchar2, email.Text, ParameterDirection.Input);
@@ -46,7 +44,7 @@ namespace Aphro_WebForms.Guest
                     adapter.Fill(guestTable);
                     guest = Mapper.DynamicMap<IDataReader, List<Person>>(guestTable.CreateDataReader()).FirstOrDefault();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     labelMessage.Text = "Could not login. Try again later.";
                 }

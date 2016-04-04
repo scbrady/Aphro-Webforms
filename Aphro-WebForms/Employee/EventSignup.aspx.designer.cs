@@ -20,7 +20,7 @@ namespace Aphro_WebForms.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventName;
-        
+
         /// <summary>
         /// Error control.
         /// </summary>
@@ -28,8 +28,8 @@ namespace Aphro_WebForms.Employee {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Error;
-        
+        protected new System.Web.UI.WebControls.Label Error;
+
         /// <summary>
         /// GroupRequestContainer control.
         /// </summary>

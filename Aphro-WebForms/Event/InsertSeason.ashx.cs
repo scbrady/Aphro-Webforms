@@ -18,7 +18,7 @@ namespace Aphro_WebForms.Event
 
             if (!string.IsNullOrEmpty(context.Request["seasonName"]) || context.Request["seasonPrice"] != null)
             {
-                seasonName  = context.Request["seasonName"];
+                seasonName = context.Request["seasonName"];
                 seasonPrice = float.Parse(context.Request["seasonPrice"]);
             }
             else
@@ -33,7 +33,7 @@ namespace Aphro_WebForms.Event
                 long seasonId = AddSeason(seasonName, seasonPrice);
                 context.Response.Write(seasonId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "text/plain";

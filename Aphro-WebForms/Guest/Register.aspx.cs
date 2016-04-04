@@ -12,7 +12,7 @@ namespace Aphro_WebForms.Guest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            labelMessage.Text = "";
+            labelMessage.Text = string.Empty;
             if (Global.CurrentPerson != null && Global.CurrentPerson.accountType == Account.Guest)
             {
                 Response.Redirect("Index.aspx");
@@ -31,9 +31,7 @@ namespace Aphro_WebForms.Guest
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
                     // Declare the stored procedure to execute and send it the parameters it needs
-                    OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn);
-                    objCmd.BindByName = true;
-                    objCmd.CommandType = CommandType.StoredProcedure;
+                    OracleCommand objCmd = new OracleCommand("tickets_api.insertGuest", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
 
                     objCmd.Parameters.Add("p_FirstName", OracleDbType.Varchar2, first_name.Text, ParameterDirection.Input);
                     objCmd.Parameters.Add("p_LastName", OracleDbType.Varchar2, last_name.Text, ParameterDirection.Input);
@@ -45,7 +43,7 @@ namespace Aphro_WebForms.Guest
                         objConn.Open();
                         objCmd.ExecuteNonQuery();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         labelMessage.Text = "Could not register. Try again later.";
                     }

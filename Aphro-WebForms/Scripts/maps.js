@@ -225,17 +225,16 @@ function setFields(selectedSeat) {
     var guests = tryParseInt($("#MainContent_GuestTicketsSize").val(), 10);
     var seasonTickets = tryParseInt($("#MainContent_SeasonTickets").val(), 10);
     var price;
-    if (selectedSeat.prime == 0)
+    if (selectedSeat.prime === 0)
         price = tryParseFloat($("#MainContent_EventPrice").text().replace("$", ""));
     else
         price = tryParseFloat($("#MainContent_EventPrimePrice").text().replace("$", ""));
 
-    $('#priceField').text(((guests > seasonTickets ? guests-seasonTickets : 0) * price).toFixed(2));
+    $('#priceField').text(((guests > seasonTickets ? guests - seasonTickets : 0) * price).toFixed(2));
 }
 
 function tryParseInt(number) {
-    var parsed;
-    parsed = parseFloat(number);
+    var parsed = parseFloat(number);
     if (!isNaN(parsed))
         return parsed;
     else
@@ -243,8 +242,7 @@ function tryParseInt(number) {
 }
 
 function tryParseFloat(number) {
-    var parsed;
-    parsed = parseFloat(number);
+    var parsed = parseFloat(number);
     if (!isNaN(parsed))
         return parsed;
     else

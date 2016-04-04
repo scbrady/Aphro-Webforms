@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Aphro_WebForms.Models;
+﻿using Aphro_WebForms.Models;
 using AutoMapper;
 using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
-using System.Globalization;
-using System.Web.UI;
 
 namespace Aphro_WebForms.Event
 {
@@ -50,13 +48,12 @@ namespace Aphro_WebForms.Event
                     eventTypesCommand.CommandType = CommandType.StoredProcedure;
                     eventTypesCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
-
                     // Set up the buildings command
                     buildingsCommand.BindByName = true;
                     buildingsCommand.CommandType = CommandType.StoredProcedure;
                     buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // TODO: Handle Exception
                     Response.Redirect("Index.aspx");
@@ -113,15 +110,13 @@ namespace Aphro_WebForms.Event
             LocationDropDown.SelectedValue = currentEvent.building_key.ToString();
             RegularPrice.Text = currentEvent.regular_price.ToString();
             PrimePrice.Text = currentEvent.prime_price.ToString();
-            
+
             lowestId = (int)currentEvent.event_id;
             foreach (var a in events)
             {
                 if (lowestId > (int)a.event_id)
                     lowestId = (int)a.event_id;
             }
-            
-
         }
 
         protected void Submit_Click(object sender, EventArgs e)

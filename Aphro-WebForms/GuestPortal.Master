@@ -12,7 +12,7 @@
     <%: Styles.Render("~/Content/guest-css") %>
     <asp:ContentPlaceHolder runat="server" ID="HeaderSection">
     </asp:ContentPlaceHolder>
-    <link rel="icon" href="~/Content/PccLogoSeal.ico" />
+    <link rel="icon" href="~/Content/images/PccLogoSeal.ico" />
     <title><%: Page.Title %></title>
 </head>
 <body>

@@ -76,3 +76,7 @@ _[Ss]cripts
 
 # Visual Studio 2015 cache/options directory
 .vs/
+
+# Ignore uploaded images
+Aphro-WebForms/Content/pictures/*
+!Aphro-WebForms/Content/pictures/default_event_image.jpg

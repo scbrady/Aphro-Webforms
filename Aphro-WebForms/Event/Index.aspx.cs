@@ -56,7 +56,7 @@ namespace Aphro_WebForms.Event
                 string pictureName = commandArgs[1];
 
                 // Delete the picture uploaded if it is not the default picture
-                if (pictureName != "events_medium.jpg")
+                if (pictureName != "default_event_image.jpg")
                 {
                     string filePath = Server.MapPath("~/Content/pictures/" + pictureName);
                     if (System.IO.File.Exists(filePath))

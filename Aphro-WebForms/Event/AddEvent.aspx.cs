@@ -91,7 +91,7 @@ namespace Aphro_WebForms.Event
         protected void Submit_Click(object sender, EventArgs e)
         {
             Guid pictureUUID = Guid.NewGuid();
-            string pictureName = "events_medium.jpg";
+            string pictureName = "default_event_image.jpg";
             if (uploadBtn.HasFile)
             {
                 string extension = Path.GetExtension(uploadBtn.PostedFile.FileName);

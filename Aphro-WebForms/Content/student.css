@@ -206,7 +206,7 @@ a.panel-heading {
     height: 9px;
     margin-left: 5px;
     content: "";
-    background: url(Pending.gif) no-repeat 0 0;
+    background: url('images/Pending.gif') no-repeat 0 0;
     background-size: 100%;
 }
 
@@ -220,7 +220,7 @@ a.panel-heading {
     height: 12px;
     margin-left: 5px;
     content: "";
-    background: url(Checkmark.png) no-repeat 0 0;
+    background: url('images/Checkmark.png') no-repeat 0 0;
     background-size: 100%;
 }
 
@@ -234,7 +234,7 @@ a.panel-heading {
     height: 12px;
     margin-left: 5px;
     content: "";
-    background: url(x.png) no-repeat 0 0;
+    background: url('images/x.png') no-repeat 0 0;
     background-size: 85%;
 }
 

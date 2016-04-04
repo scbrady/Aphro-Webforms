@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    background: url('curtains.jpg') no-repeat scroll center top;
+    background: url('images/curtains.jpg') no-repeat scroll center top;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -44,7 +44,7 @@
     background: white;
     opacity: 1;
     margin: 0px auto 0px;
-    background-image: url('fastickets.png');
+    background-image: url('images/fastickets.png');
     background-size: 85%;
     background-repeat: no-repeat;
     background-position: center;

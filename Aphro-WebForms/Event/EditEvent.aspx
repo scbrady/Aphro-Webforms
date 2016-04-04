@@ -29,7 +29,7 @@
         
         <%--Image Upload--%>
         <div class="image_upload">
-            <img src="../Content/defaultphoto_2x.png" id="imagePreview" />
+            <img src="../Content/images/noImage.png" id="imagePreview" />
             <div class="fileUpload btn btn-primary">
                 <span>Change</span>
                 <asp:FileUpload runat="server"  ID="uploadBtn"  CSSClass="upload"/> 

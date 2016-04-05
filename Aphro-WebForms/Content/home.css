@@ -19,6 +19,7 @@
 }
 
 .mainPane {
+    position: relative;
     margin: 0 auto;
     font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     display: block;
@@ -29,25 +30,23 @@
 }
 
 #projectLogo {
-    width: 40%;
-    margin: 0 auto;
-    position: absolute;
+    width: 60%;
+    margin: 0 auto 20px;
+    display: block;
 }
 
 .spotlight {
-    position: relative;
+    position: absolute;
     border-radius: 50%;
     box-shadow: white 0 0 30px 10px;
-    width: 30%;
+    width: 60%;
+    left: 20%;
     height: auto;
-    padding-top: 30%;
+    padding-top: 60%;
     background: white;
-    opacity: 1;
-    margin: 0px auto 0px;
-    background-image: url('images/fastickets.png');
-    background-size: 85%;
-    background-repeat: no-repeat;
-    background-position: center;
+    opacity: 0.95;
+    z-index: -1;
+    top: -10%;
 }
 
 h4 {

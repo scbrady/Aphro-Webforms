@@ -20,10 +20,9 @@
     <div class="shadow">
         <div class="mainPane">
             <form id="form1" runat="server">
-                <div class="spotlight">
-                    <img id="projectLogo" />
-                </div>
-                <div class="rows">
+                <div class="spotlight"></div>
+                <img id="projectLogo" src="Content/images/fastickets.png" />
+                <div class="row">
                     <div class="col-sm-4">
                         <asp:HyperLink runat="server" CssClass="websites" NavigateUrl="~/Guest/Index.aspx">
                             <div class="module">

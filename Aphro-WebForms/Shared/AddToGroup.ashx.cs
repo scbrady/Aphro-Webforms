@@ -83,6 +83,7 @@ namespace Aphro_WebForms.Shared
                 var command = new OracleCommand("TICKETS_QUERIES.getHasAccepted", objConn);
                 command.Parameters.Add("p_PersonId", OracleDbType.Int64, personId, ParameterDirection.Input);
                 command.Parameters.Add("p_SeriesId", OracleDbType.Int64, seriesId, ParameterDirection.Input);
+                command.Parameters.Add("p_CurrentPersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
                 command.CommandType = CommandType.StoredProcedure;
 
                 // Execute the query and auto map the results to models

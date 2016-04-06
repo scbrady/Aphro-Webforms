@@ -43,6 +43,6 @@
         </div>
     </div>
     <% } %>
-    <asp:Button runat="server" CssClass="back" OnClick="back_Click" Text="< Get Tickets for Another Event"></asp:Button>
+    <asp:Button runat="server" CssClass="back" OnClick="back_Click" Text="&lt; Get Tickets for Another Event"></asp:Button>
     <div class="clearfix"></div>
 </asp:Content>

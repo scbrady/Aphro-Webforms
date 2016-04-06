@@ -140,6 +140,7 @@
     <Content Include="Content\rome.min.css" />
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
+    <Content Include="Employee\BuySeasonTickets.aspx" />
     <Content Include="Employee\ReviewTickets.aspx" />
     <Content Include="Event\EditEvent.aspx" />
     <Content Include="Guest\BuySeasonTickets.aspx" />
@@ -295,6 +296,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\BuySeasonTickets.aspx.cs">
+      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\BuySeasonTickets.aspx.designer.cs">
+      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee\EventSignup.aspx.cs">
       <DependentUpon>EventSignup.aspx</DependentUpon>

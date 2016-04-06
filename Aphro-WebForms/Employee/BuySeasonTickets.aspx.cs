@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Aphro_WebForms.Guest
+namespace Aphro_WebForms.Employee
 {
     public partial class BuySeasonTickets : System.Web.UI.Page
     {

@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aphro_WebForms {
+namespace Aphro_WebForms.Employee {
     
     
-    public partial class GuestPortal {
+    public partial class BuySeasonTickets {
         
         /// <summary>
-        /// HeaderSection control.
+        /// Error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderSection;
+        protected global::System.Web.UI.WebControls.Label Error;
         
         /// <summary>
-        /// masterForm control.
+        /// SeasonDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm masterForm;
+        protected global::System.Web.UI.WebControls.DropDownList SeasonDropDown;
         
         /// <summary>
-        /// MainContent control.
+        /// SeasonListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ListView SeasonListView;
         
         /// <summary>
-        /// ScriptsSection control.
+        /// Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsSection;
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }

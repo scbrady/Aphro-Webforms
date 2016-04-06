@@ -118,6 +118,10 @@ span.validator {
         display: block !Important;
     }
 
+input[type=submit].back {
+    margin-top: 50px;
+}
+
 /**************************/
 /*    Dropdown logout     */
 /**************************/

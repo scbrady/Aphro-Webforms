@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Buy Season Tickets" Language="C#" MasterPageFile="~/GuestPortal.Master" AutoEventWireup="true" CodeBehind="BuySeasonTickets.aspx.cs" Inherits="Aphro_WebForms.Guest.BuySeasonTickets" %>
+﻿<%@ Page Title="Buy Season Tickets" Language="C#" MasterPageFile="~/EmployeePortal.Master" AutoEventWireup="true" CodeBehind="BuySeasonTickets.aspx.cs" Inherits="Aphro_WebForms.Employee.BuySeasonTickets" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="season-header">Buy Season Tickets</h1>

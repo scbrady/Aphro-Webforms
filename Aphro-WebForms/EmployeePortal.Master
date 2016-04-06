@@ -28,6 +28,10 @@
                         <asp:HyperLink CssClass="EcLogo" runat="server" NavigateUrl="~/Employee/Index.aspx"></asp:HyperLink>
                         <div class="EsLogo"></div>
                     </div>
+                    <ul class="navigation">
+                        <li><asp:HyperLink CssClass="nav-link" runat="server" NavigateUrl="~/Employee/Index.aspx">Buy Event Tickets</asp:HyperLink></li>
+                        <li><asp:HyperLink CssClass="nav-link" runat="server" NavigateUrl="~/Employee/BuySeasonTickets.aspx">Buy Season Tickets</asp:HyperLink></li>
+                    </ul>
                     <%if (Session["CurrentPerson"] != null)
                         { %>
                     <div class="user-info">

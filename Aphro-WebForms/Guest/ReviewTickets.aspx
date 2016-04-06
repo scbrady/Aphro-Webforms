@@ -9,5 +9,5 @@
     <h4 id="Location" runat="server"></h4>
     <h4 id="Door" runat="server"></h4>
 
-    <asp:Button runat="server" CssClass="back" OnClick="back_Click" Text="< Get Tickets for Another Event"></asp:Button>
+    <asp:Button runat="server" CssClass="back" OnClick="back_Click" Text="&lt; Get Tickets for Another Event"></asp:Button>
 </asp:Content>

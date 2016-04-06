@@ -14,6 +14,11 @@ namespace Aphro_WebForms
             Response.Redirect("~/Default.aspx");
         }
 
+        protected void BuyEventTickets_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Guest/Index.aspx");
+        }
+
         protected void BuySeasonTickets_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Guest/BuySeasonTickets.aspx");

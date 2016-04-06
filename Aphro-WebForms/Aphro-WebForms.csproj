@@ -368,6 +368,9 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
+    <Compile Include="Shared\RemovedFromGroup.ashx.cs">
+      <DependentUpon>RemovedFromGroup.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\PendingAcceptReject.ashx.cs">
       <DependentUpon>PendingAcceptReject.ashx</DependentUpon>
     </Compile>
@@ -499,6 +502,7 @@
     <Content Include="Shared\PendingAcceptReject.ashx" />
     <Content Include="EmployeePortal.Master" />
     <Content Include="Scripts\slick.min.js" />
+    <Content Include="Shared\RemovedFromGroup.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

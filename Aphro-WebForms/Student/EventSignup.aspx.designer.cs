@@ -28,7 +28,7 @@ namespace Aphro_WebForms.Student {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected new global::System.Web.UI.WebControls.Label Error;
+        protected global::System.Web.UI.WebControls.Label Error;
         
         /// <summary>
         /// GroupRequestContainer control.

@@ -36,6 +36,7 @@
                         <li class="clearfix request-list">
                             <p class="group-member"><%# Eval("requested_firstname") + " " + Eval("requested_lastname") %></p>
                             <p class="group-status <%# Eval("has_accepted").Equals(0) ? "pending-status" : "accepted-status" %>" data-user-id="<%# Eval("requested_id") %>" data-group-id="<%# Eval("group_id") %>"></p>
+                            <button class="cancel-request" "<%# Eval("has_accepted").Equals(0) ? "Visible='false'" :  "Visible='true'" %>" onclick="RemovedFromGroup(event);"> X </button>
                         </li>
                     </ItemTemplate>
                 </asp:ListView>

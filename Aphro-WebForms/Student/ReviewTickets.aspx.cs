@@ -78,6 +78,9 @@ namespace Aphro_WebForms.Student
                         eventSeatsModel.RemoveAll(t => t.leader == 1);
                         GroupList.DataSource = eventSeatsModel;
                         GroupList.DataBind();
+
+                        if (GuestTickets > 0 && eventSeatsModel.Any())
+                            Divider.Visible = true;
                     }
                     catch
                     {

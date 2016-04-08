@@ -36,7 +36,8 @@ namespace Aphro_WebForms
                       "~/Scripts/slick-init.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"));
+                      "~/Content/bootstrap.css",
+                      "~/Content/sei.css"));
 
             bundles.Add(new StyleBundle("~/Content/datepicker").Include(
                       "~/Content/rome.css"));

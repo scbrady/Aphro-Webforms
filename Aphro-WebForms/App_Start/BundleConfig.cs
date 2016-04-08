@@ -60,7 +60,10 @@ namespace Aphro_WebForms
                       "~/Content/faculty.css"));
 
             bundles.Add(new StyleBundle("~/Content/jquery-ui").Include(
-                      "~/Content/themes/base/all.css"));
+                      "~/Content/themes/base/autocomplete.css",
+                      "~/Content/themes/base/theme.css",
+                      "~/Content/themes/base/core.css",
+                      "~/Content/themes/base/menu.css"));
 
             bundles.Add(new StyleBundle("~/Content/slick").Include(
                       "~/Content/slick.css",

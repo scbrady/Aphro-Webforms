@@ -131,6 +131,7 @@
     <Content Include="Content\images\fasticketsSymbol.ico" />
     <Content Include="Content\images\PccLogoSeal.ico" />
     <Content Include="Content\images\Pending.gif" />
+    <Content Include="Content\images\se_logo_min.png" />
     <Content Include="Content\images\White25p.png" />
     <Content Include="Content\images\x.png" />
     <Content Include="Content\map-modal.css" />
@@ -138,6 +139,7 @@
     <Content Include="Content\pictures\default_event_image.jpg" />
     <Content Include="Content\rome.css" />
     <Content Include="Content\rome.min.css" />
+    <Content Include="Content\sei.css" />
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
     <Content Include="Employee\BuySeasonTickets.aspx" />
@@ -368,6 +370,9 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
+    <Compile Include="Shared\RemovedFromGroup.ashx.cs">
+      <DependentUpon>RemovedFromGroup.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\PendingAcceptReject.ashx.cs">
       <DependentUpon>PendingAcceptReject.ashx</DependentUpon>
     </Compile>
@@ -445,13 +450,6 @@
     <Compile Include="EventPortal.Master.designer.cs">
       <DependentUpon>EventPortal.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="Student\AcceptedGroup.aspx.cs">
       <DependentUpon>AcceptedGroup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -489,7 +487,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Site.Master" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="EventPortal.Master" />
@@ -499,6 +496,7 @@
     <Content Include="Shared\PendingAcceptReject.ashx" />
     <Content Include="EmployeePortal.Master" />
     <Content Include="Scripts\slick.min.js" />
+    <Content Include="Shared\RemovedFromGroup.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

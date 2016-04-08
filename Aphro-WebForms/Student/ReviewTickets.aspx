@@ -5,7 +5,7 @@
         <asp:Label ID="Event" runat="server"></asp:Label></h1>
 
     <div class="col-md-6">
-        <h3 id="Date" runat="server"></h3>
+        <h4 id="Date" runat="server"></h4>
         <h4 id="Section" runat="server"></h4>
         <h4 id="Location" runat="server"></h4>
         <h4 id="Door" runat="server"></h4>
@@ -15,13 +15,13 @@
         { %>
     <div class="col-md-6">
         <h4>Group:</h4>
-        <h3>Leader: <%= LeaderName %></h3>
+        <p>Leader: <%= LeaderName %></p>
         <div id="GroupRequestContainer" runat="server">
             <% if (GuestTickets > 0)
                 { %>
             <p><%= GuestTickets %> Guest Tickets</p>
-            <hr />
             <% } %>
+            <hr ID="Divider" runat="server" Visible="false"/>
             <asp:ListView ID="GroupList" runat="server">
                 <LayoutTemplate>
                     <div id="itemPlaceholder" runat="server"></div>

@@ -4,7 +4,7 @@
     <h1>You have tickets for
         <asp:Label ID="Event" runat="server"></asp:Label></h1>
 
-    <h3 id="Date" runat="server"></h3>
+    <h4 id="Date" runat="server"></h4>
     <h4 id="Section" runat="server"></h4>
     <h4 id="Location" runat="server"></h4>
     <h4 id="Door" runat="server"></h4>

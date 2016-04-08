@@ -54,5 +54,12 @@
             </form>
         </div>
     </div>
+    <!-- SEI back button -->
+    <div class="back-effect">
+        <a href="http://cslinux.studentnet.int/" class="back-effect">
+            <asp:Image runat="server" ImageUrl="~/Content/images/se_logo_min.png" />
+            <span>sei home</span>
+        </a>
+    </div>
 </body>
 </html>

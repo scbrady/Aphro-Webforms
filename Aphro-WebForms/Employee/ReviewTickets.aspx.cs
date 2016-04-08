@@ -80,6 +80,9 @@ namespace Aphro_WebForms.Employee
                         eventSeatsModel.RemoveAll(t => t.leader == 1);
                         GroupList.DataSource = eventSeatsModel;
                         GroupList.DataBind();
+
+                        if (GuestTickets + FacultyTickets > 0 && eventSeatsModel.Any())
+                            Divider.Visible = true;
                     }
                     catch
                     {

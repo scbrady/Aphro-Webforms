@@ -1,0 +1,78 @@
+﻿.back-effect a {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    margin: 15px 25px;
+    background: #fff;
+    border-radius: 50%;
+    letter-spacing: 1px;
+    color: #99504C;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    font-size: 1em;
+}
+
+    .back-effect a img {
+        height: 70%;
+        margin-top: 15%;
+    }
+
+div a:hover,
+div a:focus {
+    outline: none;
+}
+
+.back-effect a:before,
+.back-effect a:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.2);
+    transform: translateX(-50%) translateY(-50%) scale(0.2);
+}
+
+.back-effect a::after {
+    width: 130px;
+    height: 130px;
+    border-width: 6px;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.8);
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+}
+
+.back-effect a:hover:before,
+.back-effect a:hover:after,
+.back-effect a:focus:before,
+.back-effect a:focus:after {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.back-effect span {
+    display: block;
+    margin-top: -5%;
+    font-size: 80%;
+    background: #fff;
+    border-radius: 0 4px;
+    opacity: 0;
+    transition: .3s ease all;
+}
+
+.back-effect:hover span {
+    margin-top: 0;
+    opacity: 1;
+}

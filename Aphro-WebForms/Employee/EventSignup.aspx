@@ -104,6 +104,9 @@
                     <div class="interactiveMap" id="map"></div>
                     <button class="balcony" id="mapSwitch" onclick="changeBalcony(event)">Balcony</button>
                     <h4 id="priceText">Price: $<span id="priceField"></span></h4>
+                    <%if (seasonTicketsAmount > 0) { %>
+                    <p style="text-align: center;">Season Tickets: <span id="seasonTicketAmount"><%= seasonTicketsAmount %></span></p>
+                    <% } %>
                     <asp:Button class="getTickets" ID="GetTicketsForEvent" runat="server" OnClick="GetTickets_Click" Text="Get Tickets" />
                 </div>
             </div>

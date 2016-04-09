@@ -223,7 +223,7 @@ function setFields(selectedSeat) {
     $('#MainContent_SelectedRow').val(selectedSeat.row);
 
     var guests = tryParseInt($("#MainContent_GuestTicketsSize").val(), 10);
-    var seasonTickets = tryParseInt($("#MainContent_SeasonTickets").val(), 10);
+    var seasonTickets = tryParseInt($("#seasonTicketAmount").text(), 10);
     var price;
     if (selectedSeat.prime === 0)
         price = tryParseFloat($("#MainContent_EventPrice").text().replace("$", ""));

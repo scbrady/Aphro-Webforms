@@ -15,6 +15,7 @@ namespace Aphro_WebForms.Student
         protected int GuestTickets = 0;
         protected int RequestedTickets = 0;
         protected int TotalSize = 1;
+        protected int seasonTicketsAmount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,8 @@ namespace Aphro_WebForms.Student
                 List<Models.Event> eventModel = new List<Models.Event>();
                 DataTable requestsTable = new DataTable();
                 List<Models.GroupRequest> requestsModel = new List<Models.GroupRequest>();
+                DataTable seasonsTable = new DataTable();
+                List<Models.Season> seasonsModel = new List<Models.Season>();
 
                 using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
                 {
@@ -49,6 +52,11 @@ namespace Aphro_WebForms.Student
                     requestsCommand.Parameters.Add("p_SeriesId", OracleDbType.Int64, SeriesId, ParameterDirection.Input);
                     requestsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
 
+                    // Set up the getSeasonTickets command
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonTickets", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
+                    seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                    seasonsCommand.Parameters.Add("p_PersonId", OracleDbType.Int64, Global.CurrentPerson.person_id, ParameterDirection.Input);
+
                     try
                     {
                         // Execute the queries and auto map the results to models
@@ -60,6 +68,10 @@ namespace Aphro_WebForms.Student
                         var requestsAdapter = new OracleDataAdapter(requestsCommand);
                         requestsAdapter.Fill(requestsTable);
                         requestsModel = Mapper.DynamicMap<IDataReader, List<Models.GroupRequest>>(requestsTable.CreateDataReader());
+
+                        var seasonsAdapter = new OracleDataAdapter(seasonsCommand);
+                        seasonsAdapter.Fill(seasonsTable);
+                        seasonsModel = Mapper.DynamicMap<IDataReader, List<Models.Season>>(seasonsTable.CreateDataReader());
                     }
                     catch (Exception)
                     {
@@ -89,6 +101,13 @@ namespace Aphro_WebForms.Student
                     EventDateDropDown.DataValueField = "event_id";
                     EventDateDropDown.DataSource = eventModel;
                     EventDateDropDown.DataBind();
+
+                    if (seasonsModel.Count > 0)
+                    {
+                        var season = seasonsModel.Where(s => s.season_id == currentEvent.season_id).FirstOrDefault();
+                        if (season != null)
+                            seasonTicketsAmount = season.ticket_count;
+                    }
                 }
 
                 if (requestsModel.Count > 0)

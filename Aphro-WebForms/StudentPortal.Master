@@ -33,7 +33,12 @@
                 </div>
                 <%} %>
             </div>
-            <nav id="cbp-hrmenu" class="cbp-hrmenu"></nav>
+            <nav id="cbp-hrmenu" class="cbp-hrmenu">
+                <ul>
+                    <li><asp:HyperLink CssClass="nav-link" runat="server" NavigateUrl="~/Student/Index.aspx">Buy Event Tickets</asp:HyperLink></li>
+                    <li><asp:HyperLink CssClass="nav-link" runat="server" NavigateUrl="~/Student/BuySeasonTickets.aspx">Buy Season Tickets</asp:HyperLink></li>
+                </ul>
+            </nav>
         </header>
         <div class="mainPane">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

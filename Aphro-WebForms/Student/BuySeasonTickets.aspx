@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Buy Season Tickets" Language="C#" MasterPageFile="~/StudentPortal.Master" AutoEventWireup="true" CodeBehind="BuySeasonTickets.aspx.cs" Inherits="Aphro_WebForms.Guest.BuySeasonTickets" %>
+﻿<%@ Page Title="Buy Season Tickets" Language="C#" MasterPageFile="~/StudentPortal.Master" AutoEventWireup="true" CodeBehind="BuySeasonTickets.aspx.cs" Inherits="Aphro_WebForms.Student.BuySeasonTickets" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="season-header">Buy Season Tickets</h1>
@@ -32,8 +32,7 @@
             </asp:ListView>
         </div>
     </div>
-    <asp:Button Style="Width: 50%; padding-left: inherit;" ID="Submit" runat="server" Text="Buy" OnClick="Submit_Click" />
-    <a style="color: white; height: 33px; font-weight: normal; padding: 10px 10px 9px 10px; font-size: 11px; background: #909191; border-bottom: 2px solid #797979" href="EventSignup.aspx">< Back</a>
+    <asp:Button ID="BuySeason" runat="server" Text="Buy" OnClick="Submit_Click" />
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

@@ -32,7 +32,7 @@
             </asp:ListView>
         </div>
     </div>
-    <asp:Button ID="Submit" runat="server" Text="Buy" OnClick="Submit_Click" />
+    <asp:Button ID="BuySeason" runat="server" Text="Buy" OnClick="Submit_Click" />
 </asp:Content>
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">

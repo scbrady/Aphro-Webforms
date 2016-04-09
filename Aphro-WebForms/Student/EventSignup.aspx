@@ -50,7 +50,6 @@
                     <input type='button' value='-' class='sub-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
                     <asp:TextBox TextMode="Number" CssClass="ticket-number" ID="GuestTicketsSize" runat="server" min="0" max="9" step="1" value="0"></asp:TextBox>
                     <input type='button' value='+' class='add-qty ticket-number-btn' field='MainContent_GuestTicketsSize' />
-                    <a href="BuySeasonTickets.aspx">Buy Season Tickets</a>
                 </div>
             </div>
         </div>

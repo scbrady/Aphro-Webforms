@@ -6,6 +6,11 @@ $(function () {
         resolvePendingRequest(this);
     });
 
+    $("#MainContent_GroupRequestContainer").on("click", "li .accepted-status", function (event) {
+        event.preventDefault();
+        removeRequest(this);
+    });
+
     $("#group-request").autocomplete({
         source: "../Shared/Search.ashx",
         minLength: 1,
@@ -88,6 +93,30 @@ function resolvePendingRequest(request) {
         })
         .fail(function () {
             // Don't worry about it, they will just stay pending
+        });
+    }, 5000);
+}
+
+function removeRequest(request) {
+    var requestedId = $(request).data("user-id");
+    var requestedGroup = $(request).data("group-id");
+
+    $(request).removeClass("accepted-status");
+    $(request).addClass("pending-delete");
+
+    setTimeout(function () {
+        $.post("../Shared/RemoveFromGroup.ashx", { personId: requestedId, groupId: requestedGroup })
+        .done(function (data) {
+            $(request).closest('li').remove();
+
+            // Check if there are any more requests, if not, put placeholder text in
+            if ($('#MainContent_GroupRequestContainer').children().length <= 0) {
+                $('#MainContent_GroupRequestContainer').append("<p id='student-placeholder'>Start Adding Students To Your Group</p>");
+            }
+        })
+        .fail(function () {
+            $(request).removeClass("pending-delete");
+            $(request).addClass("accepted-status");
         });
     }, 5000);
 }

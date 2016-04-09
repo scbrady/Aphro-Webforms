@@ -10,7 +10,7 @@ namespace Aphro_WebForms.Shared
     /// <summary>
     /// Summary description for EmptySeats
     /// </summary>
-    public class RemovedFromGroup : IHttpHandler, IRequiresSessionState
+    public class RemoveFromGroup : IHttpHandler, IRequiresSessionState
     {
         public void ProcessRequest(HttpContext context)
         {

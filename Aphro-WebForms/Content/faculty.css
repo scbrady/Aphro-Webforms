@@ -259,11 +259,12 @@ input[type=submit].back {
 }
 
 .group-member {
-    display: inline;
+    float: left;
 }
 
 .group-status {
-    float: right;
+    display: block;
+    text-align: right;
 }
 
 .pending-status:before {
@@ -280,6 +281,16 @@ input[type=submit].back {
     background-size: 100%;
 }
 
+.pending-delete:after {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    content: "";
+    background: url('ajax-loader.gif') no-repeat 0 0;
+    background-size: 100%;
+}
+
 .accepted-status:before {
     content: "Accepted";
 }
@@ -292,6 +303,23 @@ input[type=submit].back {
     content: "";
     background: url('images/Checkmark.png') no-repeat 0 0;
     background-size: 100%;
+}
+
+.accepted-status:hover:before {
+    content: "Remove";
+    color: white;
+    background: rgb(153, 80, 76);
+    padding: 10px;
+    font-weight: normal;
+    font-size: 11px;
+    border: 0;
+    border-radius: 0px !important;
+    border-bottom: 2px #797979 solid;
+    cursor: pointer;
+}
+
+.accepted-status:hover:after {
+    display: none;
 }
 
 .rejected-status:before {

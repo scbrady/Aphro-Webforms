@@ -114,6 +114,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ajax-loader.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -145,7 +146,6 @@
     <Content Include="Employee\BuySeasonTickets.aspx" />
     <Content Include="Employee\ReviewTickets.aspx" />
     <Content Include="Event\EditEvent.aspx" />
-    <Content Include="Guest\BuySeasonTickets.aspx" />
     <Content Include="Scripts\group_requests.js" />
     <Content Include="Scripts\plus_minus_buttons.js" />
     <Content Include="Scripts\rome.standalone.js" />
@@ -351,13 +351,6 @@
     <Compile Include="GuestPortal.Master.designer.cs">
       <DependentUpon>GuestPortal.Master</DependentUpon>
     </Compile>
-    <Compile Include="Guest\BuySeasonTickets.aspx.cs">
-      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Guest\BuySeasonTickets.aspx.designer.cs">
-      <DependentUpon>BuySeasonTickets.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Guest\ReviewTickets.aspx.cs">
       <DependentUpon>ReviewTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -370,8 +363,8 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupRequest.cs" />
     <Compile Include="Models\SearchResponse.cs" />
-    <Compile Include="Shared\RemovedFromGroup.ashx.cs">
-      <DependentUpon>RemovedFromGroup.ashx</DependentUpon>
+    <Compile Include="Shared\RemoveFromGroup.ashx.cs">
+      <DependentUpon>RemoveFromGroup.ashx</DependentUpon>
     </Compile>
     <Compile Include="Shared\PendingAcceptReject.ashx.cs">
       <DependentUpon>PendingAcceptReject.ashx</DependentUpon>
@@ -496,7 +489,7 @@
     <Content Include="Shared\PendingAcceptReject.ashx" />
     <Content Include="EmployeePortal.Master" />
     <Content Include="Scripts\slick.min.js" />
-    <Content Include="Shared\RemovedFromGroup.ashx" />
+    <Content Include="Shared\RemoveFromGroup.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

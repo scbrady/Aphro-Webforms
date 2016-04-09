@@ -71,7 +71,7 @@ label {
 .logo {
     width: 114px;
     background: #0070b9;
-    z-index: 10001;
+    z-index: 100;
     position: absolute;
 }
 

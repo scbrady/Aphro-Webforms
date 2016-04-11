@@ -34,6 +34,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <asp:LinkButton runat="server" OnClick="LogoutButton_Click" Text="Logout" />
+                            <asp:LinkButton runat="server" OnClick="BuyEventTickets_Click" Text="Buy Event Tickets" />
                         </li>
                     </ul>
                 </div>

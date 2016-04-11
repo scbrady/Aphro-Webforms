@@ -44,9 +44,8 @@ body {
 
     .mainPane h1 {
         text-align: center;
-        font-size: 26px;
-        font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-        text-transform: uppercase;
+        font-size: 38px;
+        font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif; 
         margin-top: 0px;
         padding-top: 38px;
         margin-bottom: 0px;

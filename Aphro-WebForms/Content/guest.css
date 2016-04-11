@@ -127,11 +127,12 @@ input[type=submit].back {
 /**************************/
 .dropdown {
     float: right;
-    min-width: 180px;
+    min-width: 160px;
 }
 
 .btn-primary {
     background-color: #005DAA;
+    text-transform: inherit;
 }
 
 /*************************/

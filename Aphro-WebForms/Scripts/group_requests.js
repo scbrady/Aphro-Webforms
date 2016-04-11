@@ -113,6 +113,10 @@ function removeRequest(request) {
             if ($('#MainContent_GroupRequestContainer').children().length <= 0) {
                 $('#MainContent_GroupRequestContainer').append("<p id='student-placeholder'>Start Adding Students To Your Group</p>");
             }
+
+            groupSize -= 1;
+            $('#MainContent_TicketQuantityRangeValidator').maximumvalue = groupSize > 10 ? 0 : 10 - groupSize;
+            $("#MainContent_GroupSize").val(groupSize);
         })
         .fail(function () {
             $(request).removeClass("pending-delete");

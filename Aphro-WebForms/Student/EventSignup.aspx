@@ -37,6 +37,7 @@
                 <!-- Student Request -->
                 <label for="group-request">Request Student: </label>
                 <p id="student-request-error" class="error">This student already has tickets or is in another group.</p>
+                <p id="student-error" class="error">This is not a current student. Please choose a student from the dropdown.</p>
                 <p id="student-group-error" class="error">You cannot have more than 10 people in your group (even if they are pending).</p>
                 <div>
                     <input type="text" id="group-request" class="ui-autocomplete-input" autocomplete="off" />

@@ -32,22 +32,25 @@ $(function () {
     };
 });
 
-function validateSize(oSrc, args) {
-    args.IsValid = parseInt((args.Value), 10) + groupSize <= 10;
-}
-
 function addToGroup(e) {
     e.preventDefault();
 
     $('#student-request-error').hide();
+    $('#student-error').hide();
+    $('#student-group-error').hide();
+
     if (groupSize >= 10) {
         $('#student-group-error').show();
         return;
-    } else
-        $('#student-group-error').hide();
-
+    }
+    
     var requestedId = $('#group-request-id').val();
     var requestedName = $('#group-request').val();
+
+    if (!requestedId) {
+        $('#student-error').show();
+        return;
+    }
 
     // Clear the fields
     $('#group-request-id').val('');
@@ -57,11 +60,10 @@ function addToGroup(e) {
         .done(function (data) {
             $('#student-placeholder').remove();
             groupSize += 1;
-            $('#MainContent_TicketQuantityRangeValidator').maximumvalue = groupSize > 10 ? 0 : 10 - groupSize;
             $("#MainContent_GroupSize").val(groupSize);
 
             var newRequest = $("<li />").addClass("clearfix request-list").append("\
-                        <p class='group-member'>" + requestedName + "</p>\
+                        <p class='group-member'>" + data.requested_firstname + " " + data.requested_lastname + "</p>\
                         <p class='group-status pending-status' data-user-id='" + data.requested_id + "' data-group-id='" + data.group_id + "'></p>");
 
             $('#MainContent_GroupRequestContainer').append(newRequest);
@@ -85,7 +87,6 @@ function resolvePendingRequest(request) {
                 $(request).addClass("accepted-status");
             } else {
                 groupSize -= 1;
-                $('#MainContent_TicketQuantityRangeValidator').maximumvalue = groupSize > 10 ? 0 : 10 - groupSize;
                 $("#MainContent_GroupSize").val(groupSize);
                 $(request).removeClass("pending-status");
                 $(request).addClass("rejected-status");
@@ -115,7 +116,6 @@ function removeRequest(request) {
             }
 
             groupSize -= 1;
-            $('#MainContent_TicketQuantityRangeValidator').maximumvalue = groupSize > 10 ? 0 : 10 - groupSize;
             $("#MainContent_GroupSize").val(groupSize);
         })
         .fail(function () {

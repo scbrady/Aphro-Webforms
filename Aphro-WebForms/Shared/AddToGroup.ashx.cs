@@ -69,6 +69,8 @@ namespace Aphro_WebForms.Shared
                 groupAdapter.Fill(groupTable);
                 groupResult.group_id = long.Parse(groupTable.Rows[0]["group_id"].ToString());
                 groupResult.requested_id = long.Parse(groupTable.Rows[0]["requested_id"].ToString());
+                groupResult.requested_firstname = groupTable.Rows[0]["requested_firstname"].ToString();
+                groupResult.requested_lastname = groupTable.Rows[0]["requested_lastname"].ToString();
 
                 objConn.Close();
             }

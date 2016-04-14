@@ -11,7 +11,7 @@
         <h1 class="eName">
             <asp:Label ID="EventName" runat="server"></asp:Label></h1>
         <asp:Label ID="Error" runat="server" Visible="false" />
-        <div class="row">
+        <div class="row" style="margin-top: 55px;">
             <div class="col-md-7">
                 <div class="Description">
                     <h3>Description: </h3>

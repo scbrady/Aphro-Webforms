@@ -10,26 +10,27 @@
 
     <%--Event Type--%>
     <h1>Create Event</h1>
+    <asp:ValidationSummary CssClass="error-summary" HeaderText="You have errors, please fix them before creating the event." ID="ErrorSummary" ValidationGroup="EventCreation" runat="server" />
 
     <div class="content-wrapper">
         <h3>Event Type:</h3>
+        <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="EventType" Text="Required Field." Display="Dynamic" />
         <asp:DropDownList ID="EventType" runat="server"></asp:DropDownList>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventType" Text="Required Field" Display="Dynamic" SetFocusOnError="true" />
 
         <%--Event Name--%>
         <div class='name'>
             <h3>Event Name:</h3>
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="EventNameInput" Text="Required Field." Display="Dynamic" />
+            <asp:RegularExpressionValidator CssClass="validator-error" ControlToValidate="EventNameInput" ValidationGroup="EventCreation" ValidationExpression="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
             <asp:TextBox ID="EventNameInput" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventNameInput" Text="Required Field." Display="Dynamic" />
-            <asp:RegularExpressionValidator ControlToValidate="EventNameInput" ValidationGroup="EventCreation" ValidationExpression="^[\s\S]{1,20}$" runat="server" Text="Minimum of 1 character and Maximum of 20 characters." Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
 
         <%--Description--%>
         <div class='description'>
             <h3>Description:</h3>
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="DescriptionInput" Text="Required Field." Display="Dynamic" />
+            <asp:RegularExpressionValidator CssClass="validator-error" ControlToValidate="DescriptionInput" ValidationGroup="EventCreation" ValidationExpression="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
             <asp:TextBox ID="DescriptionInput" TextMode="multiline" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="DescriptionInput" Text="Required Field." Display="Dynamic" />
-            <asp:RegularExpressionValidator ControlToValidate="DescriptionInput" ValidationGroup="EventCreation" ValidationExpression="^[\s\S]{1,800}$" runat="server" Text="Minimum of 1 character and Maximum of 800 characters." Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
 
         <%--Image Upload--%>
@@ -44,23 +45,21 @@
         <%--Location--%>
         <div class='eventCreation'>
             <h3>Location: </h3>
-            <asp:DropDownList ID="LocationDropDown" runat="server">
-            </asp:DropDownList>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="LocationDropDown" Text="Required Field" Display="Dynamic" />
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="LocationDropDown" Text="Required Field" Display="Dynamic" />
+            <asp:DropDownList ID="LocationDropDown" runat="server"></asp:DropDownList>
         </div>
 
         <%--Season--%>
         <div class='eventCreation'>
             <h3>Season: </h3>
-            <asp:DropDownList ID="SeasonDropDown" runat="server">
-            </asp:DropDownList>
+            <asp:DropDownList ID="SeasonDropDown" runat="server"></asp:DropDownList>
         </div>
 
         <%-- Event Date(s)--%>
         <div id="EventDates" class='Event-Dates' style="position: relative">
             <h3>Event Date(s):</h3>
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic" />
             <asp:TextBox ID="EventDate" runat="server" CssClass="datepicker-field"></asp:TextBox>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic" />
         </div>
         <button onclick="AddDate(event)">Add Date</button>
         <asp:HiddenField ID="Dates" runat="server" />
@@ -68,14 +67,14 @@
         <%-- Seating Prices (both regular and prime) --%>
         <div class='Seat-Price'>
             <h3>Regular Seating Price:</h3>
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" Text="Required Field." Display="Dynamic" />
+            <asp:RegularExpressionValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" ValidationExpression="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
             <asp:TextBox ID="RegularPrice" runat="server" placeholder="XX.XX"></asp:TextBox>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" Text="Required Field." Display="Dynamic" />
-            <asp:RegularExpressionValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="RegularPrice" ValidationExpression="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
 
             <h3>Prime Seating Price:</h3>
+            <asp:RequiredFieldValidator CssClass="validator-error" ValidationGroup="EventCreation" runat="server" ControlToValidate="PrimePrice" Text="Required Field." Display="Dynamic" />
+            <asp:RegularExpressionValidator CssClass="validator-error" ValidationGroup="EventCreation" ControlToValidate="PrimePrice" ValidationExpression="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
             <asp:TextBox ID="PrimePrice" runat="server" placeholder="XX.XX"></asp:TextBox>
-            <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="PrimePrice" Text="Required Field." Display="Dynamic" />
-            <asp:RegularExpressionValidator ValidationGroup="EventCreation" ControlToValidate="PrimePrice" ValidationExpression="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
 
         <asp:Button ID="Submit" runat="server" Text="Submit"

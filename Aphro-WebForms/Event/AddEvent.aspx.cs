@@ -52,8 +52,7 @@ namespace Aphro_WebForms.Event
                     }
                     catch (Exception ex)
                     {
-                        // TODO: Handle Exception
-                        throw (ex);
+                        Response.Redirect("Index.aspx");
                     }
 
                     objConn.Close();
@@ -110,7 +109,7 @@ namespace Aphro_WebForms.Event
             {
                 Store_Event(pictureName);
             }
-            Response.Redirect("index.aspx");
+            Response.Redirect("Index.aspx");
         }
 
         protected void Store_Event(string pictureName)
@@ -123,7 +122,7 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, int.Parse(EventType.SelectedValue), ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, Dates.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);

@@ -13,9 +13,8 @@
 
     <div class="content-wrapper">
         <h3>Event Type:</h3>
-        <asp:DropDownList ID="EventType" runat="server">
-        </asp:DropDownList>
-        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventType" Text="Required Field" Display="Dynamic" />
+        <asp:DropDownList ID="EventType" runat="server"></asp:DropDownList>
+        <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventType" Text="Required Field" Display="Dynamic" SetFocusOnError="true" />
 
         <%--Event Name--%>
         <div class='name'>
@@ -64,7 +63,7 @@
             <asp:RequiredFieldValidator ValidationGroup="EventCreation" runat="server" ControlToValidate="EventDate" Text="Required Field." Display="Dynamic" />
         </div>
         <button onclick="AddDate(event)">Add Date</button>
-        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <asp:HiddenField ID="Dates" runat="server" />
 
         <%-- Seating Prices (both regular and prime) --%>
         <div class='Seat-Price'>
@@ -79,10 +78,11 @@
             <asp:RegularExpressionValidator ValidationGroup="EventCreation" ControlToValidate="PrimePrice" ValidationExpression="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" runat="server" Text="Must be a valid currency amount." Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
 
-        <asp:Button ID="Button2" runat="server" Text="Submit" OnClientClick="javascript:AppendDates(); this.disabled = true; return false;" />
-        <div style="display: none;">
-            <asp:Button ID="Button3" ValidationGroup="EventCreation" runat="server" Text="Submit" OnClick="Submit_Click" />
-        </div>
+        <asp:Button ID="Submit" runat="server" Text="Submit"
+            UseSubmitBehavior="false"
+            ValidationGroup="EventCreation"
+            OnClientClick="submitEvent()"
+            OnClick="Submit_Click" />
 
         <%-- Add Season Modal --%>
         <div class="modal fade" id="addSeason" role="dialog">
@@ -137,6 +137,13 @@
 
         dateCount = 0;
 
+        function submitEvent() {
+            if (Page_ClientValidate('EventCreation')) {
+                $('#MainContent_Submit').prop("disabled", true);
+                AppendDates();
+            }
+        }
+
         function AddDate(e) {
             e.preventDefault();
             //Create an input type dynamically.
@@ -146,11 +153,10 @@
             //Assign different attributes to the element.
             var newElementId = "date" + dateCount;
             element.setAttribute("type", "text");
-            element.setAttribute("runat", "server");
-            element.setAttribute("class", "datepicker-field eventDate");
-            element.setAttribute("id", "date" + dateCount);
+            element.setAttribute("class", "datepicker-field event-date");
+            element.setAttribute("id", newElementId);
 
-            newButton.setAttribute("Class", "deleteDate");
+            newButton.setAttribute("class", "delete-date");
             newButton.setAttribute("id", "delete" + dateCount);
             newButton.setAttribute("onclick", "DeleteDate(event," + dateCount + ")");
             newButton.innerHTML = "x";
@@ -168,17 +174,14 @@
         }
 
         function AppendDates() {
-            var test = $("#MainContent_EventDate").val();
+            var dates = $("#MainContent_EventDate").val();
 
-            for (var x = 0; x < dateCount; x++) {
-                if ($("#date" + x).length > 0 && $("#date" + x).val() != "")
-                    test = test + "," + $("#date" + x).val();
+            for (var i = 0; i < dateCount; i++) {
+                if ($("#date" + i).length > 0 && $("#date" + i).val() != "")
+                    dates = dates + "," + $("#date" + i).val();
             }
 
-            $("#MainContent_HiddenField1").val(test);
-
-            var button = document.getElementById("MainContent_Button3");
-            button.click();
+            $("#MainContent_Dates").val(dates);
         }
 
         function DeleteDate(e, date) {

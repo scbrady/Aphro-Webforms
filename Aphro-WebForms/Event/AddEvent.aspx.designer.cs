@@ -76,13 +76,13 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox EventDate;
         
         /// <summary>
-        /// HiddenField1 control.
+        /// Dates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField Dates;
         
         /// <summary>
         /// RegularPrice control.
@@ -103,21 +103,12 @@ namespace Aphro_WebForms.Event {
         protected global::System.Web.UI.WebControls.TextBox PrimePrice;
         
         /// <summary>
-        /// Button2 control.
+        /// Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
-        
-        /// <summary>
-        /// Button3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }

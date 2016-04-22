@@ -4,6 +4,8 @@
 
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderSection" runat="server">
     <%: Styles.Render("~/Content/map-css") %>
+    <%: Styles.Render("~/Content/group-requests") %>
+    <%: Styles.Render("~/Content/group-removals") %>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">

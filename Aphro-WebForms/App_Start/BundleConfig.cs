@@ -74,6 +74,12 @@ namespace Aphro_WebForms
 
             bundles.Add(new StyleBundle("~/Content/map-css").Include(
                       "~/Content/map-modal.css"));
+
+            bundles.Add(new StyleBundle("~/Content/group-requests").Include(
+                      "~/Content/group-requests.css"));
+
+            bundles.Add(new StyleBundle("~/Content/group-removals").Include(
+                      "~/Content/group-removals.css"));
         }
     }
 }

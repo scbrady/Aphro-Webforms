@@ -1,0 +1,26 @@
+﻿.accepted-status:hover:before {
+    content: "Remove";
+    color: white;
+    background: rgb(153, 80, 76);
+    padding: 10px;
+    font-weight: normal;
+    font-size: 11px;
+    border: 0;
+    border-radius: 0px !important;
+    border-bottom: 2px #797979 solid;
+    cursor: pointer;
+}
+
+.accepted-status:hover:after {
+    display: none;
+}
+
+.pending-delete:after {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    content: "";
+    background: url('ajax-loader.gif') no-repeat 0 0;
+    background-size: 100%;
+}

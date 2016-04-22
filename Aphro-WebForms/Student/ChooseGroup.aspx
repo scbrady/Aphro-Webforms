@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentPortal.Master" AutoEventWireup="true" CodeBehind="ChooseGroup.aspx.cs" Inherits="Aphro_WebForms.Student.ChooseGroup" %>
 
+<%@ Import Namespace="System.Web.Optimization" %>
+
+<asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderSection" runat="server">
+    <%: Styles.Render("~/Content/group-requests") %>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="EventName" runat="server"></h1>
     <asp:Label ID="Error" runat="server" Visible="false" />

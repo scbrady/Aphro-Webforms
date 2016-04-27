@@ -26,7 +26,4 @@
             </div>
         </ItemTemplate>
     </asp:ListView>
-    <br />
-
-    <br />
 </asp:Content>

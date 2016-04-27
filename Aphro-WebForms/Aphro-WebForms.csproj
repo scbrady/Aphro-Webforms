@@ -148,6 +148,7 @@
     <Content Include="Employee\BuySeasonTickets.aspx" />
     <Content Include="Employee\ReviewTickets.aspx" />
     <Content Include="Event\EditEvent.aspx" />
+    <Content Include="Scripts\event_creation.js" />
     <Content Include="Scripts\group_requests.js" />
     <Content Include="Scripts\plus_minus_buttons.js" />
     <Content Include="Scripts\rome.standalone.js" />

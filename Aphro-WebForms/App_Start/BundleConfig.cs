@@ -21,7 +21,8 @@ namespace Aphro_WebForms
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
+            bundles.Add(new ScriptBundle("~/bundles/event_creation").Include(
+                      "~/Scripts/event_creation.js",
                       "~/Scripts/rome.standalone.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/map").Include(

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace Aphro_WebForms.Event
 {
@@ -27,9 +28,11 @@ namespace Aphro_WebForms.Event
             DataTable eventTable = new DataTable();
             DataTable eventTypeNamesTable = new DataTable();
             DataTable buildingsTable = new DataTable();
+            DataTable seasonsTable = new DataTable();
             List<Models.Event> events = new List<Models.Event>();
             List<EventType> eventTypes = new List<EventType>();
             List<Building> buildings = new List<Building>();
+            List<Season> seasons = new List<Season>();
 
             using (OracleConnection objConn = new OracleConnection(Global.ConnectionString))
             {
@@ -52,33 +55,31 @@ namespace Aphro_WebForms.Event
                     buildingsCommand.BindByName = true;
                     buildingsCommand.CommandType = CommandType.StoredProcedure;
                     buildingsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                }
-                catch (Exception)
-                {
-                    // TODO: Handle Exception
-                    Response.Redirect("Index.aspx");
-                }
 
-                try
-                {
+                    // Set up the seasons command
+                    var seasonsCommand = new OracleCommand("TICKETS_QUERIES.getSeasonNames", objConn) { BindByName = true, CommandType = CommandType.StoredProcedure };
+                    seasonsCommand.Parameters.Add("p_Return", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
                     // Execute the queries and auto map the results to models
                     objConn.Open();
                     var eventAdapter = new OracleDataAdapter(eventCommand);
                     var eventTypesAdapter = new OracleDataAdapter(eventTypesCommand);
                     var buildingAdapter = new OracleDataAdapter(buildingsCommand);
+                    var seasonsAdapter = new OracleDataAdapter(seasonsCommand);
 
                     eventAdapter.Fill(eventTable);
                     eventTypesAdapter.Fill(eventTypeNamesTable);
                     buildingAdapter.Fill(buildingsTable);
+                    seasonsAdapter.Fill(seasonsTable);
 
                     events = Mapper.DynamicMap<IDataReader, List<Models.Event>>(eventTable.CreateDataReader());
                     eventTypes = Mapper.DynamicMap<IDataReader, List<EventType>>(eventTypeNamesTable.CreateDataReader());
                     buildings = Mapper.DynamicMap<IDataReader, List<Building>>(buildingsTable.CreateDataReader());
+                    seasons = Mapper.DynamicMap<IDataReader, List<Season>>(seasonsTable.CreateDataReader());
                 }
                 catch (Exception ex)
                 {
-                    // TODO: Handle Exception
-                    throw (ex);
+                    Response.Redirect("Index.aspx");
                 }
 
                 objConn.Close();
@@ -99,6 +100,17 @@ namespace Aphro_WebForms.Event
                 LocationDropDown.DataSource = buildings;
                 LocationDropDown.DataBind();
             }
+            if (seasons.Count > 0)
+            {
+                SeasonDropDown.DataTextField = "name";
+                SeasonDropDown.DataValueField = "season_id";
+                SeasonDropDown.DataSource = seasons;
+                SeasonDropDown.DataBind();
+            }
+            SeasonDropDown.Items.Insert(0, new ListItem("No Season", "-1"));
+            SeasonDropDown.Items.Insert(1, new ListItem("Add New Season", "-1"));
+            SeasonDropDown.ClearSelection();
+            SeasonDropDown.SelectedIndex = 0;
 
             var currentEvent = events.FirstOrDefault();
             image = currentEvent.event_picture;
@@ -156,11 +168,16 @@ namespace Aphro_WebForms.Event
                 insertEventCommand.Parameters.Add("p_EventDescription", OracleDbType.Varchar2, DescriptionInput.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_BuildingKey", OracleDbType.Int32, int.Parse(LocationDropDown.SelectedValue), ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventTypeId", OracleDbType.Int32, (int)long.Parse(EventType.SelectedValue), ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
-                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, HiddenField1.Value, ParameterDirection.Input);
+                insertEventCommand.Parameters.Add("p_EventDatetime", OracleDbType.Varchar2, Dates.Value, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_RegularPrice", OracleDbType.Decimal, RegularPrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_PrimePrice", OracleDbType.Decimal, PrimePrice.Text, ParameterDirection.Input);
                 insertEventCommand.Parameters.Add("p_EventPicture", OracleDbType.Varchar2, pictureName, ParameterDirection.Input);
+
+                if (SeasonDropDown.SelectedValue.Equals("-1"))
+                    insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, null, ParameterDirection.Input);
+                else
+                    insertEventCommand.Parameters.Add("p_SeasonId", OracleDbType.Int32, int.Parse(SeasonDropDown.SelectedValue), ParameterDirection.Input);
+
                 try
                 {
                     objConn.Open();

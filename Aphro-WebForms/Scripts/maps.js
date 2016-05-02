@@ -38,6 +38,9 @@ function refreshMap() {
     $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&buildingKey=' + buildingkey + '&balcony=' + balcony, function (data) {
         var buildingDataMap = [];
         var buildingDataArray = [];
+
+        // Only adds seating data if there are enough seats in the section to sit the right amount of people
+        // If there arent, that section shows as disabled
         $.each(data.data, function (i) {
             if (this.seats >= groupSizeElement.val()) {
                 var metaData = {}
@@ -60,12 +63,16 @@ function refreshMap() {
             chart: {
                 events: {
                     drilldown: function (e) {
+                        // Add the correct drilldown map
                         if (!e.seriesOptions) {
                             var chart = this;
 
                             $.getJSON('../Shared/EmptySeats.ashx?eventId=' + eventId + '&sectionKey=' + e.point.section + '&subsection=' + e.point.subsection, function (data) {
                                 var sectionDataMap = [];
                                 var sectionDataArray = [];
+
+                                // Only adds seating data if there are enough seats in the row to sit the right amount of people
+                                // If there arent, that row shows as disabled
                                 $.each(data.data, function (i) {
                                     if (this.seats >= groupSizeElement.val()) {
                                         var metaData = {}
@@ -84,6 +91,8 @@ function refreshMap() {
                                     mapData["path"] = this.path;
                                     sectionDataMap.push(mapData);
                                 });
+
+                                // Add the data to the chart with some customizations
                                 chart.addSeriesAsDrilldown(e.point, {
                                     name: e.point.row,
                                     mapData: sectionDataMap,
@@ -122,6 +131,7 @@ function refreshMap() {
             plotOptions: {
                 series: {
                     point: {
+                        // Action to take when a row is selected/unselected
                         events: {
                             select: function () {
                                 selectedRow = this;
@@ -179,6 +189,7 @@ function refreshMap() {
                 }
             ],
             drilldown: {
+                // Theme the drilldown button to look like the rest of the buttons in the program
                 drillUpButton: {
                     relativeTo: 'spacingBox',
                     position: {

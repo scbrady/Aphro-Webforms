@@ -8,6 +8,8 @@ namespace Aphro_WebForms
         public static void RegisterRoutes(RouteCollection routes)
         {
             var settings = new FriendlyUrlSettings() { AutoRedirectMode = RedirectMode.Permanent };
+
+            // Allows urls to leave off the .aspx ending
             routes.EnableFriendlyUrls(settings);
         }
     }

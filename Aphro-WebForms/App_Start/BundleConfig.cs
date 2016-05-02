@@ -2,6 +2,9 @@
 
 namespace Aphro_WebForms
 {
+    // These are all the bundled Javascript and CSS files that can be used on pages.
+    // The advantage to bundling them like this is that it automatically uses the
+    //    minified version of the code in production, and doesn't for development.
     public class BundleConfig
     {
         public static void RegisterBundles(BundleCollection bundles)

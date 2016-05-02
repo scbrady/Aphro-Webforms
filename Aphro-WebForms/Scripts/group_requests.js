@@ -35,10 +35,12 @@ $(function () {
 function addToGroup(e) {
     e.preventDefault();
 
+    // Hide all errors
     $('#student-request-error').hide();
     $('#student-error').hide();
     $('#student-group-error').hide();
 
+    // Check if the group is too big
     if (groupSize >= 10) {
         $('#student-group-error').show();
         return;
@@ -47,6 +49,7 @@ function addToGroup(e) {
     var requestedId = $('#group-request-id').val();
     var requestedName = $('#group-request').val();
 
+    // Check if a name was clicked on from the dropdown
     if (!requestedId) {
         $('#student-error').show();
         return;
@@ -83,9 +86,11 @@ function resolvePendingRequest(request) {
         $.post("../Shared/PendingAcceptReject.ashx", { personId: requestedId, groupId: requestedGroup })
         .done(function (data) {
             if (data === "True") {
+                // The person accepted
                 $(request).removeClass("pending-status");
                 $(request).addClass("accepted-status");
             } else {
+                // The person rejected
                 groupSize -= 1;
                 $("#MainContent_GroupSize").val(groupSize);
                 $(request).removeClass("pending-status");

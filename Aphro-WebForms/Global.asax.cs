@@ -12,6 +12,7 @@ namespace Aphro_WebForms
         public static readonly string Salt = "$2a$10$78mrCjBryPC5jhW3SeR2pe";
         public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["OracleConnectionString"].ConnectionString;
 
+        // Holds the currently logged in user
         public static Person CurrentPerson
         {
             get
